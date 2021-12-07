@@ -17,7 +17,7 @@ class AppDimens {
   static const double paddingNormal = 20;
   static const double paddingSmall = 10;
 
-  static const double marginNormal = 20;
+  static const double marginNormal = 16;
   static const double marginLarge = 32;
   static const double marginSmall = 10;
 }

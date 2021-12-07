@@ -350,6 +350,46 @@ class S {
     );
   }
 
+  /// `Wallet`
+  String get wallet {
+    return Intl.message(
+      'Wallet',
+      name: 'wallet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order`
+  String get order {
+    return Intl.message(
+      'Order',
+      name: 'order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order note`
+  String get order_note {
+    return Intl.message(
+      'Order note',
+      name: 'order_note',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Menu`
+  String get category {
+    return Intl.message(
+      'Menu',
+      name: 'category',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Product`
   String get product {
     return Intl.message(
@@ -365,6 +405,36 @@ class S {
     return Intl.message(
       'Assets',
       name: 'assets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profit`
+  String get profit {
+    return Intl.message(
+      'Profit',
+      name: 'profit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Menu`
+  String get menu {
+    return Intl.message(
+      'Menu',
+      name: 'menu',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Permission buy`
+  String get permission_to_buy {
+    return Intl.message(
+      'Permission buy',
+      name: 'permission_to_buy',
       desc: '',
       args: [],
     );
@@ -575,16 +645,6 @@ class S {
     return Intl.message(
       'Interest now',
       name: 'interest_now',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Order`
-  String get order {
-    return Intl.message(
-      'Order',
-      name: 'order',
       desc: '',
       args: [],
     );

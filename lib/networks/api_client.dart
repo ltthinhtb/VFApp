@@ -1,18 +1,20 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
+import 'package:get/get.dart' as get_x;
 import 'package:vf_app/configs/app_configs.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/entities/index.dart';
 import 'package:vf_app/model/params/index.dart';
-
-import 'package:vf_app/utils/logger.dart';
-
+import 'package:vf_app/model/response/account_status.dart';
+import 'package:vf_app/router/route_config.dart';
 import 'error_exception.dart';
 
 abstract class ApiClient {
   factory ApiClient(Dio dio, {String? baseUrl}) = _ApiClient;
 
   Future<TokenEntity> authLogin(RequestParams requestParams);
+
+  Future<AccountStatus> getAccountStatus(RequestParams requestParams);
 
   Future<dynamic> signOut();
 }
@@ -28,14 +30,29 @@ class _ApiClient implements ApiClient {
 
   Future<Response> _requestApi(Future<Response> request) async {
     try {
-      return await request;
+      var response = await request;
+      var _mapData = _decodeMap(response.data!);
+      var _rc = _mapData['rc'] ?? -999;
+
+      /// kiểm tra điều kiện thành công
+      if (_rc == 1) {
+        return response;
+      }
+
+      ///kiểm tra điều kiện logOut
+      else if (_rc == -1) {
+        await get_x.Get.offNamed(RouteConfig.login);
+        throw ErrorException(response.statusCode!, _mapData['rs']);
+      } else {
+        throw ErrorException(response.statusCode!, _mapData['rs']);
+      }
     } catch (error) {
-      logger.e("Exception occured: ${error.toString()}");
       throw _handleError(error);
     }
   }
 
   ErrorException _handleError(dynamic error) {
+    /// xử lý exception
     ErrorException exception = ErrorException(500, "");
     if (error is DioError) {
       switch (error.type) {
@@ -56,6 +73,8 @@ class _ApiClient implements ApiClient {
         default:
           exception.message = error.response!.data;
       }
+    } else if (error is ErrorException) {
+      return error;
     } else {
       exception.message = S.current.error;
     }
@@ -71,17 +90,23 @@ class _ApiClient implements ApiClient {
   Future<TokenEntity> authLogin(RequestParams requestParams) async {
     Response _result = await _requestApi(
         _dio.post(AppConfigs.ENDPOINT_CORE, data: requestParams.toJson()));
-    final value = TokenEntity.fromJson(_decodeMap(_result.data!));
-    if (value.rc! < 0) {
-      throw ErrorException(_result.statusCode!, value.rs ?? "");
-    } else {
-      return value;
-    }
+    var _mapData = _decodeMap(_result.data!);
+    final value = TokenEntity.fromJson(_mapData);
+    return value;
   }
 
   @override
   Future signOut() {
     // TODO: implement signOut
     throw UnimplementedError();
+  }
+
+  @override
+  Future<AccountStatus> getAccountStatus(RequestParams requestParams) async {
+    Response _result = await _requestApi(
+        _dio.post(AppConfigs.ENDPOINT_CORE, data: requestParams.toJson()));
+    var _mapData = _decodeMap(_result.data!);
+    final value = AccountStatus.fromJson(_mapData);
+    return value;
   }
 }

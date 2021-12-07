@@ -41,25 +41,32 @@ class _MainPageState extends State<MainPage> {
 
   Widget _buildBottomNavigationBar() {
     return Obx(() {
-      return BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: state.selectedIndex.value,
-        elevation: 8,
-        items: List<BottomNavigationBarItem>.generate(MainTab.values.length,
-            (int index) {
-          return BottomNavigationBarItem(
-            icon: Padding(
-              padding: const EdgeInsets.only(bottom: 5),
-              child: SvgPicture.asset(
-                MainTab.values[index].iconGrey,
-              ),
-            ),
-            label: MainTab.values[index].label(context),
-          );
-        }),
-        onTap: (index) {
-          logic.switchTap(index);
-        },
+      return ClipRRect(
+        borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(15), topRight: Radius.circular(15)),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: state.selectedIndex.value,
+          items: List<BottomNavigationBarItem>.generate(MainTab.values.length,
+              (int index) {
+            return BottomNavigationBarItem(
+              activeIcon: Padding(
+                  padding: const EdgeInsets.only(bottom: 5),
+                  child: SvgPicture.asset(
+                    MainTab.values[index].iconPurple,
+                  )),
+              icon: Padding(
+                  padding: const EdgeInsets.only(bottom: 5),
+                  child: SvgPicture.asset(
+                    MainTab.values[index].iconGrey,
+                  )),
+              label: MainTab.values[index].label(context),
+            );
+          }),
+          onTap: (index) {
+            logic.switchTap(index);
+          },
+        ),
       );
     });
   }

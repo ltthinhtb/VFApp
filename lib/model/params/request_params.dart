@@ -22,7 +22,9 @@ class RequestParams {
     data['group'] = group;
     data['user'] = user;
     data['session'] = session;
-    data['channel'] = channel;
+    if (channel != null) {
+      data['channel'] = channel;
+    }
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }

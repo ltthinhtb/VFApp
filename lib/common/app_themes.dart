@@ -108,13 +108,20 @@ class AppThemes {
 
   static final BottomNavigationBarThemeData _bottomNavigationBarThemeData =
       BottomNavigationBarThemeData(
-          backgroundColor: AppColors.white,
+          backgroundColor: AppColors.grayF2,
+          unselectedItemColor: AppColors.gray88,
           selectedItemColor: AppColors.primary,
-          selectedIconTheme: const IconThemeData(color: AppColors.primary),
-          unselectedItemColor: AppColors.disable,
-          selectedLabelStyle: AppTextStyle.bodyText2
-              .copyWith(color: AppColors.primary.withOpacity(0.1)),
-          unselectedLabelStyle: AppTextStyle.bodyText1);
+          selectedLabelStyle: AppTextStyle.H8Bold,
+          unselectedLabelStyle: AppTextStyle.H8Bold);
+  static final TabBarTheme _tabBarTheme = TabBarTheme(
+      unselectedLabelStyle: AppTextStyle.H7Regular,
+      labelColor: AppColors.white,
+      unselectedLabelColor: AppColors.black,
+      labelStyle: AppTextStyle.H7Bold,
+      indicatorSize: TabBarIndicatorSize.tab,
+      labelPadding: const EdgeInsets.symmetric(vertical: 5),
+      indicator: BoxDecoration(
+          borderRadius: BorderRadius.circular(8), color: AppColors.primary));
 
   static final ColorScheme _lightColorScheme = const ColorScheme(
     primary: Color(0xFFB93C5D),
@@ -152,6 +159,7 @@ class AppThemes {
   ///Light theme
   static final ThemeData lightTheme = ThemeData(
     inputDecorationTheme: _inputDecorationTheme,
+    backgroundColor: AppColors.grayF2,
     elevatedButtonTheme: _elevatedButtonThemeData,
     textButtonTheme: _textButtonThemeData,
     brightness: Brightness.light,
@@ -159,11 +167,13 @@ class AppThemes {
     scaffoldBackgroundColor: _lightBackgroundColor,
     colorScheme: _lightColorScheme,
     bottomNavigationBarTheme: _bottomNavigationBarThemeData,
+    tabBarTheme: _tabBarTheme,
     dividerColor: AppColors.line,
     appBarTheme: AppBarTheme(
         iconTheme: const IconThemeData(color: _lightIconColor),
-        titleTextStyle: AppTextStyle.H6Bold,
-        backgroundColor: _lightPrimaryColor),
+        titleTextStyle:
+            AppTextStyle.H6Bold.copyWith(color: AppColors.textBlack),
+        backgroundColor: _lightBackgroundColor),
     iconTheme: const IconThemeData(
       color: _lightIconColor,
     ),
@@ -178,6 +188,7 @@ class AppThemes {
     primaryColor: _lightPrimaryColor,
     scaffoldBackgroundColor: _darkBackgroundColor,
     colorScheme: _darkColorScheme,
+    tabBarTheme: _tabBarTheme,
     bottomNavigationBarTheme: _bottomNavigationBarThemeData,
     appBarTheme: AppBarTheme(
         iconTheme: const IconThemeData(color: _darkIconColor),

@@ -21,10 +21,19 @@ class ParamsObject {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['type'] = type;
     data['cmd'] = cmd;
-    data['p1'] = p1;
-    data['p2'] = p2;
-    data['p3'] = p3;
-    data['p4'] = p4;
+    if (p1 != null) {
+      data['p1'] = p1;
+    }
+    if (p2 != null) {
+      data['p2'] = p2;
+    }
+
+    if (p3 != null) {
+      data['p3'] = p3;
+    }
+    if (p4 != null) {
+      data['p4'] = p4;
+    }
     return data;
   }
 }
