@@ -14,4 +14,8 @@ class SplashLogic extends GetxController {
     authService.removeToken();
     //await Get.offAllNamed(RouteConfig.login);
   }
+
+  void changeSplash(int index){
+    state.currentPage.value = index;
+  }
 }

@@ -180,6 +180,46 @@ class S {
     );
   }
 
+  /// `Choose a free beautiful number account`
+  String get splash_title2 {
+    return Intl.message(
+      'Choose a free beautiful number account',
+      name: 'splash_title2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose the account number you like`
+  String get splash_sub2 {
+    return Intl.message(
+      'Choose the account number you like',
+      name: 'splash_sub2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `With only 3 minutes to open an account`
+  String get splash_title3 {
+    return Intl.message(
+      'With only 3 minutes to open an account',
+      name: 'splash_title3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Browse and have an account within 24 hours`
+  String get splash_sub3 {
+    return Intl.message(
+      'Browse and have an account within 24 hours',
+      name: 'splash_sub3',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Username`
   String get user_name {
     return Intl.message(

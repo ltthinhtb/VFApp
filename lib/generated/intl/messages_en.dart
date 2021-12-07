@@ -102,8 +102,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
         "splash_sub1": MessageLookupByLibrary.simpleMessage(
             "Saving transaction with the cheapest fee in the market"),
+        "splash_sub2": MessageLookupByLibrary.simpleMessage(
+            "Choose the account number you like"),
+        "splash_sub3": MessageLookupByLibrary.simpleMessage(
+            "Browse and have an account within 24 hours"),
         "splash_title1":
             MessageLookupByLibrary.simpleMessage("Free trading for life"),
+        "splash_title2": MessageLookupByLibrary.simpleMessage(
+            "Choose a free beautiful number account"),
+        "splash_title3": MessageLookupByLibrary.simpleMessage(
+            "With only 3 minutes to open an account"),
         "status": MessageLookupByLibrary.simpleMessage("Status"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),

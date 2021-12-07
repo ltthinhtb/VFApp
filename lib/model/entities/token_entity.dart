@@ -1,23 +1,26 @@
 class TokenEntity {
+  String? cmd;
+  String? oID;
   int? rc;
   String? rs;
-  String? cmd;
   Data? data;
 
-  TokenEntity({this.rc, this.rs, this.cmd, this.data});
+  TokenEntity({this.cmd, this.oID, this.rc, this.rs, this.data});
 
   TokenEntity.fromJson(Map<String, dynamic> json) {
+    cmd = json['cmd'];
+    oID = json['oID'];
     rc = json['rc'];
     rs = json['rs'];
-    cmd = json['cmd'];
     data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['cmd'] = cmd;
+    data['oID'] = oID;
     data['rc'] = rc;
     data['rs'] = rs;
-    data['cmd'] = cmd;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -26,42 +29,50 @@ class TokenEntity {
 }
 
 class Data {
-  int? active;
-  late String user;
-  late String name;
-  late String cardId;
-  late String custCode;
-  late String session;
-  String? type;
+  String? user;
+  String? name;
+  String? sid;
+  String? address;
+  String? defaultAcc;
+  int? iFlag;
+  int? countLoginFail;
+  String? authenType;
+  String? iP;
 
   Data(
-      {this.active,
-      required this.user,
-      required this.name,
-      required this.cardId,
-      required this.custCode,
-      required this.session,
-      this.type});
+      {this.user,
+        this.name,
+        this.sid,
+        this.address,
+        this.defaultAcc,
+        this.iFlag,
+        this.countLoginFail,
+        this.authenType,
+        this.iP});
 
   Data.fromJson(Map<String, dynamic> json) {
-    active = json['active'];
     user = json['user'];
     name = json['name'];
-    cardId = json['card_id'];
-    custCode = json['cust_code'];
-    session = json['session'];
-    type = json['type'];
+    sid = json['sid'];
+    address = json['address'];
+    defaultAcc = json['defaultAcc'];
+    iFlag = json['iFlag'];
+    countLoginFail = json['CountLoginFail'];
+    authenType = json['AuthenType'];
+    iP = json['IP'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['active'] = active;
     data['user'] = user;
     data['name'] = name;
-    data['card_id'] = cardId;
-    data['cust_code'] = custCode;
-    data['session'] = session;
-    data['type'] = type;
+    data['sid'] = sid;
+    data['address'] = address;
+    data['defaultAcc'] = defaultAcc;
+    data['iFlag'] = iFlag;
+    data['CountLoginFail'] = countLoginFail;
+    data['AuthenType'] = authenType;
+    data['IP'] = iP;
     return data;
   }
 }

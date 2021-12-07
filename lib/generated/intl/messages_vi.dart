@@ -107,8 +107,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "sign_up": MessageLookupByLibrary.simpleMessage("Đăng ký"),
         "splash_sub1": MessageLookupByLibrary.simpleMessage(
             "Giao dịch tiết kiệm với mức phí rẻ nhất thị trường"),
+        "splash_sub2": MessageLookupByLibrary.simpleMessage(
+            "Lựa chọn số tài khoản theo ý thích"),
+        "splash_sub3": MessageLookupByLibrary.simpleMessage(
+            "Duyệt và có ngay tài khoản trong vòng 24h"),
         "splash_title1":
             MessageLookupByLibrary.simpleMessage("Miễn phí giao dịch trọn đời"),
+        "splash_title2": MessageLookupByLibrary.simpleMessage(
+            "Chọn tài khoản số đẹp miễn phí"),
+        "splash_title3":
+            MessageLookupByLibrary.simpleMessage("Chỉ với 3 phút mở tài khoản"),
         "status": MessageLookupByLibrary.simpleMessage("Trạng thái"),
         "tax": MessageLookupByLibrary.simpleMessage("Thuế đầu tư"),
         "today": MessageLookupByLibrary.simpleMessage("Hôm nay"),

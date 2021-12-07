@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
+import 'package:vf_app/configs/app_configs.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/entities/index.dart';
+import 'package:vf_app/model/params/index.dart';
 
 import 'package:vf_app/utils/logger.dart';
 
@@ -10,14 +12,14 @@ import 'error_exception.dart';
 abstract class ApiClient {
   factory ApiClient(Dio dio, {String? baseUrl}) = _ApiClient;
 
-  Future<TokenEntity> authLogin(String user, String pass);
+  Future<TokenEntity> authLogin(RequestParams requestParams);
 
   Future<dynamic> signOut();
 }
 
 class _ApiClient implements ApiClient {
   _ApiClient(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'http://tanhoangminh.com.vn:9999';
+    baseUrl ??= 'http://vftrade.vn:8888/';
   }
 
   final Dio _dio;
@@ -66,9 +68,9 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<TokenEntity> authLogin(String user, String pass) async {
+  Future<TokenEntity> authLogin(RequestParams requestParams) async {
     Response _result = await _requestApi(
-        _dio.post('/login', data: {'user': user, 'pass': pass}));
+        _dio.post(AppConfigs.ENDPOINT_CORE, data: requestParams.toJson()));
     final value = TokenEntity.fromJson(_decodeMap(_result.data!));
     if (value.rc! < 0) {
       throw ErrorException(_result.statusCode!, value.rs ?? "");
