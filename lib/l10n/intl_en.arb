@@ -25,6 +25,7 @@
   "error": "Error",
   "network_error": "Network Error",
   "home": "Home",
+  "stock_market": "Stock market",
   "product": "Product",
   "assets": "Assets",
   "history": "History",
