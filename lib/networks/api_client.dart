@@ -71,11 +71,13 @@ class _ApiClient implements ApiClient {
   Future<TokenEntity> authLogin(RequestParams requestParams) async {
     Response _result = await _requestApi(
         _dio.post(AppConfigs.ENDPOINT_CORE, data: requestParams.toJson()));
-    final value = TokenEntity.fromJson(_decodeMap(_result.data!));
-    if (value.rc! < 0) {
-      throw ErrorException(_result.statusCode!, value.rs ?? "");
-    } else {
+    var _mapData = _decodeMap(_result.data!);
+    var _rc = _mapData['rc'] ?? -1;
+    if (_rc == 1) {
+      final value = TokenEntity.fromJson(_mapData);
       return value;
+    } else {
+      throw ErrorException(_result.statusCode!, _mapData['rs']);
     }
   }
 
