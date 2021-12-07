@@ -16,7 +16,6 @@ class _MainPageState extends State<MainPage> {
   final logic = Get.put(MainLogic());
   final state = Get.find<MainLogic>().state;
 
-
   @override
   void initState() {
     // TODO: implement initState
@@ -50,10 +49,11 @@ class _MainPageState extends State<MainPage> {
             (int index) {
           return BottomNavigationBarItem(
             icon: Padding(
-                padding: const EdgeInsets.only(bottom: 5),
-                child: SvgPicture.asset(
-                  MainTab.values[index].iconGrey,
-                )),
+              padding: const EdgeInsets.only(bottom: 5),
+              child: SvgPicture.asset(
+                MainTab.values[index].iconGrey,
+              ),
+            ),
             label: MainTab.values[index].label(context),
           );
         }),
