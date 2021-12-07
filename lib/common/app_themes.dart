@@ -36,7 +36,7 @@ class AppThemes {
   //Text themes
   static final TextTheme _lightTextTheme = TextTheme(
     headline5: AppTextStyle.H5Bold.copyWith(color: _lightTextColor),
-    headline6: AppTextStyle.H6Bold.copyWith(color: _lightTextColor),
+    headline6: AppTextStyle.H6Regular.copyWith(color: _lightTextColor),
     headline4: AppTextStyle.H4Bold.copyWith(color: _lightTextColor),
     headline3: AppTextStyle.H3.copyWith(color: _lightTextColor),
     subtitle1: AppTextStyle.subTitle1.copyWith(color: _lightTextColor),
@@ -44,6 +44,8 @@ class AppThemes {
     bodyText1: AppTextStyle.bodyText1.copyWith(color: _lightTextColor),
     bodyText2: AppTextStyle.bodyText2.copyWith(color: _lightTextColor),
     button: AppTextStyle.ButtonBold.copyWith(color: _lightTextColor),
+    headline1: AppTextStyle.H1.copyWith(color: _lightTextColor),
+    headline2: AppTextStyle.H2.copyWith(color: _lightTextColor),
     caption: AppTextStyle.caption.copyWith(color: _lightTextColor),
   );
 
@@ -58,6 +60,8 @@ class AppThemes {
     bodyText2: AppTextStyle.bodyText2.copyWith(color: _darkTextColor),
     button: AppTextStyle.ButtonBold.copyWith(color: _darkTextColor),
     caption: AppTextStyle.caption.copyWith(color: _darkTextColor),
+    headline1: AppTextStyle.H1.copyWith(color: _darkTextColor),
+    headline2: AppTextStyle.H2.copyWith(color: _darkTextColor),
   );
 
   static final ElevatedButtonThemeData _elevatedButtonThemeData =
@@ -155,6 +159,7 @@ class AppThemes {
     scaffoldBackgroundColor: _lightBackgroundColor,
     colorScheme: _lightColorScheme,
     bottomNavigationBarTheme: _bottomNavigationBarThemeData,
+    dividerColor: AppColors.line,
     appBarTheme: AppBarTheme(
         iconTheme: const IconThemeData(color: _lightIconColor),
         titleTextStyle: AppTextStyle.H6Bold,

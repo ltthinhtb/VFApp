@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vf_app/common/app_colors.dart';
-import 'package:vf_app/common/app_images.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/router/route_config.dart';
+import 'package:vf_app/ui/pages/splash/widget/splash_content.dart';
 import 'package:vf_app/ui/widgets/button/button_filled.dart';
 
 import 'splash_logic.dart';
@@ -30,8 +30,6 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     final TextStyle headline4 = Theme.of(context).textTheme.headline4!;
-    final TextStyle headline6 = Theme.of(context).textTheme.headline6!;
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Center(
@@ -53,21 +51,33 @@ class _SplashPageState extends State<SplashPage> {
               ),
             ),
             const SizedBox(height: 84),
-            Image.asset(
-              AppImages.splash1,
-              height: 196,
-              fit: BoxFit.cover,
+            Expanded(
+              child: Obx(() {
+                return PageView.builder(
+                  onPageChanged: (value) {
+                    logic.changeSplash(value);
+                  },
+                  itemCount: state.splashData.length,
+                  itemBuilder: (context, index) => SplashContent(
+                    image: state.splashData[index]["image"]!,
+                    subtitle: state.splashData[index]["subtitle"]!,
+                    title: state.splashData[index]["title"]!,
+                  ),
+                );
+              }),
             ),
-            const SizedBox(height: 40),
-            Text(S.of(context).splash_title1,
-                style:
-                    headline4.copyWith(color: Theme.of(context).primaryColor)),
-            const SizedBox(height: 10),
-            Text(S.of(context).splash_sub1,
-                style: headline6.copyWith(
-                    color: Theme.of(context).primaryColor,
-                    fontWeight: FontWeight.w400)),
-            const Spacer(),
+            Center(
+              child: Obx(() {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List<Widget>.generate(state.splashData.length,
+                      (int index) {
+                    return buildDot(index: index);
+                  }),
+                );
+              }),
+            ),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: SizedBox(
@@ -85,6 +95,20 @@ class _SplashPageState extends State<SplashPage> {
           ],
         ),
       ),
+    );
+  }
+
+  AnimatedContainer buildDot({int? index}) {
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 500),
+      margin: const EdgeInsets.only(right: 5),
+      height: 10,
+      width: state.currentPage.value == index ? 21 : 10,
+      decoration: BoxDecoration(
+          color: state.currentPage.value == index
+              ? Theme.of(context).primaryColor
+              : Theme.of(context).dividerColor,
+          borderRadius: BorderRadius.circular(5)),
     );
   }
 
