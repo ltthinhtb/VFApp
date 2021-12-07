@@ -1,4 +1,5 @@
 import 'package:vf_app/model/entities/index.dart';
+import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/networks/api_client.dart';
 import 'package:vf_app/networks/api_util.dart';
 import 'package:get/get.dart';

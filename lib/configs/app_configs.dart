@@ -1,12 +1,12 @@
 class AppConfigs {
-  static const String appName = 'THM trái phiếu';
+  static const String appName = 'VFtrade';
 
   ///DEV
 
   ///STAGING
   static const envName = "Staging";
-  static const webUrl = "https://www.themoviedb.org";
-  static const baseUrl = "http://bond.vf_app.com.vn:9999";
+  static const baseUrl = "http://202.124.204.208:9999/";
+  static const ENDPOINT_CORE = 'TraditionalService';
   static const socketUrl = 'wss://socket.themoviedb.org'; //Todo: change this
 
   ///PRODUCTION
