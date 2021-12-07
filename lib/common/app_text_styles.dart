@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyle {
+  static TextStyle H8Bold = GoogleFonts.roboto(
+      fontStyle: FontStyle.normal, fontSize: 10, fontWeight: FontWeight.w700);
   static TextStyle H7Regular = GoogleFonts.roboto(
       fontStyle: FontStyle.normal, fontSize: 12, fontWeight: FontWeight.w400);
   static TextStyle H7Bold = GoogleFonts.roboto(

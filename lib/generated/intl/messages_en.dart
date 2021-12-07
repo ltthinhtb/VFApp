@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bond_assets": MessageLookupByLibrary.simpleMessage("Bond assets"),
         "bond_code": MessageLookupByLibrary.simpleMessage("Bond code"),
         "bond_history": MessageLookupByLibrary.simpleMessage("Bond history"),
+        "category": MessageLookupByLibrary.simpleMessage("Menu"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "contact_support": MessageLookupByLibrary.simpleMessage("Support"),
         "content_transfer": MessageLookupByLibrary.simpleMessage("Content"),
@@ -74,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Don\'t have account? "),
         "open_on": MessageLookupByLibrary.simpleMessage("Open on"),
         "order": MessageLookupByLibrary.simpleMessage("Order"),
+        "order_note": MessageLookupByLibrary.simpleMessage("Order note"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "pay": MessageLookupByLibrary.simpleMessage("Pay"),
         "pay_type": MessageLookupByLibrary.simpleMessage("Payment type"),
@@ -122,6 +124,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "up_to": MessageLookupByLibrary.simpleMessage("Up to"),
         "user": MessageLookupByLibrary.simpleMessage("User"),
         "user_name": MessageLookupByLibrary.simpleMessage("Username"),
+        "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
         "year": MessageLookupByLibrary.simpleMessage("year")
       };
 }

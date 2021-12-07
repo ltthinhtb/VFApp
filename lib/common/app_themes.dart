@@ -108,13 +108,11 @@ class AppThemes {
 
   static final BottomNavigationBarThemeData _bottomNavigationBarThemeData =
       BottomNavigationBarThemeData(
-          backgroundColor: AppColors.white,
+          backgroundColor: AppColors.grayF2,
+          unselectedItemColor: AppColors.gray88,
           selectedItemColor: AppColors.primary,
-          selectedIconTheme: const IconThemeData(color: AppColors.primary),
-          unselectedItemColor: AppColors.disable,
-          selectedLabelStyle: AppTextStyle.bodyText2
-              .copyWith(color: AppColors.primary.withOpacity(0.1)),
-          unselectedLabelStyle: AppTextStyle.bodyText1);
+          selectedLabelStyle: AppTextStyle.H8Bold,
+          unselectedLabelStyle: AppTextStyle.H8Bold);
 
   static final ColorScheme _lightColorScheme = const ColorScheme(
     primary: Color(0xFFB93C5D),
