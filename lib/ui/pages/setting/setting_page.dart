@@ -79,7 +79,7 @@ class _SettingPageState extends State<SettingPage> {
 
   Widget _buildLanguageSection() {
     final theme = Theme.of(context);
-    print("SonLT ===== ${settingService.currentLocate.value}");
+    print("Language: ===> ${settingService.currentLocate.value}");
     return Obx(() {
       return Column(
         mainAxisAlignment: MainAxisAlignment.start,

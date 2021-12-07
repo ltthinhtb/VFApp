@@ -410,6 +410,36 @@ class S {
     );
   }
 
+  /// `Profit`
+  String get profit {
+    return Intl.message(
+      'Profit',
+      name: 'profit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Menu`
+  String get menu {
+    return Intl.message(
+      'Menu',
+      name: 'menu',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Permission buy`
+  String get permission_to_buy {
+    return Intl.message(
+      'Permission buy',
+      name: 'permission_to_buy',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `History`
   String get history {
     return Intl.message(

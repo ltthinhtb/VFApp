@@ -71,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "login_face_id":
             MessageLookupByLibrary.simpleMessage("Đăng nhập bằng FaceID"),
+        "menu": MessageLookupByLibrary.simpleMessage("Danh mục"),
         "min_VOLUME":
             MessageLookupByLibrary.simpleMessage("Số tiền đầu tư tối thiểu"),
         "month": MessageLookupByLibrary.simpleMessage("Tháng"),
@@ -84,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pay": MessageLookupByLibrary.simpleMessage("Thanh toán"),
         "pay_type":
             MessageLookupByLibrary.simpleMessage("Phương thức thanh toán"),
+        "permission_to_buy": MessageLookupByLibrary.simpleMessage("Quyền mua"),
         "please_input_password":
             MessageLookupByLibrary.simpleMessage("Nhập password"),
         "please_input_user":
@@ -91,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "policy_use":
             MessageLookupByLibrary.simpleMessage("Điều khoản sử dụng"),
         "product": MessageLookupByLibrary.simpleMessage("Sản phẩm"),
+        "profit": MessageLookupByLibrary.simpleMessage("Lãi lỗ"),
         "receive_money":
             MessageLookupByLibrary.simpleMessage("Tổng nhận thực tế"),
         "register": MessageLookupByLibrary.simpleMessage("Mở tài khoản"),

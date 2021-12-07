@@ -68,6 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_face_id":
             MessageLookupByLibrary.simpleMessage("Login by FaceID"),
+        "menu": MessageLookupByLibrary.simpleMessage("Menu"),
         "min_VOLUME": MessageLookupByLibrary.simpleMessage("Min volume"),
         "month": MessageLookupByLibrary.simpleMessage("Months"),
         "network_error": MessageLookupByLibrary.simpleMessage("Network Error"),
@@ -79,12 +80,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "pay": MessageLookupByLibrary.simpleMessage("Pay"),
         "pay_type": MessageLookupByLibrary.simpleMessage("Payment type"),
+        "permission_to_buy":
+            MessageLookupByLibrary.simpleMessage("Permission buy"),
         "please_input_password":
             MessageLookupByLibrary.simpleMessage("Input password"),
         "please_input_user":
             MessageLookupByLibrary.simpleMessage("Input username"),
         "policy_use": MessageLookupByLibrary.simpleMessage("Policy"),
         "product": MessageLookupByLibrary.simpleMessage("Product"),
+        "profit": MessageLookupByLibrary.simpleMessage("Profit"),
         "receive_money": MessageLookupByLibrary.simpleMessage("Receive money"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "select_product":

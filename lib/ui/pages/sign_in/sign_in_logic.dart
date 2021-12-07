@@ -44,7 +44,7 @@ class SignInLogic extends GetxController with Validator {
         if (result != null) {
           authService.saveToken(result);
           AppLoading.disMissLoading();
-          await Get.offNamed(RouteConfig.main);
+          await Get.offAllNamed(RouteConfig.main);
         } else {
           signIn();
         }
