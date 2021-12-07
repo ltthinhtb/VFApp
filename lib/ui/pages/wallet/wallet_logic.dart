@@ -26,7 +26,7 @@ class WalletLogic extends GetxController {
         _requestParams.session = _tokenEntity.data?.sid;
         await getAccountStatus();
       } else {
-        throw(Exception);
+        throw (Exception);
       }
     } catch (e) {
       logger.e(e.toString());
@@ -41,7 +41,10 @@ class WalletLogic extends GetxController {
     _object.p1 = "8888881";
     _requestParams.data = _object;
     try {
-      await apiService.getAccountStatus(_requestParams);
+      var response = await apiService.getAccountStatus(_requestParams);
+      if (response!.data!.isNotEmpty) {
+        state.assets.value = response.data!.first;
+      }
     } on ErrorException catch (error) {
       AppSnackBar.showError(message: error.message);
     }

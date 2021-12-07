@@ -879,6 +879,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Total assets`
+  String get total_assets {
+    return Intl.message(
+      'Total assets',
+      name: 'total_assets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cash balance`
+  String get cash_balance {
+    return Intl.message(
+      'Cash balance',
+      name: 'cash_balance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Collaborative Assets`
+  String get collaborative_assets {
+    return Intl.message(
+      'Collaborative Assets',
+      name: 'collaborative_assets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Collaborative assets total`
+  String get collaborative_assets_total {
+    return Intl.message(
+      'Collaborative assets total',
+      name: 'collaborative_assets_total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Deposit fee`
+  String get deposit_fee {
+    return Intl.message(
+      'Deposit fee',
+      name: 'deposit_fee',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

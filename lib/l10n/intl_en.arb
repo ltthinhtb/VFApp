@@ -81,5 +81,10 @@
   "bank_account" : "Bank account",
   "content_transfer" : "Content",
   "policy_use" : "Policy",
-  "contact_support" : "Support"
+  "contact_support" : "Support",
+  "total_assets" : "Total assets",
+  "cash_balance" : "Cash balance",
+  "collaborative_assets" : "Collaborative Assets",
+  "collaborative_assets_total" : "Collaborative assets total",
+  "deposit_fee" : "Deposit fee"
 }
