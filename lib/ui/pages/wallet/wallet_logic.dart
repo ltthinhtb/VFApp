@@ -30,7 +30,8 @@ class WalletLogic extends GetxController {
       }
     } catch (e) {
       logger.e(e.toString());
-      await Get.offNamed(RouteConfig.login);
+      await getTokenUser();
+      //await Get.offNamed(RouteConfig.login);
     }
   }
 
