@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bond_history": MessageLookupByLibrary.simpleMessage("Bond history"),
         "cash_balance": MessageLookupByLibrary.simpleMessage("Cash balance"),
         "category": MessageLookupByLibrary.simpleMessage("Menu"),
+        "ceil": MessageLookupByLibrary.simpleMessage("Ceil"),
         "collaborative_assets":
             MessageLookupByLibrary.simpleMessage("Collaborative Assets"),
         "collaborative_assets_total":
@@ -46,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Password is empty"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "fee": MessageLookupByLibrary.simpleMessage("Fee"),
+        "floor": MessageLookupByLibrary.simpleMessage("Floor"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("Forgot password?"),
         "have_account": MessageLookupByLibrary.simpleMessage("Have account"),
         "history": MessageLookupByLibrary.simpleMessage("History"),
@@ -96,7 +98,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "product": MessageLookupByLibrary.simpleMessage("Product"),
         "profit": MessageLookupByLibrary.simpleMessage("Profit"),
         "receive_money": MessageLookupByLibrary.simpleMessage("Receive money"),
+        "reference": MessageLookupByLibrary.simpleMessage("Reference"),
+        "reference_short": MessageLookupByLibrary.simpleMessage("Ref"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
         "select_product":
             MessageLookupByLibrary.simpleMessage("Select Product"),
         "settings_language": MessageLookupByLibrary.simpleMessage("Language"),
@@ -125,6 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "splash_title3": MessageLookupByLibrary.simpleMessage(
             "With only 3 minutes to open an account"),
         "status": MessageLookupByLibrary.simpleMessage("Status"),
+        "stock_market": MessageLookupByLibrary.simpleMessage("Stock market"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "total_assets": MessageLookupByLibrary.simpleMessage("Total assets"),
@@ -135,8 +141,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "up_to": MessageLookupByLibrary.simpleMessage("Up to"),
         "user": MessageLookupByLibrary.simpleMessage("User"),
         "user_name": MessageLookupByLibrary.simpleMessage("Username"),
+        "volumn": MessageLookupByLibrary.simpleMessage("Volumn"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
-        "year": MessageLookupByLibrary.simpleMessage("year"),
-        "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "year": MessageLookupByLibrary.simpleMessage("year")
       };
 }

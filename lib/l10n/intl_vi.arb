@@ -88,5 +88,9 @@
   "cash_balance" : "Tài sản ròng",
   "collaborative_assets" : "Tài sản hợp tác",
   "collaborative_assets_total" : "Tổng giá trị CK hợp tác",
-  "deposit_fee" : "Tổng phí"
+  "volumn" : "Khối lượng",
+  "ceil" : "Trần",
+  "floor" : "Sàn",
+  "reference" : "Tham chiếu",
+  "reference_short" : "TC"
 }

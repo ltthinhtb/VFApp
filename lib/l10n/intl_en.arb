@@ -88,5 +88,10 @@
   "cash_balance" : "Cash balance",
   "collaborative_assets" : "Collaborative Assets",
   "collaborative_assets_total" : "Collaborative assets total",
-  "deposit_fee" : "Deposit fee"
+  "deposit_fee" : "Deposit fee",
+  "volumn" : "Volumn",
+  "ceil" : "Ceil",
+  "floor" : "Floor",
+  "reference" : "Reference",
+  "reference_short" : "Ref"
 }

@@ -2,12 +2,12 @@ class StockData {
   int? id;
   String? sym;
   String? mc;
-  double? c;
-  double? f;
-  double? r;
-  double? lastPrice;
-  int? lastVolume;
-  int? lot;
+  num? c;
+  num? f;
+  num? r;
+  num? lastPrice;
+  num? lastVolume;
+  num? lot;
   String? ot;
   String? changePc;
   String? avePrice;
@@ -63,7 +63,7 @@ class StockData {
     c = json['c'];
     f = json['f'];
     r = json['r'];
-    lastPrice = json['lastPrice'];
+    lastPrice = json['lastPrice'] == 0 ? json['r'] : json['lastPrice'];
     lastVolume = json['lastVolume'];
     lot = json['lot'];
     ot = json['ot'];

@@ -300,6 +300,16 @@ class S {
     );
   }
 
+  /// `Search`
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Account is empty`
   String get empty_account {
     return Intl.message(
@@ -350,11 +360,11 @@ class S {
     );
   }
 
-  /// `Search`
-  String get search {
+  /// `Stock market`
+  String get stock_market {
     return Intl.message(
-      'Search',
-      name: 'search',
+      'Stock market',
+      name: 'stock_market',
       desc: '',
       args: [],
     );
@@ -935,6 +945,56 @@ class S {
     return Intl.message(
       'Deposit fee',
       name: 'deposit_fee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Volumn`
+  String get volumn {
+    return Intl.message(
+      'Volumn',
+      name: 'volumn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ceil`
+  String get ceil {
+    return Intl.message(
+      'Ceil',
+      name: 'ceil',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Floor`
+  String get floor {
+    return Intl.message(
+      'Floor',
+      name: 'floor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reference`
+  String get reference {
+    return Intl.message(
+      'Reference',
+      name: 'reference',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ref`
+  String get reference_short {
+    return Intl.message(
+      'Ref',
+      name: 'reference_short',
       desc: '',
       args: [],
     );
