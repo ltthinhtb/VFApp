@@ -21,8 +21,8 @@ class ProfitTabBar extends StatefulWidget {
 class _ProfitTabBarState extends State<ProfitTabBar>
     with AutomaticKeepAliveClientMixin {
   final walletState = Get.find<WalletLogic>().state;
+  final walletLogic = Get.find<WalletLogic>();
 
-  final userLogic = Get.find<UserLogic>();
   final userState = Get.find<UserLogic>().state;
 
   @override
@@ -53,21 +53,21 @@ class _ProfitTabBarState extends State<ProfitTabBar>
           ],
         ),
         const SizedBox(height: 20),
-        Obx(() {
-          return AppDropDownWidget<Account>(
-              label: S.of(context).account,
-              value: userState.account.value,
-              onChanged: (value) {
-                userLogic.changeAccount(value!);
-              },
-              items: userState.listAccount
-                  .map((e) => DropdownMenuItem<Account>(
-                        value: e,
-                        onTap: () {},
-                        child: Text(e.accCode ?? ""),
-                      ))
-                  .toList());
-        }),
+        AppDropDownWidget<Account>(
+            label: S.of(context).account,
+            value: userState.listAccount
+                .firstWhere((element) => element.accCode == walletLogic.defAcc),
+            onChanged: (value) {
+              walletLogic.getPortfolio(account: value!.accCode);
+              walletLogic.getAccountStatus(account: value.accCode);
+            },
+            items: userState.listAccount
+                .map((e) => DropdownMenuItem<Account>(
+                      value: e,
+                      onTap: () {},
+                      child: Text(e.accCode ?? ""),
+                    ))
+                .toList()),
         const SizedBox(height: 20),
         AppTextFieldWidget(
           label: S.of(context).profit_total,
@@ -154,9 +154,7 @@ class _ProfitTabBarState extends State<ProfitTabBar>
                             child: Align(
                               alignment: Alignment.centerRight,
                               child: Text(
-                                '${MoneyFormat.formatMoneyRound(walletState
-                                    .portfolioList[index].gainLossValue ??
-                                    "")} đ',
+                                '${MoneyFormat.formatMoneyRound(walletState.portfolioList[index].gainLossValue ?? "")} đ',
                                 style: headline7.copyWith(
                                     color: walletState
                                         .portfolioList[index].glColor),

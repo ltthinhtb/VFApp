@@ -15,6 +15,8 @@ class WalletLogic extends GetxController {
 
   late TokenEntity _tokenEntity;
 
+  String get defAcc => _tokenEntity.data!.defaultAcc!;
+
   final RequestParams _requestParams = RequestParams(group: "Q");
 
   Future<void> getTokenUser() async {
@@ -34,11 +36,11 @@ class WalletLogic extends GetxController {
     }
   }
 
-  Future<void> getAccountStatus() async {
+  Future<void> getAccountStatus({String? account}) async {
     ParamsObject _object = ParamsObject();
     _object.type = "String";
     _object.cmd = "Web.Portfolio.AccountStatus";
-    _object.p1 = _tokenEntity.data!.defaultAcc!;
+    _object.p1 = account ?? defAcc;
     _requestParams.data = _object;
     try {
       var response = await apiService.getAccountStatus(_requestParams);
@@ -50,11 +52,11 @@ class WalletLogic extends GetxController {
     }
   }
 
-  Future<void> getPortfolio() async {
+  Future<void> getPortfolio({String? account}) async {
     ParamsObject _object = ParamsObject();
     _object.type = "string";
     _object.cmd = "Web.Portfolio.PortfolioStatus";
-    _object.p1 = _tokenEntity.data!.defaultAcc!;
+    _object.p1 = account ?? defAcc;
     _requestParams.data = _object;
     try {
       var response = await apiService.getPortfolio(_requestParams);
@@ -70,7 +72,7 @@ class WalletLogic extends GetxController {
 
   @override
   void onReady() {
-     getTokenUser();
+    getTokenUser();
     super.onReady();
   }
 

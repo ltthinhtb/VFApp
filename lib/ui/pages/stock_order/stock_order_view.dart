@@ -141,17 +141,15 @@ class _StockOrderPageState extends State<StockOrderPage> {
 
   Widget buildHeader() {
     /// bỏ Obx đi khi nào dùng đến biến obx mới để trong thẻ này
-    return Obx(
-      () => Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor.withOpacity(0.6)),
-          child: Row(
-              // children: [Expanded(child: Text(state.selectedStockData.value.))],
-              ),
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor.withOpacity(0.6)),
+        child: Row(
+            // children: [Expanded(child: Text(state.selectedStockData.value.))],
+            ),
       ),
     );
   }

@@ -4,7 +4,7 @@ import 'package:vf_app/common/app_images.dart';
 
 class AppDropDownWidget<T> extends StatelessWidget {
   final List<DropdownMenuItem<T>> items;
-  final T value;
+  final T? value;
   final String? hintText;
   final ValueChanged<T?>? onChanged;
   final String? label;
@@ -12,7 +12,7 @@ class AppDropDownWidget<T> extends StatelessWidget {
   const AppDropDownWidget(
       {Key? key,
       required this.items,
-      required this.value,
+      this.value,
       this.hintText,
       this.onChanged,
       this.label})
