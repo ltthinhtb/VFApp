@@ -70,7 +70,7 @@ class WalletLogic extends GetxController {
 
   @override
   void onReady() {
-    // getTokenUser();
+     getTokenUser();
     super.onReady();
   }
 
