@@ -8,6 +8,8 @@ import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/model/response/account_status.dart';
 import 'package:vf_app/model/response/list_account_response.dart';
 import 'package:vf_app/model/response/portfolio.dart';
+import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
+import 'package:vf_app/model/stock_data/stock_data.dart';
 import 'package:vf_app/router/route_config.dart';
 import 'error_exception.dart';
 
@@ -16,11 +18,16 @@ abstract class ApiClient {
 
   Future<TokenEntity> authLogin(RequestParams requestParams);
 
+  //Asset
   Future<AccountStatus> getAccountStatus(RequestParams requestParams);
 
   Future<ListAccountResponse> getListAccount(RequestParams requestParams);
 
   Future<Portfolio> getPortfolio(RequestParams requestParams);
+  //Stock Data
+  Future<List<StockCompanyData>> getAllStockCompanyData();
+
+  Future<StockData> getStockData(String stockCode);
 
   Future<dynamic> signOut();
 }
@@ -52,6 +59,15 @@ class _ApiClient implements ApiClient {
       } else {
         throw ErrorException(response.statusCode!, _mapData['rs']);
       }
+    } catch (error) {
+      throw _handleError(error);
+    }
+  }
+
+  Future<Response> _getApi(Future<Response> request) async {
+    try {
+      var response = await request;
+      return response;
     } catch (error) {
       throw _handleError(error);
     }
@@ -92,6 +108,11 @@ class _ApiClient implements ApiClient {
     return valueMap;
   }
 
+  // List<dynamic> _decodeList(String _value) {
+  //   List<dynamic> list = json.decode(_value);
+  //   return list;
+  // }
+
   @override
   Future<TokenEntity> authLogin(RequestParams requestParams) async {
     Response _result = await _requestApi(
@@ -117,6 +138,7 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+
   Future<ListAccountResponse> getListAccount(
       RequestParams requestParams) async {
     Response _result = await _requestApi(
@@ -133,5 +155,31 @@ class _ApiClient implements ApiClient {
     var _mapData = _decodeMap(_result.data!);
     final value = Portfolio.fromJson(_mapData);
     return value;
+  }
+
+  @override
+  Future<List<StockCompanyData>> getAllStockCompanyData() async {
+    try {
+      Response _result =
+          await _getApi(_dio.get(AppConfigs.URL_DATA_FEED + "getlistallstock"));
+      final value = _result.data
+          .map<StockCompanyData>((e) => StockCompanyData.fromJson(e))
+          .toList();
+      return value;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<StockData> getStockData(String stockCode) async {
+    try {
+      Response _result = await _getApi(
+          _dio.get(AppConfigs.URL_DATA_FEED + "getliststockdata/$stockCode"));
+      final value = StockData.fromJson(_result.data[0]);
+      return value;
+    } catch (e) {
+      rethrow;
+    }
   }
 }

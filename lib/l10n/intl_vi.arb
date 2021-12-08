@@ -24,12 +24,19 @@
   "have_account": "Đã có tài khoản",
   "forgot_pass": "Quên mật khẩu?",
   "register": "Mở tài khoản",
+  "search": "Tìm kiếm",
   "empty_account": "Vui lòng nhập tài khoản",
   "empty_password": "Vui lòng nhập mật khẩu",
   "error": "Lỗi",
   "network_error": "Lỗi kết nối",
+<<<<<<< HEAD
   "home": "Bảng giá",
   "wallet": "Tài sản",
+=======
+  "home": "Trang chủ",
+  "stock_market": "Bảng giá",
+  "wallet" : "Tài sản",
+>>>>>>> 61106a635f19e344d0a1a663f455db0d476dbd56
   "order": "Đặt lệnh",
   "order_note": "Sổ lệnh",
   "category": "Khác",

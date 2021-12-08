@@ -300,6 +300,16 @@ class S {
     );
   }
 
+  /// `Search`
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Account is empty`
   String get empty_account {
     return Intl.message(
@@ -345,6 +355,16 @@ class S {
     return Intl.message(
       'Home',
       name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stock market`
+  String get stock_market {
+    return Intl.message(
+      'Stock market',
+      name: 'stock_market',
       desc: '',
       args: [],
     );

@@ -6,6 +6,7 @@ class AppConfigs {
   ///STAGING
   static const envName = "Staging";
   static const baseUrl = "http://202.124.204.208:9999/";
+  static const URL_DATA_FEED = 'https://sbboard.sbsi.vn/';
   static const ENDPOINT_CORE = 'TraditionalService';
   static const socketUrl = 'wss://socket.themoviedb.org'; //Todo: change this
 
@@ -24,7 +25,8 @@ class AppConfigs {
   static const dateAPIFormat = 'dd/MM/yyyy';
   static const dateDisplayFormat = 'dd/MM/yyyy';
 
-  static const dateTimeAPIFormat = "MM/dd/yyyy'T'hh:mm:ss.SSSZ"; //Use DateTime.parse(date) instead of ...
+  static const dateTimeAPIFormat =
+      "MM/dd/yyyy'T'hh:mm:ss.SSSZ"; //Use DateTime.parse(date) instead of ...
   static const dateTimeDisplayFormat = 'dd/MM/yyyy HH:mm';
 
   ///Date range

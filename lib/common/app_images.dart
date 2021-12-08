@@ -5,10 +5,14 @@ class AppImages {
   static String splash3 = 'assets/image/splash_3.png';
 
   //icon
+  static String search_normal = 'assets/icon_svg/search_normal.svg';
   static String eye = 'assets/icon_svg/eye.svg';
   static String eye_lock = 'assets/icon_svg/eye_lock.svg';
   static String finger = 'assets/icon_svg/finger.svg';
   static String chevron_down = 'assets/icon_svg/chevron-down.svg';
+  static String like_star = 'assets/icon_svg/like_star.svg';
+  static String dislike_star = 'assets/icon_svg/dislike_star.svg';
+  static String switch_diagram = 'assets/icon_svg/switch_diagram.svg';
 
   //icon bottomNavi
   static String status_up_0 = 'assets/icon_svg/status-up-grey.svg';

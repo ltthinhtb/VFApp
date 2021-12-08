@@ -150,6 +150,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Số tài khoản/Số điện thoại "),
         "volume_short": MessageLookupByLibrary.simpleMessage("KL"),
         "wallet": MessageLookupByLibrary.simpleMessage("Tài sản"),
-        "year": MessageLookupByLibrary.simpleMessage("năm")
+        "year": MessageLookupByLibrary.simpleMessage("năm"),
+        "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
       };
 }

@@ -8,7 +8,6 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'common/app_themes.dart';
 import 'router/route_config.dart';
 import 'services/index.dart';
-import 'ui/pages/splash/splash_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -58,7 +57,6 @@ class _MyAppState extends State<MyApp> {
     return GestureDetector(
       onTap: hideKeyboard,
       child: GetMaterialApp(
-        home: const SplashPage(),
         debugShowCheckedModeBanner: false,
         theme: AppThemes.lightTheme,
         darkTheme: AppThemes.darkTheme,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vf_app/common/app_images.dart';
 
@@ -12,17 +13,24 @@ class AppTextFieldWidget extends StatefulWidget {
   final ValueChanged<String>? onFieldSubmitted;
   final bool obscureText;
   final FocusNode? focusNode;
+  final bool autoFocus;
+  final SvgPicture? prefixIcon;
+  final int? maxLength;
 
-  AppTextFieldWidget(
-      {this.inputController,
-      this.onChanged,
-      this.textInputType,
-      this.label,
-      this.hintText,
-      this.validator,
-      this.obscureText = false,
-      this.onFieldSubmitted,
-      this.focusNode});
+  AppTextFieldWidget({
+    this.inputController,
+    this.onChanged,
+    this.textInputType,
+    this.label,
+    this.hintText,
+    this.validator,
+    this.obscureText = false,
+    this.onFieldSubmitted,
+    this.focusNode,
+    this.autoFocus = false,
+    this.prefixIcon,
+    this.maxLength,
+  });
 
   @override
   State<AppTextFieldWidget> createState() => _AppTextFieldWidgetState();
@@ -56,15 +64,24 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
               ),
             )),
         TextFormField(
-          focusNode: widget.focusNode,
+          autofocus: widget.autoFocus,
+          focusNode: widget.focusNode ?? FocusNode(),
           controller: widget.inputController,
           obscureText: _obscureText,
           onFieldSubmitted: widget.onFieldSubmitted,
+          inputFormatters: [
+            LengthLimitingTextInputFormatter(widget.maxLength),
+          ],
           decoration: InputDecoration(
               isDense: true,
               hintText: widget.hintText,
               contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              prefixIconConstraints: const BoxConstraints(maxHeight: 24),
+              prefixIcon: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: widget.prefixIcon,
+              ),
               suffixIconConstraints: const BoxConstraints(maxHeight: 24),
               suffixIcon: widget.obscureText
                   ? GestureDetector(
