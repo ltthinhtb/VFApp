@@ -30,7 +30,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "bond_code": MessageLookupByLibrary.simpleMessage("Mã trái phiếu"),
         "bond_history":
             MessageLookupByLibrary.simpleMessage("Các giao dịch gần đây"),
+        "cash_balance": MessageLookupByLibrary.simpleMessage("Tài sản ròng"),
         "category": MessageLookupByLibrary.simpleMessage("Khác"),
+        "collaborative_assets":
+            MessageLookupByLibrary.simpleMessage("Tài sản hợp tác"),
+        "collaborative_assets_total":
+            MessageLookupByLibrary.simpleMessage("Tổng giá trị CK hợp tác"),
         "confirm": MessageLookupByLibrary.simpleMessage("Hoàn tất"),
         "contact_support":
             MessageLookupByLibrary.simpleMessage("Liên hệ hỗ trợ"),
@@ -38,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nội dung chuyển khoản"),
         "coupon": MessageLookupByLibrary.simpleMessage("Lợi suất đầu tư"),
         "day": MessageLookupByLibrary.simpleMessage("Ngày"),
+        "deposit_fee": MessageLookupByLibrary.simpleMessage("Tổng phí"),
         "empty_account":
             MessageLookupByLibrary.simpleMessage("Vui lòng nhập tài khoản"),
         "empty_password":
@@ -125,6 +131,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "status": MessageLookupByLibrary.simpleMessage("Trạng thái"),
         "tax": MessageLookupByLibrary.simpleMessage("Thuế đầu tư"),
         "today": MessageLookupByLibrary.simpleMessage("Hôm nay"),
+        "total_assets": MessageLookupByLibrary.simpleMessage("Tổng tài sản"),
         "transfer_information":
             MessageLookupByLibrary.simpleMessage("Thông tin giao dịch"),
         "transfer_payment":

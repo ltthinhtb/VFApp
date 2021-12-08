@@ -28,12 +28,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "bond_assets": MessageLookupByLibrary.simpleMessage("Bond assets"),
         "bond_code": MessageLookupByLibrary.simpleMessage("Bond code"),
         "bond_history": MessageLookupByLibrary.simpleMessage("Bond history"),
+        "cash_balance": MessageLookupByLibrary.simpleMessage("Cash balance"),
         "category": MessageLookupByLibrary.simpleMessage("Menu"),
+        "collaborative_assets":
+            MessageLookupByLibrary.simpleMessage("Collaborative Assets"),
+        "collaborative_assets_total":
+            MessageLookupByLibrary.simpleMessage("Collaborative assets total"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "contact_support": MessageLookupByLibrary.simpleMessage("Support"),
         "content_transfer": MessageLookupByLibrary.simpleMessage("Content"),
         "coupon": MessageLookupByLibrary.simpleMessage("Coupon"),
         "day": MessageLookupByLibrary.simpleMessage("Day"),
+        "deposit_fee": MessageLookupByLibrary.simpleMessage("Deposit fee"),
         "empty_account":
             MessageLookupByLibrary.simpleMessage("Account is empty"),
         "empty_password":
@@ -121,6 +127,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "status": MessageLookupByLibrary.simpleMessage("Status"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
+        "total_assets": MessageLookupByLibrary.simpleMessage("Total assets"),
         "transfer_information":
             MessageLookupByLibrary.simpleMessage("Transfer information"),
         "transfer_payment":

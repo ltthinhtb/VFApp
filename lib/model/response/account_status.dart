@@ -3,7 +3,7 @@ class AccountStatus {
   String? oID;
   int? rc;
   String? rs;
-  List<Data>? data;
+  List<AccountAssets>? data;
 
   AccountStatus({this.cmd, this.oID, this.rc, this.rs, this.data});
 
@@ -13,9 +13,9 @@ class AccountStatus {
     rc = json['rc'];
     rs = json['rs'];
     if (json['data'] != null) {
-      data = <Data>[];
+      data = <AccountAssets>[];
       json['data'].forEach((v) {
-        data!.add(Data.fromJson(v));
+        data!.add(AccountAssets.fromJson(v));
       });
     }
   }
@@ -33,7 +33,7 @@ class AccountStatus {
   }
 }
 
-class Data {
+class AccountAssets {
   String? cashBalance;
   String? debt;
   String? cashAvai;
@@ -63,7 +63,7 @@ class Data {
   String? cashTempDayOut;
   String? vsd;
 
-  Data(
+  AccountAssets(
       {this.cashBalance,
       this.debt,
       this.cashAvai,
@@ -93,7 +93,7 @@ class Data {
       this.cashTempDayOut,
       this.vsd});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  AccountAssets.fromJson(Map<String, dynamic> json) {
     cashBalance = json['cash_balance'];
     debt = json['debt'];
     cashAvai = json['cash_avai'];

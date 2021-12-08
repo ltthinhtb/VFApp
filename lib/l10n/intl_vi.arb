@@ -82,5 +82,10 @@
   "bank_account": "Số tài khoản",
   "content_transfer": "Nội dung chuyển khoản",
   "policy_use" : "Điều khoản sử dụng",
-  "contact_support" : "Liên hệ hỗ trợ"
+  "contact_support" : "Liên hệ hỗ trợ",
+  "total_assets" : "Tổng tài sản",
+  "cash_balance" : "Tài sản ròng",
+  "collaborative_assets" : "Tài sản hợp tác",
+  "collaborative_assets_total" : "Tổng giá trị CK hợp tác",
+  "deposit_fee" : "Tổng phí"
 }

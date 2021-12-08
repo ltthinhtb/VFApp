@@ -19,11 +19,15 @@ class MoneyFormat {
 
   static String formatMoneyRound(String _price) {
     var df = NumberFormat(
-        "###,###,###,###", 'en_US'); // or pattern "###,###.##$"
+        "###,###,###,###,###", 'en_US'); // or pattern "###,###.##$"
     String money = "0";
     try {
-      double number = double.parse(_price);
-      money = df.format(number);
+      if (_price.isNotEmpty) {
+        double number = double.parse(_price);
+        money = df.format(number);
+      } else {
+        throw (Exception);
+      }
     } catch (e) {
       return "0";
     }
