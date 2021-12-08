@@ -14,7 +14,7 @@ class MainState {
 
   MainState() {
     //Initialize index
-    selectedIndex = 0.obs;
+    selectedIndex = 2.obs;
     //PageView page
     pageList = [
       const Scaffold(),

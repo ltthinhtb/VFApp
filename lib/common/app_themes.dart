@@ -69,9 +69,12 @@ class AppThemes {
     style: ElevatedButton.styleFrom(
       padding: const EdgeInsets.symmetric(vertical: 15),
       shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(15))),
+        borderRadius: BorderRadius.all(
+          Radius.circular(15),
+        ),
+      ),
       primary: AppColors.primary,
-      onPrimary: AppColors.white,
+      onPrimary: AppColors.grayF2,
       textStyle: AppTextStyle.H5Bold,
     ),
   );
@@ -86,25 +89,48 @@ class AppThemes {
 
   static OutlineInputBorder _defaultBorder() {
     return const OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
         borderSide: BorderSide(color: AppColors.line, width: 1));
   }
 
-  static final InputDecorationTheme _inputDecorationTheme =
+  static final InputDecorationTheme _inputDecorationLightTheme =
       InputDecorationTheme(
+          contentPadding: const EdgeInsets.symmetric(vertical: 5),
           labelStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.black),
           filled: true,
-          fillColor: AppColors.white,
+          fillColor: AppColors.grayF2,
           hintStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.grayC4),
           errorStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.red),
           border: _defaultBorder(),
           focusedBorder: _defaultBorder().copyWith(
-              borderSide: const BorderSide(color: AppColors.green, width: 1)),
+              borderSide: const BorderSide(color: AppColors.primary, width: 1)),
           enabledBorder: _defaultBorder(),
           disabledBorder: _defaultBorder(),
           errorBorder: _defaultBorder().copyWith(
               borderRadius: const BorderRadius.all(Radius.circular(15)),
               borderSide: const BorderSide(color: AppColors.red, width: 1)));
+  static final ButtonThemeData _buttonDecorationLightTheme = ButtonThemeData(
+    height: 40,
+    minWidth: 40,
+    padding: const EdgeInsets.all(10),
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(
+        Radius.circular(20.0),
+      ),
+      side: BorderSide.none,
+    ),
+    buttonColor: AppColors.grayF2,
+    colorScheme: const ColorScheme.light().copyWith(
+      primary: AppColors.grayF2,
+    ),
+  );
+  static final ToggleButtonsThemeData _toggleButtonDecorationLightTheme =
+      ToggleButtonsThemeData(
+    color: AppColors.grayF2,
+    focusColor: AppColors.grayF2,
+    hoverColor: AppColors.grayF2,
+    splashColor: AppColors.red,
+  );
 
   static final BottomNavigationBarThemeData _bottomNavigationBarThemeData =
       BottomNavigationBarThemeData(
@@ -124,7 +150,7 @@ class AppThemes {
           borderRadius: BorderRadius.circular(8), color: AppColors.primary));
 
   static final ColorScheme _lightColorScheme = const ColorScheme(
-    primary: Color(0xFFB93C5D),
+    primary: AppColors.primary,
     primaryVariant: Color(0xFF117378),
     secondary: AppColors.secondary,
     secondaryVariant: Color(0xFFFAFBFB),
@@ -158,7 +184,10 @@ class AppThemes {
 
   ///Light theme
   static final ThemeData lightTheme = ThemeData(
-    inputDecorationTheme: _inputDecorationTheme,
+    inputDecorationTheme: _inputDecorationLightTheme,
+    buttonTheme: _buttonDecorationLightTheme,
+    toggleButtonsTheme: _toggleButtonDecorationLightTheme,
+    toggleableActiveColor: AppColors.grayF2,
     backgroundColor: AppColors.grayF2,
     elevatedButtonTheme: _elevatedButtonThemeData,
     textButtonTheme: _textButtonThemeData,

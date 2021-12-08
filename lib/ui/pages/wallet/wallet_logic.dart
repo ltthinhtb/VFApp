@@ -26,7 +26,7 @@ class WalletLogic extends GetxController {
         _requestParams.session = _tokenEntity.data?.sid;
         await getAccountStatus();
       } else {
-        throw(Exception);
+        throw (Exception);
       }
     } catch (e) {
       logger.e(e.toString());
@@ -49,7 +49,7 @@ class WalletLogic extends GetxController {
 
   @override
   void onReady() {
-    getTokenUser();
+    // getTokenUser();
     super.onReady();
   }
 
