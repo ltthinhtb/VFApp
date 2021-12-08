@@ -7,6 +7,7 @@ import 'package:vf_app/model/entities/index.dart';
 import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/model/response/account_status.dart';
 import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
+import 'package:vf_app/model/stock_data/stock_data.dart';
 import 'package:vf_app/router/route_config.dart';
 import 'error_exception.dart';
 
@@ -20,6 +21,7 @@ abstract class ApiClient {
 
   //Stock Data
   Future<List<StockCompanyData>> getAllStockCompanyData();
+  Future<StockData> getStockData(String stockCode);
 
   Future<dynamic> signOut();
 }
@@ -139,6 +141,20 @@ class _ApiClient implements ApiClient {
       final value = _result.data
           .map<StockCompanyData>((e) => StockCompanyData.fromJson(e))
           .toList();
+      return value;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<StockData> getStockData(String stockCode) async {
+    try {
+      Response _result = await _getApi(
+          _dio.get(AppConfigs.URL_DATA_FEED + "getliststockdata/$stockCode"));
+      // var _listData = _decodeList(_result.data);
+      // print(_result.data.runtimeType);
+      final value = StockData.fromJson(_result.data[0]);
       return value;
     } catch (e) {
       rethrow;

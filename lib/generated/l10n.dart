@@ -350,6 +350,16 @@ class S {
     );
   }
 
+  /// `Search`
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Wallet`
   String get wallet {
     return Intl.message(

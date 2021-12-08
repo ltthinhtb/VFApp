@@ -120,9 +120,8 @@ class AppThemes {
       side: BorderSide.none,
     ),
     buttonColor: AppColors.grayF2,
-    colorScheme: const ColorScheme.light().copyWith(
-      primary: AppColors.grayF2,
-    ),
+    colorScheme: const ColorScheme.light()
+        .copyWith(primary: AppColors.grayF2, primaryVariant: AppColors.primary),
   );
   static final ToggleButtonsThemeData _toggleButtonDecorationLightTheme =
       ToggleButtonsThemeData(

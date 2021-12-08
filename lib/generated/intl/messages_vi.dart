@@ -141,6 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "user_name":
             MessageLookupByLibrary.simpleMessage("Số tài khoản/Số điện thoại "),
         "wallet": MessageLookupByLibrary.simpleMessage("Tài sản"),
-        "year": MessageLookupByLibrary.simpleMessage("năm")
+        "year": MessageLookupByLibrary.simpleMessage("năm"),
+        "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
       };
 }

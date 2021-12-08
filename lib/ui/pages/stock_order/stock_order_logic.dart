@@ -12,7 +12,7 @@ class StockOrderLogic extends GetxController {
     if (stockCode != '') {
       List<StockCompanyData> searchResult = state.allStockCompanyData
           .where(
-            (element) => element.stockCode.toLowerCase().startsWith(
+            (element) => element.stockCode!.toLowerCase().startsWith(
                   stockCode.toLowerCase(),
                 ),
           )
@@ -28,6 +28,14 @@ class StockOrderLogic extends GetxController {
 
   void getAllStockCompanyData() async {
     state.allStockCompanyData = await apiService.getAllStockCompanyData();
+  }
+
+  void getStockData(StockCompanyData data) async {
+    print("getStockData");
+    state.selectedStock.value = data;
+    state.selectedStockData.value =
+        await apiService.getStockData(data.stockCode!);
+    print(state.selectedStockData.value.sym);
   }
 
   @override

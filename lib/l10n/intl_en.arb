@@ -24,6 +24,7 @@
   "have_account" : "Have account",
   "forgot_pass": "Forgot password?",
   "register": "Register",
+  "search": "Search",
   "empty_account": "Account is empty",
   "empty_password": "Password is empty",
   "error": "Error",

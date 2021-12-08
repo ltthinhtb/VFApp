@@ -1,18 +1,14 @@
 enum StockExchange { HOSE, HNX, UPCOM }
 
 class StockCompanyData {
-  late String stockCode;
+  String? stockCode;
   String? nameVn;
   String? nameEn;
   String? postTo;
   String? nameShort;
 
   StockCompanyData(
-      {required this.stockCode,
-      this.nameVn,
-      this.nameEn,
-      this.postTo,
-      this.nameShort});
+      {this.stockCode, this.nameVn, this.nameEn, this.postTo, this.nameShort});
 
   StockCompanyData.fromJson(Map<String, dynamic> json) {
     stockCode = json['stock_code'];

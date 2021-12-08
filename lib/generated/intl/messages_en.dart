@@ -136,6 +136,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "user": MessageLookupByLibrary.simpleMessage("User"),
         "user_name": MessageLookupByLibrary.simpleMessage("Username"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
-        "year": MessageLookupByLibrary.simpleMessage("year")
+        "year": MessageLookupByLibrary.simpleMessage("year"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
       };
 }
