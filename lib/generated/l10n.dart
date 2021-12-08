@@ -929,6 +929,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Start day`
+  String get start_day {
+    return Intl.message(
+      'Start day',
+      name: 'start_day',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `End day`
+  String get end_day {
+    return Intl.message(
+      'End day',
+      name: 'end_day',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account`
+  String get account {
+    return Intl.message(
+      'Account',
+      name: 'account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profit total`
+  String get profit_total {
+    return Intl.message(
+      'Profit total',
+      name: 'profit_total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stock code`
+  String get stock_code {
+    return Intl.message(
+      'Stock code',
+      name: 'stock_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Volume`
+  String get volume_short {
+    return Intl.message(
+      'Volume',
+      name: 'volume_short',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gain loss (%)`
+  String get gain_loss_percent {
+    return Intl.message(
+      'Gain loss (%)',
+      name: 'gain_loss_percent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gain loss value`
+  String get gain_loss_value {
+    return Intl.message(
+      'Gain loss value',
+      name: 'gain_loss_value',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

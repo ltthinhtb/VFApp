@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account": MessageLookupByLibrary.simpleMessage("Account"),
         "account_user": MessageLookupByLibrary.simpleMessage("User"),
         "assets": MessageLookupByLibrary.simpleMessage("Assets"),
         "bank_account": MessageLookupByLibrary.simpleMessage("Bank account"),
@@ -44,9 +45,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Account is empty"),
         "empty_password":
             MessageLookupByLibrary.simpleMessage("Password is empty"),
+        "end_day": MessageLookupByLibrary.simpleMessage("End day"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "fee": MessageLookupByLibrary.simpleMessage("Fee"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("Forgot password?"),
+        "gain_loss_percent":
+            MessageLookupByLibrary.simpleMessage("Gain loss (%)"),
+        "gain_loss_value":
+            MessageLookupByLibrary.simpleMessage("Gain loss value"),
         "have_account": MessageLookupByLibrary.simpleMessage("Have account"),
         "history": MessageLookupByLibrary.simpleMessage("History"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -95,6 +101,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "policy_use": MessageLookupByLibrary.simpleMessage("Policy"),
         "product": MessageLookupByLibrary.simpleMessage("Product"),
         "profit": MessageLookupByLibrary.simpleMessage("Profit"),
+        "profit_total": MessageLookupByLibrary.simpleMessage("Profit total"),
         "receive_money": MessageLookupByLibrary.simpleMessage("Receive money"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "select_product":
@@ -124,7 +131,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Choose a free beautiful number account"),
         "splash_title3": MessageLookupByLibrary.simpleMessage(
             "With only 3 minutes to open an account"),
+        "start_day": MessageLookupByLibrary.simpleMessage("Start day"),
         "status": MessageLookupByLibrary.simpleMessage("Status"),
+        "stock_code": MessageLookupByLibrary.simpleMessage("Stock code"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "total_assets": MessageLookupByLibrary.simpleMessage("Total assets"),
@@ -135,6 +144,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "up_to": MessageLookupByLibrary.simpleMessage("Up to"),
         "user": MessageLookupByLibrary.simpleMessage("User"),
         "user_name": MessageLookupByLibrary.simpleMessage("Username"),
+        "volume_short": MessageLookupByLibrary.simpleMessage("Volume"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
         "year": MessageLookupByLibrary.simpleMessage("year")
       };

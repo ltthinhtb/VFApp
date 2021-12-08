@@ -6,6 +6,8 @@ import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/entities/index.dart';
 import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/model/response/account_status.dart';
+import 'package:vf_app/model/response/list_account_response.dart';
+import 'package:vf_app/model/response/portfolio.dart';
 import 'package:vf_app/router/route_config.dart';
 import 'error_exception.dart';
 
@@ -15,6 +17,10 @@ abstract class ApiClient {
   Future<TokenEntity> authLogin(RequestParams requestParams);
 
   Future<AccountStatus> getAccountStatus(RequestParams requestParams);
+
+  Future<ListAccountResponse> getListAccount(RequestParams requestParams);
+
+  Future<Portfolio> getPortfolio(RequestParams requestParams);
 
   Future<dynamic> signOut();
 }
@@ -107,6 +113,25 @@ class _ApiClient implements ApiClient {
         _dio.post(AppConfigs.ENDPOINT_CORE, data: requestParams.toJson()));
     var _mapData = _decodeMap(_result.data!);
     final value = AccountStatus.fromJson(_mapData);
+    return value;
+  }
+
+  @override
+  Future<ListAccountResponse> getListAccount(
+      RequestParams requestParams) async {
+    Response _result = await _requestApi(
+        _dio.post(AppConfigs.ENDPOINT_CORE, data: requestParams.toJson()));
+    var _mapData = _decodeMap(_result.data!);
+    final value = ListAccountResponse.fromJson(_mapData);
+    return value;
+  }
+
+  @override
+  Future<Portfolio> getPortfolio(RequestParams requestParams) async {
+    Response _result = await _requestApi(
+        _dio.post(AppConfigs.ENDPOINT_CORE, data: requestParams.toJson()));
+    var _mapData = _decodeMap(_result.data!);
+    final value = Portfolio.fromJson(_mapData);
     return value;
   }
 }

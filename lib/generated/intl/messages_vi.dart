@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account": MessageLookupByLibrary.simpleMessage("Tài khoản"),
         "account_user": MessageLookupByLibrary.simpleMessage("Tên tài khoản"),
         "assets": MessageLookupByLibrary.simpleMessage("Tài sản"),
         "bank_account": MessageLookupByLibrary.simpleMessage("Số tài khoản"),
@@ -48,9 +49,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Vui lòng nhập tài khoản"),
         "empty_password":
             MessageLookupByLibrary.simpleMessage("Vui lòng nhập mật khẩu"),
+        "end_day": MessageLookupByLibrary.simpleMessage("Đến ngày"),
         "error": MessageLookupByLibrary.simpleMessage("Lỗi"),
         "fee": MessageLookupByLibrary.simpleMessage("Phí đầu tư"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("Quên mật khẩu?"),
+        "gain_loss_percent": MessageLookupByLibrary.simpleMessage("Lãi lỗ (%)"),
+        "gain_loss_value":
+            MessageLookupByLibrary.simpleMessage("Lãi lỗ (số tiền)"),
         "have_account": MessageLookupByLibrary.simpleMessage("Đã có tài khoản"),
         "history": MessageLookupByLibrary.simpleMessage("Lịch sử giao dịch"),
         "home": MessageLookupByLibrary.simpleMessage("Bảng giá"),
@@ -100,6 +105,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Điều khoản sử dụng"),
         "product": MessageLookupByLibrary.simpleMessage("Sản phẩm"),
         "profit": MessageLookupByLibrary.simpleMessage("Lãi lỗ"),
+        "profit_total": MessageLookupByLibrary.simpleMessage("Tổng lãi lỗ"),
         "receive_money":
             MessageLookupByLibrary.simpleMessage("Tổng nhận thực tế"),
         "register": MessageLookupByLibrary.simpleMessage("Mở tài khoản"),
@@ -128,7 +134,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Chọn tài khoản số đẹp miễn phí"),
         "splash_title3":
             MessageLookupByLibrary.simpleMessage("Chỉ với 3 phút mở tài khoản"),
+        "start_day": MessageLookupByLibrary.simpleMessage("Từ ngày"),
         "status": MessageLookupByLibrary.simpleMessage("Trạng thái"),
+        "stock_code": MessageLookupByLibrary.simpleMessage("Mã CK"),
         "tax": MessageLookupByLibrary.simpleMessage("Thuế đầu tư"),
         "today": MessageLookupByLibrary.simpleMessage("Hôm nay"),
         "total_assets": MessageLookupByLibrary.simpleMessage("Tổng tài sản"),
@@ -140,6 +148,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "user": MessageLookupByLibrary.simpleMessage("Tài khoản"),
         "user_name":
             MessageLookupByLibrary.simpleMessage("Số tài khoản/Số điện thoại "),
+        "volume_short": MessageLookupByLibrary.simpleMessage("KL"),
         "wallet": MessageLookupByLibrary.simpleMessage("Tài sản"),
         "year": MessageLookupByLibrary.simpleMessage("năm")
       };

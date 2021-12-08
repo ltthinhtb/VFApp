@@ -86,5 +86,14 @@
   "cash_balance" : "Cash balance",
   "collaborative_assets" : "Collaborative Assets",
   "collaborative_assets_total" : "Collaborative assets total",
-  "deposit_fee" : "Deposit fee"
+  "deposit_fee" : "Deposit fee",
+  "start_day" : "Start day",
+  "end_day" : "End day",
+  "account" : "Account",
+  "profit_total" : "Profit total",
+  "stock_code" : "Stock code",
+  "volume_short" : "Volume",
+  "gain_loss_percent" : "Gain loss (%)",
+  "gain_loss_value" : "Gain loss value"
+
 }

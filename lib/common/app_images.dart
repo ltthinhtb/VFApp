@@ -8,6 +8,7 @@ class AppImages {
   static String eye = 'assets/icon_svg/eye.svg';
   static String eye_lock = 'assets/icon_svg/eye_lock.svg';
   static String finger = 'assets/icon_svg/finger.svg';
+  static String chevron_down = 'assets/icon_svg/chevron-down.svg';
 
   //icon bottomNavi
   static String status_up_0 = 'assets/icon_svg/status-up-grey.svg';
@@ -20,4 +21,5 @@ class AppImages {
   static String document_text_1 = 'assets/icon_svg/document-text-purple.svg';
   static String category_0 = 'assets/icon_svg/categoty-grey.svg';
   static String category_1 = 'assets/icon_svg/category-purple.svg';
+
 }

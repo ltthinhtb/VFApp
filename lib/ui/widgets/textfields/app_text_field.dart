@@ -49,7 +49,10 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
               padding: const EdgeInsets.only(bottom: 5),
               child: Text(
                 widget.label ?? "",
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6!
+                    .copyWith(fontWeight: FontWeight.w700),
               ),
             )),
         TextFormField(
