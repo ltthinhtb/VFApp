@@ -27,12 +27,14 @@ class StockOrderLogic extends GetxController {
   }
 
   void getAllStockCompanyData() async {
+    // thêm try catch vào để bắt exception lỗi mạng hoặc data k đúng
     state.allStockCompanyData = await apiService.getAllStockCompanyData();
   }
 
   void getStockData(StockCompanyData data) async {
     print("getStockData");
     state.selectedStock.value = data;
+    // thêm try catch vào để bắt exception lỗi mạng hoặc data k đúng
     state.selectedStockData.value =
         await apiService.getStockData(data.stockCode!);
     print(state.selectedStockData.value.sym);
