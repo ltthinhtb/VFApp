@@ -6,6 +6,7 @@ import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/ui/commons/appbar.dart';
 import 'package:vf_app/ui/pages/wallet/enums/wallet_enums.dart';
 import 'tabbar/assets_tabbar.dart';
+import 'tabbar/menu_tabbar.dart';
 import 'tabbar/profit_tabbar.dart';
 import 'wallet_logic.dart';
 
@@ -48,7 +49,7 @@ class _WalletPageState extends State<WalletPage> {
               child: TabBarView(children: [
                 const AssetsTabBar(),
                 const ProfitTabBar(),
-                Container(),
+                const MenuTabBar(),
                 Container(),
               ]),
             )

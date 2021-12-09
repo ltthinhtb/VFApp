@@ -144,7 +144,7 @@ class AppThemes {
       unselectedLabelColor: AppColors.black,
       labelStyle: AppTextStyle.H7Bold,
       indicatorSize: TabBarIndicatorSize.tab,
-      labelPadding: const EdgeInsets.symmetric(vertical: 5),
+      labelPadding: const EdgeInsets.symmetric(vertical: 10),
       indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(8), color: AppColors.primary));
 

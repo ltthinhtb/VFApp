@@ -62,8 +62,11 @@ class WalletLogic extends GetxController {
       var response = await apiService.getPortfolio(_requestParams);
       if (response!.data!.isNotEmpty) {
         state.portfolioTotal.value = response.data!.first;
-        state.portfolioList.value = response.data!;
         state.profitController.text = state.portfolioTotal.value.gainLossValue!;
+        if (response.data!.length > 1) {
+          state.portfolioList.value = response.data!;
+          state.portfolioList.remove(state.portfolioList.first);
+        }
       }
     } on ErrorException catch (error) {
       AppSnackBar.showError(message: error.message);
