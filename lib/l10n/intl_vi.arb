@@ -29,14 +29,9 @@
   "empty_password": "Vui lòng nhập mật khẩu",
   "error": "Lỗi",
   "network_error": "Lỗi kết nối",
-<<<<<<< HEAD
   "home": "Bảng giá",
   "wallet": "Tài sản",
-=======
-  "home": "Trang chủ",
   "stock_market": "Bảng giá",
-  "wallet" : "Tài sản",
->>>>>>> 61106a635f19e344d0a1a663f455db0d476dbd56
   "order": "Đặt lệnh",
   "order_note": "Sổ lệnh",
   "category": "Khác",
@@ -101,6 +96,12 @@
   "stock_code": "Mã CK",
   "volume_short": "KL",
   "gain_loss_percent": "Lãi lỗ (%)",
-  "gain_loss_value" : "Lãi lỗ (số tiền)"
+  "gain_loss_value" : "Lãi lỗ (số tiền)",
+  "sell_t0" : "Chở về T0",
+  "sell_t1" : "Chở về T1",
+  "sell_t2" : "Chở về T2",
+  "sell_t_back" : "Quyền trở về",
+  "total_transfer" : "Tổng giá trị CK",
+  "gain_loss_temporary" : "Lãi lỗ tạm thời"
 
 }

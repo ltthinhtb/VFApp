@@ -1029,6 +1029,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Sell T0`
+  String get sell_t0 {
+    return Intl.message(
+      'Sell T0',
+      name: 'sell_t0',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sell T1`
+  String get sell_t1 {
+    return Intl.message(
+      'Sell T1',
+      name: 'sell_t1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sell T2`
+  String get sell_t2 {
+    return Intl.message(
+      'Sell T2',
+      name: 'sell_t2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sell back`
+  String get sell_t_back {
+    return Intl.message(
+      'Sell back',
+      name: 'sell_t_back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total transfer`
+  String get total_transfer {
+    return Intl.message(
+      'Total transfer',
+      name: 'total_transfer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gain Loss Temporary`
+  String get gain_loss_temporary {
+    return Intl.message(
+      'Gain Loss Temporary',
+      name: 'gain_loss_temporary',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -3,6 +3,7 @@ import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/model/response/account_status.dart';
 import 'package:vf_app/model/response/list_account_response.dart';
 import 'package:vf_app/model/response/portfolio.dart';
+import 'package:vf_app/model/response/portfolio_account_status.dart';
 import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
 import 'package:vf_app/model/stock_data/stock_data.dart';
 import 'package:vf_app/networks/api_client.dart';

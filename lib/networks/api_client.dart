@@ -8,6 +8,7 @@ import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/model/response/account_status.dart';
 import 'package:vf_app/model/response/list_account_response.dart';
 import 'package:vf_app/model/response/portfolio.dart';
+import 'package:vf_app/model/response/portfolio_account_status.dart';
 import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
 import 'package:vf_app/model/stock_data/stock_data.dart';
 import 'package:vf_app/router/route_config.dart';
@@ -21,9 +22,13 @@ abstract class ApiClient {
   //Asset
   Future<AccountStatus> getAccountStatus(RequestParams requestParams);
 
+  Future<PortfolioAccountStatus> getPortfolioAccountStatus(
+      RequestParams requestParams);
+
   Future<ListAccountResponse> getListAccount(RequestParams requestParams);
 
   Future<Portfolio> getPortfolio(RequestParams requestParams);
+
   //Stock Data
   Future<List<StockCompanyData>> getAllStockCompanyData();
 
@@ -138,7 +143,6 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-
   Future<ListAccountResponse> getListAccount(
       RequestParams requestParams) async {
     Response _result = await _requestApi(
@@ -181,5 +185,15 @@ class _ApiClient implements ApiClient {
     } catch (e) {
       rethrow;
     }
+  }
+
+  @override
+  Future<PortfolioAccountStatus> getPortfolioAccountStatus(
+      RequestParams requestParams) async {
+    Response _result = await _requestApi(
+        _dio.post(AppConfigs.ENDPOINT_CORE, data: requestParams.toJson()));
+    var _mapData = _decodeMap(_result.data!);
+    final value = PortfolioAccountStatus.fromJson(_mapData);
+    return value;
   }
 }

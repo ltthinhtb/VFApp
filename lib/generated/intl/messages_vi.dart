@@ -54,6 +54,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "fee": MessageLookupByLibrary.simpleMessage("Phí đầu tư"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("Quên mật khẩu?"),
         "gain_loss_percent": MessageLookupByLibrary.simpleMessage("Lãi lỗ (%)"),
+        "gain_loss_temporary":
+            MessageLookupByLibrary.simpleMessage("Lãi lỗ tạm thời"),
         "gain_loss_value":
             MessageLookupByLibrary.simpleMessage("Lãi lỗ (số tiền)"),
         "have_account": MessageLookupByLibrary.simpleMessage("Đã có tài khoản"),
@@ -109,7 +111,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "receive_money":
             MessageLookupByLibrary.simpleMessage("Tổng nhận thực tế"),
         "register": MessageLookupByLibrary.simpleMessage("Mở tài khoản"),
+        "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
         "select_product": MessageLookupByLibrary.simpleMessage("Chọn sản phẩm"),
+        "sell_t0": MessageLookupByLibrary.simpleMessage("Chở về T0"),
+        "sell_t1": MessageLookupByLibrary.simpleMessage("Chở về T1"),
+        "sell_t2": MessageLookupByLibrary.simpleMessage("Chở về T2"),
+        "sell_t_back": MessageLookupByLibrary.simpleMessage("Quyền trở về"),
         "settings_language": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
         "settings_languageEnglish":
             MessageLookupByLibrary.simpleMessage("English"),
@@ -137,9 +144,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "start_day": MessageLookupByLibrary.simpleMessage("Từ ngày"),
         "status": MessageLookupByLibrary.simpleMessage("Trạng thái"),
         "stock_code": MessageLookupByLibrary.simpleMessage("Mã CK"),
+        "stock_market": MessageLookupByLibrary.simpleMessage("Bảng giá"),
         "tax": MessageLookupByLibrary.simpleMessage("Thuế đầu tư"),
         "today": MessageLookupByLibrary.simpleMessage("Hôm nay"),
         "total_assets": MessageLookupByLibrary.simpleMessage("Tổng tài sản"),
+        "total_transfer":
+            MessageLookupByLibrary.simpleMessage("Tổng giá trị CK"),
         "transfer_information":
             MessageLookupByLibrary.simpleMessage("Thông tin giao dịch"),
         "transfer_payment":
@@ -150,7 +160,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Số tài khoản/Số điện thoại "),
         "volume_short": MessageLookupByLibrary.simpleMessage("KL"),
         "wallet": MessageLookupByLibrary.simpleMessage("Tài sản"),
-        "year": MessageLookupByLibrary.simpleMessage("năm"),
-        "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
+        "year": MessageLookupByLibrary.simpleMessage("năm")
       };
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_dimens.dart';
 import 'package:vf_app/common/app_images.dart';
 import 'package:vf_app/configs/app_configs.dart';
@@ -29,16 +30,56 @@ class _MenuTabBarState extends State<MenuTabBar>
 
   @override
   Widget build(BuildContext context) {
-    final headline8 =
-        Theme.of(context).textTheme.headline6!.copyWith(fontSize: 10);
+    final headline6 = Theme.of(context)
+        .textTheme
+        .headline6!
+        .copyWith(fontWeight: FontWeight.w700);
     final headline7 = Theme.of(context)
         .textTheme
         .headline6!
-        .copyWith(fontSize: 12, fontWeight: FontWeight.w700);
+        .copyWith(fontSize: 12, fontWeight: FontWeight.w400);
     super.build(context);
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: AppDimens.marginNormal),
       children: [
+        ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Container(
+              padding: const EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(AppImages.menuCard),
+                      fit: BoxFit.cover)),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(S.of(context).total_transfer,
+                            style: headline7.copyWith(color: AppColors.white)),
+                        Text(
+                            MoneyFormat.formatMoneyRound(
+                                walletState.portfolioTotal.value.value ?? ""),
+                            style: headline6.copyWith(color: AppColors.white)),
+                      ],
+                    ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(S.of(context).gain_loss_temporary,
+                          style: headline7.copyWith(color: AppColors.white)),
+                      Text(
+                          MoneyFormat.formatMoneyRound(
+                              walletState.portfolioTotal.value.gainLossValue ?? ""),
+                          style: headline6.copyWith(color: AppColors.white)),
+                    ],
+                  )
+                ],
+              ),
+            )),
+        const SizedBox(height: 10),
         Row(
           children: [
             Expanded(
@@ -77,15 +118,73 @@ class _MenuTabBarState extends State<MenuTabBar>
         ),
         const SizedBox(height: 10),
         Container(
-          padding:
-          const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
           decoration: BoxDecoration(
               color: Theme.of(context).primaryColor.withOpacity(0.08),
               borderRadius: BorderRadius.circular(10)),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Mã/TT")
+              Expanded(
+                flex: 1,
+                child: Text(
+                  "Mã/TT",
+                  style: headline7,
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Tổng KD",
+                      style: headline7,
+                    ),
+                    const SizedBox(height: 1),
+                    SvgPicture.asset(AppImages.down_arrow)
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Column(
+                  children: [
+                    Text(
+                      "Giá TT/TB",
+                      style: headline7,
+                    ),
+                    const SizedBox(height: 1),
+                    SvgPicture.asset(AppImages.down_arrow)
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Column(
+                  children: [
+                    Text(
+                      "Tỉ trọng(%)",
+                      style: headline7,
+                    ),
+                    const SizedBox(height: 1),
+                    SvgPicture.asset(AppImages.down_arrow)
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Column(
+                  children: [
+                    Text(
+                      "Lãi/Lỗ tạm tính",
+                      style: headline7,
+                    ),
+                    const SizedBox(height: 1),
+                    SvgPicture.asset(AppImages.down_arrow)
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -106,65 +205,41 @@ class _MenuTabBarState extends State<MenuTabBar>
                     Row(
                       children: [
                         Expanded(
+                            flex: 1,
                             child: Text(
-                          S.of(context).stock_code,
-                          style: headline8,
-                        )),
-                        Expanded(
-                            child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            S.of(context).volume_short,
-                            style: headline8,
-                          ),
-                        )),
-                        Expanded(
-                            child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            S.of(context).gain_loss_percent,
-                            style: headline8,
-                          ),
-                        )),
+                              walletState.portfolioList[index].symbol ?? "",
+                              style: headline6,
+                            )),
                         Expanded(
                             flex: 2,
                             child: Align(
-                              alignment: Alignment.centerRight,
+                              alignment: Alignment.center,
                               child: Text(
-                                S.of(context).gain_loss_value,
-                                style: headline8,
+                                walletState.portfolioList[index].avaiableVol ??
+                                    "",
+                                style: headline6,
                               ),
                             )),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 7,
-                    ),
-                    Row(
-                      children: [
                         Expanded(
-                            child: Text(
-                          walletState.portfolioList[index].symbol ?? "",
-                          style: headline7,
-                        )),
-                        Expanded(
+                            flex: 2,
                             child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            walletState.portfolioList[index].avaiableVol ?? "",
-                            style: headline7,
-                          ),
-                        )),
+                              alignment: Alignment.center,
+                              child: Text(
+                                walletState.portfolioList[index].avgPrice ?? "",
+                                style: headline6,
+                              ),
+                            )),
                         Expanded(
+                            flex: 2,
                             child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            walletState.portfolioList[index].gainLossPer ?? "",
-                            style: headline7.copyWith(
-                                color:
-                                    walletState.portfolioList[index].glColor),
-                          ),
-                        )),
+                              alignment: Alignment.center,
+                              child: Text(
+                                '${walletState.portfolioList[index].gainLossPer}',
+                                style: headline7.copyWith(
+                                    color: walletState
+                                        .portfolioList[index].glColor),
+                              ),
+                            )),
                         Expanded(
                             flex: 2,
                             child: Align(
@@ -175,6 +250,64 @@ class _MenuTabBarState extends State<MenuTabBar>
                                     color: walletState
                                         .portfolioList[index].glColor),
                               ),
+                            )),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Expanded(
+                            flex: 1,
+                            child: Text(
+                              S.of(context).sell_t0,
+                              style: headline7,
+                            )),
+                        Expanded(
+                            flex: 1,
+                            child: Text(
+                              S.of(context).sell_t1,
+                              style: headline7,
+                            )),
+                        Expanded(
+                            flex: 1,
+                            child: Text(
+                              S.of(context).sell_t2,
+                              style: headline7,
+                            )),
+                        Expanded(
+                            flex: 1,
+                            child: Text(
+                              S.of(context).sell_t_back,
+                              style: headline7,
+                            )),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                            flex: 1,
+                            child: Text(
+                              walletState.portfolioList[index].sellT0 ?? "",
+                              style: headline6,
+                            )),
+                        Expanded(
+                            flex: 1,
+                            child: Text(
+                              walletState.portfolioList[index].sellT1 ?? "",
+                              style: headline6,
+                            )),
+                        Expanded(
+                            flex: 1,
+                            child: Text(
+                              walletState.portfolioList[index].sellT2 ?? "",
+                              style: headline6,
+                            )),
+                        Expanded(
+                            flex: 1,
+                            child: Text(
+                              walletState.portfolioList[index].sellUnmatchVol ??
+                                  "",
+                              style: headline6,
                             )),
                       ],
                     ),

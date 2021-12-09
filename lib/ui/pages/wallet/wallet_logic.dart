@@ -27,6 +27,7 @@ class WalletLogic extends GetxController {
         _requestParams.session = _tokenEntity.data?.sid;
         await getAccountStatus();
         await getPortfolio();
+        await getPortfolioAccountStatus();
       } else {
         throw (Exception);
       }
@@ -47,6 +48,20 @@ class WalletLogic extends GetxController {
       if (response!.data!.isNotEmpty) {
         state.assets.value = response.data!.first;
       }
+    } on ErrorException catch (error) {
+      AppSnackBar.showError(message: error.message);
+    }
+  }
+
+  Future<void> getPortfolioAccountStatus({String? account}) async {
+    ParamsObject _object = ParamsObject();
+    _object.type = "string";
+    _object.cmd = "Web.Portfolio.AccountStatus";
+    _object.p1 = account ?? defAcc;
+    _requestParams.data = _object;
+    try {
+      var response = await apiService.getPortfolioAccountStatus(_requestParams);
+      state.portfolioAccount.value = response!.data!;
     } on ErrorException catch (error) {
       AppSnackBar.showError(message: error.message);
     }
