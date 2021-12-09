@@ -79,6 +79,11 @@ class AppTextStyle {
       fontStyle: FontStyle.normal,
       fontSize: 12,
       fontWeight: FontWeight.w400);
+  static TextStyle caption2 = const TextStyle(
+      fontFamily: "Helvetica Neue",
+      fontStyle: FontStyle.normal,
+      fontSize: 14,
+      fontWeight: FontWeight.w300);
   static TextStyle subTitle1 = const TextStyle(
       fontFamily: "Helvetica Neue",
       fontStyle: FontStyle.normal,

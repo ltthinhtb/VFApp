@@ -92,5 +92,7 @@
   "ceil" : "Trần",
   "floor" : "Sàn",
   "reference" : "Tham chiếu",
-  "reference_short" : "TC"
+  "reference_short" : "TC",
+  "buy" : "Mua",
+  "sell" : "Bán"
 }

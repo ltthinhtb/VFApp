@@ -18,13 +18,13 @@ class StockData {
   String? fSVolume;
   String? fSValue;
   String? fRoom;
-  String? g1;
-  String? g2;
-  String? g3;
-  String? g4;
-  String? g5;
-  String? g6;
-  String? g7;
+  G? g1;
+  G? g2;
+  G? g3;
+  G? g4;
+  G? g5;
+  G? g6;
+  G? g7;
   String? mp;
 
   StockData(
@@ -76,13 +76,13 @@ class StockData {
     fSVolume = json['fSVolume'];
     fSValue = json['fSValue'];
     fRoom = json['fRoom'];
-    g1 = json['g1'];
-    g2 = json['g2'];
-    g3 = json['g3'];
-    g4 = json['g4'];
-    g5 = json['g5'];
-    g6 = json['g6'];
-    g7 = json['g7'];
+    g1 = G.fromJson(json['g1']);
+    g2 = G.fromJson(json['g2']);
+    g3 = G.fromJson(json['g3']);
+    g4 = G.fromJson(json['g4']);
+    g5 = G.fromJson(json['g5']);
+    g6 = G.fromJson(json['g6']);
+    g7 = G.fromJson(json['g7']);
     mp = json['mp'];
   }
 
@@ -116,5 +116,25 @@ class StockData {
     data['g7'] = g7;
     data['mp'] = mp;
     return data;
+  }
+}
+
+class G {
+  String? price;
+  num? volumn;
+  String? status;
+  G({this.price, this.volumn, this.status});
+  G.fromJson(String data) {
+    if (data.isNotEmpty) {
+      List<String> _data = data.split('|');
+      // print(_data);
+      price = _data[0];
+      volumn = num.parse(_data[1]);
+      status = _data[2];
+    } else {
+      price = "0.0";
+      volumn = 0;
+      status = "e";
+    }
   }
 }

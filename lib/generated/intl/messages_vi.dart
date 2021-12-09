@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bond_code": MessageLookupByLibrary.simpleMessage("Mã trái phiếu"),
         "bond_history":
             MessageLookupByLibrary.simpleMessage("Các giao dịch gần đây"),
+        "buy": MessageLookupByLibrary.simpleMessage("Mua"),
         "cash_balance": MessageLookupByLibrary.simpleMessage("Tài sản ròng"),
         "category": MessageLookupByLibrary.simpleMessage("Khác"),
         "ceil": MessageLookupByLibrary.simpleMessage("Trần"),
@@ -108,6 +109,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "register": MessageLookupByLibrary.simpleMessage("Mở tài khoản"),
         "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
         "select_product": MessageLookupByLibrary.simpleMessage("Chọn sản phẩm"),
+        "sell": MessageLookupByLibrary.simpleMessage("Bán"),
         "settings_language": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
         "settings_languageEnglish":
             MessageLookupByLibrary.simpleMessage("English"),

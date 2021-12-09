@@ -93,5 +93,7 @@
   "ceil" : "Ceil",
   "floor" : "Floor",
   "reference" : "Reference",
-  "reference_short" : "Ref"
+  "reference_short" : "Ref",
+  "buy" : "Buy",
+  "sell" : "Sell"
 }

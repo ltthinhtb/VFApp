@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bond_assets": MessageLookupByLibrary.simpleMessage("Bond assets"),
         "bond_code": MessageLookupByLibrary.simpleMessage("Bond code"),
         "bond_history": MessageLookupByLibrary.simpleMessage("Bond history"),
+        "buy": MessageLookupByLibrary.simpleMessage("Buy"),
         "cash_balance": MessageLookupByLibrary.simpleMessage("Cash balance"),
         "category": MessageLookupByLibrary.simpleMessage("Menu"),
         "ceil": MessageLookupByLibrary.simpleMessage("Ceil"),
@@ -104,6 +105,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "select_product":
             MessageLookupByLibrary.simpleMessage("Select Product"),
+        "sell": MessageLookupByLibrary.simpleMessage("Sell"),
         "settings_language": MessageLookupByLibrary.simpleMessage("Language"),
         "settings_languageEnglish":
             MessageLookupByLibrary.simpleMessage("English"),

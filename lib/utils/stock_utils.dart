@@ -37,4 +37,15 @@ class StockUtil {
     }
     return '0';
   }
+
+  static String formatVol(num _number) {
+    try {
+      var numerators =
+          NumberFormat("###,###,###,###,###", 'en_US').format(_number);
+      return numerators;
+    } catch (e) {
+      logger.e(e.toString());
+    }
+    return '0';
+  }
 }
