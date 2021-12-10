@@ -32,35 +32,49 @@ class StockOrderLogic extends GetxController {
   }
 
   void getStockData(StockCompanyData data) async {
-    // print("getStockData");
     state.selectedStock.value = data;
     state.selectedStockData.value =
         await apiService.getStockData(data.stockCode!);
-    print(state.selectedStockData.value.sym);
     state
-      ..sumBuyVol.value = getSumBuyVol(state.selectedStockData.value)
-      ..sumSellVol.value = getSumSellVol(state.selectedStockData.value)
-      ..sumBSVol.value = getSumBSVol(state.selectedStockData.value);
+      ..sumBuyVol.value = getSumBuyVol()
+      ..sumSellVol.value = getSumSellVol()
+      ..sumBSVol.value = getSumBSVol()
+      ..stockExchange.value = getStockExchange()
+      ..priceType.value = "LO";
   }
 
-  double getSumBuyVol(StockData data) {
-    num _sum = data.g1!.volumn! + data.g2!.volumn! + data.g3!.volumn!;
-    // print('_sum $_sum');
+  StockExchange getStockExchange() {
+    switch (state.selectedStock.value.postTo) {
+      case "HOSE":
+        return StockExchange.HSX;
+      case "HNX":
+        return StockExchange.HNX;
+      default:
+        return StockExchange.UPCOM;
+    }
+  }
+
+  double getSumBuyVol() {
+    num _sum = state.selectedStockData.value.g1!.volumn! +
+        state.selectedStockData.value.g2!.volumn! +
+        state.selectedStockData.value.g3!.volumn!;
     return _sum.toDouble();
   }
 
-  double getSumSellVol(StockData data) {
-    num _sum = data.g4!.volumn! + data.g5!.volumn! + data.g6!.volumn!;
+  double getSumSellVol() {
+    num _sum = state.selectedStockData.value.g4!.volumn! +
+        state.selectedStockData.value.g5!.volumn! +
+        state.selectedStockData.value.g6!.volumn!;
     return _sum.toDouble();
   }
 
-  double getSumBSVol(StockData data) {
-    num _sum = data.g1!.volumn! +
-        data.g2!.volumn! +
-        data.g3!.volumn! +
-        data.g4!.volumn! +
-        data.g5!.volumn! +
-        data.g6!.volumn!;
+  double getSumBSVol() {
+    num _sum = state.selectedStockData.value.g1!.volumn! +
+        state.selectedStockData.value.g2!.volumn! +
+        state.selectedStockData.value.g3!.volumn! +
+        state.selectedStockData.value.g4!.volumn! +
+        state.selectedStockData.value.g5!.volumn! +
+        state.selectedStockData.value.g6!.volumn!;
     return _sum.toDouble();
   }
 

@@ -141,9 +141,6 @@ class _TotalVolumnPercentRowState extends State<TotalVolumnPercentRow>
 
   void updateAnimation() {
     _animationController.reset();
-    print("widget.buyValue ${widget.buyValue}");
-    print("widget.sellValue ${widget.sellValue}");
-    print("widget.sum ${widget.sum}");
     _animation =
         Tween<double>(begin: 0.0, end: 1.0).animate(_animationController)
           ..addStatusListener((status) {

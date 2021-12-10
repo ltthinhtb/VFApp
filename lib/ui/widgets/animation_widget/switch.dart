@@ -1,6 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:vf_app/common/app_colors.dart';
 
+class BackGroundPainter extends CustomPainter {
+  BackGroundPainter({
+    required this.value,
+    this.color = AppColors.primary,
+  });
+  final double value;
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    // TODO: implement paint
+    double conWidth = size.width / 2;
+    Paint _paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.fill;
+
+    canvas.save();
+
+    Rect _rect = Rect.fromLTWH(value * conWidth, 0, conWidth, size.height);
+    RRect _rRect = RRect.fromRectAndRadius(_rect, const Radius.circular(10));
+
+    canvas.drawRRect(_rRect, _paint);
+    canvas.restore();
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    // TODO: implement shouldRepaint
+    return oldDelegate != this;
+  }
+}
+
 class AnimatedSwitch extends StatefulWidget {
   AnimatedSwitch({
     Key? key,
@@ -37,10 +68,10 @@ class _AnimatedSwitchState extends State<AnimatedSwitch>
     super.initState();
 
     animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 100));
+        vsync: this, duration: const Duration(milliseconds: 200));
     var curvedAnimation =
         CurvedAnimation(parent: animationController, curve: Curves.linear);
-    animation = Tween<double>(begin: 0, end: 1).animate(curvedAnimation)
+    animation = Tween<double>(begin: 0.0, end: 1.0).animate(curvedAnimation)
       ..addListener(() {
         setState(() {
           if (widget.value) {
@@ -80,7 +111,6 @@ class _AnimatedSwitchState extends State<AnimatedSwitch>
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
       decoration: BoxDecoration(
@@ -91,70 +121,52 @@ class _AnimatedSwitchState extends State<AnimatedSwitch>
           border: Border.all(
             color: AppColors.grayF2,
           )),
-      child: Stack(
-        fit: StackFit.loose,
-        children: [
-          Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
-                color: _color,
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(10),
-                ),
-              ),
-              margin: EdgeInsets.only(
-                left:
-                    animation.value * ((width - (widget.padding * 2) - 4) / 2),
-                right: (1 - animation.value) *
-                    ((width - (widget.padding * 2) - 4) / 2),
-              ),
-            ),
-          ),
-          Container(
-            color: Colors.transparent,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      widget.onChange.call(true);
-                    },
-                    behavior: HitTestBehavior.translucent,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 15),
-                      alignment: Alignment.center,
-                      child: Text(
-                        widget.trueLabel,
-                        style: TextStyle(
-                          color: !widget.value ? Colors.black : Colors.white,
-                        ),
+      child: CustomPaint(
+        painter: BackGroundPainter(value: animation.value, color: _color),
+        child: Container(
+          color: Colors.transparent,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    widget.onChange.call(true);
+                  },
+                  behavior: HitTestBehavior.translucent,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    alignment: Alignment.center,
+                    child: Text(
+                      widget.trueLabel,
+                      style: TextStyle(
+                        color: !widget.value ? Colors.black : Colors.white,
                       ),
                     ),
                   ),
                 ),
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      widget.onChange.call(false);
-                    },
-                    behavior: HitTestBehavior.translucent,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 15),
-                      alignment: Alignment.center,
-                      child: Text(
-                        widget.falseLabel,
-                        style: TextStyle(
-                          color: widget.value ? Colors.black : Colors.white,
-                        ),
+              ),
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    widget.onChange.call(false);
+                  },
+                  behavior: HitTestBehavior.translucent,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    alignment: Alignment.center,
+                    child: Text(
+                      widget.falseLabel,
+                      style: TextStyle(
+                        color: widget.value ? Colors.black : Colors.white,
                       ),
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

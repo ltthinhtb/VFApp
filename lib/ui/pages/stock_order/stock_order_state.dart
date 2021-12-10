@@ -7,10 +7,14 @@ class StockOrderState {
   late TextEditingController stockCodeController;
   List<StockCompanyData> allStockCompanyData = <StockCompanyData>[];
 
+  var loading = false.obs;
+
   var foundStock = <StockCompanyData>[].obs;
   var selectedStock = StockCompanyData().obs;
 
   var isBuy = true.obs;
+  var stockExchange = StockExchange.HSX.obs;
+  var priceType = "LO".obs;
   var selectedStockData = StockData().obs;
 
   var sumBuyVol = 0.0.obs;
@@ -21,3 +25,5 @@ class StockOrderState {
     stockCodeController = TextEditingController(text: stockCode ?? 'APS');
   }
 }
+
+enum StockExchange { HSX, HNX, UPCOM }

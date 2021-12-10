@@ -8,6 +8,7 @@ import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
 import 'package:vf_app/services/setting_service.dart';
 import 'package:vf_app/ui/pages/stock_order/stock_order_logic.dart';
+import 'package:vf_app/ui/pages/stock_order/stock_order_state.dart';
 import 'package:vf_app/ui/pages/stock_order/widget/stock_order_appbar.dart';
 import 'package:vf_app/ui/widgets/animation_widget/price_row.dart';
 import 'package:vf_app/ui/widgets/animation_widget/switch.dart';
@@ -65,6 +66,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
               build3Gia(),
               buildVolPercent(),
               buildBSButton(),
+              buildPriceTypes(),
             ],
           ),
         ),
@@ -396,4 +398,83 @@ class _StockOrderPageState extends State<StockOrderPage> {
       ),
     );
   }
+
+  Widget buildPriceTypes() {
+    return Obx(() {
+      if (state.loading.value) {
+        return Container();
+      } else {
+        switch (state.stockExchange.value) {
+          case StockExchange.HSX:
+            return Container(
+              child: Row(
+                children: pricesHSX.asMap().entries.map<Widget>((entry) {
+                  int idx = entry.key;
+                  return buidButtonPrice(pricesHSX, idx);
+                }).toList(),
+              ),
+            );
+          case StockExchange.HNX:
+            return Container(
+              child: Row(
+                children: pricesHNX.asMap().entries.map<Widget>((entry) {
+                  int idx = entry.key;
+                  return buidButtonPrice(pricesHNX, idx);
+                }).toList(),
+              ),
+            );
+          default:
+            return Container(
+              child: Row(
+                children: pricesUPCOM.asMap().entries.map<Widget>((entry) {
+                  int idx = entry.key;
+                  return buidButtonPrice(pricesUPCOM, idx);
+                }).toList(),
+              ),
+            );
+        }
+      }
+    });
+  }
+
+  Widget buidButtonPrice(List<String> prices, int index) {
+    return Obx(
+      () => Expanded(
+        child: Padding(
+          padding: EdgeInsets.only(
+            left: index == 0 ? 0 : 5,
+            right: index == (prices.length - 1) ? 0 : 5,
+          ),
+          child: MaterialButton(
+            onPressed: () {
+              state.priceType.value = prices[index];
+            },
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            color: state.priceType.value == prices[index]
+                ? AppColors.background
+                : AppColors.primary2,
+            splashColor: state.priceType.value == prices[index]
+                ? AppColors.primary2.withOpacity(0.5)
+                : AppColors.background.withOpacity(0.5),
+            child: Text(
+              prices[index],
+              style: AppTextStyle.H5Bold.copyWith(
+                color: state.priceType.value == prices[index]
+                    ? Colors.white
+                    : AppColors.background,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
+
+List<String> pricesHSX = ["LO", "MP", "ATC", "ATO"];
+List<String> pricesHNX = ["LO", "MTL", "MOK", "MAK", "PLO"];
+
+List<String> pricesUPCOM = ["LO"];
