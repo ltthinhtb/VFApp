@@ -55,6 +55,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: StockOrderAppbar(
         onLeadingPress: () {},
@@ -79,6 +80,22 @@ class _StockOrderPageState extends State<StockOrderPage> {
           ),
         ),
       ),
+      floatingActionButton: MaterialButton(
+        minWidth: width - 30,
+        height: 50,
+        color: AppColors.primary,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
+        onPressed: () {},
+        child: Text(
+          "Đặt lệnh",
+          style: AppTextStyle.H5Bold.copyWith(color: Colors.white),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
@@ -488,6 +505,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
   Widget buildPriceInput() {
     return Obx(
       () => Container(
+        padding: const EdgeInsets.symmetric(vertical: 15),
         child: Column(
           children: [
             Row(

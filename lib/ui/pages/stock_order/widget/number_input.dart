@@ -154,31 +154,34 @@ class _NumberInputFieldState extends State<NumberInputField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 50,
-        padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
-        decoration: BoxDecoration(
-          color: widget.backgroundColor,
-          // color: Colors.green,
-          borderRadius: const BorderRadius.all(
-            Radius.circular(14),
-          ),
-          border: Border.all(
-            color: widget.buttonColor,
-          ),
+      height: 50,
+      padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),
+      decoration: BoxDecoration(
+        color: widget.backgroundColor,
+        // color: Colors.green,
+        borderRadius: const BorderRadius.all(
+          Radius.circular(14),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Container(
-              alignment: Alignment.center,
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: CustomPaint(
-                  painter: BackGroundPainter(color: _color),
-                  child: MaterialButton(
-                    onPressed: () {
-                      if (enabled) {
+        border: Border.all(
+          color: widget.buttonColor,
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Container(
+            alignment: Alignment.center,
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: CustomPaint(
+                painter: BackGroundPainter(color: _color),
+                child: MaterialButton(
+                  onPressed: () {
+                    if (enabled) {
+                      if (double.parse(widget.editingController.text) -
+                              widget.dist >=
+                          0) {
                         setState(() {
                           currentValue =
                               double.parse(widget.editingController.text) -
@@ -186,118 +189,72 @@ class _NumberInputFieldState extends State<NumberInputField> {
                         });
                         widget.onChange?.call(currentValue);
                       }
-                    },
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(14),
-                      ),
+                    }
+                  },
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(14),
                     ),
                   ),
                 ),
               ),
             ),
-            Expanded(
-              child: Container(
-                alignment: Alignment.center,
-                // color: Colors.green,
-                child: TextField(
-                  controller: widget.editingController,
-                  focusNode: _focusNode,
-                  enableSuggestions: false,
-                  enabled: enabled,
-                  autocorrect: false,
-                  textAlign: TextAlign.center,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.zero,
-                    isDense: true,
-                    hintText: _hintText,
-                    hintStyle: AppTextStyle.H4Regular,
-                    filled: true,
-                    fillColor: Colors.transparent,
-                    errorBorder: InputBorder.none,
-                    enabledBorder: InputBorder.none,
-                    disabledBorder: InputBorder.none,
-                    border: InputBorder.none,
-                    focusedErrorBorder: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                  ),
+          ),
+          Expanded(
+            child: Container(
+              alignment: Alignment.center,
+              // color: Colors.green,
+              child: TextField(
+                controller: widget.editingController,
+                focusNode: _focusNode,
+                enableSuggestions: false,
+                enabled: enabled,
+                autocorrect: false,
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.zero,
+                  isDense: true,
+                  hintText: _hintText,
+                  hintStyle: AppTextStyle.H4Regular,
+                  filled: true,
+                  fillColor: Colors.transparent,
+                  errorBorder: InputBorder.none,
+                  enabledBorder: InputBorder.none,
+                  disabledBorder: InputBorder.none,
+                  border: InputBorder.none,
+                  focusedErrorBorder: InputBorder.none,
+                  focusedBorder: InputBorder.none,
                 ),
               ),
             ),
-            Container(
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: CustomPaint(
-                  painter: BackGroundPainter2(color: _color),
-                  child: MaterialButton(
-                    onPressed: () {
-                      if (enabled) {
-                        setState(() {
-                          currentValue =
-                              double.parse(widget.editingController.text) +
-                                  widget.dist;
-                        });
-                        widget.onChange?.call(currentValue);
-                      }
-                    },
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(14),
-                      ),
+          ),
+          Container(
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: CustomPaint(
+                painter: BackGroundPainter2(color: _color),
+                child: MaterialButton(
+                  onPressed: () {
+                    if (enabled) {
+                      setState(() {
+                        currentValue =
+                            double.parse(widget.editingController.text) +
+                                widget.dist;
+                      });
+                      widget.onChange?.call(currentValue);
+                    }
+                  },
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(14),
                     ),
                   ),
                 ),
               ),
             ),
-          ],
-        )
-        // CustomPaint(
-        //   painter: BackGroundPainter(color: _color),
-        //   child: Container(
-        //     color: Colors.transparent,
-        //     child: Row(
-        //       mainAxisSize: MainAxisSize.min,
-        //       children: [
-        //         Expanded(
-        //           child: GestureDetector(
-        //             onTap: () {
-        //               widget.onChange.call(true);
-        //             },
-        //             behavior: HitTestBehavior.translucent,
-        //             child: Container(
-        //               padding: const EdgeInsets.symmetric(vertical: 15),
-        //               alignment: Alignment.center,
-        //               child: Text(
-        //                 widget.trueLabel,
-        //                 style: TextStyle(
-        //                   color: !widget.value ? Colors.black : Colors.white,
-        //                 ),
-        //               ),
-        //             ),
-        //           ),
-        //         ),
-        //         Expanded(
-        //           child: GestureDetector(
-        //             onTap: () {
-        //               widget.onChange.call(false);
-        //             },
-        //             behavior: HitTestBehavior.translucent,
-        //             child: Container(
-        //               padding: const EdgeInsets.symmetric(vertical: 15),
-        //               alignment: Alignment.center,
-        //               child: Text(
-        //                 widget.falseLabel,
-        //                 style: TextStyle(
-        //                   color: widget.value ? Colors.black : Colors.white,
-        //                 ),
-        //               ),
-        //             ),
-        //           ),
-        //         ),
-        //       ],
-        //     ),
-        //   ),
-        // ),
-        );
+          ),
+        ],
+      ),
+    );
   }
 }
