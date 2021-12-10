@@ -9,6 +9,7 @@ import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
 import 'package:vf_app/services/setting_service.dart';
 import 'package:vf_app/ui/pages/stock_order/stock_order_logic.dart';
 import 'package:vf_app/ui/pages/stock_order/stock_order_state.dart';
+import 'package:vf_app/ui/pages/stock_order/widget/number_input.dart';
 import 'package:vf_app/ui/pages/stock_order/widget/stock_order_appbar.dart';
 import 'package:vf_app/ui/widgets/animation_widget/price_row.dart';
 import 'package:vf_app/ui/widgets/animation_widget/switch.dart';
@@ -30,19 +31,25 @@ class _StockOrderPageState extends State<StockOrderPage> {
   final state = Get.find<StockOrderLogic>().state;
   final settingService = Get.find<SettingService>();
 
+  final TextEditingController _priceController = TextEditingController();
+  final TextEditingController _volController = TextEditingController();
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     setState(() {
       state.isBuy.value = widget.isBuy;
+      _priceController.text = state.price.toString();
+      _volController.text = state.vol.toString();
     });
   }
 
-  void changeStock(StockCompanyData? data) {
+  void changeStock(StockCompanyData? data) async {
     // print(data?.stockCode);
     if (data != null) {
-      logic.getStockData(data);
+      await logic.getStockData(data);
+      _priceController.text = state.price.value.toString();
     }
   }
 
@@ -67,6 +74,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
               buildVolPercent(),
               buildBSButton(),
               buildPriceTypes(),
+              buildPriceInput()
             ],
           ),
         ),
@@ -75,8 +83,6 @@ class _StockOrderPageState extends State<StockOrderPage> {
   }
 
   Widget buildTopItem() {
-    var width = MediaQuery.of(context).size.width;
-
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15),
       child: Container(
@@ -448,13 +454,19 @@ class _StockOrderPageState extends State<StockOrderPage> {
           child: MaterialButton(
             onPressed: () {
               state.priceType.value = prices[index];
+              if (state.selectedStock.value.stockCode != null &&
+                  prices[index] == "MP") {
+                state.price.value =
+                    state.selectedStockData.value.lastPrice!.toDouble();
+                _priceController.text = state.price.value.toString();
+              }
             },
             elevation: 0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
             color: state.priceType.value == prices[index]
-                ? AppColors.background
+                ? AppColors.primary
                 : AppColors.primary2,
             splashColor: state.priceType.value == prices[index]
                 ? AppColors.primary2.withOpacity(0.5)
@@ -470,6 +482,86 @@ class _StockOrderPageState extends State<StockOrderPage> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget buildPriceInput() {
+    return Obx(
+      () => Container(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    child: const Text("Giá :"),
+                  ),
+                ),
+                Expanded(
+                  flex: 5,
+                  child: Container(
+                    child: NumberInputField(
+                      label: "Giá",
+                      editingController: _priceController,
+                      dist: 0.1,
+                      enabled: state.selectedStock.value.stockCode != null
+                          ? true
+                          : false,
+                      onChange: (value) {
+                        _priceController.text = value.toStringAsFixed(1);
+                        state
+                          ..price.value = value
+                          ..priceType.value = "LO";
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              height: 15,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    child: const Text("Khối lượng :"),
+                  ),
+                ),
+                Expanded(
+                  flex: 5,
+                  child: Container(
+                    child: NumberInputField(
+                      label: "Khối lượng",
+                      editingController: _volController,
+                      dist: 10,
+                      enabled: state.selectedStock.value.stockCode != null
+                          ? true
+                          : false,
+                      onChange: (value) {
+                        _volController.text = value.toStringAsFixed(0);
+                        state.vol.value = value.round();
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildInput(String label, TextEditingController controller, double dist,
+      bool enabled) {
+    return NumberInputField(
+      label: label,
+      editingController: controller,
+      dist: dist,
+      enabled: enabled,
     );
   }
 }

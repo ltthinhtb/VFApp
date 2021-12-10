@@ -11,11 +11,13 @@ class StockOrderState {
 
   var foundStock = <StockCompanyData>[].obs;
   var selectedStock = StockCompanyData().obs;
+  var selectedStockData = StockData().obs;
 
   var isBuy = true.obs;
   var stockExchange = StockExchange.HSX.obs;
   var priceType = "LO".obs;
-  var selectedStockData = StockData().obs;
+  var price = 0.0.obs;
+  var vol = 0.obs;
 
   var sumBuyVol = 0.0.obs;
   var sumSellVol = 0.0.obs;

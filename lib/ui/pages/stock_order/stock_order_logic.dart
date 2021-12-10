@@ -31,7 +31,7 @@ class StockOrderLogic extends GetxController {
     state.allStockCompanyData = await apiService.getAllStockCompanyData();
   }
 
-  void getStockData(StockCompanyData data) async {
+  Future<void> getStockData(StockCompanyData data) async {
     state.selectedStock.value = data;
     state.selectedStockData.value =
         await apiService.getStockData(data.stockCode!);
@@ -40,8 +40,11 @@ class StockOrderLogic extends GetxController {
       ..sumSellVol.value = getSumSellVol()
       ..sumBSVol.value = getSumBSVol()
       ..stockExchange.value = getStockExchange()
-      ..priceType.value = "LO";
+      ..priceType.value = "MP"
+      ..price.value = state.selectedStockData.value.lastPrice!.toDouble();
   }
+
+  void changePrice() {}
 
   StockExchange getStockExchange() {
     switch (state.selectedStock.value.postTo) {
