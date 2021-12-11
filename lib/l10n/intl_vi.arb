@@ -82,12 +82,6 @@
   "open_on": "Mở tại",
   "bank_account": "Số tài khoản",
   "content_transfer": "Nội dung chuyển khoản",
-  "policy_use": "Điều khoản sử dụng",
-  "contact_support": "Liên hệ hỗ trợ",
-  "total_assets": "Tổng tài sản",
-  "cash_balance": "Tài sản ròng",
-  "collaborative_assets": "Tài sản hợp tác",
-  "collaborative_assets_total": "Tổng giá trị CK hợp tác",
   "deposit_fee": "Tổng phí",
   "start_day": "Từ ngày",
   "end_day": "Đến ngày",
@@ -102,6 +96,18 @@
   "sell_t2" : "Chở về T2",
   "sell_t_back" : "Quyền trở về",
   "total_transfer" : "Tổng giá trị CK",
-  "gain_loss_temporary" : "Lãi lỗ tạm thời"
-
+  "gain_loss_temporary" : "Lãi lỗ tạm thời",
+  "policy_use" : "Điều khoản sử dụng",
+  "contact_support" : "Liên hệ hỗ trợ",
+  "total_assets" : "Tổng tài sản",
+  "cash_balance" : "Tài sản ròng",
+  "collaborative_assets" : "Tài sản hợp tác",
+  "collaborative_assets_total" : "Tổng giá trị CK hợp tác",
+  "volumn" : "Khối lượng",
+  "ceil" : "Trần",
+  "floor" : "Sàn",
+  "reference" : "Tham chiếu",
+  "reference_short" : "TC",
+  "buy" : "Mua",
+  "sell" : "Bán"
 }

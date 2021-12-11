@@ -31,8 +31,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "bond_code": MessageLookupByLibrary.simpleMessage("Mã trái phiếu"),
         "bond_history":
             MessageLookupByLibrary.simpleMessage("Các giao dịch gần đây"),
+        "buy": MessageLookupByLibrary.simpleMessage("Mua"),
         "cash_balance": MessageLookupByLibrary.simpleMessage("Tài sản ròng"),
         "category": MessageLookupByLibrary.simpleMessage("Khác"),
+        "ceil": MessageLookupByLibrary.simpleMessage("Trần"),
         "collaborative_assets":
             MessageLookupByLibrary.simpleMessage("Tài sản hợp tác"),
         "collaborative_assets_total":
@@ -52,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "end_day": MessageLookupByLibrary.simpleMessage("Đến ngày"),
         "error": MessageLookupByLibrary.simpleMessage("Lỗi"),
         "fee": MessageLookupByLibrary.simpleMessage("Phí đầu tư"),
+        "floor": MessageLookupByLibrary.simpleMessage("Sàn"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("Quên mật khẩu?"),
         "gain_loss_percent": MessageLookupByLibrary.simpleMessage("Lãi lỗ (%)"),
         "gain_loss_temporary":
@@ -110,9 +113,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "profit_total": MessageLookupByLibrary.simpleMessage("Tổng lãi lỗ"),
         "receive_money":
             MessageLookupByLibrary.simpleMessage("Tổng nhận thực tế"),
+        "reference": MessageLookupByLibrary.simpleMessage("Tham chiếu"),
+        "reference_short": MessageLookupByLibrary.simpleMessage("TC"),
         "register": MessageLookupByLibrary.simpleMessage("Mở tài khoản"),
         "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
         "select_product": MessageLookupByLibrary.simpleMessage("Chọn sản phẩm"),
+        "sell": MessageLookupByLibrary.simpleMessage("Bán"),
         "sell_t0": MessageLookupByLibrary.simpleMessage("Chở về T0"),
         "sell_t1": MessageLookupByLibrary.simpleMessage("Chở về T1"),
         "sell_t2": MessageLookupByLibrary.simpleMessage("Chở về T2"),
@@ -159,6 +165,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "user_name":
             MessageLookupByLibrary.simpleMessage("Số tài khoản/Số điện thoại "),
         "volume_short": MessageLookupByLibrary.simpleMessage("KL"),
+        "volumn": MessageLookupByLibrary.simpleMessage("Khối lượng"),
         "wallet": MessageLookupByLibrary.simpleMessage("Tài sản"),
         "year": MessageLookupByLibrary.simpleMessage("năm")
       };

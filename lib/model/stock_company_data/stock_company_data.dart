@@ -1,5 +1,3 @@
-enum StockExchange { HOSE, HNX, UPCOM }
-
 class StockCompanyData {
   String? stockCode;
   String? nameVn;

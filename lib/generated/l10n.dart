@@ -860,96 +860,6 @@ class S {
     );
   }
 
-  /// `Bank account`
-  String get bank_account {
-    return Intl.message(
-      'Bank account',
-      name: 'bank_account',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Content`
-  String get content_transfer {
-    return Intl.message(
-      'Content',
-      name: 'content_transfer',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Policy`
-  String get policy_use {
-    return Intl.message(
-      'Policy',
-      name: 'policy_use',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Support`
-  String get contact_support {
-    return Intl.message(
-      'Support',
-      name: 'contact_support',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Total assets`
-  String get total_assets {
-    return Intl.message(
-      'Total assets',
-      name: 'total_assets',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Cash balance`
-  String get cash_balance {
-    return Intl.message(
-      'Cash balance',
-      name: 'cash_balance',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Collaborative Assets`
-  String get collaborative_assets {
-    return Intl.message(
-      'Collaborative Assets',
-      name: 'collaborative_assets',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Collaborative assets total`
-  String get collaborative_assets_total {
-    return Intl.message(
-      'Collaborative assets total',
-      name: 'collaborative_assets_total',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Deposit fee`
-  String get deposit_fee {
-    return Intl.message(
-      'Deposit fee',
-      name: 'deposit_fee',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Start day`
   String get start_day {
     return Intl.message(
@@ -1085,6 +995,166 @@ class S {
     return Intl.message(
       'Gain Loss Temporary',
       name: 'gain_loss_temporary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bank account`
+  String get bank_account {
+    return Intl.message(
+      'Bank account',
+      name: 'bank_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Content`
+  String get content_transfer {
+    return Intl.message(
+      'Content',
+      name: 'content_transfer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Policy`
+  String get policy_use {
+    return Intl.message(
+      'Policy',
+      name: 'policy_use',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Support`
+  String get contact_support {
+    return Intl.message(
+      'Support',
+      name: 'contact_support',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total assets`
+  String get total_assets {
+    return Intl.message(
+      'Total assets',
+      name: 'total_assets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cash balance`
+  String get cash_balance {
+    return Intl.message(
+      'Cash balance',
+      name: 'cash_balance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Collaborative Assets`
+  String get collaborative_assets {
+    return Intl.message(
+      'Collaborative Assets',
+      name: 'collaborative_assets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Collaborative assets total`
+  String get collaborative_assets_total {
+    return Intl.message(
+      'Collaborative assets total',
+      name: 'collaborative_assets_total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Deposit fee`
+  String get deposit_fee {
+    return Intl.message(
+      'Deposit fee',
+      name: 'deposit_fee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Volumn`
+  String get volumn {
+    return Intl.message(
+      'Volumn',
+      name: 'volumn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ceil`
+  String get ceil {
+    return Intl.message(
+      'Ceil',
+      name: 'ceil',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Floor`
+  String get floor {
+    return Intl.message(
+      'Floor',
+      name: 'floor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reference`
+  String get reference {
+    return Intl.message(
+      'Reference',
+      name: 'reference',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ref`
+  String get reference_short {
+    return Intl.message(
+      'Ref',
+      name: 'reference_short',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Buy`
+  String get buy {
+    return Intl.message(
+      'Buy',
+      name: 'buy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sell`
+  String get sell {
+    return Intl.message(
+      'Sell',
+      name: 'sell',
       desc: '',
       args: [],
     );

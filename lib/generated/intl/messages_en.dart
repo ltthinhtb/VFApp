@@ -29,8 +29,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "bond_assets": MessageLookupByLibrary.simpleMessage("Bond assets"),
         "bond_code": MessageLookupByLibrary.simpleMessage("Bond code"),
         "bond_history": MessageLookupByLibrary.simpleMessage("Bond history"),
+        "buy": MessageLookupByLibrary.simpleMessage("Buy"),
         "cash_balance": MessageLookupByLibrary.simpleMessage("Cash balance"),
         "category": MessageLookupByLibrary.simpleMessage("Menu"),
+        "ceil": MessageLookupByLibrary.simpleMessage("Ceil"),
         "collaborative_assets":
             MessageLookupByLibrary.simpleMessage("Collaborative Assets"),
         "collaborative_assets_total":
@@ -48,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "end_day": MessageLookupByLibrary.simpleMessage("End day"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "fee": MessageLookupByLibrary.simpleMessage("Fee"),
+        "floor": MessageLookupByLibrary.simpleMessage("Floor"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("Forgot password?"),
         "gain_loss_percent":
             MessageLookupByLibrary.simpleMessage("Gain loss (%)"),
@@ -105,10 +108,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "profit": MessageLookupByLibrary.simpleMessage("Profit"),
         "profit_total": MessageLookupByLibrary.simpleMessage("Profit total"),
         "receive_money": MessageLookupByLibrary.simpleMessage("Receive money"),
+        "reference": MessageLookupByLibrary.simpleMessage("Reference"),
+        "reference_short": MessageLookupByLibrary.simpleMessage("Ref"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "select_product":
             MessageLookupByLibrary.simpleMessage("Select Product"),
+        "sell": MessageLookupByLibrary.simpleMessage("Sell"),
         "sell_t0": MessageLookupByLibrary.simpleMessage("Sell T0"),
         "sell_t1": MessageLookupByLibrary.simpleMessage("Sell T1"),
         "sell_t2": MessageLookupByLibrary.simpleMessage("Sell T2"),
@@ -155,6 +161,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "user": MessageLookupByLibrary.simpleMessage("User"),
         "user_name": MessageLookupByLibrary.simpleMessage("Username"),
         "volume_short": MessageLookupByLibrary.simpleMessage("Volume"),
+        "volumn": MessageLookupByLibrary.simpleMessage("Volumn"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
         "year": MessageLookupByLibrary.simpleMessage("year")
       };
