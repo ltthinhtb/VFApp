@@ -29,6 +29,8 @@ class StockOrderPage extends StatefulWidget {
 class _StockOrderPageState extends State<StockOrderPage> {
   final logic = Get.put(StockOrderLogic());
   final state = Get.find<StockOrderLogic>().state;
+
+  //Bỏ settingService đi
   final settingService = Get.find<SettingService>();
 
   final TextEditingController _priceController = TextEditingController();

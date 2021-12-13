@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:vf_app/common/app_images.dart';
-import 'package:vf_app/common/app_text_styles.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
 import 'package:vf_app/services/setting_service.dart';
@@ -21,6 +20,7 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   final logic = Get.put(SearchLogic());
   final state = Get.find<SearchLogic>().state;
+  // bỏ setting service đi
   final settingService = Get.find<SettingService>();
 
   final TextEditingController _textEditingController = TextEditingController();
@@ -95,6 +95,7 @@ class _SearchPageState extends State<SearchPage> {
             Expanded(
               child: Container(
                 alignment: Alignment.centerRight,
+                // tạo thêm 1 common icon button nhé
                 child: MaterialButton(
                   onPressed: () => _isLike = !_isLike,
                   animationDuration: const Duration(microseconds: 100),
@@ -112,6 +113,7 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
+  // chuyển thành common widget nhé
   PreferredSizeWidget _customAppbar() {
     return AppBar(
       elevation: 0,

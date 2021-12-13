@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account": MessageLookupByLibrary.simpleMessage("Account"),
         "account_user": MessageLookupByLibrary.simpleMessage("User"),
         "assets": MessageLookupByLibrary.simpleMessage("Assets"),
         "bank_account": MessageLookupByLibrary.simpleMessage("Bank account"),
@@ -46,10 +47,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Account is empty"),
         "empty_password":
             MessageLookupByLibrary.simpleMessage("Password is empty"),
+        "end_day": MessageLookupByLibrary.simpleMessage("End day"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "fee": MessageLookupByLibrary.simpleMessage("Fee"),
         "floor": MessageLookupByLibrary.simpleMessage("Floor"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("Forgot password?"),
+        "gain_loss_percent":
+            MessageLookupByLibrary.simpleMessage("Gain loss (%)"),
+        "gain_loss_temporary":
+            MessageLookupByLibrary.simpleMessage("Gain Loss Temporary"),
+        "gain_loss_value":
+            MessageLookupByLibrary.simpleMessage("Gain loss value"),
         "have_account": MessageLookupByLibrary.simpleMessage("Have account"),
         "history": MessageLookupByLibrary.simpleMessage("History"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -98,6 +106,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "policy_use": MessageLookupByLibrary.simpleMessage("Policy"),
         "product": MessageLookupByLibrary.simpleMessage("Product"),
         "profit": MessageLookupByLibrary.simpleMessage("Profit"),
+        "profit_total": MessageLookupByLibrary.simpleMessage("Profit total"),
         "receive_money": MessageLookupByLibrary.simpleMessage("Receive money"),
         "reference": MessageLookupByLibrary.simpleMessage("Reference"),
         "reference_short": MessageLookupByLibrary.simpleMessage("Ref"),
@@ -106,6 +115,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "select_product":
             MessageLookupByLibrary.simpleMessage("Select Product"),
         "sell": MessageLookupByLibrary.simpleMessage("Sell"),
+        "sell_t0": MessageLookupByLibrary.simpleMessage("Sell T0"),
+        "sell_t1": MessageLookupByLibrary.simpleMessage("Sell T1"),
+        "sell_t2": MessageLookupByLibrary.simpleMessage("Sell T2"),
+        "sell_t_back": MessageLookupByLibrary.simpleMessage("Sell back"),
         "settings_language": MessageLookupByLibrary.simpleMessage("Language"),
         "settings_languageEnglish":
             MessageLookupByLibrary.simpleMessage("English"),
@@ -131,11 +144,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "Choose a free beautiful number account"),
         "splash_title3": MessageLookupByLibrary.simpleMessage(
             "With only 3 minutes to open an account"),
+        "start_day": MessageLookupByLibrary.simpleMessage("Start day"),
         "status": MessageLookupByLibrary.simpleMessage("Status"),
+        "stock_code": MessageLookupByLibrary.simpleMessage("Stock code"),
         "stock_market": MessageLookupByLibrary.simpleMessage("Stock market"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "total_assets": MessageLookupByLibrary.simpleMessage("Total assets"),
+        "total_transfer":
+            MessageLookupByLibrary.simpleMessage("Total transfer"),
         "transfer_information":
             MessageLookupByLibrary.simpleMessage("Transfer information"),
         "transfer_payment":
@@ -143,6 +160,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "up_to": MessageLookupByLibrary.simpleMessage("Up to"),
         "user": MessageLookupByLibrary.simpleMessage("User"),
         "user_name": MessageLookupByLibrary.simpleMessage("Username"),
+        "volume_short": MessageLookupByLibrary.simpleMessage("Volume"),
         "volumn": MessageLookupByLibrary.simpleMessage("Volumn"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
         "year": MessageLookupByLibrary.simpleMessage("year")

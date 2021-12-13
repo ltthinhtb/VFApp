@@ -860,6 +860,146 @@ class S {
     );
   }
 
+  /// `Start day`
+  String get start_day {
+    return Intl.message(
+      'Start day',
+      name: 'start_day',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `End day`
+  String get end_day {
+    return Intl.message(
+      'End day',
+      name: 'end_day',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account`
+  String get account {
+    return Intl.message(
+      'Account',
+      name: 'account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profit total`
+  String get profit_total {
+    return Intl.message(
+      'Profit total',
+      name: 'profit_total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stock code`
+  String get stock_code {
+    return Intl.message(
+      'Stock code',
+      name: 'stock_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Volume`
+  String get volume_short {
+    return Intl.message(
+      'Volume',
+      name: 'volume_short',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gain loss (%)`
+  String get gain_loss_percent {
+    return Intl.message(
+      'Gain loss (%)',
+      name: 'gain_loss_percent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gain loss value`
+  String get gain_loss_value {
+    return Intl.message(
+      'Gain loss value',
+      name: 'gain_loss_value',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sell T0`
+  String get sell_t0 {
+    return Intl.message(
+      'Sell T0',
+      name: 'sell_t0',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sell T1`
+  String get sell_t1 {
+    return Intl.message(
+      'Sell T1',
+      name: 'sell_t1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sell T2`
+  String get sell_t2 {
+    return Intl.message(
+      'Sell T2',
+      name: 'sell_t2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sell back`
+  String get sell_t_back {
+    return Intl.message(
+      'Sell back',
+      name: 'sell_t_back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total transfer`
+  String get total_transfer {
+    return Intl.message(
+      'Total transfer',
+      name: 'total_transfer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gain Loss Temporary`
+  String get gain_loss_temporary {
+    return Intl.message(
+      'Gain Loss Temporary',
+      name: 'gain_loss_temporary',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Bank account`
   String get bank_account {
     return Intl.message(

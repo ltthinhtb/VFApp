@@ -124,7 +124,7 @@ class AppThemes {
         .copyWith(primary: AppColors.grayF2, primaryVariant: AppColors.primary),
   );
   static final ToggleButtonsThemeData _toggleButtonDecorationLightTheme =
-      ToggleButtonsThemeData(
+      const ToggleButtonsThemeData(
     color: AppColors.grayF2,
     focusColor: AppColors.grayF2,
     hoverColor: AppColors.grayF2,
@@ -144,7 +144,7 @@ class AppThemes {
       unselectedLabelColor: AppColors.black,
       labelStyle: AppTextStyle.H7Bold,
       indicatorSize: TabBarIndicatorSize.tab,
-      labelPadding: const EdgeInsets.symmetric(vertical: 5),
+      labelPadding: const EdgeInsets.symmetric(vertical: 10),
       indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(8), color: AppColors.primary));
 

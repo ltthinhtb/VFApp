@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vf_app/common/app_images.dart';
+import 'enum.dart';
 
 class AppTextFieldWidget extends StatefulWidget {
   final TextEditingController? inputController;
@@ -16,6 +17,7 @@ class AppTextFieldWidget extends StatefulWidget {
   final bool autoFocus;
   final SvgPicture? prefixIcon;
   final int? maxLength;
+  final TextFieldType? textFieldType;
 
   AppTextFieldWidget({
     this.inputController,
@@ -30,6 +32,7 @@ class AppTextFieldWidget extends StatefulWidget {
     this.autoFocus = false,
     this.prefixIcon,
     this.maxLength,
+    this.textFieldType,
   });
 
   @override
@@ -57,7 +60,10 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
               padding: const EdgeInsets.only(bottom: 5),
               child: Text(
                 widget.label ?? "",
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6!
+                    .copyWith(fontWeight: FontWeight.w700),
               ),
             )),
         TextFormField(
@@ -71,6 +77,7 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
           ],
           decoration: InputDecoration(
               isDense: true,
+              filled: true,
               hintText: widget.hintText,
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
@@ -103,3 +110,4 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
     );
   }
 }
+

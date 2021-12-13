@@ -18,11 +18,11 @@
 //   Widget build(BuildContext context) {
 //     return Scaffold(
 //         appBar: AppBarCustom(
-//           title: widget.title,
+//           title: tabbar.title,
 //         ),
 //         body: Center(
 //           child: FutureBuilder<PDFDocument>(
-//             future: PDFDocument.fromURL(widget.url),
+//             future: PDFDocument.fromURL(tabbar.url),
 //             builder: (BuildContext context, snapshot) {
 //               if (snapshot.hasData) {hasData
 //                 return PDFViewer(document: snapshot.data!);

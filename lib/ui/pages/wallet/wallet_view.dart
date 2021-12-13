@@ -5,9 +5,10 @@ import 'package:vf_app/common/app_dimens.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/ui/commons/appbar.dart';
 import 'package:vf_app/ui/pages/wallet/enums/wallet_enums.dart';
-
+import 'tabbar/assets_tabbar.dart';
+import 'tabbar/menu_tabbar.dart';
+import 'tabbar/profit_tabbar.dart';
 import 'wallet_logic.dart';
-import 'widget/assets_tabbar.dart';
 
 class WalletPage extends StatefulWidget {
   const WalletPage({Key? key}) : super(key: key);
@@ -45,14 +46,12 @@ class _WalletPageState extends State<WalletPage> {
             ),
             const SizedBox(height: 30),
             Expanded(
-              child: Obx(() {
-                return TabBarView(children: [
-                  AssetsTabBar(assets: state.assets.value),
-                  Container(),
-                  Container(),
-                  Container(),
-                ]);
-              }),
+              child: TabBarView(children: [
+                const AssetsTabBar(),
+                const ProfitTabBar(),
+                const MenuTabBar(),
+                Container(),
+              ]),
             )
           ],
         ),

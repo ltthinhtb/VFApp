@@ -1,7 +1,6 @@
 //
 import 'package:get/get.dart';
 import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
-import 'package:vf_app/model/stock_data/stock_data.dart';
 import 'package:vf_app/services/api/api_service.dart';
 import 'package:vf_app/ui/pages/stock_order/stock_order_state.dart';
 
@@ -28,11 +27,13 @@ class StockOrderLogic extends GetxController {
   }
 
   void getAllStockCompanyData() async {
+    // thêm try catch vào để bắt exception lỗi mạng hoặc data k đúng
     state.allStockCompanyData = await apiService.getAllStockCompanyData();
   }
 
   Future<void> getStockData(StockCompanyData data) async {
     state.selectedStock.value = data;
+    // thêm try catch vào để bắt exception lỗi mạng hoặc data k đúng
     state.selectedStockData.value =
         await apiService.getStockData(data.stockCode!);
     state

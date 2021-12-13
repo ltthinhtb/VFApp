@@ -5,11 +5,9 @@ import 'package:vf_app/services/api/api_service.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:vf_app/ui/pages/main/main_view.dart';
 import 'common/app_themes.dart';
 import 'router/route_config.dart';
 import 'services/index.dart';
-import 'ui/pages/splash/splash_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -59,12 +57,11 @@ class _MyAppState extends State<MyApp> {
     return GestureDetector(
       onTap: hideKeyboard,
       child: GetMaterialApp(
-        home: const MainPage(),
         debugShowCheckedModeBanner: false,
         theme: AppThemes.lightTheme,
         darkTheme: AppThemes.darkTheme,
         themeMode: ThemeMode.light,
-        initialRoute: RouteConfig.main,
+        initialRoute: RouteConfig.splash,
         getPages: RouteConfig.getPages,
         builder: EasyLoading.init(),
         localizationsDelegates: const [
