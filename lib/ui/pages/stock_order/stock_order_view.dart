@@ -50,7 +50,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
   void changeStock(StockCompanyData? data) async {
     // print(data?.stockCode);
     if (data != null) {
-      await logic.getStockData(data);
+      await logic.getStockInfo(data);
       _priceController.text = state.price.value.toString();
     }
   }
@@ -77,7 +77,8 @@ class _StockOrderPageState extends State<StockOrderPage> {
               buildVolPercent(),
               buildBSButton(),
               buildPriceTypes(),
-              buildPriceInput()
+              buildPriceInput(),
+              buildInfoColumn(),
             ],
           ),
         ),
@@ -190,7 +191,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
       () => Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         decoration: BoxDecoration(
-          color: state.selectedStockData.value.lastPrice != null
+          color: state.selectedStockInfo.value.lastPrice != null
               ? AppColors.primary2
               : AppColors.primaryOpacity,
           borderRadius: const BorderRadius.all(
@@ -202,12 +203,13 @@ class _StockOrderPageState extends State<StockOrderPage> {
             Expanded(
               flex: 6,
               child: Text(
-                state.selectedStockData.value.lastPrice != null
-                    ? state.selectedStockData.value.lastPrice.toString()
+                state.selectedStockInfo.value.lastPrice != null
+                    ? state.selectedStockInfo.value.lastPrice.toString()
                     : "0.0",
                 style: AppTextStyle.H1.copyWith(
-                  color: state.selectedStockData.value.lastPrice != null
-                      ? StockUtil.itemColor(state.selectedStockData.value)
+                  color: state.selectedStockInfo.value.lastPrice != null
+                      ? StockUtil.itemColorWithColor(
+                          state.selectedStockInfo.value.cl!)
                       : null,
                 ),
               ),
@@ -218,25 +220,24 @@ class _StockOrderPageState extends State<StockOrderPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    state.selectedStockData.value.ot != null
-                        ? StockUtil.valueSign(state.selectedStockData.value) +
-                            state.selectedStockData.value.ot!
+                    state.selectedStockInfo.value.ot != null
+                        ? state.selectedStockInfo.value.ot!
                         : "0.0",
                     style: AppTextStyle.bodyText1.copyWith(
-                      color: state.selectedStockData.value.ot != null
-                          ? StockUtil.itemColor(state.selectedStockData.value)
+                      color: state.selectedStockInfo.value.ot != null
+                          ? StockUtil.itemColorWithColor(
+                              state.selectedStockInfo.value.cl!)
                           : null,
                     ),
                   ),
                   Text(
-                    state.selectedStockData.value.changePc != null
-                        ? StockUtil.valueSign(state.selectedStockData.value) +
-                            state.selectedStockData.value.changePc! +
-                            "%"
+                    state.selectedStockInfo.value.ot != null
+                        ? logic.getChangePc()
                         : "0.0%",
                     style: AppTextStyle.bodyText1.copyWith(
-                      color: state.selectedStockData.value.ot != null
-                          ? StockUtil.itemColor(state.selectedStockData.value)
+                      color: state.selectedStockInfo.value.ot != null
+                          ? StockUtil.itemColorWithColor(
+                              state.selectedStockInfo.value.cl!)
                           : null,
                     ),
                   ),
@@ -253,9 +254,9 @@ class _StockOrderPageState extends State<StockOrderPage> {
                     style: AppTextStyle.caption2,
                   ),
                   Text(
-                    state.selectedStockData.value.lot != null
+                    state.selectedStockInfo.value.lot != null
                         ? StockUtil.formatVol10(
-                            state.selectedStockData.value.lot!)
+                            state.selectedStockInfo.value.lot!)
                         : "0",
                     style: AppTextStyle.bodyText2,
                   ),
@@ -272,8 +273,8 @@ class _StockOrderPageState extends State<StockOrderPage> {
                     style: AppTextStyle.caption2,
                   ),
                   Text(
-                    state.selectedStockData.value.c != null
-                        ? state.selectedStockData.value.c!.toString()
+                    state.selectedStockInfo.value.c != null
+                        ? state.selectedStockInfo.value.c!.toString()
                         : "0",
                     style: AppTextStyle.bodyText2,
                   ),
@@ -290,8 +291,8 @@ class _StockOrderPageState extends State<StockOrderPage> {
                     style: AppTextStyle.caption2,
                   ),
                   Text(
-                    state.selectedStockData.value.r != null
-                        ? state.selectedStockData.value.r!.toString()
+                    state.selectedStockInfo.value.r != null
+                        ? state.selectedStockInfo.value.r!.toString()
                         : "0",
                     style: AppTextStyle.bodyText2,
                   ),
@@ -308,8 +309,8 @@ class _StockOrderPageState extends State<StockOrderPage> {
                     style: AppTextStyle.caption2,
                   ),
                   Text(
-                    state.selectedStockData.value.f != null
-                        ? state.selectedStockData.value.f!.toString()
+                    state.selectedStockInfo.value.f != null
+                        ? state.selectedStockInfo.value.f!.toString()
                         : "0",
                     style: AppTextStyle.bodyText2,
                   ),
@@ -333,23 +334,23 @@ class _StockOrderPageState extends State<StockOrderPage> {
                 children: [
                   PricePercentRow(
                     sum: state.sumBuyVol.value,
-                    price: state.selectedStockData.value.g1?.price ?? "0.0",
+                    price: state.selectedStockInfo.value.g1?.price ?? "0.0",
                     value:
-                        state.selectedStockData.value.g1?.volumn?.toDouble() ??
+                        state.selectedStockInfo.value.g1?.volumn?.toDouble() ??
                             0,
                   ),
                   PricePercentRow(
                     sum: state.sumBuyVol.value,
-                    price: state.selectedStockData.value.g2?.price ?? "0.0",
+                    price: state.selectedStockInfo.value.g2?.price ?? "0.0",
                     value:
-                        state.selectedStockData.value.g2?.volumn?.toDouble() ??
+                        state.selectedStockInfo.value.g2?.volumn?.toDouble() ??
                             0,
                   ),
                   PricePercentRow(
                     sum: state.sumBuyVol.value,
-                    price: state.selectedStockData.value.g3?.price ?? "0.0",
+                    price: state.selectedStockInfo.value.g3?.price ?? "0.0",
                     value:
-                        state.selectedStockData.value.g3?.volumn?.toDouble() ??
+                        state.selectedStockInfo.value.g3?.volumn?.toDouble() ??
                             0,
                   )
                 ],
@@ -364,25 +365,25 @@ class _StockOrderPageState extends State<StockOrderPage> {
                   PricePercentRow(
                     isBuy: false,
                     sum: state.sumSellVol.value,
-                    price: state.selectedStockData.value.g4?.price ?? "0.0",
+                    price: state.selectedStockInfo.value.g4?.price ?? "0.0",
                     value:
-                        state.selectedStockData.value.g4?.volumn?.toDouble() ??
+                        state.selectedStockInfo.value.g4?.volumn?.toDouble() ??
                             0,
                   ),
                   PricePercentRow(
                     isBuy: false,
                     sum: state.sumSellVol.value,
-                    price: state.selectedStockData.value.g5?.price ?? "0.0",
+                    price: state.selectedStockInfo.value.g5?.price ?? "0.0",
                     value:
-                        state.selectedStockData.value.g5?.volumn?.toDouble() ??
+                        state.selectedStockInfo.value.g5?.volumn?.toDouble() ??
                             0,
                   ),
                   PricePercentRow(
                     isBuy: false,
                     sum: state.sumSellVol.value,
-                    price: state.selectedStockData.value.g6?.price ?? "0.0",
+                    price: state.selectedStockInfo.value.g6?.price ?? "0.0",
                     value:
-                        state.selectedStockData.value.g6?.volumn?.toDouble() ??
+                        state.selectedStockInfo.value.g6?.volumn?.toDouble() ??
                             0,
                   ),
                 ],
@@ -418,7 +419,10 @@ class _StockOrderPageState extends State<StockOrderPage> {
           trueColor: AppColors.green,
           falseColor: AppColors.red,
           padding: 15,
-          onChange: (val) => state.isBuy.value = val,
+          onChange: (val) {
+            state.isBuy.value = val;
+            logic.getCashBalance();
+          },
         ),
       ),
     );
@@ -427,7 +431,9 @@ class _StockOrderPageState extends State<StockOrderPage> {
   Widget buildPriceTypes() {
     return Obx(() {
       if (state.loading.value) {
-        return Container();
+        return Container(
+          height: 70,
+        );
       } else {
         switch (state.stockExchange.value) {
           case StockExchange.HSX:
@@ -476,7 +482,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
               if (state.selectedStock.value.stockCode != null &&
                   prices[index] == "MP") {
                 state.price.value =
-                    state.selectedStockData.value.lastPrice!.toDouble();
+                    state.selectedStockInfo.value.lastPrice!.toDouble();
                 _priceController.text = state.price.value.toString();
               }
             },
@@ -583,6 +589,160 @@ class _StockOrderPageState extends State<StockOrderPage> {
       dist: dist,
       enabled: enabled,
     );
+  }
+
+  Widget buildInfoColumn() {
+    return Obx(() {
+      if (state.loading.value) {
+        return Container();
+      } else {
+        if (state.isBuy.value) {
+          return Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            decoration: BoxDecoration(
+              color: state.selectedStockInfo.value.lastPrice != null
+                  ? AppColors.primary2
+                  : AppColors.primaryOpacity,
+              borderRadius: const BorderRadius.all(
+                Radius.circular(15),
+              ),
+            ),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        S.of(context).mr,
+                        style: AppTextStyle.caption2,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        state.accountStatus.value.mr != null
+                            ? StockUtil.formatMoney(
+                                double.parse(state.accountStatus.value.mr!))
+                            : "0",
+                        style: AppTextStyle.bodyText2,
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        S.of(context).ee,
+                        style: AppTextStyle.caption2,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        state.selectedCashBalance.value.ee != null
+                            ? StockUtil.formatMoney(double.parse(
+                                state.selectedCashBalance.value.ee ?? "0"))
+                            : "0",
+                        style: AppTextStyle.bodyText2,
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        S.of(context).pp,
+                        style: AppTextStyle.caption2,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        state.selectedCashBalance.value.pp != null
+                            ? StockUtil.formatMoney(double.parse(
+                                state.selectedCashBalance.value.pp ?? "0"))
+                            : "0",
+                        style: AppTextStyle.bodyText2,
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        S.of(context).volumeAvaiable,
+                        style: AppTextStyle.caption2,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        state.selectedCashBalance.value.volumeAvaiable != null
+                            ? StockUtil.formatVol(
+                                double.parse(state.selectedCashBalance.value
+                                        .volumeAvaiable ??
+                                    "0"),
+                              )
+                            : "0",
+                        style: AppTextStyle.bodyText2,
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        } else {
+          return Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            decoration: BoxDecoration(
+              color: state.selectedStockInfo.value.lastPrice != null
+                  ? AppColors.primary2
+                  : AppColors.primaryOpacity,
+              borderRadius: const BorderRadius.all(
+                Radius.circular(15),
+              ),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Text(
+                    S.of(context).volumeAvaiable,
+                    style: AppTextStyle.caption2,
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Text(
+                    state.selectedCashBalance.value.volumeAvaiable != null
+                        ? StockUtil.formatVol(
+                            double.parse(state
+                                    .selectedCashBalance.value.volumeAvaiable ??
+                                "0"),
+                          )
+                        : "0",
+                    style: AppTextStyle.bodyText2,
+                    textAlign: TextAlign.right,
+                  ),
+                ),
+              ],
+            ),
+          );
+        }
+      }
+    });
   }
 }
 

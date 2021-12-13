@@ -47,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "coupon": MessageLookupByLibrary.simpleMessage("Lợi suất đầu tư"),
         "day": MessageLookupByLibrary.simpleMessage("Ngày"),
         "deposit_fee": MessageLookupByLibrary.simpleMessage("Tổng phí"),
+        "ee": MessageLookupByLibrary.simpleMessage("Sức mua tài khoản"),
         "empty_account":
             MessageLookupByLibrary.simpleMessage("Vui lòng nhập tài khoản"),
         "empty_password":
@@ -91,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "min_VOLUME":
             MessageLookupByLibrary.simpleMessage("Số tiền đầu tư tối thiểu"),
         "month": MessageLookupByLibrary.simpleMessage("Tháng"),
+        "mr": MessageLookupByLibrary.simpleMessage("Số dư tiền hợp tác"),
         "network_error": MessageLookupByLibrary.simpleMessage("Lỗi kết nối"),
         "not_account":
             MessageLookupByLibrary.simpleMessage("Bạn chưa có tài khoản? "),
@@ -108,6 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nhập username"),
         "policy_use":
             MessageLookupByLibrary.simpleMessage("Điều khoản sử dụng"),
+        "pp": MessageLookupByLibrary.simpleMessage("Sức mua của mã"),
         "product": MessageLookupByLibrary.simpleMessage("Sản phẩm"),
         "profit": MessageLookupByLibrary.simpleMessage("Lãi lỗ"),
         "profit_total": MessageLookupByLibrary.simpleMessage("Tổng lãi lỗ"),
@@ -164,6 +167,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "user": MessageLookupByLibrary.simpleMessage("Tài khoản"),
         "user_name":
             MessageLookupByLibrary.simpleMessage("Số tài khoản/Số điện thoại "),
+        "volumeAvaiable": MessageLookupByLibrary.simpleMessage(
+            "Khối lượng tối đa có thể mua"),
         "volume_short": MessageLookupByLibrary.simpleMessage("KL"),
         "volumn": MessageLookupByLibrary.simpleMessage("Khối lượng"),
         "wallet": MessageLookupByLibrary.simpleMessage("Tài sản"),

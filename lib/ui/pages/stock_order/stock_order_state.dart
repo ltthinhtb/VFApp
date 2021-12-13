@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vf_app/model/response/account_status.dart';
 import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
+import 'package:vf_app/model/stock_data/cash_balance.dart';
 import 'package:vf_app/model/stock_data/stock_data.dart';
+import 'package:vf_app/model/stock_data/stock_info.dart';
 
 class StockOrderState {
   late TextEditingController stockCodeController;
@@ -10,8 +13,11 @@ class StockOrderState {
   var loading = false.obs;
 
   var foundStock = <StockCompanyData>[].obs;
+  var accountStatus = AccountMStatus().obs;
   var selectedStock = StockCompanyData().obs;
+  var selectedStockInfo = StockInfo().obs;
   var selectedStockData = StockData().obs;
+  var selectedCashBalance = CashBalance().obs;
 
   var isBuy = true.obs;
   var stockExchange = StockExchange.HSX.obs;

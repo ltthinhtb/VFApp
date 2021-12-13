@@ -10,7 +10,9 @@ import 'package:vf_app/model/response/list_account_response.dart';
 import 'package:vf_app/model/response/portfolio.dart';
 import 'package:vf_app/model/response/portfolio_account_status.dart';
 import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
+import 'package:vf_app/model/stock_data/cash_balance.dart';
 import 'package:vf_app/model/stock_data/stock_data.dart';
+import 'package:vf_app/model/stock_data/stock_info.dart';
 import 'package:vf_app/router/route_config.dart';
 import 'error_exception.dart';
 
@@ -21,6 +23,7 @@ abstract class ApiClient {
 
   //Asset
   Future<AccountStatus> getAccountStatus(RequestParams requestParams);
+  Future<AccountMStatus> getAccountMStatus(RequestParams requestParams);
 
   Future<PortfolioAccountStatus> getPortfolioAccountStatus(
       RequestParams requestParams);
@@ -31,8 +34,10 @@ abstract class ApiClient {
 
   //Stock Data
   Future<List<StockCompanyData>> getAllStockCompanyData();
-
+  Future<StockInfo> getStockInfo(RequestParams requestParams);
   Future<StockData> getStockData(String stockCode);
+  Future<CashBalance> getCashBalance(RequestParams requestParams);
+  Future<void> newOrderRequest(RequestParams requestParams);
 
   Future<dynamic> signOut();
 }
@@ -51,6 +56,7 @@ class _ApiClient implements ApiClient {
       var response = await request;
       var _mapData = _decodeMap(response.data!);
       var _rc = _mapData['rc'] ?? -999;
+      var _rs = _mapData['rs'] ?? "FOException.InvalidSessionException";
 
       /// kiểm tra điều kiện thành công
       if (_rc == 1) {
@@ -58,7 +64,7 @@ class _ApiClient implements ApiClient {
       }
 
       ///kiểm tra điều kiện logOut
-      else if (_rc == -1) {
+      else if (_rc == -1 && _rs == "FOException.InvalidSessionException") {
         await get_x.Get.offNamed(RouteConfig.login);
         throw ErrorException(response.statusCode!, _mapData['rs']);
       } else {
@@ -113,11 +119,6 @@ class _ApiClient implements ApiClient {
     return valueMap;
   }
 
-  // List<dynamic> _decodeList(String _value) {
-  //   List<dynamic> list = json.decode(_value);
-  //   return list;
-  // }
-
   @override
   Future<TokenEntity> authLogin(RequestParams requestParams) async {
     Response _result = await _requestApi(
@@ -139,6 +140,15 @@ class _ApiClient implements ApiClient {
         _dio.post(AppConfigs.ENDPOINT_CORE, data: requestParams.toJson()));
     var _mapData = _decodeMap(_result.data!);
     final value = AccountStatus.fromJson(_mapData);
+    return value;
+  }
+
+  @override
+  Future<AccountMStatus> getAccountMStatus(RequestParams requestParams) async {
+    Response _result = await _requestApi(
+        _dio.post(AppConfigs.ENDPOINT_CORE, data: requestParams.toJson()));
+    var _mapData = _decodeMap(_result.data!);
+    final value = AccountMStatus.fromJson(_mapData['data']);
     return value;
   }
 
@@ -170,6 +180,56 @@ class _ApiClient implements ApiClient {
           .map<StockCompanyData>((e) => StockCompanyData.fromJson(e))
           .toList();
       return value;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<StockInfo> getStockInfo(RequestParams requestParams) async {
+    try {
+      Response _result = await _requestApi(
+        _dio.post(
+          AppConfigs.ENDPOINT_CORE,
+          data: requestParams.toJson(),
+        ),
+      );
+      var _mapData = _decodeMap(_result.data);
+      final _value = StockInfo.fromJson(_mapData['data']);
+      return _value;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<CashBalance> getCashBalance(RequestParams requestParams) async {
+    try {
+      Response _result = await _requestApi(
+        _dio.post(
+          AppConfigs.ENDPOINT_CORE,
+          data: requestParams.toJson(),
+        ),
+      );
+      var _mapData = _decodeMap(_result.data);
+      final _value = CashBalance.fromJson(_mapData['data']);
+      return _value;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> newOrderRequest(RequestParams requestParams) async {
+    try {
+      Response _result = await _requestApi(
+        _dio.post(
+          AppConfigs.ENDPOINT_CORE,
+          data: requestParams.toJson(),
+        ),
+      );
+      _decodeMap(_result.data);
+      return;
     } catch (e) {
       rethrow;
     }

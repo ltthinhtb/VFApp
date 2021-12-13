@@ -109,5 +109,9 @@
   "reference" : "Tham chiếu",
   "reference_short" : "TC",
   "buy" : "Mua",
-  "sell" : "Bán"
+  "sell" : "Bán",
+  "mr" : "Số dư tiền hợp tác",
+  "pp" : "Sức mua của mã",
+  "ee" : "Sức mua tài khoản",
+  "volumeAvaiable" : "Khối lượng tối đa có thể mua"
 }

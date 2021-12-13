@@ -5,6 +5,17 @@ import 'package:vf_app/utils/logger.dart';
 import 'package:intl/intl.dart';
 
 class StockUtil {
+  static Color itemColorWithColor(String color) {
+    switch (color) {
+      case "green":
+        return AppColors.increase;
+      case "red":
+        return AppColors.decrease;
+      default:
+        return AppColors.yellow;
+    }
+  }
+
   static Color itemColor(StockData data) {
     num change = data.lastPrice! - data.r!;
     if (change > 0) {
@@ -39,6 +50,17 @@ class StockUtil {
   }
 
   static String formatVol(num _number) {
+    try {
+      var numerators =
+          NumberFormat("###,###,###,###,###", 'en_US').format(_number);
+      return numerators;
+    } catch (e) {
+      logger.e(e.toString());
+    }
+    return '0';
+  }
+
+  static String formatMoney(num _number) {
     try {
       var numerators =
           NumberFormat("###,###,###,###,###", 'en_US').format(_number);

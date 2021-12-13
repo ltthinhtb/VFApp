@@ -1159,6 +1159,46 @@ class S {
       args: [],
     );
   }
+
+  /// `MR`
+  String get mr {
+    return Intl.message(
+      'MR',
+      name: 'mr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `PP`
+  String get pp {
+    return Intl.message(
+      'PP',
+      name: 'pp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `EE`
+  String get ee {
+    return Intl.message(
+      'EE',
+      name: 'ee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maximum volumn`
+  String get volumeAvaiable {
+    return Intl.message(
+      'Maximum volumn',
+      name: 'volumeAvaiable',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

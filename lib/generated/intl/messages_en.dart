@@ -43,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "coupon": MessageLookupByLibrary.simpleMessage("Coupon"),
         "day": MessageLookupByLibrary.simpleMessage("Day"),
         "deposit_fee": MessageLookupByLibrary.simpleMessage("Deposit fee"),
+        "ee": MessageLookupByLibrary.simpleMessage("EE"),
         "empty_account":
             MessageLookupByLibrary.simpleMessage("Account is empty"),
         "empty_password":
@@ -88,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "menu": MessageLookupByLibrary.simpleMessage("Menu"),
         "min_VOLUME": MessageLookupByLibrary.simpleMessage("Min volume"),
         "month": MessageLookupByLibrary.simpleMessage("Months"),
+        "mr": MessageLookupByLibrary.simpleMessage("MR"),
         "network_error": MessageLookupByLibrary.simpleMessage("Network Error"),
         "not_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have account? "),
@@ -104,6 +106,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "please_input_user":
             MessageLookupByLibrary.simpleMessage("Input username"),
         "policy_use": MessageLookupByLibrary.simpleMessage("Policy"),
+        "pp": MessageLookupByLibrary.simpleMessage("PP"),
         "product": MessageLookupByLibrary.simpleMessage("Product"),
         "profit": MessageLookupByLibrary.simpleMessage("Profit"),
         "profit_total": MessageLookupByLibrary.simpleMessage("Profit total"),
@@ -160,6 +163,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "up_to": MessageLookupByLibrary.simpleMessage("Up to"),
         "user": MessageLookupByLibrary.simpleMessage("User"),
         "user_name": MessageLookupByLibrary.simpleMessage("Username"),
+        "volumeAvaiable":
+            MessageLookupByLibrary.simpleMessage("Maximum volumn"),
         "volume_short": MessageLookupByLibrary.simpleMessage("Volume"),
         "volumn": MessageLookupByLibrary.simpleMessage("Volumn"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),

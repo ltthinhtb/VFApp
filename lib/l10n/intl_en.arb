@@ -109,5 +109,9 @@
   "reference" : "Reference",
   "reference_short" : "Ref",
   "buy" : "Buy",
-  "sell" : "Sell"
+  "sell" : "Sell",
+  "mr" : "MR",
+  "pp" : "PP",
+  "ee" : "EE",
+  "volumeAvaiable" : "Maximum volumn"
 }
