@@ -1159,6 +1159,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Select account`
+  String get select_account {
+    return Intl.message(
+      'Select account',
+      name: 'select_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get continue_step {
+    return Intl.message(
+      'Continue',
+      name: 'continue_step',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

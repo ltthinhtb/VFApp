@@ -44,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Liên hệ hỗ trợ"),
         "content_transfer":
             MessageLookupByLibrary.simpleMessage("Nội dung chuyển khoản"),
+        "continue_step": MessageLookupByLibrary.simpleMessage("Tiếp tục"),
         "coupon": MessageLookupByLibrary.simpleMessage("Lợi suất đầu tư"),
         "day": MessageLookupByLibrary.simpleMessage("Ngày"),
         "deposit_fee": MessageLookupByLibrary.simpleMessage("Tổng phí"),
@@ -117,6 +118,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "reference_short": MessageLookupByLibrary.simpleMessage("TC"),
         "register": MessageLookupByLibrary.simpleMessage("Mở tài khoản"),
         "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
+        "select_account":
+            MessageLookupByLibrary.simpleMessage("Chọn số tài khoản"),
         "select_product": MessageLookupByLibrary.simpleMessage("Chọn sản phẩm"),
         "sell": MessageLookupByLibrary.simpleMessage("Bán"),
         "sell_t0": MessageLookupByLibrary.simpleMessage("Chở về T0"),

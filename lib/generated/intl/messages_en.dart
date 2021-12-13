@@ -40,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "contact_support": MessageLookupByLibrary.simpleMessage("Support"),
         "content_transfer": MessageLookupByLibrary.simpleMessage("Content"),
+        "continue_step": MessageLookupByLibrary.simpleMessage("Continue"),
         "coupon": MessageLookupByLibrary.simpleMessage("Coupon"),
         "day": MessageLookupByLibrary.simpleMessage("Day"),
         "deposit_fee": MessageLookupByLibrary.simpleMessage("Deposit fee"),
@@ -112,6 +113,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "reference_short": MessageLookupByLibrary.simpleMessage("Ref"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "select_account":
+            MessageLookupByLibrary.simpleMessage("Select account"),
         "select_product":
             MessageLookupByLibrary.simpleMessage("Select Product"),
         "sell": MessageLookupByLibrary.simpleMessage("Sell"),

@@ -18,6 +18,9 @@ class AppImages {
   static String switch_diagram = 'assets/icon_svg/switch_diagram.svg';
   static String down_arrow = 'assets/icon_svg/down-arror.svg';
 
+  // icon image
+  static String present = 'assets/icon_svg/present.svg';
+
   //icon bottomNavi
   static String status_up_0 = 'assets/icon_svg/status-up-grey.svg';
   static String status_up_1 = 'assets/icon_svg/status-up-purple.svg';

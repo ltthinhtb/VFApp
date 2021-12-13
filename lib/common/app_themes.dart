@@ -95,20 +95,21 @@ class AppThemes {
 
   static final InputDecorationTheme _inputDecorationLightTheme =
       InputDecorationTheme(
-          contentPadding: const EdgeInsets.symmetric(vertical: 5),
-          labelStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.black),
-          filled: true,
-          fillColor: AppColors.grayF2,
-          hintStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.grayC4),
-          errorStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.red),
-          border: _defaultBorder(),
-          focusedBorder: _defaultBorder().copyWith(
-              borderSide: const BorderSide(color: AppColors.primary, width: 1)),
-          enabledBorder: _defaultBorder(),
-          disabledBorder: _defaultBorder(),
-          errorBorder: _defaultBorder().copyWith(
-              borderRadius: const BorderRadius.all(Radius.circular(15)),
-              borderSide: const BorderSide(color: AppColors.red, width: 1)));
+    contentPadding: const EdgeInsets.symmetric(vertical: 5),
+    labelStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.black),
+    filled: true,
+    fillColor: AppColors.grayF2,
+    hintStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.grayC4),
+    errorStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.red),
+    border: _defaultBorder(),
+    focusedBorder: _defaultBorder().copyWith(
+        borderSide: const BorderSide(color: AppColors.primary, width: 1)),
+    enabledBorder: _defaultBorder(),
+    disabledBorder: _defaultBorder(),
+    errorBorder: _defaultBorder().copyWith(
+        borderRadius: const BorderRadius.all(Radius.circular(15)),
+        borderSide: const BorderSide(color: AppColors.red, width: 1)),
+  );
   static final ButtonThemeData _buttonDecorationLightTheme = ButtonThemeData(
     height: 40,
     minWidth: 40,
@@ -200,7 +201,7 @@ class AppThemes {
     appBarTheme: AppBarTheme(
         iconTheme: const IconThemeData(color: _lightIconColor),
         titleTextStyle:
-            AppTextStyle.H6Bold.copyWith(color: AppColors.textBlack),
+            AppTextStyle.H5Bold.copyWith(color: AppColors.textBlack),
         backgroundColor: _lightBackgroundColor),
     iconTheme: const IconThemeData(
       color: _lightIconColor,

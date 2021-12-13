@@ -109,5 +109,7 @@
   "reference" : "Reference",
   "reference_short" : "Ref",
   "buy" : "Buy",
-  "sell" : "Sell"
+  "sell" : "Sell",
+  "select_account" : "Select account",
+  "continue_step" : "Continue"
 }

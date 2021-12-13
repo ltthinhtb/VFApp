@@ -4,8 +4,10 @@ import 'package:get/get.dart' as get_x;
 import 'package:vf_app/configs/app_configs.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/entities/index.dart';
+import 'package:vf_app/model/params/check_account_request.dart';
 import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/model/response/account_status.dart';
+import 'package:vf_app/model/response/check_account_response.dart';
 import 'package:vf_app/model/response/list_account_response.dart';
 import 'package:vf_app/model/response/portfolio.dart';
 import 'package:vf_app/model/response/portfolio_account_status.dart';
@@ -18,6 +20,9 @@ abstract class ApiClient {
   factory ApiClient(Dio dio, {String? baseUrl}) = _ApiClient;
 
   Future<TokenEntity> authLogin(RequestParams requestParams);
+
+  //sign up
+  Future<CheckAccountResponse> checkAccountStatus(CheckAccountRequest request);
 
   //Asset
   Future<AccountStatus> getAccountStatus(RequestParams requestParams);
@@ -125,6 +130,21 @@ class _ApiClient implements ApiClient {
     var _mapData = _decodeMap(_result.data!);
     final value = TokenEntity.fromJson(_mapData);
     return value;
+  }
+
+  @override
+  Future<CheckAccountResponse> checkAccountStatus(
+      CheckAccountRequest request) async {
+    Response _result = await _getApi(
+        _dio.post(AppConfigs.VF_HOST + 'core', data: request.toJson()));
+    var _mapData = _result.data!;
+    var _rc = _mapData['iRs'] ?? -999;
+    if (_rc == 1) {
+      final value = CheckAccountResponse.fromJson(_mapData);
+      return value;
+    } else {
+      throw ErrorException(_mapData['sRs'], _mapData['rs']);
+    }
   }
 
   @override

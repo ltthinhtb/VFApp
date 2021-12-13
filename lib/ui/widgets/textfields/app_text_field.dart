@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vf_app/common/app_images.dart';
-import 'enum.dart';
 
 class AppTextFieldWidget extends StatefulWidget {
   final TextEditingController? inputController;
@@ -17,7 +16,6 @@ class AppTextFieldWidget extends StatefulWidget {
   final bool autoFocus;
   final SvgPicture? prefixIcon;
   final int? maxLength;
-  final TextFieldType? textFieldType;
 
   AppTextFieldWidget({
     this.inputController,
@@ -32,7 +30,6 @@ class AppTextFieldWidget extends StatefulWidget {
     this.autoFocus = false,
     this.prefixIcon,
     this.maxLength,
-    this.textFieldType,
   });
 
   @override
@@ -110,4 +107,3 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
     );
   }
 }
-
