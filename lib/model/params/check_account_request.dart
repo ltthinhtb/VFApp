@@ -1,7 +1,7 @@
 class CheckAccountRequest {
   String? user;
   String? cmd;
-  Param ?param;
+  Param? param;
 
   CheckAccountRequest({this.user, this.cmd, this.param});
 
@@ -24,16 +24,28 @@ class CheckAccountRequest {
 
 class Param {
   String? cCUSTOMERCODE;
+  String? cMOBILE;
+  String? cEMAIL;
 
-  Param({this.cCUSTOMERCODE});
+  Param({this.cCUSTOMERCODE, this.cEMAIL, this.cMOBILE});
 
   Param.fromJson(Map<String, dynamic> json) {
     cCUSTOMERCODE = json['C_CUSTOMER_CODE'];
+    cMOBILE = json['C_MOBILE'];
+    cEMAIL = json['C_EMAIL'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['C_CUSTOMER_CODE'] = cCUSTOMERCODE;
+    if (cCUSTOMERCODE != null) {
+      data['C_CUSTOMER_CODE'] = cCUSTOMERCODE;
+    }
+    if (cMOBILE != null) {
+      data['C_MOBILE'] = cMOBILE;
+    }
+    if (cEMAIL != null) {
+      data['C_EMAIL'] = cEMAIL;
+    }
     return data;
   }
 }

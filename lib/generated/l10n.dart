@@ -1179,6 +1179,136 @@ class S {
       args: [],
     );
   }
+
+  /// `Register form`
+  String get register_form {
+    return Intl.message(
+      'Register form',
+      name: 'register_form',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full name`
+  String get full_name {
+    return Intl.message(
+      'Full name',
+      name: 'full_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone`
+  String get phone {
+    return Intl.message(
+      'Phone',
+      name: 'phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please input full name`
+  String get please_input_full_name {
+    return Intl.message(
+      'Please input full name',
+      name: 'please_input_full_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please input phone number`
+  String get please_input_phone_number {
+    return Intl.message(
+      'Please input phone number',
+      name: 'please_input_phone_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone not valid`
+  String get phone_not_valid {
+    return Intl.message(
+      'Phone not valid',
+      name: 'phone_not_valid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please input email`
+  String get please_input_email {
+    return Intl.message(
+      'Please input email',
+      name: 'please_input_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email not valid`
+  String get email_not_valid {
+    return Intl.message(
+      'Email not valid',
+      name: 'email_not_valid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Referral code`
+  String get referral_code {
+    return Intl.message(
+      'Referral code',
+      name: 'referral_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Agree`
+  String get agree {
+    return Intl.message(
+      'Agree',
+      name: 'agree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms & condition`
+  String get terms_and_condition {
+    return Intl.message(
+      'Terms & condition',
+      name: 'terms_and_condition',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please agree terms & condition`
+  String get terms_and_condition_valid {
+    return Intl.message(
+      'Please agree terms & condition',
+      name: 'terms_and_condition_valid',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

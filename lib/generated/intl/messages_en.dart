@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "account": MessageLookupByLibrary.simpleMessage("Account"),
         "account_user": MessageLookupByLibrary.simpleMessage("User"),
+        "agree": MessageLookupByLibrary.simpleMessage("Agree"),
         "assets": MessageLookupByLibrary.simpleMessage("Assets"),
         "bank_account": MessageLookupByLibrary.simpleMessage("Bank account"),
         "bond_assets": MessageLookupByLibrary.simpleMessage("Bond assets"),
@@ -44,6 +45,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "coupon": MessageLookupByLibrary.simpleMessage("Coupon"),
         "day": MessageLookupByLibrary.simpleMessage("Day"),
         "deposit_fee": MessageLookupByLibrary.simpleMessage("Deposit fee"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "email_not_valid":
+            MessageLookupByLibrary.simpleMessage("Email not valid"),
         "empty_account":
             MessageLookupByLibrary.simpleMessage("Account is empty"),
         "empty_password":
@@ -53,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fee": MessageLookupByLibrary.simpleMessage("Fee"),
         "floor": MessageLookupByLibrary.simpleMessage("Floor"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("Forgot password?"),
+        "full_name": MessageLookupByLibrary.simpleMessage("Full name"),
         "gain_loss_percent":
             MessageLookupByLibrary.simpleMessage("Gain loss (%)"),
         "gain_loss_temporary":
@@ -100,8 +105,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "pay_type": MessageLookupByLibrary.simpleMessage("Payment type"),
         "permission_to_buy":
             MessageLookupByLibrary.simpleMessage("Permission buy"),
+        "phone": MessageLookupByLibrary.simpleMessage("Phone"),
+        "phone_not_valid":
+            MessageLookupByLibrary.simpleMessage("Phone not valid"),
+        "please_input_email":
+            MessageLookupByLibrary.simpleMessage("Please input email"),
+        "please_input_full_name":
+            MessageLookupByLibrary.simpleMessage("Please input full name"),
         "please_input_password":
             MessageLookupByLibrary.simpleMessage("Input password"),
+        "please_input_phone_number":
+            MessageLookupByLibrary.simpleMessage("Please input phone number"),
         "please_input_user":
             MessageLookupByLibrary.simpleMessage("Input username"),
         "policy_use": MessageLookupByLibrary.simpleMessage("Policy"),
@@ -111,7 +125,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "receive_money": MessageLookupByLibrary.simpleMessage("Receive money"),
         "reference": MessageLookupByLibrary.simpleMessage("Reference"),
         "reference_short": MessageLookupByLibrary.simpleMessage("Ref"),
+        "referral_code": MessageLookupByLibrary.simpleMessage("Referral code"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
+        "register_form": MessageLookupByLibrary.simpleMessage("Register form"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "select_account":
             MessageLookupByLibrary.simpleMessage("Select account"),
@@ -152,6 +168,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "stock_code": MessageLookupByLibrary.simpleMessage("Stock code"),
         "stock_market": MessageLookupByLibrary.simpleMessage("Stock market"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
+        "terms_and_condition":
+            MessageLookupByLibrary.simpleMessage("Terms & condition"),
+        "terms_and_condition_valid": MessageLookupByLibrary.simpleMessage(
+            "Please agree terms & condition"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "total_assets": MessageLookupByLibrary.simpleMessage("Total assets"),
         "total_transfer":

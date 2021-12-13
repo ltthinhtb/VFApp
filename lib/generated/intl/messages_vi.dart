@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "account": MessageLookupByLibrary.simpleMessage("Tài khoản"),
         "account_user": MessageLookupByLibrary.simpleMessage("Tên tài khoản"),
+        "agree": MessageLookupByLibrary.simpleMessage("Đồng ý"),
         "assets": MessageLookupByLibrary.simpleMessage("Tài sản"),
         "bank_account": MessageLookupByLibrary.simpleMessage("Số tài khoản"),
         "bond_assets":
@@ -48,6 +49,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "coupon": MessageLookupByLibrary.simpleMessage("Lợi suất đầu tư"),
         "day": MessageLookupByLibrary.simpleMessage("Ngày"),
         "deposit_fee": MessageLookupByLibrary.simpleMessage("Tổng phí"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "email_not_valid":
+            MessageLookupByLibrary.simpleMessage("Email không hợp lệ"),
         "empty_account":
             MessageLookupByLibrary.simpleMessage("Vui lòng nhập tài khoản"),
         "empty_password":
@@ -57,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fee": MessageLookupByLibrary.simpleMessage("Phí đầu tư"),
         "floor": MessageLookupByLibrary.simpleMessage("Sàn"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("Quên mật khẩu?"),
+        "full_name": MessageLookupByLibrary.simpleMessage("Họ và tên"),
         "gain_loss_percent": MessageLookupByLibrary.simpleMessage("Lãi lỗ (%)"),
         "gain_loss_temporary":
             MessageLookupByLibrary.simpleMessage("Lãi lỗ tạm thời"),
@@ -103,8 +108,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "pay_type":
             MessageLookupByLibrary.simpleMessage("Phương thức thanh toán"),
         "permission_to_buy": MessageLookupByLibrary.simpleMessage("Quyền mua"),
+        "phone": MessageLookupByLibrary.simpleMessage("Số điện thoại"),
+        "phone_not_valid":
+            MessageLookupByLibrary.simpleMessage("Số điện thoại không hợp lệ"),
+        "please_input_email":
+            MessageLookupByLibrary.simpleMessage("Vui lòng nhập email"),
+        "please_input_full_name":
+            MessageLookupByLibrary.simpleMessage("Vui lòng điền họ tên"),
         "please_input_password":
             MessageLookupByLibrary.simpleMessage("Nhập password"),
+        "please_input_phone_number":
+            MessageLookupByLibrary.simpleMessage("Vui lòng nhập số điện thoại"),
         "please_input_user":
             MessageLookupByLibrary.simpleMessage("Nhập username"),
         "policy_use":
@@ -116,7 +130,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tổng nhận thực tế"),
         "reference": MessageLookupByLibrary.simpleMessage("Tham chiếu"),
         "reference_short": MessageLookupByLibrary.simpleMessage("TC"),
+        "referral_code": MessageLookupByLibrary.simpleMessage("Mã giới thiệu"),
         "register": MessageLookupByLibrary.simpleMessage("Mở tài khoản"),
+        "register_form":
+            MessageLookupByLibrary.simpleMessage("Đăng ký tài khoản"),
         "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
         "select_account":
             MessageLookupByLibrary.simpleMessage("Chọn số tài khoản"),
@@ -155,6 +172,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "stock_code": MessageLookupByLibrary.simpleMessage("Mã CK"),
         "stock_market": MessageLookupByLibrary.simpleMessage("Bảng giá"),
         "tax": MessageLookupByLibrary.simpleMessage("Thuế đầu tư"),
+        "terms_and_condition":
+            MessageLookupByLibrary.simpleMessage("Điều khoản và điều kiện"),
+        "terms_and_condition_valid": MessageLookupByLibrary.simpleMessage(
+            "Vui lòng đồng ý điều khoản và điều kiện"),
         "today": MessageLookupByLibrary.simpleMessage("Hôm nay"),
         "total_assets": MessageLookupByLibrary.simpleMessage("Tổng tài sản"),
         "total_transfer":

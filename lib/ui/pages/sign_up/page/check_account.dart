@@ -5,6 +5,7 @@ import 'package:pinput/pin_put/pin_put.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_images.dart';
 import 'package:vf_app/generated/l10n.dart';
+import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/ui/widgets/button/button_filled.dart';
 
 import '../sign_up_logic.dart';
@@ -88,7 +89,10 @@ class _CheckAccountPageState extends State<CheckAccountPage> {
                 valueListenable: state.checkAccountContinue,
                 builder: (BuildContext context, value, Widget? child) {
                   return ButtonFill(
-                    voidCallback: value ? () {} : null,
+                    voidCallback: value ? () {
+                      state.agreePolicy = false;
+                      Get.toNamed(RouteConfig.sign_form);
+                    } : null,
                     title: S.of(context).continue_step,
                   );
                 },

@@ -89,27 +89,29 @@ class AppThemes {
 
   static OutlineInputBorder _defaultBorder() {
     return const OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(20)),
+        borderRadius: BorderRadius.all(Radius.circular(15)),
         borderSide: BorderSide(color: AppColors.line, width: 1));
   }
 
   static final InputDecorationTheme _inputDecorationLightTheme =
       InputDecorationTheme(
-    contentPadding: const EdgeInsets.symmetric(vertical: 5),
-    labelStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.black),
-    filled: true,
-    fillColor: AppColors.grayF2,
-    hintStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.grayC4),
-    errorStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.red),
-    border: _defaultBorder(),
-    focusedBorder: _defaultBorder().copyWith(
-        borderSide: const BorderSide(color: AppColors.primary, width: 1)),
-    enabledBorder: _defaultBorder(),
-    disabledBorder: _defaultBorder(),
-    errorBorder: _defaultBorder().copyWith(
-        borderRadius: const BorderRadius.all(Radius.circular(15)),
-        borderSide: const BorderSide(color: AppColors.red, width: 1)),
-  );
+          isDense: true,
+          labelStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.black),
+          hintStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.grayC4),
+          errorStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.red),
+          fillColor: AppColors.white,
+          focusColor: AppColors.green,
+          border: _defaultBorder(),
+          focusedBorder: _defaultBorder().copyWith(
+              borderSide: const BorderSide(color: AppColors.primary, width: 1)),
+          enabledBorder: _defaultBorder(),
+          disabledBorder: _defaultBorder(),
+          errorBorder: _defaultBorder().copyWith(
+              borderRadius: const BorderRadius.all(Radius.circular(15)),
+              borderSide: const BorderSide(color: AppColors.red, width: 1)),
+          focusedErrorBorder: _defaultBorder().copyWith(
+              borderRadius: const BorderRadius.all(Radius.circular(15)),
+              borderSide: const BorderSide(color: AppColors.red, width: 1)));
   static final ButtonThemeData _buttonDecorationLightTheme = ButtonThemeData(
     height: 40,
     minWidth: 40,
@@ -185,6 +187,12 @@ class AppThemes {
   ///Light theme
   static final ThemeData lightTheme = ThemeData(
     inputDecorationTheme: _inputDecorationLightTheme,
+    checkboxTheme: CheckboxThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(3),
+      ),
+      checkColor: MaterialStateProperty.all(AppColors.white),
+    ),
     buttonTheme: _buttonDecorationLightTheme,
     toggleButtonsTheme: _toggleButtonDecorationLightTheme,
     toggleableActiveColor: AppColors.grayF2,

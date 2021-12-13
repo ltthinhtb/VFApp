@@ -111,5 +111,18 @@
   "buy" : "Buy",
   "sell" : "Sell",
   "select_account" : "Select account",
-  "continue_step" : "Continue"
+  "continue_step" : "Continue",
+  "register_form" : "Register form",
+  "full_name" : "Full name",
+  "phone" : "Phone",
+  "email" : "Email",
+  "please_input_full_name" : "Please input full name",
+  "please_input_phone_number" : "Please input phone number",
+  "phone_not_valid" : "Phone not valid",
+  "please_input_email" : "Please input email",
+  "email_not_valid" : "Email not valid",
+  "referral_code" : "Referral code",
+  "agree" : "Agree",
+  "terms_and_condition" : "Terms & condition",
+  "terms_and_condition_valid" : "Please agree terms & condition"
 }

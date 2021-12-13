@@ -111,5 +111,18 @@
   "buy": "Mua",
   "sell": "Bán",
   "select_account": "Chọn số tài khoản",
-  "continue_step" : "Tiếp tục"
+  "continue_step": "Tiếp tục",
+  "register_form": "Đăng ký tài khoản",
+  "full_name": "Họ và tên",
+  "phone": "Số điện thoại",
+  "email": "Email",
+  "please_input_full_name": "Vui lòng điền họ tên",
+  "please_input_phone_number": "Vui lòng nhập số điện thoại",
+  "phone_not_valid": "Số điện thoại không hợp lệ",
+  "please_input_email": "Vui lòng nhập email",
+  "email_not_valid": "Email không hợp lệ",
+  "referral_code": "Mã giới thiệu",
+  "agree": "Đồng ý",
+  "terms_and_condition": "Điều khoản và điều kiện",
+  "terms_and_condition_valid": "Vui lòng đồng ý điều khoản và điều kiện"
 }

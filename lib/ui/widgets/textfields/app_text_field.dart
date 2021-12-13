@@ -73,8 +73,6 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
             LengthLimitingTextInputFormatter(widget.maxLength),
           ],
           decoration: InputDecoration(
-              isDense: true,
-              filled: true,
               hintText: widget.hintText,
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
