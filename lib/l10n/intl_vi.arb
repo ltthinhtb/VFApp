@@ -124,5 +124,11 @@
   "referral_code": "Mã giới thiệu",
   "agree": "Đồng ý",
   "terms_and_condition": "Điều khoản và điều kiện",
-  "terms_and_condition_valid": "Vui lòng đồng ý điều khoản và điều kiện"
+  "terms_and_condition_valid": "Vui lòng đồng ý điều khoản và điều kiện",
+  "confirm_otp" : "Xác nhận OTP",
+  "please_input_OTP" : "Vui lòng nhập mã OTP đến số",
+  "success" : "Thành công",
+  "resent" : "Gửi lại mã",
+  "failed" : "Thất bại"
+
 }

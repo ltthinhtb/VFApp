@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "collaborative_assets_total":
             MessageLookupByLibrary.simpleMessage("Collaborative assets total"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+        "confirm_otp": MessageLookupByLibrary.simpleMessage("Confirm OTP"),
         "contact_support": MessageLookupByLibrary.simpleMessage("Support"),
         "content_transfer": MessageLookupByLibrary.simpleMessage("Content"),
         "continue_step": MessageLookupByLibrary.simpleMessage("Continue"),
@@ -54,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Password is empty"),
         "end_day": MessageLookupByLibrary.simpleMessage("End day"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "failed": MessageLookupByLibrary.simpleMessage("Failed"),
         "fee": MessageLookupByLibrary.simpleMessage("Fee"),
         "floor": MessageLookupByLibrary.simpleMessage("Floor"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("Forgot password?"),
@@ -108,6 +110,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "phone": MessageLookupByLibrary.simpleMessage("Phone"),
         "phone_not_valid":
             MessageLookupByLibrary.simpleMessage("Phone not valid"),
+        "please_input_OTP":
+            MessageLookupByLibrary.simpleMessage("Please input OTP"),
         "please_input_email":
             MessageLookupByLibrary.simpleMessage("Please input email"),
         "please_input_full_name":
@@ -128,6 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "referral_code": MessageLookupByLibrary.simpleMessage("Referral code"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "register_form": MessageLookupByLibrary.simpleMessage("Register form"),
+        "resent": MessageLookupByLibrary.simpleMessage("Resent OTP"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "select_account":
             MessageLookupByLibrary.simpleMessage("Select account"),
@@ -167,6 +172,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "status": MessageLookupByLibrary.simpleMessage("Status"),
         "stock_code": MessageLookupByLibrary.simpleMessage("Stock code"),
         "stock_market": MessageLookupByLibrary.simpleMessage("Stock market"),
+        "success": MessageLookupByLibrary.simpleMessage("Success"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "terms_and_condition":
             MessageLookupByLibrary.simpleMessage("Terms & condition"),

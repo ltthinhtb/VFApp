@@ -124,5 +124,11 @@
   "referral_code" : "Referral code",
   "agree" : "Agree",
   "terms_and_condition" : "Terms & condition",
-  "terms_and_condition_valid" : "Please agree terms & condition"
+  "terms_and_condition_valid" : "Please agree terms & condition",
+  "confirm_otp" : "Confirm OTP",
+  "please_input_OTP" : "Please input OTP",
+  "success" : "Success",
+  "resent" : "Resent OTP",
+  "failed" : "Failed"
+
 }

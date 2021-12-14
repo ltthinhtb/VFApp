@@ -1309,6 +1309,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Confirm OTP`
+  String get confirm_otp {
+    return Intl.message(
+      'Confirm OTP',
+      name: 'confirm_otp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please input OTP`
+  String get please_input_OTP {
+    return Intl.message(
+      'Please input OTP',
+      name: 'please_input_OTP',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Success`
+  String get success {
+    return Intl.message(
+      'Success',
+      name: 'success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resent OTP`
+  String get resent {
+    return Intl.message(
+      'Resent OTP',
+      name: 'resent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed`
+  String get failed {
+    return Intl.message(
+      'Failed',
+      name: 'failed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

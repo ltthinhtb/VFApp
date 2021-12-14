@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:vf_app/generated/l10n.dart';
@@ -11,6 +12,7 @@ import 'services/index.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
 
   /// AWAIT SERVICES INITIALIZATION.
   await initServices();

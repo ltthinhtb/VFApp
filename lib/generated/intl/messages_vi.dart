@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "collaborative_assets_total":
             MessageLookupByLibrary.simpleMessage("Tổng giá trị CK hợp tác"),
         "confirm": MessageLookupByLibrary.simpleMessage("Hoàn tất"),
+        "confirm_otp": MessageLookupByLibrary.simpleMessage("Xác nhận OTP"),
         "contact_support":
             MessageLookupByLibrary.simpleMessage("Liên hệ hỗ trợ"),
         "content_transfer":
@@ -58,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Vui lòng nhập mật khẩu"),
         "end_day": MessageLookupByLibrary.simpleMessage("Đến ngày"),
         "error": MessageLookupByLibrary.simpleMessage("Lỗi"),
+        "failed": MessageLookupByLibrary.simpleMessage("Thất bại"),
         "fee": MessageLookupByLibrary.simpleMessage("Phí đầu tư"),
         "floor": MessageLookupByLibrary.simpleMessage("Sàn"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("Quên mật khẩu?"),
@@ -111,6 +113,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "phone": MessageLookupByLibrary.simpleMessage("Số điện thoại"),
         "phone_not_valid":
             MessageLookupByLibrary.simpleMessage("Số điện thoại không hợp lệ"),
+        "please_input_OTP":
+            MessageLookupByLibrary.simpleMessage("Vui lòng nhập mã OTP đến số"),
         "please_input_email":
             MessageLookupByLibrary.simpleMessage("Vui lòng nhập email"),
         "please_input_full_name":
@@ -134,6 +138,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "register": MessageLookupByLibrary.simpleMessage("Mở tài khoản"),
         "register_form":
             MessageLookupByLibrary.simpleMessage("Đăng ký tài khoản"),
+        "resent": MessageLookupByLibrary.simpleMessage("Gửi lại mã"),
         "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
         "select_account":
             MessageLookupByLibrary.simpleMessage("Chọn số tài khoản"),
@@ -171,6 +176,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "status": MessageLookupByLibrary.simpleMessage("Trạng thái"),
         "stock_code": MessageLookupByLibrary.simpleMessage("Mã CK"),
         "stock_market": MessageLookupByLibrary.simpleMessage("Bảng giá"),
+        "success": MessageLookupByLibrary.simpleMessage("Thành công"),
         "tax": MessageLookupByLibrary.simpleMessage("Thuế đầu tư"),
         "terms_and_condition":
             MessageLookupByLibrary.simpleMessage("Điều khoản và điều kiện"),

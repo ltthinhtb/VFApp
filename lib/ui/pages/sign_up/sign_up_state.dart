@@ -5,6 +5,9 @@ class SignUpState {
   final FocusNode pinPutFocusNode = FocusNode();
   final formKeyPIN = GlobalKey<FormState>();
 
+  final TextEditingController OTPController = TextEditingController();
+  final FocusNode OTPFocusNode = FocusNode();
+
   late ValueNotifier<bool> checkAccountContinue;
 
   final TextEditingController fullNameController = TextEditingController();
