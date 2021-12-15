@@ -114,5 +114,13 @@
   "pp" : "Sức mua của mã",
   "ee" : "Sức mua tài khoản",
   "maxVolumeBuyAvaiable" : "Khối lượng tối đa có thể mua",
-  "maxVolumeSellAvaiable" : "Khối lượng tối đa có thể bán"
+  "maxVolumeSellAvaiable" : "Khối lượng tối đa có thể bán",
+  "stockMarket" : "Thị trường",
+  "money_exchange" : "Giao dịch tiền",
+  "warning" : "Cảnh báo",
+  "margin_product" : "Sản phẩm Margin/Hợp tác",
+  "order_confirm" : "Xác Nhận Lệnh",
+  "user_guide" : "Hướng dẫn sử dụng",
+  "statement" : "Sao kê",
+  "change_password" : "Đổi mật khẩu"
 }

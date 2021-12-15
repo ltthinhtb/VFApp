@@ -1209,6 +1209,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Stock market`
+  String get stockMarket {
+    return Intl.message(
+      'Stock market',
+      name: 'stockMarket',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Money exchange`
+  String get money_exchange {
+    return Intl.message(
+      'Money exchange',
+      name: 'money_exchange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Warning`
+  String get warning {
+    return Intl.message(
+      'Warning',
+      name: 'warning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Margin product`
+  String get margin_product {
+    return Intl.message(
+      'Margin product',
+      name: 'margin_product',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order confirm`
+  String get order_confirm {
+    return Intl.message(
+      'Order confirm',
+      name: 'order_confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User guide`
+  String get user_guide {
+    return Intl.message(
+      'User guide',
+      name: 'user_guide',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Statement`
+  String get statement {
+    return Intl.message(
+      'Statement',
+      name: 'statement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change password`
+  String get change_password {
+    return Intl.message(
+      'Change password',
+      name: 'change_password',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

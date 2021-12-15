@@ -114,5 +114,13 @@
   "pp" : "PP",
   "ee" : "EE",
   "maxVolumeBuyAvaiable" : "Maximum Available Buy Volumn",
-  "maxVolumeSellAvaiable" : "Maximum Available Sell Volumn"
+  "maxVolumeSellAvaiable" : "Maximum Available Sell Volumn",
+  "stockMarket" : "Stock market",
+  "money_exchange" : "Money exchange",
+  "warning" : "Warning",
+  "margin_product" : "Margin product",
+  "order_confirm" : "Order confirm",
+  "user_guide" : "User guide",
+  "statement" : "Statement",
+  "change_password" : "Change password"
 }

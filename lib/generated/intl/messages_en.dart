@@ -33,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "cash_balance": MessageLookupByLibrary.simpleMessage("Cash balance"),
         "category": MessageLookupByLibrary.simpleMessage("Menu"),
         "ceil": MessageLookupByLibrary.simpleMessage("Ceil"),
+        "change_password":
+            MessageLookupByLibrary.simpleMessage("Change password"),
         "collaborative_assets":
             MessageLookupByLibrary.simpleMessage("Collaborative Assets"),
         "collaborative_assets_total":
@@ -86,12 +88,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_face_id":
             MessageLookupByLibrary.simpleMessage("Login by FaceID"),
+        "margin_product":
+            MessageLookupByLibrary.simpleMessage("Margin product"),
         "maxVolumeBuyAvaiable": MessageLookupByLibrary.simpleMessage(
             "Maximum Available Buy Volumn"),
         "maxVolumeSellAvaiable": MessageLookupByLibrary.simpleMessage(
             "Maximum Available Sell Volumn"),
         "menu": MessageLookupByLibrary.simpleMessage("Menu"),
         "min_VOLUME": MessageLookupByLibrary.simpleMessage("Min volume"),
+        "money_exchange":
+            MessageLookupByLibrary.simpleMessage("Money exchange"),
         "month": MessageLookupByLibrary.simpleMessage("Months"),
         "mr": MessageLookupByLibrary.simpleMessage("MR"),
         "network_error": MessageLookupByLibrary.simpleMessage("Network Error"),
@@ -99,6 +105,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Don\'t have account? "),
         "open_on": MessageLookupByLibrary.simpleMessage("Open on"),
         "order": MessageLookupByLibrary.simpleMessage("Order"),
+        "order_confirm": MessageLookupByLibrary.simpleMessage("Order confirm"),
         "order_note": MessageLookupByLibrary.simpleMessage("Order note"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "pay": MessageLookupByLibrary.simpleMessage("Pay"),
@@ -152,7 +159,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "splash_title3": MessageLookupByLibrary.simpleMessage(
             "With only 3 minutes to open an account"),
         "start_day": MessageLookupByLibrary.simpleMessage("Start day"),
+        "statement": MessageLookupByLibrary.simpleMessage("Statement"),
         "status": MessageLookupByLibrary.simpleMessage("Status"),
+        "stockMarket": MessageLookupByLibrary.simpleMessage("Stock market"),
         "stock_code": MessageLookupByLibrary.simpleMessage("Stock code"),
         "stock_market": MessageLookupByLibrary.simpleMessage("Stock market"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
@@ -166,10 +175,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Transfer Payment"),
         "up_to": MessageLookupByLibrary.simpleMessage("Up to"),
         "user": MessageLookupByLibrary.simpleMessage("User"),
+        "user_guide": MessageLookupByLibrary.simpleMessage("User guide"),
         "user_name": MessageLookupByLibrary.simpleMessage("Username"),
         "volume_short": MessageLookupByLibrary.simpleMessage("Volume"),
         "volumn": MessageLookupByLibrary.simpleMessage("Volumn"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
+        "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "year": MessageLookupByLibrary.simpleMessage("year")
       };
 }
