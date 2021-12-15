@@ -113,5 +113,6 @@
   "mr" : "MR",
   "pp" : "PP",
   "ee" : "EE",
-  "volumeAvaiable" : "Maximum volumn"
+  "maxVolumeBuyAvaiable" : "Maximum Available Buy Volumn",
+  "maxVolumeSellAvaiable" : "Maximum Available Sell Volumn"
 }

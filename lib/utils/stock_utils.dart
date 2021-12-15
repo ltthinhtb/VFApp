@@ -40,9 +40,9 @@ class StockUtil {
 
   static String formatVol10(num _number) {
     try {
-      var numerators =
+      var numberators =
           NumberFormat("###,###,###,###,##", 'en_US').format(_number);
-      return numerators;
+      return numberators;
     } catch (e) {
       logger.e(e.toString());
     }
@@ -51,9 +51,9 @@ class StockUtil {
 
   static String formatVol(num _number) {
     try {
-      var numerators =
+      var numberators =
           NumberFormat("###,###,###,###,###", 'en_US').format(_number);
-      return numerators;
+      return numberators;
     } catch (e) {
       logger.e(e.toString());
     }
@@ -62,12 +62,22 @@ class StockUtil {
 
   static String formatMoney(num _number) {
     try {
-      var numerators =
+      var numberators =
           NumberFormat("###,###,###,###,###", 'en_US').format(_number);
-      return numerators;
+      return numberators;
     } catch (e) {
       logger.e(e.toString());
     }
     return '0';
+  }
+
+  static String formatPrice(num _number) {
+    try {
+      var numberators =
+          NumberFormat("###,###,###,###,###.##", 'en_US').format(_number);
+      return numberators;
+    } catch (e) {
+      return "0";
+    }
   }
 }

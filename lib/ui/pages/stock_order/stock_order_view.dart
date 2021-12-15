@@ -7,10 +7,12 @@ import 'package:vf_app/common/app_text_styles.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
 import 'package:vf_app/services/setting_service.dart';
+import 'package:vf_app/ui/commons/webview.dart';
 import 'package:vf_app/ui/pages/stock_order/stock_order_logic.dart';
 import 'package:vf_app/ui/pages/stock_order/stock_order_state.dart';
 import 'package:vf_app/ui/pages/stock_order/widget/number_input.dart';
 import 'package:vf_app/ui/pages/stock_order/widget/stock_order_appbar.dart';
+import 'package:vf_app/ui/pages/stock_order/widget/stock_order_confirm.dart';
 import 'package:vf_app/ui/widgets/animation_widget/price_row.dart';
 import 'package:vf_app/ui/widgets/animation_widget/switch.dart';
 import 'package:vf_app/ui/widgets/animation_widget/total_volumn_row.dart';
@@ -92,7 +94,12 @@ class _StockOrderPageState extends State<StockOrderPage> {
             Radius.circular(10),
           ),
         ),
-        onPressed: () {},
+        onPressed: () {
+          if (state.selectedStock.value.stockCode != null &&
+              state.vol.value > 0) {
+            Get.to(StockOrderConfirm());
+          }
+        },
         child: Text(
           "Đặt lệnh",
           style: AppTextStyle.H5Bold.copyWith(color: Colors.white),
@@ -138,7 +145,14 @@ class _StockOrderPageState extends State<StockOrderPage> {
                           ]),
                         ),
                         MaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(
+                              WebViewPage(
+                                  title: "Chart",
+                                  url:
+                                      "https://info.sbsi.vn/chart/?symbol=${state.selectedStock.value.stockCode}&language=vi&theme=light"),
+                            );
+                          },
                           shape: const CircleBorder(),
                           color: Theme.of(context)
                               .buttonTheme
@@ -432,7 +446,12 @@ class _StockOrderPageState extends State<StockOrderPage> {
     return Obx(() {
       if (state.loading.value) {
         return Container(
-          height: 70,
+          child: Row(
+            children: nullString.asMap().entries.map<Widget>((entry) {
+              int idx = entry.key;
+              return buidButtonPrice(nullString, idx);
+            }).toList(),
+          ),
         );
       } else {
         switch (state.stockExchange.value) {
@@ -535,7 +554,6 @@ class _StockOrderPageState extends State<StockOrderPage> {
                           ? true
                           : false,
                       onChange: (value) {
-                        _priceController.text = value.toStringAsFixed(1);
                         state
                           ..price.value = value
                           ..priceType.value = "LO";
@@ -680,7 +698,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
                     Expanded(
                       flex: 3,
                       child: Text(
-                        S.of(context).volumeAvaiable,
+                        S.of(context).maxVolumeBuyAvaiable,
                         style: AppTextStyle.caption2,
                       ),
                     ),
@@ -719,7 +737,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
                 Expanded(
                   flex: 3,
                   child: Text(
-                    S.of(context).volumeAvaiable,
+                    S.of(context).maxVolumeSellAvaiable,
                     style: AppTextStyle.caption2,
                   ),
                 ),
@@ -750,3 +768,4 @@ List<String> pricesHSX = ["LO", "MP", "ATC", "ATO"];
 List<String> pricesHNX = ["LO", "MTL", "MOK", "MAK", "PLO"];
 
 List<String> pricesUPCOM = ["LO"];
+List<String> nullString = [""];

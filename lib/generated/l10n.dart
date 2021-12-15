@@ -1190,11 +1190,21 @@ class S {
     );
   }
 
-  /// `Maximum volumn`
-  String get volumeAvaiable {
+  /// `Maximum Available Buy Volumn`
+  String get maxVolumeBuyAvaiable {
     return Intl.message(
-      'Maximum volumn',
-      name: 'volumeAvaiable',
+      'Maximum Available Buy Volumn',
+      name: 'maxVolumeBuyAvaiable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maximum Available Sell Volumn`
+  String get maxVolumeSellAvaiable {
+    return Intl.message(
+      'Maximum Available Sell Volumn',
+      name: 'maxVolumeSellAvaiable',
       desc: '',
       args: [],
     );

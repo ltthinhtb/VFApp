@@ -1,8 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_text_styles.dart';
+import 'package:vf_app/utils/stock_utils.dart';
 
 class BackGroundPainter extends CustomPainter {
   BackGroundPainter({
@@ -95,6 +97,7 @@ class NumberInputField extends StatefulWidget {
     this.focusNode,
     this.enabled = true,
     this.onChange,
+    this.maxLength = 20,
   }) : super(key: key);
   final Color backgroundColor;
   final Color buttonColor;
@@ -104,6 +107,7 @@ class NumberInputField extends StatefulWidget {
   final FocusNode? focusNode;
   final bool enabled;
   final ValueChanged<double>? onChange;
+  final int? maxLength;
 
   @override
   _NumberInputFieldState createState() => _NumberInputFieldState();
@@ -129,12 +133,18 @@ class _NumberInputFieldState extends State<NumberInputField> {
       _color = widget.buttonColor;
       enabled = widget.enabled;
       currentValue = double.parse(widget.editingController.text);
+      widget.editingController.text = currentValue.roundNumber();
     });
     _focusNode?.addListener(() {
+      // print("Has focus: ${_focusNode?.hasFocus}");
       if (_focusNode!.hasFocus) {
         _hintText = "";
       } else {
         _hintText = widget.label;
+        setState(() {
+          currentValue = double.parse(widget.editingController.text);
+          widget.editingController.text = currentValue.roundNumber();
+        });
       }
       setState(() {});
     });
@@ -178,16 +188,23 @@ class _NumberInputFieldState extends State<NumberInputField> {
                 painter: BackGroundPainter(color: _color),
                 child: MaterialButton(
                   onPressed: () {
+                    _focusNode?.unfocus();
                     if (enabled) {
-                      if (double.parse(widget.editingController.text) -
-                              widget.dist >=
-                          0) {
-                        setState(() {
-                          currentValue =
-                              double.parse(widget.editingController.text) -
-                                  widget.dist;
-                        });
-                        widget.onChange?.call(currentValue);
+                      if (widget.editingController.text.isANumber()) {
+                        if (double.parse(widget.editingController.text) -
+                                widget.dist >=
+                            0) {
+                          if (widget.editingController.text.isANumber()) {
+                            setState(() {
+                              setState(() {
+                                currentValue =
+                                    double.parse(widget.editingController.text);
+                              });
+                              widget.editingController.text =
+                                  currentValue.roundNumber();
+                            });
+                          }
+                        }
                       }
                     }
                   },
@@ -203,13 +220,29 @@ class _NumberInputFieldState extends State<NumberInputField> {
           Expanded(
             child: Container(
               alignment: Alignment.center,
-              // color: Colors.green,
               child: TextField(
                 controller: widget.editingController,
                 focusNode: _focusNode,
                 enableSuggestions: false,
                 enabled: enabled,
                 autocorrect: false,
+                inputFormatters: [
+                  LengthLimitingTextInputFormatter(widget.maxLength)
+                ],
+                onEditingComplete: () {
+                  if (enabled) {
+                    if (widget.editingController.text.isANumber()) {
+                      setState(() {
+                        setState(() {
+                          currentValue =
+                              double.parse(widget.editingController.text);
+                        });
+                        widget.editingController.text =
+                            currentValue.roundNumber();
+                      });
+                    }
+                  }
+                },
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.zero,
@@ -235,13 +268,19 @@ class _NumberInputFieldState extends State<NumberInputField> {
                 painter: BackGroundPainter2(color: _color),
                 child: MaterialButton(
                   onPressed: () {
+                    _focusNode?.unfocus();
                     if (enabled) {
-                      setState(() {
-                        currentValue =
-                            double.parse(widget.editingController.text) +
-                                widget.dist;
-                      });
-                      widget.onChange?.call(currentValue);
+                      if (widget.editingController.text.isANumber()) {
+                        setState(() {
+                          setState(() {
+                            currentValue =
+                                double.parse(widget.editingController.text) +
+                                    widget.dist;
+                          });
+                          widget.editingController.text =
+                              currentValue.roundNumber();
+                        });
+                      }
                     }
                   },
                   shape: const RoundedRectangleBorder(
@@ -256,5 +295,28 @@ class _NumberInputFieldState extends State<NumberInputField> {
         ],
       ),
     );
+  }
+}
+
+extension DecimalNumber on String {
+  bool isANumber() {
+    return RegExp(r'^[+-]?([0-9]+\.?[0-9]*|\.[0-9]+)$').hasMatch(this);
+  }
+
+  String roundDouble() {
+    if (endsWith("00")) {
+      return substring(0, length - 3);
+    } else if (endsWith("0")) {
+      return substring(0, length - 1);
+    } else {
+      return this;
+    }
+  }
+}
+
+extension Number on double {
+  String roundNumber() {
+    var _fomated = StockUtil.formatPrice(this).toString();
+    return _fomated;
   }
 }

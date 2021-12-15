@@ -88,6 +88,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "login_face_id":
             MessageLookupByLibrary.simpleMessage("Đăng nhập bằng FaceID"),
+        "maxVolumeBuyAvaiable": MessageLookupByLibrary.simpleMessage(
+            "Khối lượng tối đa có thể mua"),
+        "maxVolumeSellAvaiable": MessageLookupByLibrary.simpleMessage(
+            "Khối lượng tối đa có thể bán"),
         "menu": MessageLookupByLibrary.simpleMessage("Danh mục"),
         "min_VOLUME":
             MessageLookupByLibrary.simpleMessage("Số tiền đầu tư tối thiểu"),
@@ -167,8 +171,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "user": MessageLookupByLibrary.simpleMessage("Tài khoản"),
         "user_name":
             MessageLookupByLibrary.simpleMessage("Số tài khoản/Số điện thoại "),
-        "volumeAvaiable": MessageLookupByLibrary.simpleMessage(
-            "Khối lượng tối đa có thể mua"),
         "volume_short": MessageLookupByLibrary.simpleMessage("KL"),
         "volumn": MessageLookupByLibrary.simpleMessage("Khối lượng"),
         "wallet": MessageLookupByLibrary.simpleMessage("Tài sản"),

@@ -86,6 +86,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_face_id":
             MessageLookupByLibrary.simpleMessage("Login by FaceID"),
+        "maxVolumeBuyAvaiable": MessageLookupByLibrary.simpleMessage(
+            "Maximum Available Buy Volumn"),
+        "maxVolumeSellAvaiable": MessageLookupByLibrary.simpleMessage(
+            "Maximum Available Sell Volumn"),
         "menu": MessageLookupByLibrary.simpleMessage("Menu"),
         "min_VOLUME": MessageLookupByLibrary.simpleMessage("Min volume"),
         "month": MessageLookupByLibrary.simpleMessage("Months"),
@@ -163,8 +167,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "up_to": MessageLookupByLibrary.simpleMessage("Up to"),
         "user": MessageLookupByLibrary.simpleMessage("User"),
         "user_name": MessageLookupByLibrary.simpleMessage("Username"),
-        "volumeAvaiable":
-            MessageLookupByLibrary.simpleMessage("Maximum volumn"),
         "volume_short": MessageLookupByLibrary.simpleMessage("Volume"),
         "volumn": MessageLookupByLibrary.simpleMessage("Volumn"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
