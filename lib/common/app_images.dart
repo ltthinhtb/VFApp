@@ -4,6 +4,13 @@ class AppImages {
   static String splash2 = 'assets/image/splash_2.png';
   static String splash3 = 'assets/image/splash_3.png';
 
+  //sign_up
+  static String sign_up_card_id_1 ='assets/icon_svg/sign_up_card_id.svg';
+  static String sign_up_card_id_2 ='assets/icon_svg/sign_up_id-card 2.svg';
+  static String sign_up_card_id_3 ='assets/icon_svg/sign_ip_id-card 3.svg';
+
+
+
   //menu card
   static String menuCard = 'assets/image/menu_card.jpg';
 

@@ -129,6 +129,13 @@
   "please_input_OTP" : "Please input OTP",
   "success" : "Success",
   "resent" : "Resent OTP",
-  "failed" : "Failed"
-
+  "failed" : "Failed",
+  "activated_account" : "Activated account",
+  "activated_now" : "Activated now",
+  "later" : "Later",
+  "choose_identity" : "Choose your identity document",
+  "passport" : "Passport",
+  "identity_card" : "Identity card",
+  "choose" : "Choose",
+  "take_photo_confirm" : "Take photo confirm"
 }

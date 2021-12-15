@@ -24,6 +24,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "account": MessageLookupByLibrary.simpleMessage("Tài khoản"),
         "account_user": MessageLookupByLibrary.simpleMessage("Tên tài khoản"),
+        "activated_account":
+            MessageLookupByLibrary.simpleMessage("Kích hoạt tài khoản"),
+        "activated_now": MessageLookupByLibrary.simpleMessage("Kích hoạt ngay"),
         "agree": MessageLookupByLibrary.simpleMessage("Đồng ý"),
         "assets": MessageLookupByLibrary.simpleMessage("Tài sản"),
         "bank_account": MessageLookupByLibrary.simpleMessage("Số tài khoản"),
@@ -36,6 +39,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "cash_balance": MessageLookupByLibrary.simpleMessage("Tài sản ròng"),
         "category": MessageLookupByLibrary.simpleMessage("Khác"),
         "ceil": MessageLookupByLibrary.simpleMessage("Trần"),
+        "choose": MessageLookupByLibrary.simpleMessage("Chọn"),
+        "choose_identity":
+            MessageLookupByLibrary.simpleMessage("Chọn giấy tờ tùy thân"),
         "collaborative_assets":
             MessageLookupByLibrary.simpleMessage("Tài sản hợp tác"),
         "collaborative_assets_total":
@@ -72,6 +78,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "have_account": MessageLookupByLibrary.simpleMessage("Đã có tài khoản"),
         "history": MessageLookupByLibrary.simpleMessage("Lịch sử giao dịch"),
         "home": MessageLookupByLibrary.simpleMessage("Bảng giá"),
+        "identity_card":
+            MessageLookupByLibrary.simpleMessage("Chứng minh nhân dân"),
         "input_invest_money":
             MessageLookupByLibrary.simpleMessage("Nhập số tiền đầu tư"),
         "instructions_transfers":
@@ -92,6 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "invest_to": MessageLookupByLibrary.simpleMessage("Đầu tư từ"),
         "invest_total":
             MessageLookupByLibrary.simpleMessage("Tổng giá trị đầu tư"),
+        "later": MessageLookupByLibrary.simpleMessage("Để sau"),
         "login": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "login_face_id":
             MessageLookupByLibrary.simpleMessage("Đăng nhập bằng FaceID"),
@@ -105,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "open_on": MessageLookupByLibrary.simpleMessage("Mở tại"),
         "order": MessageLookupByLibrary.simpleMessage("Đặt lệnh"),
         "order_note": MessageLookupByLibrary.simpleMessage("Sổ lệnh"),
+        "passport": MessageLookupByLibrary.simpleMessage("Hộ chiếu Việt NAM"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
         "pay": MessageLookupByLibrary.simpleMessage("Thanh toán"),
         "pay_type":
@@ -177,6 +187,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "stock_code": MessageLookupByLibrary.simpleMessage("Mã CK"),
         "stock_market": MessageLookupByLibrary.simpleMessage("Bảng giá"),
         "success": MessageLookupByLibrary.simpleMessage("Thành công"),
+        "take_photo_confirm":
+            MessageLookupByLibrary.simpleMessage("Chụp ảnh xác thực"),
         "tax": MessageLookupByLibrary.simpleMessage("Thuế đầu tư"),
         "terms_and_condition":
             MessageLookupByLibrary.simpleMessage("Điều khoản và điều kiện"),

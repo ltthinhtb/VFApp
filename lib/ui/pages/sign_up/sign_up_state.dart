@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vf_app/ui/pages/sign_up/widget/alert_dialog.dart';
 
 class SignUpState {
   final TextEditingController pinPutController = TextEditingController();
@@ -28,6 +29,8 @@ class SignUpState {
   final formPass = GlobalKey<FormState>();
 
   bool agreePolicy = false;
+
+  EnumRadio enumRadio = EnumRadio.values.first;
 
   SignUpState() {
     checkAccountContinue = ValueNotifier<bool>(false);

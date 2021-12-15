@@ -2,9 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pin_put/pin_put.dart';
-import 'package:sms_autofill/sms_autofill.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/generated/l10n.dart';
+import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/ui/commons/app_snackbar.dart';
 import 'package:vf_app/ui/widgets/button/button_filled.dart';
 import 'package:vf_app/ui/widgets/button/button_text.dart';
@@ -19,7 +19,7 @@ class SignUpOTPPage extends StatefulWidget {
   _SignUpOTPPageState createState() => _SignUpOTPPageState();
 }
 
-class _SignUpOTPPageState extends State<SignUpOTPPage> with CodeAutoFill {
+class _SignUpOTPPageState extends State<SignUpOTPPage> {
   final logic = Get.find<SignUpLogic>();
   final state = Get.find<SignUpLogic>().state;
 
@@ -29,27 +29,14 @@ class _SignUpOTPPageState extends State<SignUpOTPPage> with CodeAutoFill {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
-  void codeUpdated() {
-    state.OTPController.text = code!;
-  }
-
-  String? appSignature;
-
-  @override
   void initState() {
     state.OTPController.clear();
-    _verifyPhoneNumber();
-    SmsAutoFill().listenForCode;
-    SmsAutoFill().getAppSignature.then((signature) {
-      appSignature = signature;
-    });
+    // _verifyPhoneNumber();
     super.initState();
   }
 
   @override
   void dispose() {
-    SmsAutoFill().unregisterListener();
-    // TODO: implement dispose
     super.dispose();
   }
 
@@ -78,7 +65,7 @@ class _SignUpOTPPageState extends State<SignUpOTPPage> with CodeAutoFill {
     try {
       await _auth.verifyPhoneNumber(
           phoneNumber: state.phoneNameController.text,
-          timeout: const Duration(seconds: 5),
+          timeout: const Duration(seconds: 60),
           verificationCompleted: verificationCompleted,
           verificationFailed: verificationFailed,
           codeSent: codeSent,
@@ -94,7 +81,8 @@ class _SignUpOTPPageState extends State<SignUpOTPPage> with CodeAutoFill {
         verificationId: _verificationId,
         smsCode: state.OTPController.text,
       );
-      (await _auth.signInWithCredential(credential)).user!;
+      var user = (await _auth.signInWithCredential(credential)).user!;
+      logger.d(user.phoneNumber);
       AppSnackBar.showInfo(title: S.of(context).success);
     } catch (e) {
       logger.e(e);
@@ -157,10 +145,16 @@ class _SignUpOTPPageState extends State<SignUpOTPPage> with CodeAutoFill {
               },
               title: S.of(context).resent),
           const Spacer(),
-          SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: ButtonFill(
-                  voidCallback: () {}, title: S.of(context).continue_step)),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: ButtonFill(
+                    voidCallback: () {
+                      Get.toNamed(RouteConfig.sign_up_activated);
+                    },
+                    title: S.of(context).continue_step)),
+          ),
           const SizedBox(height: 30),
         ],
       ),

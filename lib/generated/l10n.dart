@@ -1359,6 +1359,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Activated account`
+  String get activated_account {
+    return Intl.message(
+      'Activated account',
+      name: 'activated_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Activated now`
+  String get activated_now {
+    return Intl.message(
+      'Activated now',
+      name: 'activated_now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Later`
+  String get later {
+    return Intl.message(
+      'Later',
+      name: 'later',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose your identity document`
+  String get choose_identity {
+    return Intl.message(
+      'Choose your identity document',
+      name: 'choose_identity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passport`
+  String get passport {
+    return Intl.message(
+      'Passport',
+      name: 'passport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Identity card`
+  String get identity_card {
+    return Intl.message(
+      'Identity card',
+      name: 'identity_card',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose`
+  String get choose {
+    return Intl.message(
+      'Choose',
+      name: 'choose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Take photo confirm`
+  String get take_photo_confirm {
+    return Intl.message(
+      'Take photo confirm',
+      name: 'take_photo_confirm',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -125,10 +125,17 @@
   "agree": "Đồng ý",
   "terms_and_condition": "Điều khoản và điều kiện",
   "terms_and_condition_valid": "Vui lòng đồng ý điều khoản và điều kiện",
-  "confirm_otp" : "Xác nhận OTP",
-  "please_input_OTP" : "Vui lòng nhập mã OTP đến số",
-  "success" : "Thành công",
-  "resent" : "Gửi lại mã",
-  "failed" : "Thất bại"
-
+  "confirm_otp": "Xác nhận OTP",
+  "please_input_OTP": "Vui lòng nhập mã OTP đến số",
+  "success": "Thành công",
+  "resent": "Gửi lại mã",
+  "failed": "Thất bại",
+  "activated_account": "Kích hoạt tài khoản",
+  "activated_now": "Kích hoạt ngay",
+  "later": "Để sau",
+  "choose_identity" : "Chọn giấy tờ tùy thân",
+  "passport" : "Hộ chiếu Việt NAM",
+  "identity_card" : "Chứng minh nhân dân",
+  "choose" : "Chọn",
+  "take_photo_confirm" : "Chụp ảnh xác thực"
 }

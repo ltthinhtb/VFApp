@@ -24,6 +24,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "account": MessageLookupByLibrary.simpleMessage("Account"),
         "account_user": MessageLookupByLibrary.simpleMessage("User"),
+        "activated_account":
+            MessageLookupByLibrary.simpleMessage("Activated account"),
+        "activated_now": MessageLookupByLibrary.simpleMessage("Activated now"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
         "assets": MessageLookupByLibrary.simpleMessage("Assets"),
         "bank_account": MessageLookupByLibrary.simpleMessage("Bank account"),
@@ -34,6 +37,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "cash_balance": MessageLookupByLibrary.simpleMessage("Cash balance"),
         "category": MessageLookupByLibrary.simpleMessage("Menu"),
         "ceil": MessageLookupByLibrary.simpleMessage("Ceil"),
+        "choose": MessageLookupByLibrary.simpleMessage("Choose"),
+        "choose_identity": MessageLookupByLibrary.simpleMessage(
+            "Choose your identity document"),
         "collaborative_assets":
             MessageLookupByLibrary.simpleMessage("Collaborative Assets"),
         "collaborative_assets_total":
@@ -69,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "have_account": MessageLookupByLibrary.simpleMessage("Have account"),
         "history": MessageLookupByLibrary.simpleMessage("History"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "identity_card": MessageLookupByLibrary.simpleMessage("Identity card"),
         "input_invest_money":
             MessageLookupByLibrary.simpleMessage("Input money"),
         "instructions_transfers":
@@ -90,6 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "invest_time": MessageLookupByLibrary.simpleMessage("Invest time"),
         "invest_to": MessageLookupByLibrary.simpleMessage("Invest to"),
         "invest_total": MessageLookupByLibrary.simpleMessage("Total invest"),
+        "later": MessageLookupByLibrary.simpleMessage("Later"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_face_id":
             MessageLookupByLibrary.simpleMessage("Login by FaceID"),
@@ -102,6 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "open_on": MessageLookupByLibrary.simpleMessage("Open on"),
         "order": MessageLookupByLibrary.simpleMessage("Order"),
         "order_note": MessageLookupByLibrary.simpleMessage("Order note"),
+        "passport": MessageLookupByLibrary.simpleMessage("Passport"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "pay": MessageLookupByLibrary.simpleMessage("Pay"),
         "pay_type": MessageLookupByLibrary.simpleMessage("Payment type"),
@@ -173,6 +182,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "stock_code": MessageLookupByLibrary.simpleMessage("Stock code"),
         "stock_market": MessageLookupByLibrary.simpleMessage("Stock market"),
         "success": MessageLookupByLibrary.simpleMessage("Success"),
+        "take_photo_confirm":
+            MessageLookupByLibrary.simpleMessage("Take photo confirm"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "terms_and_condition":
             MessageLookupByLibrary.simpleMessage("Terms & condition"),

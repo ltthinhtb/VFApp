@@ -141,6 +141,11 @@ class AppThemes {
           selectedItemColor: AppColors.primary,
           selectedLabelStyle: AppTextStyle.H8Bold,
           unselectedLabelStyle: AppTextStyle.H8Bold);
+
+  static final RadioThemeData _radioThemeData = RadioThemeData(
+    fillColor: MaterialStateProperty.all(AppColors.primary),
+  );
+
   static final TabBarTheme _tabBarTheme = TabBarTheme(
       unselectedLabelStyle: AppTextStyle.H7Regular,
       labelColor: AppColors.white,
@@ -193,6 +198,7 @@ class AppThemes {
       ),
       checkColor: MaterialStateProperty.all(AppColors.white),
     ),
+    radioTheme: _radioThemeData,
     buttonTheme: _buttonDecorationLightTheme,
     toggleButtonsTheme: _toggleButtonDecorationLightTheme,
     toggleableActiveColor: AppColors.grayF2,
