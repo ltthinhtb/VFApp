@@ -52,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "coupon": MessageLookupByLibrary.simpleMessage("Coupon"),
         "day": MessageLookupByLibrary.simpleMessage("Day"),
         "deposit_fee": MessageLookupByLibrary.simpleMessage("Deposit fee"),
+        "ee": MessageLookupByLibrary.simpleMessage("EE"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "email_not_valid":
             MessageLookupByLibrary.simpleMessage("Email not valid"),
@@ -101,9 +102,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_face_id":
             MessageLookupByLibrary.simpleMessage("Login by FaceID"),
+        "maxVolumeBuyAvaiable": MessageLookupByLibrary.simpleMessage(
+            "Maximum Available Buy Volumn"),
+        "maxVolumeSellAvaiable": MessageLookupByLibrary.simpleMessage(
+            "Maximum Available Sell Volumn"),
         "menu": MessageLookupByLibrary.simpleMessage("Menu"),
         "min_VOLUME": MessageLookupByLibrary.simpleMessage("Min volume"),
         "month": MessageLookupByLibrary.simpleMessage("Months"),
+        "mr": MessageLookupByLibrary.simpleMessage("MR"),
         "network_error": MessageLookupByLibrary.simpleMessage("Network Error"),
         "not_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have account? "),
@@ -132,6 +138,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "please_input_user":
             MessageLookupByLibrary.simpleMessage("Input username"),
         "policy_use": MessageLookupByLibrary.simpleMessage("Policy"),
+        "pp": MessageLookupByLibrary.simpleMessage("PP"),
         "product": MessageLookupByLibrary.simpleMessage("Product"),
         "profit": MessageLookupByLibrary.simpleMessage("Profit"),
         "profit_total": MessageLookupByLibrary.simpleMessage("Profit total"),

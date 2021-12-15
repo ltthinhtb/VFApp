@@ -17,6 +17,7 @@ class WebViewPage extends StatefulWidget {
 }
 
 class _WebViewPageState extends State<WebViewPage> {
+  bool loading = true;
   @override
   void initState() {
     if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
@@ -38,15 +39,30 @@ class _WebViewPageState extends State<WebViewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBarCustom(
-          title: widget.title,
-        ),
-        body: WebView(
-          javascriptMode: JavascriptMode.unrestricted,
-          initialUrl: widget.url,
-          javascriptChannels: <JavascriptChannel>{
-            _toasterJavascriptChannel(context),
-          },
-        ));
+      appBar: AppBarCustom(
+        title: widget.title,
+      ),
+      body: Stack(
+        children: [
+          WebView(
+            onPageFinished: (url) {
+              setState(() {
+                loading = false;
+              });
+            },
+            javascriptMode: JavascriptMode.unrestricted,
+            initialUrl: widget.url,
+            javascriptChannels: <JavascriptChannel>{
+              _toasterJavascriptChannel(context),
+            },
+          ),
+          loading
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : Stack(),
+        ],
+      ),
+    );
   }
 }

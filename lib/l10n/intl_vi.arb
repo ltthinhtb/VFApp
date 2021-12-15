@@ -137,5 +137,10 @@
   "passport" : "Hộ chiếu Việt NAM",
   "identity_card" : "Chứng minh nhân dân",
   "choose" : "Chọn",
-  "take_photo_confirm" : "Chụp ảnh xác thực"
+  "take_photo_confirm" : "Chụp ảnh xác thực",
+  "mr" : "Số dư tiền hợp tác",
+  "pp" : "Sức mua của mã",
+  "ee" : "Sức mua tài khoản",
+  "maxVolumeBuyAvaiable" : "Khối lượng tối đa có thể mua",
+  "maxVolumeSellAvaiable" : "Khối lượng tối đa có thể bán"
 }

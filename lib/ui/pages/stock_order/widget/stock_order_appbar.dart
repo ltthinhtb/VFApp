@@ -60,6 +60,9 @@ class _StockOrderAppbarState extends State<StockOrderAppbar> {
               ),
             ),
           ),
+          Container(
+            width: 10,
+          ),
           Expanded(
             flex: 5,
             child: MaterialButton(

@@ -56,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "coupon": MessageLookupByLibrary.simpleMessage("Lợi suất đầu tư"),
         "day": MessageLookupByLibrary.simpleMessage("Ngày"),
         "deposit_fee": MessageLookupByLibrary.simpleMessage("Tổng phí"),
+        "ee": MessageLookupByLibrary.simpleMessage("Sức mua tài khoản"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "email_not_valid":
             MessageLookupByLibrary.simpleMessage("Email không hợp lệ"),
@@ -104,10 +105,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "login_face_id":
             MessageLookupByLibrary.simpleMessage("Đăng nhập bằng FaceID"),
+        "maxVolumeBuyAvaiable": MessageLookupByLibrary.simpleMessage(
+            "Khối lượng tối đa có thể mua"),
+        "maxVolumeSellAvaiable": MessageLookupByLibrary.simpleMessage(
+            "Khối lượng tối đa có thể bán"),
         "menu": MessageLookupByLibrary.simpleMessage("Danh mục"),
         "min_VOLUME":
             MessageLookupByLibrary.simpleMessage("Số tiền đầu tư tối thiểu"),
         "month": MessageLookupByLibrary.simpleMessage("Tháng"),
+        "mr": MessageLookupByLibrary.simpleMessage("Số dư tiền hợp tác"),
         "network_error": MessageLookupByLibrary.simpleMessage("Lỗi kết nối"),
         "not_account":
             MessageLookupByLibrary.simpleMessage("Bạn chưa có tài khoản? "),
@@ -137,6 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nhập username"),
         "policy_use":
             MessageLookupByLibrary.simpleMessage("Điều khoản sử dụng"),
+        "pp": MessageLookupByLibrary.simpleMessage("Sức mua của mã"),
         "product": MessageLookupByLibrary.simpleMessage("Sản phẩm"),
         "profit": MessageLookupByLibrary.simpleMessage("Lãi lỗ"),
         "profit_total": MessageLookupByLibrary.simpleMessage("Tổng lãi lỗ"),

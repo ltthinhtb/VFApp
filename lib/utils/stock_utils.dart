@@ -5,6 +5,17 @@ import 'package:vf_app/utils/logger.dart';
 import 'package:intl/intl.dart';
 
 class StockUtil {
+  static Color itemColorWithColor(String color) {
+    switch (color) {
+      case "green":
+        return AppColors.increase;
+      case "red":
+        return AppColors.decrease;
+      default:
+        return AppColors.yellow;
+    }
+  }
+
   static Color itemColor(StockData data) {
     num change = data.lastPrice! - data.r!;
     if (change > 0) {
@@ -29,9 +40,9 @@ class StockUtil {
 
   static String formatVol10(num _number) {
     try {
-      var numerators =
+      var numberators =
           NumberFormat("###,###,###,###,##", 'en_US').format(_number);
-      return numerators;
+      return numberators;
     } catch (e) {
       logger.e(e.toString());
     }
@@ -40,12 +51,33 @@ class StockUtil {
 
   static String formatVol(num _number) {
     try {
-      var numerators =
+      var numberators =
           NumberFormat("###,###,###,###,###", 'en_US').format(_number);
-      return numerators;
+      return numberators;
     } catch (e) {
       logger.e(e.toString());
     }
     return '0';
+  }
+
+  static String formatMoney(num _number) {
+    try {
+      var numberators =
+          NumberFormat("###,###,###,###,###", 'en_US').format(_number);
+      return numberators;
+    } catch (e) {
+      logger.e(e.toString());
+    }
+    return '0';
+  }
+
+  static String formatPrice(num _number) {
+    try {
+      var numberators =
+          NumberFormat("###,###,###,###,###.##", 'en_US').format(_number);
+      return numberators;
+    } catch (e) {
+      return "0";
+    }
   }
 }

@@ -5,17 +5,17 @@ class RequestParams {
   String? user;
   String? session;
   String? channel;
+  String? checksum;
   ParamsObject? data;
 
-  RequestParams({this.group, this.user, this.session, this.channel, this.data});
-
-  RequestParams.fromJson(Map<String, dynamic> json) {
-    group = json['group'];
-    user = json['user'];
-    session = json['session'];
-    channel = json['channel'];
-    data = json['data'] != null ? ParamsObject.fromJson(json['data']) : null;
-  }
+  RequestParams({
+    this.group,
+    this.user,
+    this.session,
+    this.channel,
+    this.data,
+    this.checksum,
+  });
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -25,9 +25,13 @@ class RequestParams {
     if (channel != null) {
       data['channel'] = channel;
     }
+    if (checksum != null) {
+      data['checksum'] = checksum;
+    }
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
+
     return data;
   }
 }

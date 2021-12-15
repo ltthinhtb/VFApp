@@ -1439,6 +1439,56 @@ class S {
       args: [],
     );
   }
+
+  /// `MR`
+  String get mr {
+    return Intl.message(
+      'MR',
+      name: 'mr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `PP`
+  String get pp {
+    return Intl.message(
+      'PP',
+      name: 'pp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `EE`
+  String get ee {
+    return Intl.message(
+      'EE',
+      name: 'ee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maximum Available Buy Volumn`
+  String get maxVolumeBuyAvaiable {
+    return Intl.message(
+      'Maximum Available Buy Volumn',
+      name: 'maxVolumeBuyAvaiable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maximum Available Sell Volumn`
+  String get maxVolumeSellAvaiable {
+    return Intl.message(
+      'Maximum Available Sell Volumn',
+      name: 'maxVolumeSellAvaiable',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

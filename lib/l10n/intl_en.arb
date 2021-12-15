@@ -137,5 +137,10 @@
   "passport" : "Passport",
   "identity_card" : "Identity card",
   "choose" : "Choose",
-  "take_photo_confirm" : "Take photo confirm"
+  "take_photo_confirm" : "Take photo confirm",
+  "mr" : "MR",
+  "pp" : "PP",
+  "ee" : "EE",
+  "maxVolumeBuyAvaiable" : "Maximum Available Buy Volumn",
+  "maxVolumeSellAvaiable" : "Maximum Available Sell Volumn"
 }
