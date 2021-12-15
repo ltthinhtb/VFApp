@@ -13,7 +13,6 @@ class _TakePhotoPageState extends State<TakePhotoPage> {
   @override
   Widget build(BuildContext context) {
     final headline4 = Theme.of(context).textTheme.headline4;
-    final headline6 = Theme.of(context).textTheme.headline6;
     return Scaffold(
       backgroundColor: const Color(0xff3B3B3B).withOpacity(0.6),
       appBar: AppBar(

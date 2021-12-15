@@ -53,30 +53,29 @@ class SignUpLogic extends GetxController with Validator {
     bool validatePhoneName = state.formPhone.currentState!.validate();
     bool validateEmail = state.formEmail.currentState!.validate();
     bool validatePass = state.formPass.currentState!.validate();
-    await Get.toNamed(RouteConfig.sign_up_otp);
-    // if (!validateFullName) {
-    //   AppSnackBar.showError(
-    //       message: checkFullName(state.fullNameController.text));
-    // } else if (!validatePhoneName) {
-    //   AppSnackBar.showError(
-    //       message: checkPhoneNumber(state.phoneNameController.text));
-    // } else if (!validateEmail) {
-    //   AppSnackBar.showError(
-    //       message: checkEmail(state.emailNameController.text));
-    // } else if (!validatePass) {
-    //   AppSnackBar.showError(message: checkPass(state.passController.text));
-    // } else if (!state.agreePolicy) {
-    //   AppSnackBar.showError(message: S.current.terms_and_condition_valid);
-    // } else {
-    //   try {
-    //     await apiService.checkAccountStatus(request);
-    //     await Get.toNamed(RouteConfig.sign_up_otp);
-    //   } on ErrorException catch (error) {
-    //     AppSnackBar.showError(message: error.message);
-    //   } catch (e) {
-    //     logger.e(e.runtimeType);
-    //   }
-    // }
+    if (!validateFullName) {
+      AppSnackBar.showError(
+          message: checkFullName(state.fullNameController.text));
+    } else if (!validatePhoneName) {
+      AppSnackBar.showError(
+          message: checkPhoneNumber(state.phoneNameController.text));
+    } else if (!validateEmail) {
+      AppSnackBar.showError(
+          message: checkEmail(state.emailNameController.text));
+    } else if (!validatePass) {
+      AppSnackBar.showError(message: checkPass(state.passController.text));
+    } else if (!state.agreePolicy) {
+      AppSnackBar.showError(message: S.current.terms_and_condition_valid);
+    } else {
+      try {
+        await apiService.checkAccountStatus(request);
+        await Get.toNamed(RouteConfig.sign_up_otp);
+      } on ErrorException catch (error) {
+        AppSnackBar.showError(message: error.message);
+      } catch (e) {
+        logger.e(e.runtimeType);
+      }
+    }
   }
 
   @override
