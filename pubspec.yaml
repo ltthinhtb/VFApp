@@ -53,6 +53,7 @@ dependencies:
 
   #Dialog, etc
   cached_network_image: ^3.2.0
+  camera: ^0.9.4+5
 
   #font
   google_fonts: ^2.1.0

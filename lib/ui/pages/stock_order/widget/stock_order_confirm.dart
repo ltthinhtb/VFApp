@@ -1,12 +1,10 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vf_app/common/app_text_styles.dart';
 import 'package:vf_app/ui/commons/appbar.dart';
 import 'package:vf_app/utils/stock_utils.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-
 import '../stock_order_logic.dart';
 
 class StockOrderConfirm extends StatefulWidget {
