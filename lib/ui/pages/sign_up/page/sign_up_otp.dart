@@ -31,7 +31,7 @@ class _SignUpOTPPageState extends State<SignUpOTPPage> {
   @override
   void initState() {
     state.OTPController.clear();
-    _verifyPhoneNumber();
+   // _verifyPhoneNumber();
     super.initState();
   }
 

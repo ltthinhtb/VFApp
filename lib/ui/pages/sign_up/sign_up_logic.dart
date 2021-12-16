@@ -1,5 +1,5 @@
+import 'package:camera/camera.dart';
 import 'package:get/get.dart';
-import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/params/check_account_request.dart';
 import 'package:vf_app/networks/error_exception.dart';
 import 'package:vf_app/router/route_config.dart';
@@ -49,44 +49,53 @@ class SignUpLogic extends GetxController with Validator {
           cEMAIL: state.emailNameController.text,
           cMOBILE: state.phoneNameController.text,
         ));
-    bool validateFullName = state.formFullName.currentState!.validate();
-    bool validatePhoneName = state.formPhone.currentState!.validate();
-    bool validateEmail = state.formEmail.currentState!.validate();
-    bool validatePass = state.formPass.currentState!.validate();
-    if (!validateFullName) {
-      AppSnackBar.showError(
-          message: checkFullName(state.fullNameController.text));
-    } else if (!validatePhoneName) {
-      AppSnackBar.showError(
-          message: checkPhoneNumber(state.phoneNameController.text));
-    } else if (!validateEmail) {
-      AppSnackBar.showError(
-          message: checkEmail(state.emailNameController.text));
-    } else if (!validatePass) {
-      AppSnackBar.showError(message: checkPass(state.passController.text));
-    } else if (!state.agreePolicy) {
-      AppSnackBar.showError(message: S.current.terms_and_condition_valid);
-    } else {
-      try {
-        await apiService.checkAccountStatus(request);
-        await Get.toNamed(RouteConfig.sign_up_otp);
-      } on ErrorException catch (error) {
-        AppSnackBar.showError(message: error.message);
-      } catch (e) {
-        logger.e(e.runtimeType);
-      }
+    await Get.toNamed(RouteConfig.sign_up_otp);
+    // bool validateFullName = state.formFullName.currentState!.validate();
+    // bool validatePhoneName = state.formPhone.currentState!.validate();
+    // bool validateEmail = state.formEmail.currentState!.validate();
+    // bool validatePass = state.formPass.currentState!.validate();
+    // if (!validateFullName) {
+    //   AppSnackBar.showError(
+    //       message: checkFullName(state.fullNameController.text));
+    // } else if (!validatePhoneName) {
+    //   AppSnackBar.showError(
+    //       message: checkPhoneNumber(state.phoneNameController.text));
+    // } else if (!validateEmail) {
+    //   AppSnackBar.showError(
+    //       message: checkEmail(state.emailNameController.text));
+    // } else if (!validatePass) {
+    //   AppSnackBar.showError(message: checkPass(state.passController.text));
+    // } else if (!state.agreePolicy) {
+    //   AppSnackBar.showError(message: S.current.terms_and_condition_valid);
+    // } else {
+    //   try {
+    //     await apiService.checkAccountStatus(request);
+    //     await Get.toNamed(RouteConfig.sign_up_otp);
+    //   } on ErrorException catch (error) {
+    //     AppSnackBar.showError(message: error.message);
+    //   } catch (e) {
+    //     logger.e(e.runtimeType);
+    //   }
+    // }
+  }
+
+  void getCamera() async {
+    try {
+      state.cameras = await availableCameras();
+      print(state.cameras.length);
+    } catch (e) {
+      logger.e(e.toString());
     }
   }
 
   @override
   void onReady() {
-    // TODO: implement onReady
+    getCamera();
     super.onReady();
   }
 
   @override
   void onClose() {
-    // TODO: implement onClose
     super.onClose();
   }
 }

@@ -1,6 +1,12 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/generated/l10n.dart';
+import 'package:vf_app/ui/commons/app_snackbar.dart';
+import 'package:vf_app/utils/logger.dart';
+
+import '../sign_up_logic.dart';
 
 class TakePhotoPage extends StatefulWidget {
   const TakePhotoPage({Key? key}) : super(key: key);
@@ -10,8 +16,37 @@ class TakePhotoPage extends StatefulWidget {
 }
 
 class _TakePhotoPageState extends State<TakePhotoPage> {
+  late CameraController _controller;
+
+  final logic = Get.find<SignUpLogic>();
+  final state = Get.find<SignUpLogic>().state;
+
+  @override
+  void initState() {
+    final firstCamera = state.cameras.first;
+    super.initState();
+    _controller = CameraController(
+      firstCamera,
+      ResolutionPreset.medium,
+      imageFormatGroup: ImageFormatGroup.yuv420,
+    );
+    _controller.initialize().then((_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    print('build');
     final headline4 = Theme.of(context).textTheme.headline4;
     return Scaffold(
       backgroundColor: const Color(0xff3B3B3B).withOpacity(0.6),
@@ -20,47 +55,54 @@ class _TakePhotoPageState extends State<TakePhotoPage> {
         elevation: 0,
         centerTitle: true,
       ),
-      body: Column(
+      body: Stack(
         children: [
-          const SizedBox(height: 20),
-          Stack(
+          _cameraPreview(),
+
+          Column(
             children: [
-              Align(
-                  alignment: Alignment.center,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: Row(
-                      children: [
-                        const Spacer(),
-                        const Expanded(
-                          flex: 6,
-                          child: Divider(
-                            height: 0,
-                            thickness: 1,
-                            color: AppColors.grayD7,
-                          ),
-                        ),
-                        const Spacer(),
-                      ],
-                    ),
-                  )),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              const SizedBox(height: 20),
+              Stack(
                 children: [
-                  Expanded(flex: 2, child: stepper(1, 'Chụp ảnh và xác thực')),
-                  const Spacer(),
-                  Expanded(flex: 2, child: stepper(2, 'Bổ sung thông tin')),
-                  const Spacer(),
-                  Expanded(flex: 2, child: stepper(3, 'Ký hợp đồng')),
+                  Align(
+                      alignment: Alignment.center,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Row(
+                          children: [
+                            const Spacer(),
+                            const Expanded(
+                              flex: 6,
+                              child: Divider(
+                                height: 0,
+                                thickness: 1,
+                                color: AppColors.grayD7,
+                              ),
+                            ),
+                            const Spacer(),
+                          ],
+                        ),
+                      )),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(flex: 2, child: stepper(1, 'Chụp ảnh và xác thực')),
+                      const Spacer(),
+                      Expanded(flex: 2, child: stepper(2, 'Bổ sung thông tin')),
+                      const Spacer(),
+                      Expanded(flex: 2, child: stepper(3, 'Ký hợp đồng')),
+                    ],
+                  ),
                 ],
+              ),
+              const SizedBox(height: 18),
+              Text(
+                'Mặt trước CMND/CCCD',
+                style: headline4,
               ),
             ],
           ),
-          const SizedBox(height: 18),
-          Text(
-            'Mặt trước CMND/CCCD',
-            style: headline4,
-          ),
+
         ],
       ),
     );
@@ -94,5 +136,15 @@ class _TakePhotoPageState extends State<TakePhotoPage> {
         )
       ],
     );
+  }
+
+  Widget _cameraPreview() {
+    if (_controller.value.isInitialized) {
+      return Container(
+        child: CameraPreview(_controller),
+      );
+    } else {
+      return const Text("Nodata");
+    }
   }
 }

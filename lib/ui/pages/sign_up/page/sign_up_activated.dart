@@ -29,6 +29,7 @@ class _ActivatedPageState extends State<ActivatedPage> {
     final headline6 = Theme.of(context).textTheme.headline6;
     final headline3 = Theme.of(context).textTheme.headline6;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(S.of(context).activated_account),
         elevation: 0,
