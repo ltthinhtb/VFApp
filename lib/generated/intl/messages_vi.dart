@@ -89,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "login_face_id":
             MessageLookupByLibrary.simpleMessage("Đăng nhập bằng FaceID"),
+        "logout": MessageLookupByLibrary.simpleMessage("Đăng xuất"),
         "margin_product":
             MessageLookupByLibrary.simpleMessage("Sản phẩm Margin/Hợp tác"),
         "maxVolumeBuyAvaiable": MessageLookupByLibrary.simpleMessage(

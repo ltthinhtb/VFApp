@@ -140,6 +140,16 @@ class S {
     );
   }
 
+  /// `Logout`
+  String get logout {
+    return Intl.message(
+      'Logout',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign up`
   String get sign_up {
     return Intl.message(

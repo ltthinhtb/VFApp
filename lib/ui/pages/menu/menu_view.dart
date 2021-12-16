@@ -4,6 +4,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_text_styles.dart';
 import 'package:vf_app/generated/l10n.dart';
+import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/ui/pages/menu/menu_logic.dart';
 import 'package:vf_app/ui/pages/menu/page/setting.dart';
 
@@ -94,6 +95,10 @@ class _MenuState extends State<Menu> {
           buildButton(
             S.of(context).settings_title,
             onPush: () => Get.to(Setting()),
+          ),
+          buildButton(
+            S.of(context).logout,
+            onPush: () => Get.offNamed(RouteConfig.login),
           ),
         ],
       ),

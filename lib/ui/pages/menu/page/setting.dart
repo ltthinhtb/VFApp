@@ -63,7 +63,8 @@ class _SettingState extends State<Setting> {
         elevation: 0,
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
         shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(15))),
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

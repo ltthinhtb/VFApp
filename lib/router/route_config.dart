@@ -1,4 +1,5 @@
 import 'package:vf_app/ui/pages/main/main_view.dart';
+import 'package:vf_app/ui/pages/search/search_view.dart';
 
 import 'package:vf_app/ui/pages/sign_in/sign_in_view.dart';
 import 'package:vf_app/ui/pages/splash/splash_view.dart';
@@ -11,6 +12,7 @@ class RouteConfig {
   static final String login = "/login";
   static final String invest = "/invest";
   static final String invest_confirm = '/invest_confirm';
+  static final String search = "/search";
 
   ///Alias ​​mapping page
   static final List<GetPage> getPages = [
@@ -19,6 +21,6 @@ class RouteConfig {
     GetPage(name: login, page: () => const SignInPage()),
     GetPage(name: invest, page: () => const MainPage()),
     GetPage(name: invest_confirm, page: () => const MainPage()),
-
+    GetPage(name: search, page: () => const SearchPage()),
   ];
 }

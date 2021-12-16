@@ -88,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_face_id":
             MessageLookupByLibrary.simpleMessage("Login by FaceID"),
+        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "margin_product":
             MessageLookupByLibrary.simpleMessage("Margin product"),
         "maxVolumeBuyAvaiable": MessageLookupByLibrary.simpleMessage(

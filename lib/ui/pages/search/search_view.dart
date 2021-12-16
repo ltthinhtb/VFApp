@@ -9,7 +9,7 @@ import 'package:vf_app/ui/pages/search/search_logic.dart';
 import 'package:vf_app/ui/widgets/textfields/app_text_field.dart';
 
 class SearchPage extends StatefulWidget {
-  SearchPage({
+  const SearchPage({
     Key? key,
   }) : super(key: key);
 
