@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/generated/l10n.dart';
+import 'package:vf_app/ui/commons/appbar.dart';
 
 class TakePhotoPage extends StatefulWidget {
   const TakePhotoPage({Key? key}) : super(key: key);
@@ -15,10 +16,8 @@ class _TakePhotoPageState extends State<TakePhotoPage> {
     final headline4 = Theme.of(context).textTheme.headline4;
     return Scaffold(
       backgroundColor: const Color(0xff3B3B3B).withOpacity(0.6),
-      appBar: AppBar(
-        title: Text(S.of(context).take_photo_confirm),
-        elevation: 0,
-        centerTitle: true,
+      appBar: AppBarCustom(
+        title: S.of(context).take_photo_confirm,
       ),
       body: Column(
         children: [

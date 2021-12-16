@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/generated/l10n.dart';
+import 'package:vf_app/ui/commons/appbar.dart';
 import 'package:vf_app/ui/widgets/button/button_filled.dart';
 import 'package:vf_app/ui/widgets/check_box/app_check_box.dart';
 import 'package:vf_app/ui/widgets/textfields/app_text_field.dart';
@@ -29,11 +30,8 @@ class _SignUpFormPageState extends State<SignUpFormPage> with Validator {
         .copyWith(fontWeight: FontWeight.w700);
     final bodyText1 = Theme.of(context).textTheme.bodyText1;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).register_form),
-        elevation: 0,
-        centerTitle: true,
-      ),
+      appBar: AppBarCustom(title: S.of(context).register_form,),
+
       body: SingleChildScrollView(
         child: Column(
           children: [

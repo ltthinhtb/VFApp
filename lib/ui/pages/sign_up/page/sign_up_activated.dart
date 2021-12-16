@@ -6,6 +6,7 @@ import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_images.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/ui/commons/app_dialog.dart';
+import 'package:vf_app/ui/commons/appbar.dart';
 import 'package:vf_app/ui/commons/timmer_coutdown.dart';
 import 'package:vf_app/ui/pages/sign_up/widget/alert_dialog.dart';
 import 'package:vf_app/ui/widgets/button/button_filled.dart';
@@ -29,11 +30,7 @@ class _ActivatedPageState extends State<ActivatedPage> {
     final headline6 = Theme.of(context).textTheme.headline6;
     final headline3 = Theme.of(context).textTheme.headline6;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).activated_account),
-        elevation: 0,
-        centerTitle: true,
-      ),
+      appBar: AppBarCustom(title: S.of(context).activated_account,),
       body: Column(
         children: [
           const SizedBox(height: 30),
