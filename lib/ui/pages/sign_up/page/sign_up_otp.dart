@@ -48,6 +48,7 @@ class _SignUpOTPPageState extends State<SignUpOTPPage> {
     };
     PhoneVerificationFailed verificationFailed =
         (FirebaseAuthException authException) {
+      logger.e(authException);
       AppSnackBar.showError(
           message: "Hệ thống quá tải vui lòng đợi OTP sau vài phút");
     };
