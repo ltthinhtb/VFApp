@@ -6,6 +6,7 @@ import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_images.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/router/route_config.dart';
+import 'package:vf_app/ui/commons/appbar.dart';
 import 'package:vf_app/ui/widgets/button/button_filled.dart';
 
 import '../sign_up_logic.dart';
@@ -25,11 +26,7 @@ class _CheckAccountPageState extends State<CheckAccountPage> {
   Widget build(BuildContext context) {
     final headline4 = Theme.of(context).textTheme.headline4;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).select_account),
-        elevation: 0,
-        centerTitle: true,
-      ),
+      appBar: AppBarCustom(title: S.of(context).select_account,),
       body: Column(
         children: [
           const SizedBox(height: 20),

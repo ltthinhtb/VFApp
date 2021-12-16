@@ -6,6 +6,7 @@ import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/ui/commons/app_snackbar.dart';
+import 'package:vf_app/ui/commons/appbar.dart';
 import 'package:vf_app/ui/widgets/button/button_filled.dart';
 import 'package:vf_app/ui/widgets/button/button_text.dart';
 import 'package:vf_app/utils/logger.dart';
@@ -98,11 +99,7 @@ class _SignUpOTPPageState extends State<SignUpOTPPage> {
     final headline6 = Theme.of(context).textTheme.headline6;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).confirm_otp),
-        elevation: 0,
-        centerTitle: true,
-      ),
+      appBar: AppBarCustom(title: S.of(context).confirm_otp,),
       body: Column(
         children: [
           const SizedBox(height: 30),
