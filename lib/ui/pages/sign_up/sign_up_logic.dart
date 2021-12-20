@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:camera/camera.dart';
 import 'package:get/get.dart';
 import 'package:vf_app/model/params/check_account_request.dart';
@@ -77,6 +79,32 @@ class SignUpLogic extends GetxController with Validator {
     //     logger.e(e.runtimeType);
     //   }
     // }
+  }
+
+  Future<void> getImageUploadUrl(File file, String key) async {
+    try {
+      var url = await apiService.uploadFile(file, key);
+      if (key == "anhCmtTruoc") {
+        logger.d(url);
+        await checkOcrImageUploadUrl(url);
+      }
+    } on ErrorException catch (error) {
+      AppSnackBar.showError(message: error.message);
+    } catch (e) {
+      logger.e(e.runtimeType);
+    }
+  }
+
+  Future<void> checkOcrImageUploadUrl(String url) async {
+    try {
+      var response = await apiService.checkOcr(url);
+      print(response);
+      state.nextStep = true;
+    } on ErrorException catch (error) {
+      AppSnackBar.showError(message: error.message);
+    } catch (e) {
+      logger.e(e.runtimeType);
+    }
   }
 
   void getCamera() async {

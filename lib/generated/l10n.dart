@@ -1489,6 +1489,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Take photo again`
+  String get take_photo_again {
+    return Intl.message(
+      'Take photo again',
+      name: 'take_photo_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use photo`
+  String get use_photo {
+    return Intl.message(
+      'Use photo',
+      name: 'use_photo',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' as get_x;
 import 'package:vf_app/configs/app_configs.dart';
@@ -6,6 +7,7 @@ import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/entities/index.dart';
 import 'package:vf_app/model/params/check_account_request.dart';
 import 'package:vf_app/model/params/index.dart';
+import 'package:vf_app/model/response/Image_orc_check.dart';
 import 'package:vf_app/model/response/account_status.dart';
 import 'package:vf_app/model/response/check_account_response.dart';
 import 'package:vf_app/model/response/list_account_response.dart';
@@ -16,6 +18,7 @@ import 'package:vf_app/model/stock_data/cash_balance.dart';
 import 'package:vf_app/model/stock_data/stock_data.dart';
 import 'package:vf_app/model/stock_data/stock_info.dart';
 import 'package:vf_app/router/route_config.dart';
+import 'package:vf_app/utils/logger.dart';
 import 'error_exception.dart';
 
 abstract class ApiClient {
@@ -26,8 +29,13 @@ abstract class ApiClient {
   //sign up
   Future<CheckAccountResponse> checkAccountStatus(CheckAccountRequest request);
 
+  Future<String> uploadFile(File file, String key);
+
+  Future<ImageOrcCheck> checkOcr(String url);
+
   //Asset
   Future<AccountStatus> getAccountStatus(RequestParams requestParams);
+
   Future<AccountMStatus> getAccountMStatus(RequestParams requestParams);
 
   Future<PortfolioAccountStatus> getPortfolioAccountStatus(
@@ -39,9 +47,13 @@ abstract class ApiClient {
 
   //Stock Data
   Future<List<StockCompanyData>> getAllStockCompanyData();
+
   Future<StockInfo> getStockInfo(RequestParams requestParams);
+
   Future<StockData> getStockData(String stockCode);
+
   Future<CashBalance> getCashBalance(RequestParams requestParams);
+
   Future<void> newOrderRequest(RequestParams requestParams);
 
   Future<dynamic> signOut();
@@ -76,6 +88,24 @@ class _ApiClient implements ApiClient {
         throw ErrorException(response.statusCode!, _mapData['rs']);
       }
     } catch (error) {
+      throw _handleError(error);
+    }
+  }
+
+  Future<Response> _requestVFApi(Future<Response> request) async {
+    try {
+      var response = await request;
+      var _mapData = response.data!;
+      var _rc = _mapData['iRs'] ?? -999;
+
+      /// kiểm tra điều kiện thành công
+      if (_rc == 1) {
+        return response;
+      } else {
+        throw ErrorException(response.statusCode!, _mapData['rs']);
+      }
+    } catch (error) {
+      logger.e(error.toString());
       throw _handleError(error);
     }
   }
@@ -136,15 +166,34 @@ class _ApiClient implements ApiClient {
   @override
   Future<CheckAccountResponse> checkAccountStatus(
       CheckAccountRequest request) async {
-    Response _result = await _getApi(
+    Response _result = await _requestVFApi(
         _dio.post(AppConfigs.VF_HOST + 'core', data: request.toJson()));
     var _mapData = _result.data!;
-    var _rc = _mapData['iRs'] ?? -999;
-    if (_rc == 1) {
-      final value = CheckAccountResponse.fromJson(_mapData);
+    final value = CheckAccountResponse.fromJson(_mapData);
+    return value;
+  }
+
+  @override
+  Future<String> uploadFile(File file, String key) async {
+    var formData = FormData.fromMap(
+        {key: await MultipartFile.fromFile(file.path, filename: '$key.jpg')});
+    Response _result = await _requestVFApi(
+        _dio.post(AppConfigs.VF_HOST + 'uploadFile', data: formData));
+    return _result.data['data'][key];
+  }
+
+  @override
+  Future<ImageOrcCheck> checkOcr(String url) async {
+    Response _result = await _requestVFApi(
+        _dio.post(AppConfigs.VF_HOST + 'ocrPlatform', data: {"image": url}));
+    var _mapData = _result.data!;
+    final value = ImageOrcCheck.fromJson(_mapData);
+    var errorCode = value.data!.errorCode ?? 1;
+    if (errorCode == 0) {
       return value;
     } else {
-      throw ErrorException(_mapData['sRs'], _mapData['rs']);
+      throw ErrorException(
+          errorCode, value.data!.errorMessage ?? S.current.error);
     }
   }
 

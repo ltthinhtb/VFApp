@@ -9,7 +9,9 @@ class AppImages {
   static String sign_up_card_id_2 ='assets/icon_svg/sign_up_id-card 2.svg';
   static String sign_up_card_id_3 ='assets/icon_svg/sign_ip_id-card 3.svg';
 
-
+  static String cmnd_blur = 'assets/icon_svg/cmnd_blur.svg';
+  static String cmnd_dark ='assets/icon_svg/cmnd_dark.svg';
+  static String cmnd_cut = 'assets/icon_svg/cmnd_cut.svg';
 
   //menu card
   static String menuCard = 'assets/image/menu_card.jpg';
@@ -24,6 +26,7 @@ class AppImages {
   static String dislike_star = 'assets/icon_svg/dislike_star.svg';
   static String switch_diagram = 'assets/icon_svg/switch_diagram.svg';
   static String down_arrow = 'assets/icon_svg/down-arror.svg';
+  static String camera = 'assets/icon_svg/camera.svg';
 
   // icon image
   static String present = 'assets/icon_svg/present.svg';

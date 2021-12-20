@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:vf_app/ui/pages/sign_up/widget/alert_dialog.dart';
@@ -33,7 +35,12 @@ class SignUpState {
 
   EnumRadio enumRadio = EnumRadio.values.first;
 
+
+  bool nextStep = false;
   List<CameraDescription> cameras = [];
+  late File cmndFront;
+  late File cmndBack;
+
 
   SignUpState() {
     checkAccountContinue = ValueNotifier<bool>(false);

@@ -194,6 +194,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "stock_code": MessageLookupByLibrary.simpleMessage("Mã CK"),
         "stock_market": MessageLookupByLibrary.simpleMessage("Bảng giá"),
         "success": MessageLookupByLibrary.simpleMessage("Thành công"),
+        "take_photo_again": MessageLookupByLibrary.simpleMessage("Chụp lại"),
         "take_photo_confirm":
             MessageLookupByLibrary.simpleMessage("Chụp ảnh xác thực"),
         "tax": MessageLookupByLibrary.simpleMessage("Thuế đầu tư"),
@@ -210,6 +211,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "transfer_payment":
             MessageLookupByLibrary.simpleMessage("Thanh toán chuyển khoản"),
         "up_to": MessageLookupByLibrary.simpleMessage("Lên đến"),
+        "use_photo": MessageLookupByLibrary.simpleMessage("Dùng ảnh này"),
         "user": MessageLookupByLibrary.simpleMessage("Tài khoản"),
         "user_name":
             MessageLookupByLibrary.simpleMessage("Số tài khoản/Số điện thoại "),

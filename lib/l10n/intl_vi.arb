@@ -142,5 +142,7 @@
   "pp" : "Sức mua của mã",
   "ee" : "Sức mua tài khoản",
   "maxVolumeBuyAvaiable" : "Khối lượng tối đa có thể mua",
-  "maxVolumeSellAvaiable" : "Khối lượng tối đa có thể bán"
+  "maxVolumeSellAvaiable" : "Khối lượng tối đa có thể bán",
+  "take_photo_again" : "Chụp lại",
+  "use_photo" : "Dùng ảnh này"
 }

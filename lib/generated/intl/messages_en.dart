@@ -189,6 +189,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "stock_code": MessageLookupByLibrary.simpleMessage("Stock code"),
         "stock_market": MessageLookupByLibrary.simpleMessage("Stock market"),
         "success": MessageLookupByLibrary.simpleMessage("Success"),
+        "take_photo_again":
+            MessageLookupByLibrary.simpleMessage("Take photo again"),
         "take_photo_confirm":
             MessageLookupByLibrary.simpleMessage("Take photo confirm"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
@@ -205,6 +207,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "transfer_payment":
             MessageLookupByLibrary.simpleMessage("Transfer Payment"),
         "up_to": MessageLookupByLibrary.simpleMessage("Up to"),
+        "use_photo": MessageLookupByLibrary.simpleMessage("Use photo"),
         "user": MessageLookupByLibrary.simpleMessage("User"),
         "user_name": MessageLookupByLibrary.simpleMessage("Username"),
         "volume_short": MessageLookupByLibrary.simpleMessage("Volume"),
