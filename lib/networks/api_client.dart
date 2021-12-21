@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' as get_x;
 import 'package:vf_app/configs/app_configs.dart';
@@ -7,10 +8,13 @@ import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/entities/index.dart';
 import 'package:vf_app/model/params/check_account_request.dart';
 import 'package:vf_app/model/params/index.dart';
+import 'package:vf_app/model/params/open_account_param.dart';
 import 'package:vf_app/model/response/Image_orc_check.dart';
 import 'package:vf_app/model/response/account_status.dart';
 import 'package:vf_app/model/response/check_account_response.dart';
+import 'package:vf_app/model/response/face_check_response.dart';
 import 'package:vf_app/model/response/list_account_response.dart';
+import 'package:vf_app/model/response/open_account_response.dart';
 import 'package:vf_app/model/response/portfolio.dart';
 import 'package:vf_app/model/response/portfolio_account_status.dart';
 import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
@@ -31,7 +35,13 @@ abstract class ApiClient {
 
   Future<String> uploadFile(File file, String key);
 
+  Future<String> uploadSignature(Uint8List file);
+
   Future<ImageOrcCheck> checkOcr(String url);
+
+  Future<FaceFPTCheck> checkFaceID(String faceUrl, String cmndUrl);
+
+  Future<OpenAccountResponse> openAccount(OpenAccountRequest request);
 
   //Asset
   Future<AccountStatus> getAccountStatus(RequestParams requestParams);
@@ -102,7 +112,7 @@ class _ApiClient implements ApiClient {
       if (_rc == 1) {
         return response;
       } else {
-        throw ErrorException(response.statusCode!, _mapData['rs']);
+        throw ErrorException(response.statusCode!, _mapData['sRs']);
       }
     } catch (error) {
       logger.e(error.toString());
@@ -183,6 +193,16 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+  Future<String> uploadSignature(Uint8List file) async {
+    List<int> bytes = List.from(file);
+    var formData = FormData.fromMap(
+        {'chuKy': MultipartFile.fromBytes(bytes, filename: 'chuKy.jpg')});
+    Response _result = await _requestVFApi(
+        _dio.post(AppConfigs.VF_HOST + 'uploadFile', data: formData));
+    return _result.data['data']['chuKy'];
+  }
+
+  @override
   Future<ImageOrcCheck> checkOcr(String url) async {
     Response _result = await _requestVFApi(
         _dio.post(AppConfigs.VF_HOST + 'ocrPlatform', data: {"image": url}));
@@ -195,6 +215,31 @@ class _ApiClient implements ApiClient {
       throw ErrorException(
           errorCode, value.data!.errorMessage ?? S.current.error);
     }
+  }
+
+  @override
+  Future<FaceFPTCheck> checkFaceID(String faceUrl, String cmndUrl) async {
+    Response _result = await _requestVFApi(_dio.post(
+        AppConfigs.VF_HOST + 'faceIdPlatform',
+        data: {"anhTrucDien": faceUrl, "anhCmtTruoc": cmndUrl}));
+    var _mapData = _result.data!;
+    final value = FaceFPTCheck.fromJson(_mapData);
+    var errorCode = value.data?.code ?? "407";
+    if (errorCode == '200') {
+      return value;
+    } else {
+      throw ErrorException(
+          int.parse(errorCode), value.data!.message ?? S.current.error);
+    }
+  }
+
+  @override
+  Future<OpenAccountResponse> openAccount(OpenAccountRequest request) async {
+    Response _result = await _requestVFApi(
+        _dio.post(AppConfigs.VF_HOST + 'core', data: request.toJson()));
+    var _mapData = _result.data!;
+    final value = OpenAccountResponse.fromJson(_mapData);
+    return value;
   }
 
   @override

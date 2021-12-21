@@ -1509,6 +1509,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Profile info`
+  String get profile_info {
+    return Intl.message(
+      'Profile info',
+      name: 'profile_info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gender`
+  String get gender {
+    return Intl.message(
+      'Gender',
+      name: 'gender',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Birthday`
+  String get birthday {
+    return Intl.message(
+      'Birthday',
+      name: 'birthday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Issue date`
+  String get issue_date_cmt {
+    return Intl.message(
+      'Issue date',
+      name: 'issue_date_cmt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Issue location`
+  String get issue_loc {
+    return Intl.message(
+      'Issue location',
+      name: 'issue_loc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Redo`
+  String get redo {
+    return Intl.message(
+      'Redo',
+      name: 'redo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

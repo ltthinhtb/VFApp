@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vf_app/ui/pages/sign_up/page/check_account.dart';
-
+import 'page/check_account.dart';
+import 'page/signature.dart';
 import 'sign_up_logic.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -14,6 +14,8 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   final logic = Get.put(SignUpLogic());
   final state = Get.find<SignUpLogic>().state;
+
+
   @override
   Widget build(BuildContext context) {
     return const CheckAccountPage();

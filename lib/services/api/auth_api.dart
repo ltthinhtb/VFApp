@@ -14,7 +14,19 @@ extension AuthApiService on ApiService {
     return await _apiClient.uploadFile(file, key);
   }
 
+  Future<String> uploadSignature(Uint8List file) async {
+    return await _apiClient.uploadSignature(file);
+  }
+
   Future<ImageOrcCheck> checkOcr(String url) async {
     return await _apiClient.checkOcr(url);
+  }
+
+  Future<FaceFPTCheck> checkFaceFPT(String faceUrl, String cmndUrl) async {
+    return await _apiClient.checkFaceID(faceUrl, cmndUrl);
+  }
+
+  Future<OpenAccountResponse> openAccount(OpenAccountRequest request) async {
+    return await _apiClient.openAccount(request);
   }
 }

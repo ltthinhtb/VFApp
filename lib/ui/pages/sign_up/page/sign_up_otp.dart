@@ -32,7 +32,7 @@ class _SignUpOTPPageState extends State<SignUpOTPPage> {
   @override
   void initState() {
     state.OTPController.clear();
-   // _verifyPhoneNumber();
+    _verifyPhoneNumber();
     super.initState();
   }
 
@@ -99,7 +99,9 @@ class _SignUpOTPPageState extends State<SignUpOTPPage> {
     final headline6 = Theme.of(context).textTheme.headline6;
 
     return Scaffold(
-      appBar: AppBarCustom(title: S.of(context).confirm_otp,),
+      appBar: AppBarCustom(
+        title: S.of(context).confirm_otp,
+      ),
       body: Column(
         children: [
           const SizedBox(height: 30),

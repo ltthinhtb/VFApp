@@ -18,7 +18,7 @@ class ApiInterceptors extends InterceptorsWrapper {
       try {
         logger.d("✈️ REQUEST[$method] => PATH: $uri \n DATA: ${jsonEncode(data)}");
       } catch (e) {
-        logger.e("✈️ REQUEST[$method] => PATH: $uri \n DATA: $data");
+        logger.i("✈️ REQUEST[$method] => PATH: $uri \n DATA: $data");
       }
     }
     super.onRequest(options, handler);

@@ -16,6 +16,7 @@ class AppTextFieldWidget extends StatefulWidget {
   final bool autoFocus;
   final SvgPicture? prefixIcon;
   final int? maxLength;
+  final bool readOnly;
 
   AppTextFieldWidget({
     this.inputController,
@@ -30,6 +31,7 @@ class AppTextFieldWidget extends StatefulWidget {
     this.autoFocus = false,
     this.prefixIcon,
     this.maxLength,
+    this.readOnly = false,
   });
 
   @override
@@ -64,6 +66,7 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
               ),
             )),
         TextFormField(
+          readOnly: widget.readOnly,
           autofocus: widget.autoFocus,
           focusNode: widget.focusNode ?? FocusNode(),
           controller: widget.inputController,

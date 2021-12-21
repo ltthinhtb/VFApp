@@ -4,6 +4,8 @@ import 'package:vf_app/ui/pages/sign_in/sign_in_view.dart';
 import 'package:vf_app/ui/pages/sign_up/page/sign_up_activated.dart';
 import 'package:vf_app/ui/pages/sign_up/page/sign_up_form.dart';
 import 'package:vf_app/ui/pages/sign_up/page/sign_up_otp.dart';
+import 'package:vf_app/ui/pages/sign_up/page/signature.dart';
+import 'package:vf_app/ui/pages/sign_up/page/success_open_account.dart';
 import 'package:vf_app/ui/pages/sign_up/page/take_photo.dart';
 import 'package:vf_app/ui/pages/sign_up/sign_up_view.dart';
 import 'package:vf_app/ui/pages/splash/splash_view.dart';
@@ -19,6 +21,8 @@ class RouteConfig {
   static final String sign_up_otp = '/sign_up_otp';
   static final String sign_up_activated = "/sign_up_activated";
   static final String sign_up_photo = "/sign_up_photo";
+  static final String sign_up_signature = "/sign_up_signature";
+  static final String success_open_account ='/success_open_account';
   static final String invest = "/invest";
   static final String invest_confirm = '/invest_confirm';
 
@@ -33,7 +37,9 @@ class RouteConfig {
     GetPage(name: sign_form, page: () => const SignUpFormPage()),
     GetPage(name: sign_up_otp, page: () => const SignUpOTPPage()),
     GetPage(name: sign_up_activated, page: () => const ActivatedPage()),
-    GetPage(name: sign_up_photo, page: () => const TakePhotoPage())
+    GetPage(name: sign_up_photo, page: () => const TakePhotoPage()),
+    GetPage(name: sign_up_signature, page: () => const SignaturePage()),
+    GetPage(name: success_open_account, page: () => const OpenSuccessAccount())
 
   ];
 }

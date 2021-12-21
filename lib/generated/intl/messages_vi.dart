@@ -30,12 +30,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "agree": MessageLookupByLibrary.simpleMessage("Đồng ý"),
         "assets": MessageLookupByLibrary.simpleMessage("Tài sản"),
         "bank_account": MessageLookupByLibrary.simpleMessage("Số tài khoản"),
+        "birthday": MessageLookupByLibrary.simpleMessage("Ngày sinh"),
         "bond_assets":
             MessageLookupByLibrary.simpleMessage("Tài sản trái phiếu"),
         "bond_code": MessageLookupByLibrary.simpleMessage("Mã trái phiếu"),
         "bond_history":
             MessageLookupByLibrary.simpleMessage("Các giao dịch gần đây"),
         "buy": MessageLookupByLibrary.simpleMessage("Mua"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Hủy bỏ"),
         "cash_balance": MessageLookupByLibrary.simpleMessage("Tài sản ròng"),
         "category": MessageLookupByLibrary.simpleMessage("Khác"),
         "ceil": MessageLookupByLibrary.simpleMessage("Trần"),
@@ -76,6 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Lãi lỗ tạm thời"),
         "gain_loss_value":
             MessageLookupByLibrary.simpleMessage("Lãi lỗ (số tiền)"),
+        "gender": MessageLookupByLibrary.simpleMessage("Giới tính"),
         "have_account": MessageLookupByLibrary.simpleMessage("Đã có tài khoản"),
         "history": MessageLookupByLibrary.simpleMessage("Lịch sử giao dịch"),
         "home": MessageLookupByLibrary.simpleMessage("Bảng giá"),
@@ -101,6 +104,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "invest_to": MessageLookupByLibrary.simpleMessage("Đầu tư từ"),
         "invest_total":
             MessageLookupByLibrary.simpleMessage("Tổng giá trị đầu tư"),
+        "issue_date_cmt": MessageLookupByLibrary.simpleMessage("Ngày cấp"),
+        "issue_loc": MessageLookupByLibrary.simpleMessage("Nơi cấp"),
         "later": MessageLookupByLibrary.simpleMessage("Để sau"),
         "login": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "login_face_id":
@@ -145,10 +150,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Điều khoản sử dụng"),
         "pp": MessageLookupByLibrary.simpleMessage("Sức mua của mã"),
         "product": MessageLookupByLibrary.simpleMessage("Sản phẩm"),
+        "profile_info":
+            MessageLookupByLibrary.simpleMessage("Thông tin cá nhân"),
         "profit": MessageLookupByLibrary.simpleMessage("Lãi lỗ"),
         "profit_total": MessageLookupByLibrary.simpleMessage("Tổng lãi lỗ"),
         "receive_money":
             MessageLookupByLibrary.simpleMessage("Tổng nhận thực tế"),
+        "redo": MessageLookupByLibrary.simpleMessage("Làm lại"),
         "reference": MessageLookupByLibrary.simpleMessage("Tham chiếu"),
         "reference_short": MessageLookupByLibrary.simpleMessage("TC"),
         "referral_code": MessageLookupByLibrary.simpleMessage("Mã giới thiệu"),
