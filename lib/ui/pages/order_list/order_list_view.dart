@@ -5,8 +5,6 @@ import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_text_styles.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/order_data/inday_order.dart';
-import 'package:vf_app/router/route_config.dart';
-import 'package:vf_app/ui/pages/menu/page/setting.dart';
 import 'package:vf_app/ui/pages/order_list/order_list_logic.dart';
 import 'package:vf_app/utils/error_message.dart';
 

@@ -1200,6 +1200,286 @@ class S {
     );
   }
 
+  /// `Select account`
+  String get select_account {
+    return Intl.message(
+      'Select account',
+      name: 'select_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get continue_step {
+    return Intl.message(
+      'Continue',
+      name: 'continue_step',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register form`
+  String get register_form {
+    return Intl.message(
+      'Register form',
+      name: 'register_form',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full name`
+  String get full_name {
+    return Intl.message(
+      'Full name',
+      name: 'full_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone`
+  String get phone {
+    return Intl.message(
+      'Phone',
+      name: 'phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please input full name`
+  String get please_input_full_name {
+    return Intl.message(
+      'Please input full name',
+      name: 'please_input_full_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please input phone number`
+  String get please_input_phone_number {
+    return Intl.message(
+      'Please input phone number',
+      name: 'please_input_phone_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone not valid`
+  String get phone_not_valid {
+    return Intl.message(
+      'Phone not valid',
+      name: 'phone_not_valid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please input email`
+  String get please_input_email {
+    return Intl.message(
+      'Please input email',
+      name: 'please_input_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email not valid`
+  String get email_not_valid {
+    return Intl.message(
+      'Email not valid',
+      name: 'email_not_valid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Referral code`
+  String get referral_code {
+    return Intl.message(
+      'Referral code',
+      name: 'referral_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Agree`
+  String get agree {
+    return Intl.message(
+      'Agree',
+      name: 'agree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms & condition`
+  String get terms_and_condition {
+    return Intl.message(
+      'Terms & condition',
+      name: 'terms_and_condition',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please agree terms & condition`
+  String get terms_and_condition_valid {
+    return Intl.message(
+      'Please agree terms & condition',
+      name: 'terms_and_condition_valid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm OTP`
+  String get confirm_otp {
+    return Intl.message(
+      'Confirm OTP',
+      name: 'confirm_otp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please input OTP`
+  String get please_input_OTP {
+    return Intl.message(
+      'Please input OTP',
+      name: 'please_input_OTP',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Success`
+  String get success {
+    return Intl.message(
+      'Success',
+      name: 'success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resent OTP`
+  String get resent {
+    return Intl.message(
+      'Resent OTP',
+      name: 'resent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed`
+  String get failed {
+    return Intl.message(
+      'Failed',
+      name: 'failed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Activated account`
+  String get activated_account {
+    return Intl.message(
+      'Activated account',
+      name: 'activated_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Activated now`
+  String get activated_now {
+    return Intl.message(
+      'Activated now',
+      name: 'activated_now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Later`
+  String get later {
+    return Intl.message(
+      'Later',
+      name: 'later',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose your identity document`
+  String get choose_identity {
+    return Intl.message(
+      'Choose your identity document',
+      name: 'choose_identity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passport`
+  String get passport {
+    return Intl.message(
+      'Passport',
+      name: 'passport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Identity card`
+  String get identity_card {
+    return Intl.message(
+      'Identity card',
+      name: 'identity_card',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose`
+  String get choose {
+    return Intl.message(
+      'Choose',
+      name: 'choose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Take photo confirm`
+  String get take_photo_confirm {
+    return Intl.message(
+      'Take photo confirm',
+      name: 'take_photo_confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `MR`
   String get mr {
     return Intl.message(
@@ -1245,6 +1525,96 @@ class S {
     return Intl.message(
       'Maximum Available Sell Volumn',
       name: 'maxVolumeSellAvaiable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Take photo again`
+  String get take_photo_again {
+    return Intl.message(
+      'Take photo again',
+      name: 'take_photo_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use photo`
+  String get use_photo {
+    return Intl.message(
+      'Use photo',
+      name: 'use_photo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile info`
+  String get profile_info {
+    return Intl.message(
+      'Profile info',
+      name: 'profile_info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gender`
+  String get gender {
+    return Intl.message(
+      'Gender',
+      name: 'gender',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Birthday`
+  String get birthday {
+    return Intl.message(
+      'Birthday',
+      name: 'birthday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Issue date`
+  String get issue_date_cmt {
+    return Intl.message(
+      'Issue date',
+      name: 'issue_date_cmt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Issue location`
+  String get issue_loc {
+    return Intl.message(
+      'Issue location',
+      name: 'issue_loc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Redo`
+  String get redo {
+    return Intl.message(
+      'Redo',
+      name: 'redo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
       desc: '',
       args: [],
     );

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_text_styles.dart';
 import 'package:vf_app/generated/l10n.dart';
-import 'package:vf_app/ui/pages/menu/menu_logic.dart';
 import 'package:vf_app/ui/pages/menu/page/setting_page.dart';
 
 class Setting extends StatefulWidget {

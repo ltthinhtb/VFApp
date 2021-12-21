@@ -180,6 +180,8 @@ class _DropdownMenuItemButtonState<T>
       child: InkWell(
         autofocus: widget.itemIndex == widget.route!.selectedIndex,
         splashColor: AppColors.yellow,
+        onTap: _handleOnTap,
+        onFocusChange: _handleFocusChange,
         child: Container(
           color:
               widget.value == widget.route!.items![widget.itemIndex!].item.value
@@ -188,8 +190,6 @@ class _DropdownMenuItemButtonState<T>
           padding: widget.padding,
           child: widget.route!.items![widget.itemIndex!],
         ),
-        onTap: _handleOnTap,
-        onFocusChange: _handleFocusChange,
       ),
     );
     if (kIsWeb) {

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "529078952899",
+    "project_id": "vftrade-5d2f2",
+    "storage_bucket": "vftrade-5d2f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529078952899:android:3c58cfea3f05c76ebf5376",
+        "android_client_info": {
+          "package_name": "com.example.vf_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529078952899-f5uqkvm261vaokgvpupfol8mngn4ofqn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNgX0bfDPEBIwVX0dEUq3WQUcImOII3ws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529078952899-f5uqkvm261vaokgvpupfol8mngn4ofqn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -33,7 +33,6 @@ class _SignInPageState extends State<SignInPage> with Validator {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle headline4 = Theme.of(context).textTheme.headline4!;
     return Scaffold(
       body: GestureDetector(
         onTap: () => Utils.dismissKeyboard(context),
@@ -45,10 +44,7 @@ class _SignInPageState extends State<SignInPage> with Validator {
                 alignment: Alignment.center,
                 height: 70,
                 width: 160,
-                // decoration: BoxDecoration(
-                //   color: AppColors.grayC4,
-                //   borderRadius: BorderRadius.circular(15),
-                // ),
+
                 child: Image.asset(
                   "assets/image/logo.png",
                   fit: BoxFit.fill,

@@ -1,15 +1,11 @@
-//
 import 'package:get/get.dart';
 import 'package:vf_app/model/entities/index.dart';
 import 'package:vf_app/model/params/data_params.dart';
 import 'package:vf_app/model/params/index.dart';
-import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
 import 'package:vf_app/services/api/api_service.dart';
 import 'package:vf_app/services/index.dart';
-import 'package:vf_app/ui/commons/app_snackbar.dart';
 import 'package:vf_app/ui/pages/order_list/order_list_state.dart';
-import 'package:vf_app/ui/pages/stock_order/stock_order_state.dart';
-import 'package:vf_app/utils/order_utils.dart';
+
 
 class OrderListLogic extends GetxController {
   final OrderListState state = OrderListState();

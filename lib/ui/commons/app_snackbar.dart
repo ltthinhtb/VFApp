@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/generated/l10n.dart';
 
 class AppSnackBar {
@@ -16,8 +17,8 @@ class AppSnackBar {
     Get.snackbar(
       title ?? "Info",
       message ?? "Empty message",
-      backgroundColor: Colors.white,
-      colorText: Colors.black,
+      backgroundColor: AppColors.primary,
+      colorText: AppColors.white,
     );
   }
 

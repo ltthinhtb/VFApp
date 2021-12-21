@@ -89,24 +89,27 @@ class AppThemes {
 
   static OutlineInputBorder _defaultBorder() {
     return const OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(20)),
+        borderRadius: BorderRadius.all(Radius.circular(15)),
         borderSide: BorderSide(color: AppColors.line, width: 1));
   }
 
   static final InputDecorationTheme _inputDecorationLightTheme =
       InputDecorationTheme(
-          contentPadding: const EdgeInsets.symmetric(vertical: 5),
+          isDense: true,
           labelStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.black),
-          filled: true,
-          fillColor: AppColors.grayF2,
           hintStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.grayC4),
           errorStyle: AppTextStyle.H6Regular.copyWith(color: AppColors.red),
+          fillColor: AppColors.white,
+          focusColor: AppColors.green,
           border: _defaultBorder(),
           focusedBorder: _defaultBorder().copyWith(
               borderSide: const BorderSide(color: AppColors.primary, width: 1)),
           enabledBorder: _defaultBorder(),
           disabledBorder: _defaultBorder(),
           errorBorder: _defaultBorder().copyWith(
+              borderRadius: const BorderRadius.all(Radius.circular(15)),
+              borderSide: const BorderSide(color: AppColors.red, width: 1)),
+          focusedErrorBorder: _defaultBorder().copyWith(
               borderRadius: const BorderRadius.all(Radius.circular(15)),
               borderSide: const BorderSide(color: AppColors.red, width: 1)));
   static final ButtonThemeData _buttonDecorationLightTheme = ButtonThemeData(
@@ -138,6 +141,11 @@ class AppThemes {
           selectedItemColor: AppColors.primary,
           selectedLabelStyle: AppTextStyle.H8Bold,
           unselectedLabelStyle: AppTextStyle.H8Bold);
+
+  static final RadioThemeData _radioThemeData = RadioThemeData(
+    fillColor: MaterialStateProperty.all(AppColors.primary),
+  );
+
   static final TabBarTheme _tabBarTheme = TabBarTheme(
       unselectedLabelStyle: AppTextStyle.H7Regular,
       labelColor: AppColors.white,
@@ -184,6 +192,13 @@ class AppThemes {
   ///Light theme
   static final ThemeData lightTheme = ThemeData(
     inputDecorationTheme: _inputDecorationLightTheme,
+    checkboxTheme: CheckboxThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(3),
+      ),
+      checkColor: MaterialStateProperty.all(AppColors.white),
+    ),
+    radioTheme: _radioThemeData,
     buttonTheme: _buttonDecorationLightTheme,
     toggleButtonsTheme: _toggleButtonDecorationLightTheme,
     toggleableActiveColor: AppColors.grayF2,
@@ -200,7 +215,7 @@ class AppThemes {
     appBarTheme: AppBarTheme(
         iconTheme: const IconThemeData(color: _lightIconColor),
         titleTextStyle:
-            AppTextStyle.H6Bold.copyWith(color: AppColors.textBlack),
+            AppTextStyle.H5Bold.copyWith(color: AppColors.textBlack),
         backgroundColor: _lightBackgroundColor),
     iconTheme: const IconThemeData(
       color: _lightIconColor,

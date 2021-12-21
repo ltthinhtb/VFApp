@@ -22,7 +22,6 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     logic.initState();
   }
@@ -83,7 +82,10 @@ class _SplashPageState extends State<SplashPage> {
               child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: ButtonFill(
-                      voidCallback: () {}, title: S.of(context).sign_up)),
+                      voidCallback: () {
+                        Get.toNamed(RouteConfig.sign_up);
+                      },
+                      title: S.of(context).sign_up)),
             ),
             const SizedBox(height: 20),
             TextButton(
