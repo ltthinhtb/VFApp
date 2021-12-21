@@ -19,7 +19,7 @@ class SignInLogic extends GetxController with Validator {
 
   final RequestParams _requestParams = RequestParams(
     group: "L",
-    session: "",
+    // session: "",
     channel: "channel",
   );
 

@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_text_styles.dart';
+import 'package:vf_app/generated/l10n.dart';
+import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/ui/pages/menu/menu_logic.dart';
 import 'package:vf_app/ui/pages/menu/page/setting.dart';
 
@@ -83,16 +85,20 @@ class _MenuState extends State<Menu> {
       child: Column(
         children: [
           buildButton("Smart OTP"),
-          buildButton("Thị trường"),
-          buildButton("Giao dịch tiền"),
-          buildButton("Cảnh báo"),
-          buildButton("Sản phẩm Margin/Hợp tác"),
-          buildButton("Xác Nhận Lệnh"),
-          buildButton("Hướng dẫn sử dụng"),
-          buildButton("Sao kê"),
+          buildButton(S.of(context).stockMarket),
+          buildButton(S.of(context).money_exchange),
+          buildButton(S.of(context).warning),
+          buildButton(S.of(context).margin_product),
+          buildButton(S.of(context).order_confirm),
+          buildButton(S.of(context).user_guide),
+          buildButton(S.of(context).statement),
           buildButton(
-            "Cài đặt",
+            S.of(context).settings_title,
             onPush: () => Get.to(Setting()),
+          ),
+          buildButton(
+            S.of(context).logout,
+            onPush: () => Get.offNamed(RouteConfig.login),
           ),
         ],
       ),

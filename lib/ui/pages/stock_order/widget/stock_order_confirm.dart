@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_text_styles.dart';
 import 'package:vf_app/ui/commons/appbar.dart';
 import 'package:vf_app/utils/stock_utils.dart';
@@ -28,6 +29,7 @@ class _StockOrderConfirmState extends State<StockOrderConfirm> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: const AppBarCustom(
         title: "Xác nhận lệnh mua",
@@ -39,16 +41,40 @@ class _StockOrderConfirmState extends State<StockOrderConfirm> {
             buildInfo("Số tài khoản", state.selectedCashBalance.value.accCode!),
             buildInfo("Loại lệnh", state.isBuy.value ? "Mua" : "Bán"),
             buildInfo("Mã CK", state.selectedStockInfo.value.sym!),
-            buildInfo("Giá", state.price.value.toString()),
+            buildInfo("Giá", state.priceController.text),
             buildInfo(
               "Khối lượng",
               StockUtil.formatVol(
-                double.parse(state.vol.value.toString()),
+                double.parse(state.volController.text),
               ),
+            ),
+            buildInfo(
+              "Giá trị lệnh đặt\n(Chưa bao gồm phí và thuế)",
+              StockUtil.formatMoney(double.parse(state.priceController.text) *
+                  double.parse(state.volController.text) *
+                  1000),
             ),
           ],
         ),
       ),
+      floatingActionButton: MaterialButton(
+        minWidth: width - 30,
+        height: 50,
+        color: AppColors.primary,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
+        onPressed: () {
+          Get.back(result: true);
+        },
+        child: Text(
+          "Xác nhận",
+          style: AppTextStyle.H5Bold.copyWith(color: Colors.white),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 

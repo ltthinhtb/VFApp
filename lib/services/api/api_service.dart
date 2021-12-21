@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'dart:typed_data';
-
 import 'package:vf_app/model/entities/index.dart';
 import 'package:vf_app/model/params/check_account_request.dart';
+import 'package:vf_app/model/order_data/inday_order.dart';
 import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/model/params/open_account_param.dart';
 import 'package:vf_app/model/response/Image_orc_check.dart';

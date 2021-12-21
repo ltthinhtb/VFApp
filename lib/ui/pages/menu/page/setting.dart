@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_text_styles.dart';
+import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/ui/pages/menu/page/setting_page.dart';
 
 class Setting extends StatefulWidget {
@@ -20,7 +21,7 @@ class _SettingState extends State<Setting> {
         centerTitle: true,
         title: Container(
           child: Text(
-            "Cài đặt",
+            S.of(context).settings_title,
             style: AppTextStyle.H3,
           ),
         ),
@@ -42,10 +43,10 @@ class _SettingState extends State<Setting> {
       child: Column(
         children: [
           buildButton(
-            "Ngôn ngữ",
+            S.of(context).settings_language,
             onPush: () => Get.to(const SettingPage()),
           ),
-          buildButton("Đổi mật khẩu"),
+          buildButton(S.of(context).change_password),
         ],
       ),
     );
@@ -60,7 +61,8 @@ class _SettingState extends State<Setting> {
         elevation: 0,
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
         shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(15))),
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

@@ -140,6 +140,16 @@ class S {
     );
   }
 
+  /// `Logout`
+  String get logout {
+    return Intl.message(
+      'Logout',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign up`
   String get sign_up {
     return Intl.message(
@@ -830,6 +840,16 @@ class S {
     );
   }
 
+  /// `Stt`
+  String get status_short {
+    return Intl.message(
+      'Stt',
+      name: 'status_short',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Instructions transfers`
   String get instructions_transfers {
     return Intl.message(
@@ -890,6 +910,16 @@ class S {
     );
   }
 
+  /// `Acc`
+  String get account_short {
+    return Intl.message(
+      'Acc',
+      name: 'account_short',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Profit total`
   String get profit_total {
     return Intl.message(
@@ -905,6 +935,16 @@ class S {
     return Intl.message(
       'Stock code',
       name: 'stock_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Code`
+  String get code {
+    return Intl.message(
+      'Code',
+      name: 'code',
       desc: '',
       args: [],
     );
@@ -1575,6 +1615,156 @@ class S {
     return Intl.message(
       'Cancel',
       name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stock market`
+  String get stockMarket {
+    return Intl.message(
+      'Stock market',
+      name: 'stockMarket',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Money exchange`
+  String get money_exchange {
+    return Intl.message(
+      'Money exchange',
+      name: 'money_exchange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Warning`
+  String get warning {
+    return Intl.message(
+      'Warning',
+      name: 'warning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Margin product`
+  String get margin_product {
+    return Intl.message(
+      'Margin product',
+      name: 'margin_product',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order confirm`
+  String get order_confirm {
+    return Intl.message(
+      'Order confirm',
+      name: 'order_confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User guide`
+  String get user_guide {
+    return Intl.message(
+      'User guide',
+      name: 'user_guide',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Statement`
+  String get statement {
+    return Intl.message(
+      'Statement',
+      name: 'statement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change password`
+  String get change_password {
+    return Intl.message(
+      'Change password',
+      name: 'change_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order type`
+  String get orderType {
+    return Intl.message(
+      'Order type',
+      name: 'orderType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total`
+  String get total {
+    return Intl.message(
+      'Total',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Matched`
+  String get match {
+    return Intl.message(
+      'Matched',
+      name: 'match',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Matched price`
+  String get match_price {
+    return Intl.message(
+      'Matched price',
+      name: 'match_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price`
+  String get price {
+    return Intl.message(
+      'Price',
+      name: 'price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Number`
+  String get order_number {
+    return Intl.message(
+      'Order Number',
+      name: 'order_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OrdN`
+  String get order_number_short {
+    return Intl.message(
+      'OrdN',
+      name: 'order_number_short',
       desc: '',
       args: [],
     );

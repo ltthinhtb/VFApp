@@ -35,8 +35,8 @@ class _StockOrderPageState extends State<StockOrderPage> {
   //Bỏ settingService đi
   final settingService = Get.find<SettingService>();
 
-  final TextEditingController _priceController = TextEditingController();
-  final TextEditingController _volController = TextEditingController();
+  // final TextEditingController state.priceController = TextEditingController();
+  // final TextEditingController state.volController = TextEditingController();
 
   @override
   void initState() {
@@ -44,8 +44,8 @@ class _StockOrderPageState extends State<StockOrderPage> {
     super.initState();
     setState(() {
       state.isBuy.value = widget.isBuy;
-      _priceController.text = state.price.toString();
-      _volController.text = state.vol.toString();
+      state.priceController.text = state.price.toString();
+      state.volController.text = state.vol.toString();
     });
   }
 
@@ -53,7 +53,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
     // print(data?.stockCode);
     if (data != null) {
       await logic.getStockInfo(data);
-      _priceController.text = state.price.value.toString();
+      state.priceController.text = state.price.value.toString();
     }
   }
 
@@ -94,10 +94,13 @@ class _StockOrderPageState extends State<StockOrderPage> {
             Radius.circular(10),
           ),
         ),
-        onPressed: () {
+        onPressed: () async {
           if (state.selectedStock.value.stockCode != null &&
-              state.vol.value > 0) {
-            Get.to(StockOrderConfirm());
+              state.volController.text.isNotEmpty) {
+            bool? result = await Get.to(StockOrderConfirm());
+            if (result == true) {
+              await logic.requestNewOrder();
+            }
           }
         },
         child: Text(
@@ -498,11 +501,16 @@ class _StockOrderPageState extends State<StockOrderPage> {
           child: MaterialButton(
             onPressed: () {
               state.priceType.value = prices[index];
+              state.priceController.text = prices[index];
               if (state.selectedStock.value.stockCode != null &&
                   prices[index] == "MP") {
                 state.price.value =
-                    state.selectedStockInfo.value.lastPrice!.toDouble();
-                _priceController.text = state.price.value.toString();
+                    state.selectedStockInfo.value.lastPrice!.toString();
+                state.priceController.text = prices[index];
+                // state.priceController.text = state.price.value.toString();
+              }
+              if (state.selectedStock.value.stockCode != null) {
+                logic.getCashBalance();
               }
             },
             elevation: 0,
@@ -548,14 +556,14 @@ class _StockOrderPageState extends State<StockOrderPage> {
                   child: Container(
                     child: NumberInputField(
                       label: "Giá",
-                      editingController: _priceController,
+                      editingController: state.priceController,
                       dist: 0.1,
                       enabled: state.selectedStock.value.stockCode != null
                           ? true
                           : false,
                       onChange: (value) {
                         state
-                          ..price.value = value
+                          ..price.value = value.toString()
                           ..priceType.value = "LO";
                       },
                     ),
@@ -579,13 +587,14 @@ class _StockOrderPageState extends State<StockOrderPage> {
                   child: Container(
                     child: NumberInputField(
                       label: "Khối lượng",
-                      editingController: _volController,
-                      dist: 10,
+                      editingController: state.volController,
+                      dist: 100,
                       enabled: state.selectedStock.value.stockCode != null
                           ? true
                           : false,
                       onChange: (value) {
-                        _volController.text = value.toStringAsFixed(0);
+                        // print(state.vol.value);
+                        state.volController.text = value.toStringAsFixed(0);
                         state.vol.value = value.round();
                       },
                     ),

@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "account": MessageLookupByLibrary.simpleMessage("Account"),
+        "account_short": MessageLookupByLibrary.simpleMessage("Acc"),
         "account_user": MessageLookupByLibrary.simpleMessage("User"),
         "activated_account":
             MessageLookupByLibrary.simpleMessage("Activated account"),
@@ -39,9 +40,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "cash_balance": MessageLookupByLibrary.simpleMessage("Cash balance"),
         "category": MessageLookupByLibrary.simpleMessage("Menu"),
         "ceil": MessageLookupByLibrary.simpleMessage("Ceil"),
+        "change_password":
+            MessageLookupByLibrary.simpleMessage("Change password"),
         "choose": MessageLookupByLibrary.simpleMessage("Choose"),
         "choose_identity": MessageLookupByLibrary.simpleMessage(
             "Choose your identity document"),
+        "code": MessageLookupByLibrary.simpleMessage("Code"),
         "collaborative_assets":
             MessageLookupByLibrary.simpleMessage("Collaborative Assets"),
         "collaborative_assets_total":
@@ -107,12 +111,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_face_id":
             MessageLookupByLibrary.simpleMessage("Login by FaceID"),
+        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "margin_product":
+            MessageLookupByLibrary.simpleMessage("Margin product"),
+        "match": MessageLookupByLibrary.simpleMessage("Matched"),
+        "match_price": MessageLookupByLibrary.simpleMessage("Matched price"),
         "maxVolumeBuyAvaiable": MessageLookupByLibrary.simpleMessage(
             "Maximum Available Buy Volumn"),
         "maxVolumeSellAvaiable": MessageLookupByLibrary.simpleMessage(
             "Maximum Available Sell Volumn"),
         "menu": MessageLookupByLibrary.simpleMessage("Menu"),
         "min_VOLUME": MessageLookupByLibrary.simpleMessage("Min volume"),
+        "money_exchange":
+            MessageLookupByLibrary.simpleMessage("Money exchange"),
         "month": MessageLookupByLibrary.simpleMessage("Months"),
         "mr": MessageLookupByLibrary.simpleMessage("MR"),
         "network_error": MessageLookupByLibrary.simpleMessage("Network Error"),
@@ -120,7 +131,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Don\'t have account? "),
         "open_on": MessageLookupByLibrary.simpleMessage("Open on"),
         "order": MessageLookupByLibrary.simpleMessage("Order"),
+        "orderType": MessageLookupByLibrary.simpleMessage("Order type"),
+        "order_confirm": MessageLookupByLibrary.simpleMessage("Order confirm"),
         "order_note": MessageLookupByLibrary.simpleMessage("Order note"),
+        "order_number": MessageLookupByLibrary.simpleMessage("Order Number"),
+        "order_number_short": MessageLookupByLibrary.simpleMessage("OrdN"),
         "passport": MessageLookupByLibrary.simpleMessage("Passport"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "pay": MessageLookupByLibrary.simpleMessage("Pay"),
@@ -144,6 +159,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Input username"),
         "policy_use": MessageLookupByLibrary.simpleMessage("Policy"),
         "pp": MessageLookupByLibrary.simpleMessage("PP"),
+        "price": MessageLookupByLibrary.simpleMessage("Price"),
         "product": MessageLookupByLibrary.simpleMessage("Product"),
         "profile_info": MessageLookupByLibrary.simpleMessage("Profile info"),
         "profit": MessageLookupByLibrary.simpleMessage("Profit"),
@@ -192,7 +208,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "splash_title3": MessageLookupByLibrary.simpleMessage(
             "With only 3 minutes to open an account"),
         "start_day": MessageLookupByLibrary.simpleMessage("Start day"),
+        "statement": MessageLookupByLibrary.simpleMessage("Statement"),
         "status": MessageLookupByLibrary.simpleMessage("Status"),
+        "status_short": MessageLookupByLibrary.simpleMessage("Stt"),
+        "stockMarket": MessageLookupByLibrary.simpleMessage("Stock market"),
         "stock_code": MessageLookupByLibrary.simpleMessage("Stock code"),
         "stock_market": MessageLookupByLibrary.simpleMessage("Stock market"),
         "success": MessageLookupByLibrary.simpleMessage("Success"),
@@ -206,6 +225,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "terms_and_condition_valid": MessageLookupByLibrary.simpleMessage(
             "Please agree terms & condition"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
+        "total": MessageLookupByLibrary.simpleMessage("Total"),
         "total_assets": MessageLookupByLibrary.simpleMessage("Total assets"),
         "total_transfer":
             MessageLookupByLibrary.simpleMessage("Total transfer"),
@@ -216,10 +236,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "up_to": MessageLookupByLibrary.simpleMessage("Up to"),
         "use_photo": MessageLookupByLibrary.simpleMessage("Use photo"),
         "user": MessageLookupByLibrary.simpleMessage("User"),
+        "user_guide": MessageLookupByLibrary.simpleMessage("User guide"),
         "user_name": MessageLookupByLibrary.simpleMessage("Username"),
         "volume_short": MessageLookupByLibrary.simpleMessage("Volume"),
         "volumn": MessageLookupByLibrary.simpleMessage("Volumn"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
+        "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "year": MessageLookupByLibrary.simpleMessage("year")
       };
 }

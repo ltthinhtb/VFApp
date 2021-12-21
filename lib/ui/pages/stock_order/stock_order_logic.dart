@@ -8,6 +8,7 @@ import 'package:vf_app/services/api/api_service.dart';
 import 'package:vf_app/services/index.dart';
 import 'package:vf_app/ui/commons/app_snackbar.dart';
 import 'package:vf_app/ui/pages/stock_order/stock_order_state.dart';
+import 'package:vf_app/utils/order_utils.dart';
 
 class StockOrderLogic extends GetxController {
   final StockOrderState state = StockOrderState();
@@ -64,7 +65,7 @@ class StockOrderLogic extends GetxController {
         ..sumBSVol.value = getSumBSVol()
         ..stockExchange.value = getStockExchange()
         ..priceType.value = "MP"
-        ..price.value = state.selectedStockInfo.value.lastPrice!.toDouble();
+        ..price.value = state.selectedStockInfo.value.lastPrice!.toString();
       await getAccountStatus(account);
       await getCashBalance();
       state.loading.value = false;
@@ -108,6 +109,7 @@ class StockOrderLogic extends GetxController {
             cmd: "Web.sCashBalance",
             p1: defAcc,
             p2: state.selectedStock.value.stockCode,
+            p3: state.priceController.text,
             p4: state.isBuy.value ? "B" : "S"),
       );
       state.selectedCashBalance.value =
@@ -130,7 +132,45 @@ class StockOrderLogic extends GetxController {
       ..sumBSVol.value = getSumBSVol()
       ..stockExchange.value = getStockExchange()
       ..priceType.value = "MP"
-      ..price.value = state.selectedStockData.value.lastPrice!.toDouble();
+      ..price.value = state.selectedStockData.value.lastPrice!.toString();
+  }
+
+  Future requestNewOrder() async {
+    String refId = _tokenEntity.data!.user! + ".M." + OrderUtils.getRandom();
+    String sReceiveCheckSumValue = OrderUtils.generateMd5(
+        _tokenEntity.data!.sid! +
+            state.priceController.text +
+            (state.isBuy.value ? "B" : "S") +
+            state.volController.text +
+            "vpbs@456" +
+            _tokenEntity.data!.defaultAcc! +
+            state.selectedStock.value.stockCode! +
+            refId);
+    final RequestParams _requestParams = RequestParams(
+      group: "O",
+      session: _tokenEntity.data?.sid,
+      user: _tokenEntity.data?.user,
+      checksum: sReceiveCheckSumValue,
+      data: ParamsObject(
+        type: "string",
+        cmd: "Web.newOrder",
+        account: _tokenEntity.data!.defaultAcc!,
+        side: (state.isBuy.value ? "B" : "S"),
+        symbol: state.selectedStock.value.stockCode!,
+        volume: int.parse(state.volController.text),
+        price: state.priceController.text,
+        advance: "",
+        refId: refId,
+        orderType: "1",
+        pin: state.pin.value,
+      ),
+    );
+    try {
+      await apiService.newOrderRequest(_requestParams);
+      AppSnackBar.showSuccess(message: "Đặt lệnh thành công!");
+    } catch (error) {
+      AppSnackBar.showError(message: error.toString());
+    }
   }
 
   void changePrice() {}
@@ -149,6 +189,21 @@ class StockOrderLogic extends GetxController {
     super.onInit();
     initToken();
     getAllStockCompanyData();
+    printChecksum();
+  }
+
+  void printChecksum() {
+    String refId = "200998.M." + OrderUtils.getRandom();
+    print(refId);
+    String sReceiveCheckSumValue = "acfdde1c-1c82-49bb-9120-92ef59cd7825" +
+        "MP" +
+        "B" +
+        "1000" +
+        "vpbs@456" +
+        "2009986" +
+        "AAA" +
+        refId;
+    print(OrderUtils.generateMd5(sReceiveCheckSumValue));
   }
 
   StockExchange getStockExchange() {

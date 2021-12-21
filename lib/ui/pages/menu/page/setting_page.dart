@@ -23,7 +23,7 @@ class _SettingPageState extends State<SettingPage> {
         centerTitle: true,
         title: Container(
           child: Text(
-            "Ngôn ngữ",
+            S.of(context).settings_language,
             style: AppTextStyle.H3,
           ),
         ),
@@ -90,7 +90,7 @@ class _SettingPageState extends State<SettingPage> {
 
   Widget _buildLanguageSection() {
     final theme = Theme.of(context);
-    print("Language: ===> ${settingService.currentLocate.value}");
+    // print("Language: ===> ${settingService.currentLocate.value}");
     return Obx(() {
       return Column(
         mainAxisAlignment: MainAxisAlignment.start,

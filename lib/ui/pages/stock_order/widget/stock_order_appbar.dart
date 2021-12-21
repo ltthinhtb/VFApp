@@ -76,7 +76,7 @@ class _StockOrderAppbarState extends State<StockOrderAppbar> {
               ),
               color: Theme.of(context).buttonTheme.colorScheme!.primary,
               onPressed: () async {
-                StockCompanyData? result = await Get.to(SearchPage(),
+                StockCompanyData? result = await Get.to(const SearchPage(),
                     transition: Transition.noTransition);
                 widget.onSelectStockCode?.call(result);
               },

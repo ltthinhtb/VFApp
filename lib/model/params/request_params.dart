@@ -20,8 +20,12 @@ class RequestParams {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['group'] = group;
-    data['user'] = user;
-    data['session'] = session;
+    if (user != null) {
+      data['user'] = user;
+    }
+    if (session != null) {
+      data['session'] = session;
+    }
     if (channel != null) {
       data['channel'] = channel;
     }

@@ -8,6 +8,8 @@ import 'package:vf_app/model/stock_data/stock_info.dart';
 
 class StockOrderState {
   late TextEditingController stockCodeController;
+  final TextEditingController priceController = TextEditingController();
+  final TextEditingController volController = TextEditingController();
   List<StockCompanyData> allStockCompanyData = <StockCompanyData>[];
 
   var loading = false.obs;
@@ -22,8 +24,9 @@ class StockOrderState {
   var isBuy = true.obs;
   var stockExchange = StockExchange.HSX.obs;
   var priceType = "LO".obs;
-  var price = 0.0.obs;
+  var price = "0.0".obs;
   var vol = 0.obs;
+  var pin = "123456".obs;
 
   var sumBuyVol = 0.0.obs;
   var sumSellVol = 0.0.obs;
