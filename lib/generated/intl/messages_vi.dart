@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "account": MessageLookupByLibrary.simpleMessage("Tài khoản"),
+        "account_short": MessageLookupByLibrary.simpleMessage("TK"),
         "account_user": MessageLookupByLibrary.simpleMessage("Tên tài khoản"),
         "assets": MessageLookupByLibrary.simpleMessage("Tài sản"),
         "bank_account": MessageLookupByLibrary.simpleMessage("Số tài khoản"),
@@ -36,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "category": MessageLookupByLibrary.simpleMessage("Khác"),
         "ceil": MessageLookupByLibrary.simpleMessage("Trần"),
         "change_password": MessageLookupByLibrary.simpleMessage("Đổi mật khẩu"),
+        "code": MessageLookupByLibrary.simpleMessage("Mã"),
         "collaborative_assets":
             MessageLookupByLibrary.simpleMessage("Tài sản hợp tác"),
         "collaborative_assets_total":
@@ -92,6 +94,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout": MessageLookupByLibrary.simpleMessage("Đăng xuất"),
         "margin_product":
             MessageLookupByLibrary.simpleMessage("Sản phẩm Margin/Hợp tác"),
+        "match": MessageLookupByLibrary.simpleMessage("Khớp"),
+        "match_price": MessageLookupByLibrary.simpleMessage("Giá khớp"),
         "maxVolumeBuyAvaiable": MessageLookupByLibrary.simpleMessage(
             "Khối lượng tối đa có thể mua"),
         "maxVolumeSellAvaiable": MessageLookupByLibrary.simpleMessage(
@@ -108,8 +112,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Bạn chưa có tài khoản? "),
         "open_on": MessageLookupByLibrary.simpleMessage("Mở tại"),
         "order": MessageLookupByLibrary.simpleMessage("Đặt lệnh"),
+        "orderType": MessageLookupByLibrary.simpleMessage("Loại lệnh"),
         "order_confirm": MessageLookupByLibrary.simpleMessage("Xác Nhận Lệnh"),
         "order_note": MessageLookupByLibrary.simpleMessage("Sổ lệnh"),
+        "order_number": MessageLookupByLibrary.simpleMessage("Số hiệu lệnh"),
+        "order_number_short": MessageLookupByLibrary.simpleMessage("SHL"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
         "pay": MessageLookupByLibrary.simpleMessage("Thanh toán"),
         "pay_type":
@@ -122,6 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "policy_use":
             MessageLookupByLibrary.simpleMessage("Điều khoản sử dụng"),
         "pp": MessageLookupByLibrary.simpleMessage("Sức mua của mã"),
+        "price": MessageLookupByLibrary.simpleMessage("Giá"),
         "product": MessageLookupByLibrary.simpleMessage("Sản phẩm"),
         "profit": MessageLookupByLibrary.simpleMessage("Lãi lỗ"),
         "profit_total": MessageLookupByLibrary.simpleMessage("Tổng lãi lỗ"),
@@ -164,11 +172,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "start_day": MessageLookupByLibrary.simpleMessage("Từ ngày"),
         "statement": MessageLookupByLibrary.simpleMessage("Sao kê"),
         "status": MessageLookupByLibrary.simpleMessage("Trạng thái"),
+        "status_short": MessageLookupByLibrary.simpleMessage("TT"),
         "stockMarket": MessageLookupByLibrary.simpleMessage("Thị trường"),
         "stock_code": MessageLookupByLibrary.simpleMessage("Mã CK"),
         "stock_market": MessageLookupByLibrary.simpleMessage("Bảng giá"),
         "tax": MessageLookupByLibrary.simpleMessage("Thuế đầu tư"),
         "today": MessageLookupByLibrary.simpleMessage("Hôm nay"),
+        "total": MessageLookupByLibrary.simpleMessage("Tổng"),
         "total_assets": MessageLookupByLibrary.simpleMessage("Tổng tài sản"),
         "total_transfer":
             MessageLookupByLibrary.simpleMessage("Tổng giá trị CK"),

@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "account": MessageLookupByLibrary.simpleMessage("Account"),
+        "account_short": MessageLookupByLibrary.simpleMessage("Acc"),
         "account_user": MessageLookupByLibrary.simpleMessage("User"),
         "assets": MessageLookupByLibrary.simpleMessage("Assets"),
         "bank_account": MessageLookupByLibrary.simpleMessage("Bank account"),
@@ -35,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ceil": MessageLookupByLibrary.simpleMessage("Ceil"),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Change password"),
+        "code": MessageLookupByLibrary.simpleMessage("Code"),
         "collaborative_assets":
             MessageLookupByLibrary.simpleMessage("Collaborative Assets"),
         "collaborative_assets_total":
@@ -91,6 +93,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "margin_product":
             MessageLookupByLibrary.simpleMessage("Margin product"),
+        "match": MessageLookupByLibrary.simpleMessage("Matched"),
+        "match_price": MessageLookupByLibrary.simpleMessage("Matched price"),
         "maxVolumeBuyAvaiable": MessageLookupByLibrary.simpleMessage(
             "Maximum Available Buy Volumn"),
         "maxVolumeSellAvaiable": MessageLookupByLibrary.simpleMessage(
@@ -106,8 +110,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Don\'t have account? "),
         "open_on": MessageLookupByLibrary.simpleMessage("Open on"),
         "order": MessageLookupByLibrary.simpleMessage("Order"),
+        "orderType": MessageLookupByLibrary.simpleMessage("Order type"),
         "order_confirm": MessageLookupByLibrary.simpleMessage("Order confirm"),
         "order_note": MessageLookupByLibrary.simpleMessage("Order note"),
+        "order_number": MessageLookupByLibrary.simpleMessage("Order Number"),
+        "order_number_short": MessageLookupByLibrary.simpleMessage("OrdN"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "pay": MessageLookupByLibrary.simpleMessage("Pay"),
         "pay_type": MessageLookupByLibrary.simpleMessage("Payment type"),
@@ -119,6 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Input username"),
         "policy_use": MessageLookupByLibrary.simpleMessage("Policy"),
         "pp": MessageLookupByLibrary.simpleMessage("PP"),
+        "price": MessageLookupByLibrary.simpleMessage("Price"),
         "product": MessageLookupByLibrary.simpleMessage("Product"),
         "profit": MessageLookupByLibrary.simpleMessage("Profit"),
         "profit_total": MessageLookupByLibrary.simpleMessage("Profit total"),
@@ -162,11 +170,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "start_day": MessageLookupByLibrary.simpleMessage("Start day"),
         "statement": MessageLookupByLibrary.simpleMessage("Statement"),
         "status": MessageLookupByLibrary.simpleMessage("Status"),
+        "status_short": MessageLookupByLibrary.simpleMessage("Stt"),
         "stockMarket": MessageLookupByLibrary.simpleMessage("Stock market"),
         "stock_code": MessageLookupByLibrary.simpleMessage("Stock code"),
         "stock_market": MessageLookupByLibrary.simpleMessage("Stock market"),
         "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
+        "total": MessageLookupByLibrary.simpleMessage("Total"),
         "total_assets": MessageLookupByLibrary.simpleMessage("Total assets"),
         "total_transfer":
             MessageLookupByLibrary.simpleMessage("Total transfer"),

@@ -3,6 +3,15 @@ import 'package:get/get.dart';
 import 'package:vf_app/generated/l10n.dart';
 
 class AppSnackBar {
+  static void showSuccess({String? title, String? message}) {
+    Get.snackbar(
+      title ?? "Success",
+      message ?? "Empty message",
+      backgroundColor: Colors.green,
+      colorText: Colors.white,
+    );
+  }
+
   static void showInfo({String? title, String? message}) {
     Get.snackbar(
       title ?? "Info",

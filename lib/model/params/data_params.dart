@@ -12,7 +12,7 @@ class ParamsObject {
   String? account;
   String? side;
   String? symbol;
-  String? volume;
+  int? volume;
   String? price;
   String? advance;
   String? refId;

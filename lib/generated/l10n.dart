@@ -840,6 +840,16 @@ class S {
     );
   }
 
+  /// `Stt`
+  String get status_short {
+    return Intl.message(
+      'Stt',
+      name: 'status_short',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Instructions transfers`
   String get instructions_transfers {
     return Intl.message(
@@ -900,6 +910,16 @@ class S {
     );
   }
 
+  /// `Acc`
+  String get account_short {
+    return Intl.message(
+      'Acc',
+      name: 'account_short',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Profit total`
   String get profit_total {
     return Intl.message(
@@ -915,6 +935,16 @@ class S {
     return Intl.message(
       'Stock code',
       name: 'stock_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Code`
+  String get code {
+    return Intl.message(
+      'Code',
+      name: 'code',
       desc: '',
       args: [],
     );
@@ -1295,6 +1325,76 @@ class S {
     return Intl.message(
       'Change password',
       name: 'change_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order type`
+  String get orderType {
+    return Intl.message(
+      'Order type',
+      name: 'orderType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total`
+  String get total {
+    return Intl.message(
+      'Total',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Matched`
+  String get match {
+    return Intl.message(
+      'Matched',
+      name: 'match',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Matched price`
+  String get match_price {
+    return Intl.message(
+      'Matched price',
+      name: 'match_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price`
+  String get price {
+    return Intl.message(
+      'Price',
+      name: 'price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Number`
+  String get order_number {
+    return Intl.message(
+      'Order Number',
+      name: 'order_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OrdN`
+  String get order_number_short {
+    return Intl.message(
+      'OrdN',
+      name: 'order_number_short',
       desc: '',
       args: [],
     );

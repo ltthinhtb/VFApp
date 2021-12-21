@@ -78,6 +78,7 @@
   "bond_assets": "Tài sản trái phiếu",
   "bond_history": "Các giao dịch gần đây",
   "status": "Trạng thái",
+  "status_short": "TT",
   "instructions_transfers": "Hướng dẫn chuyển tiền",
   "account_user": "Tên tài khoản",
   "open_on": "Mở tại",
@@ -87,8 +88,10 @@
   "start_day": "Từ ngày",
   "end_day": "Đến ngày",
   "account": "Tài khoản",
+  "account_short": "TK",
   "profit_total": "Tổng lãi lỗ",
   "stock_code": "Mã CK",
+  "code" : "Mã",
   "volume_short": "KL",
   "gain_loss_percent": "Lãi lỗ (%)",
   "gain_loss_value" : "Lãi lỗ (số tiền)",
@@ -123,5 +126,12 @@
   "order_confirm" : "Xác Nhận Lệnh",
   "user_guide" : "Hướng dẫn sử dụng",
   "statement" : "Sao kê",
-  "change_password" : "Đổi mật khẩu"
+  "change_password" : "Đổi mật khẩu",
+  "orderType" : "Loại lệnh",
+  "total" : "Tổng",
+  "match" : "Khớp",
+  "match_price" : "Giá khớp",
+  "price" : "Giá",
+  "order_number" : "Số hiệu lệnh",
+  "order_number_short" : "SHL"
 }

@@ -4,6 +4,7 @@ import 'package:get/get.dart' as get_x;
 import 'package:vf_app/configs/app_configs.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/entities/index.dart';
+import 'package:vf_app/model/order_data/inday_order.dart';
 import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/model/response/account_status.dart';
 import 'package:vf_app/model/response/list_account_response.dart';
@@ -14,6 +15,7 @@ import 'package:vf_app/model/stock_data/cash_balance.dart';
 import 'package:vf_app/model/stock_data/stock_data.dart';
 import 'package:vf_app/model/stock_data/stock_info.dart';
 import 'package:vf_app/router/route_config.dart';
+import 'package:vf_app/utils/error_message.dart';
 import 'package:vf_app/utils/logger.dart';
 import 'error_exception.dart';
 import 'package:http/http.dart' as http;
@@ -39,14 +41,17 @@ abstract class ApiClient {
   Future<StockInfo> getStockInfo(RequestParams requestParams);
   Future<StockData> getStockData(String stockCode);
   Future<CashBalance> getCashBalance(RequestParams requestParams);
+
+  //Order
   Future<void> newOrderRequest(RequestParams requestParams);
+  Future<List<IndayOrder>> getIndayOrder(RequestParams requestParams);
 
   Future<dynamic> signOut();
 }
 
 class _ApiClient implements ApiClient {
   _ApiClient(this._dio, {this.baseUrl}) {
-    baseUrl ??= 'http://vftrade.vn:8888/';
+    baseUrl ??= 'https://vftrade.vn/';
   }
 
   final Dio _dio;
@@ -56,8 +61,9 @@ class _ApiClient implements ApiClient {
   Future<Response> _requestApi(Future<Response> request) async {
     try {
       var response = await request;
-      print("Response : $response");
+
       var _mapData = _decodeMap(response.data!);
+
       var _rc = _mapData['rc'] ?? -999;
       var _rs = _mapData['rs'] ?? "FOException.InvalidSessionException";
 
@@ -75,6 +81,35 @@ class _ApiClient implements ApiClient {
       }
     } catch (error) {
       throw _handleError(error);
+    }
+  }
+
+  Future<Response> _requestOrderApi(Future<Response> request) async {
+    try {
+      var response = await request;
+
+      var _mapData = response.data!;
+
+      var _rc = _mapData['rc'] ?? -999;
+      var _rs = _mapData['rs'] ?? "FOException.InvalidSessionException";
+
+      /// kiểm tra điều kiện thành công
+      if (_rc == 1) {
+        return response;
+      }
+
+      ///kiểm tra điều kiện logOut
+      else if (_rc == -1 && _rs == "FOException.InvalidSessionException") {
+        await get_x.Get.offNamed(RouteConfig.login);
+        throw ErrorException(response.statusCode!, _mapData['rs']);
+      } else {
+        print("_handleOrderError(_rc) ${_handleOrderError(_rc)}");
+        throw _handleOrderError(_rc);
+      }
+    } catch (error) {
+      // print("error $error");
+      // throw _handleError(error);
+      rethrow;
     }
   }
 
@@ -117,14 +152,23 @@ class _ApiClient implements ApiClient {
     return exception;
   }
 
-  Map<String, dynamic> _decodeMap(String value) {
-    Map<String, dynamic> valueMap = json.decode(value);
-    return valueMap;
+  String _handleOrderError(int error) {
+    /// xử lý exception
+    String exception = MessageOrder.errMsg['$error']!;
+    return exception;
+  }
+
+  Map<String, dynamic> _decodeMap(dynamic value) {
+    if (value.runtimeType == String) {
+      Map<String, dynamic> valueMap = json.decode(value);
+      return valueMap;
+    } else {
+      return value;
+    }
   }
 
   @override
   Future<TokenEntity> authLogin(RequestParams requestParams) async {
-    print("Request params : ${requestParams.toJson()}");
     Response _result = await _requestApi(
       _dio.post(
         AppConfigs.ENDPOINT_CORE,
@@ -235,14 +279,29 @@ class _ApiClient implements ApiClient {
   @override
   Future<void> newOrderRequest(RequestParams requestParams) async {
     try {
-      Response _result = await _requestApi(
+      await _requestOrderApi(
         _dio.post(
           AppConfigs.ENDPOINT_CORE,
           data: requestParams.toJson(),
         ),
       );
-      _decodeMap(_result.data);
       return;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<List<IndayOrder>> getIndayOrder(RequestParams requestParams) async {
+    try {
+      Response _result = await _dio.post(
+        AppConfigs.ENDPOINT_CORE,
+        data: requestParams.toJson(),
+      );
+      List<dynamic> _listDataDynamic = _decodeMap(_result.data!)['data'];
+      List<IndayOrder> _listData =
+          _listDataDynamic.map((e) => IndayOrder.fromJson(e)).toList();
+      return _listData;
     } catch (e) {
       rethrow;
     }

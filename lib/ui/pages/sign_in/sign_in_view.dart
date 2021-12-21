@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -43,13 +45,13 @@ class _SignInPageState extends State<SignInPage> with Validator {
                 alignment: Alignment.center,
                 height: 70,
                 width: 160,
-                decoration: BoxDecoration(
-                  color: AppColors.grayC4,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Text(
-                  'Logo',
-                  style: headline4,
+                // decoration: BoxDecoration(
+                //   color: AppColors.grayC4,
+                //   borderRadius: BorderRadius.circular(15),
+                // ),
+                child: Image.asset(
+                  "assets/image/logo.png",
+                  fit: BoxFit.fill,
                 ),
               ),
               const SizedBox(height: 20),

@@ -8,6 +8,8 @@ import 'package:vf_app/model/stock_data/stock_info.dart';
 
 class StockOrderState {
   late TextEditingController stockCodeController;
+  final TextEditingController priceController = TextEditingController();
+  final TextEditingController volController = TextEditingController();
   List<StockCompanyData> allStockCompanyData = <StockCompanyData>[];
 
   var loading = false.obs;

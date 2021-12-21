@@ -1,4 +1,5 @@
 import 'package:vf_app/model/entities/index.dart';
+import 'package:vf_app/model/order_data/inday_order.dart';
 import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/model/response/account_status.dart';
 import 'package:vf_app/model/response/list_account_response.dart';

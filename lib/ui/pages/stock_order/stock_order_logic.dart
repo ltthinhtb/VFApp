@@ -109,6 +109,7 @@ class StockOrderLogic extends GetxController {
             cmd: "Web.sCashBalance",
             p1: defAcc,
             p2: state.selectedStock.value.stockCode,
+            p3: state.priceController.text,
             p4: state.isBuy.value ? "B" : "S"),
       );
       state.selectedCashBalance.value =
@@ -136,14 +137,15 @@ class StockOrderLogic extends GetxController {
 
   Future requestNewOrder() async {
     String refId = _tokenEntity.data!.user! + ".M." + OrderUtils.getRandom();
-    String sReceiveCheckSumValue = _tokenEntity.data!.sid! +
-        state.price.value +
-        (state.isBuy.value ? "B" : "S") +
-        state.vol.value.toString() +
-        "vpbs@456" +
-        _tokenEntity.data!.defaultAcc! +
-        state.selectedStock.value.stockCode! +
-        refId;
+    String sReceiveCheckSumValue = OrderUtils.generateMd5(
+        _tokenEntity.data!.sid! +
+            state.priceController.text +
+            (state.isBuy.value ? "B" : "S") +
+            state.volController.text +
+            "vpbs@456" +
+            _tokenEntity.data!.defaultAcc! +
+            state.selectedStock.value.stockCode! +
+            refId);
     final RequestParams _requestParams = RequestParams(
       group: "O",
       session: _tokenEntity.data?.sid,
@@ -155,14 +157,20 @@ class StockOrderLogic extends GetxController {
         account: _tokenEntity.data!.defaultAcc!,
         side: (state.isBuy.value ? "B" : "S"),
         symbol: state.selectedStock.value.stockCode!,
-        volume: state.vol.value.toString(),
-        price: state.price.value,
+        volume: int.parse(state.volController.text),
+        price: state.priceController.text,
         advance: "",
         refId: refId,
         orderType: "1",
         pin: state.pin.value,
       ),
     );
+    try {
+      await apiService.newOrderRequest(_requestParams);
+      AppSnackBar.showSuccess(message: "Đặt lệnh thành công!");
+    } catch (error) {
+      AppSnackBar.showError(message: error.toString());
+    }
   }
 
   void changePrice() {}
