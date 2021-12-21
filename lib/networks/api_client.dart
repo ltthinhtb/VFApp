@@ -16,9 +16,7 @@ import 'package:vf_app/model/stock_data/stock_data.dart';
 import 'package:vf_app/model/stock_data/stock_info.dart';
 import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/utils/error_message.dart';
-import 'package:vf_app/utils/logger.dart';
 import 'error_exception.dart';
-import 'package:http/http.dart' as http;
 
 abstract class ApiClient {
   factory ApiClient(Dio dio, {String? baseUrl}) = _ApiClient;
@@ -103,7 +101,7 @@ class _ApiClient implements ApiClient {
         await get_x.Get.offNamed(RouteConfig.login);
         throw ErrorException(response.statusCode!, _mapData['rs']);
       } else {
-        print("_handleOrderError(_rc) ${_handleOrderError(_rc)}");
+        // print("_handleOrderError(_rc) ${_handleOrderError(_rc)}");
         throw _handleOrderError(_rc);
       }
     } catch (error) {
