@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'page/check_account.dart';
-import 'page/signature.dart';
 import 'sign_up_logic.dart';
 
 class SignUpPage extends StatefulWidget {
