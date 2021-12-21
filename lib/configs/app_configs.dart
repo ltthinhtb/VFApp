@@ -5,7 +5,8 @@ class AppConfigs {
 
   ///STAGING
   static const envName = "Staging";
-  static const baseUrl = "http://202.124.204.208:9999/";
+  // static const baseUrl = "http://vftrade.vn:8888/";
+  static const baseUrl = "http://202.124.204.116:9999/";
   static const URL_DATA_FEED = 'https://sbboard.sbsi.vn/';
   static const ENDPOINT_CORE = 'TraditionalService';
   static const socketUrl = 'wss://socket.themoviedb.org'; //Todo: change this

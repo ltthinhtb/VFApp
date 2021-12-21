@@ -12,7 +12,7 @@ class ParamsObject {
   String? account;
   String? side;
   String? symbol;
-  int? volume;
+  String? volume;
   String? price;
   String? advance;
   String? refId;
@@ -64,43 +64,43 @@ class ParamsObject {
     if (p4 != null) {
       data['p4'] = p4;
     }
-    if (p1 != null) {
+    if (account != null) {
       data['account'] = account;
     }
-    if (p1 != null) {
+    if (side != null) {
       data['side'] = side;
     }
-    if (p1 != null) {
+    if (symbol != null) {
       data['symbol'] = symbol;
     }
-    if (p1 != null) {
+    if (volume != null) {
       data['volume'] = volume;
     }
-    if (p1 != null) {
+    if (price != null) {
       data['price'] = price;
     }
-    if (p1 != null) {
+    if (advance != null) {
       data['advance'] = advance;
     }
-    if (p1 != null) {
+    if (refId != null) {
       data['refId'] = refId;
     }
-    if (p1 != null) {
+    if (pin != null) {
       data['pin'] = pin;
     }
-    if (p1 != null) {
+    if (orderNo != null) {
       data['orderNo'] = orderNo;
     }
-    if (p1 != null) {
+    if (orderType != null) {
       data['orderType'] = orderType;
     }
-    if (p1 != null) {
+    if (nvol != null) {
       data['nvol'] = nvol;
     }
-    if (p1 != null) {
+    if (nprice != null) {
       data['nprice'] = nprice;
     }
-    if (p1 != null) {
+    if (fisID != null) {
       data['fisID'] = fisID;
     }
     return data;

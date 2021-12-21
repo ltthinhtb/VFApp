@@ -501,7 +501,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
               if (state.selectedStock.value.stockCode != null &&
                   prices[index] == "MP") {
                 state.price.value =
-                    state.selectedStockInfo.value.lastPrice!.toDouble();
+                    state.selectedStockInfo.value.lastPrice!.toString();
                 _priceController.text = state.price.value.toString();
               }
             },
@@ -555,7 +555,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
                           : false,
                       onChange: (value) {
                         state
-                          ..price.value = value
+                          ..price.value = value.toString()
                           ..priceType.value = "LO";
                       },
                     ),

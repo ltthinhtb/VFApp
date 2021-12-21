@@ -14,7 +14,9 @@ import 'package:vf_app/model/stock_data/cash_balance.dart';
 import 'package:vf_app/model/stock_data/stock_data.dart';
 import 'package:vf_app/model/stock_data/stock_info.dart';
 import 'package:vf_app/router/route_config.dart';
+import 'package:vf_app/utils/logger.dart';
 import 'error_exception.dart';
+import 'package:http/http.dart' as http;
 
 abstract class ApiClient {
   factory ApiClient(Dio dio, {String? baseUrl}) = _ApiClient;
@@ -54,6 +56,7 @@ class _ApiClient implements ApiClient {
   Future<Response> _requestApi(Future<Response> request) async {
     try {
       var response = await request;
+      print("Response : $response");
       var _mapData = _decodeMap(response.data!);
       var _rc = _mapData['rc'] ?? -999;
       var _rs = _mapData['rs'] ?? "FOException.InvalidSessionException";
@@ -121,9 +124,19 @@ class _ApiClient implements ApiClient {
 
   @override
   Future<TokenEntity> authLogin(RequestParams requestParams) async {
+    print("Request params : ${requestParams.toJson()}");
     Response _result = await _requestApi(
-        _dio.post(AppConfigs.ENDPOINT_CORE, data: requestParams.toJson()));
+      _dio.post(
+        AppConfigs.ENDPOINT_CORE,
+        data: requestParams.toJson(),
+      ),
+    );
     var _mapData = _decodeMap(_result.data!);
+    // var _result = await http.post(
+    //   Uri.parse(baseUrl! + AppConfigs.ENDPOINT_CORE),
+    //   body: requestParams.toJson(),
+    // );
+    // var res = jsonDecode(const Utf8Codec().decode(_result.bodyBytes));
     final value = TokenEntity.fromJson(_mapData);
     return value;
   }
