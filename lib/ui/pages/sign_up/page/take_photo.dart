@@ -31,7 +31,6 @@ class TakePhotoPage extends StatefulWidget {
 class _TakePhotoPageState extends State<TakePhotoPage> {
   late CameraController _controller;
 
-  TextDetector textDetector = GoogleMlKit.vision.textDetector();
 
   final logic = Get.find<SignUpLogic>();
   final state = Get.find<SignUpLogic>().state;
