@@ -33,23 +33,22 @@ dependencies:
     sdk: flutter
 
   #State management
-  get: ^4.5.1
+  get: ^4.6.1
 
   #Utilities
-  package_info: ^2.0.2
   intl_utils: ^2.5.1
 
   #Store
   flutter_secure_storage: ^5.0.2
-  shared_preferences: ^2.0.9
+  shared_preferences: ^2.0.11
 
   #Network
   dio: ^4.0.4
 
   #Custom UI
   shimmer: ^2.0.0
-  flutter_svg: ^0.23.0+1
-  flutter_typeahead: ^3.2.1
+  flutter_svg: ^1.0.0
+  flutter_typeahead: ^3.2.4
 
   #Dialog, etc
   cached_network_image: ^3.2.0
@@ -67,23 +66,18 @@ dependencies:
   #loading
   flutter_easyloading: ^3.0.3
 
-  #gen uuid
-  uuid: ^3.0.5
-
   #dotted_border:
-  dotted_border: ^2.0.0+1
+  dotted_border: ^2.0.0+2
 
   #url_launcher:
   url_launcher: ^6.0.17
-  webview_flutter: ^2.3.1
+  webview_flutter: ^3.0.0
 
   #pinput:
-  pinput: ^1.2.0
+  pinput: ^1.2.2
   #firebase
-  firebase_auth: ^3.3.3
-  firebase_core: ^1.10.5
-  #otp_autofill:
-  sms_autofill: ^2.2.0
+  firebase_auth: ^3.3.4
+  firebase_core: ^1.10.6
 
 
   # The following adds the Cupertino Icons font to your application.
