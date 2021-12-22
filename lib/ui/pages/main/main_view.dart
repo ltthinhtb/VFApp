@@ -6,6 +6,8 @@ import 'package:vf_app/ui/pages/user/user_logic.dart';
 import 'main_logic.dart';
 import 'tab/main_tab.dart';
 
+final GlobalKey<NavigatorState> mainKey = GlobalKey();
+
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -19,7 +21,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   void initState() {
-    Get.put(UserLogic(),permanent: true);
+    Get.put(UserLogic(), permanent: true);
     // TODO: implement initState
     super.initState();
   }
@@ -27,6 +29,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: mainKey,
       body: _buildPageView(),
       bottomNavigationBar: _buildBottomNavigationBar(),
     );

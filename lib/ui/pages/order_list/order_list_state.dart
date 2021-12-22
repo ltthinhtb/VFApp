@@ -8,6 +8,8 @@ class OrderListState {
   var loading = false.obs;
   var selectedMode = false.obs;
 
+  var selectedListOrder = <IndayOrder>[].obs;
+
   var listOrder = <IndayOrder>[].obs;
 
   var isBuy = true.obs;

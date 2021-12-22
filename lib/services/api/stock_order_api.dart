@@ -25,6 +25,10 @@ extension StockOrderService on ApiService {
     return await _apiClient.newOrderRequest(requestParams);
   }
 
+  Future<void> cancleOrder(RequestParams requestParams) async {
+    return await _apiClient.cancleOrder(requestParams);
+  }
+
   Future<List<IndayOrder>> getIndayOrder(RequestParams requestParams) async {
     return await _apiClient.getIndayOrder(requestParams);
   }

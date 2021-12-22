@@ -9,6 +9,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'common/app_themes.dart';
 import 'router/route_config.dart';
 import 'services/index.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,6 +45,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  bool isFirstRun = false;
+
+  _MyAppState() {
+    MySharedPreferences.instance
+        .getBooleanValue("isfirstRun")
+        .then((value) => setState(() {
+              isFirstRun = value;
+            }));
+  }
+
   @override
   void initState() {
     super.initState();
@@ -63,7 +74,7 @@ class _MyAppState extends State<MyApp> {
         theme: AppThemes.lightTheme,
         darkTheme: AppThemes.darkTheme,
         themeMode: ThemeMode.light,
-        initialRoute: RouteConfig.splash,
+        initialRoute: isFirstRun ? RouteConfig.splash : RouteConfig.login,
         getPages: RouteConfig.getPages,
         builder: EasyLoading.init(),
         localizationsDelegates: const [
@@ -83,5 +94,21 @@ class _MyAppState extends State<MyApp> {
     if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
       FocusManager.instance.primaryFocus?.unfocus();
     }
+  }
+}
+
+class MySharedPreferences {
+  MySharedPreferences._privateConstructor();
+
+  static final MySharedPreferences instance =
+      MySharedPreferences._privateConstructor();
+  void setBooleanValue(String key, bool value) async {
+    SharedPreferences myPrefs = await SharedPreferences.getInstance();
+    await myPrefs.setBool(key, value);
+  }
+
+  Future<bool> getBooleanValue(String key) async {
+    SharedPreferences myPrefs = await SharedPreferences.getInstance();
+    return myPrefs.getBool(key) ?? false;
   }
 }

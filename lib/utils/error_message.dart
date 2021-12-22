@@ -65,6 +65,13 @@ class MessageOrder {
     "-8": "Hệ thống chưa sẵn sàng nhận lệnh",
   };
 
+  static String mapError(String rc) {
+    if (errMsg.containsKey(rc.toString())) {
+      return errMsg[rc]!;
+    }
+    return "Lỗi không xác định! Mã lỗi $rc";
+  }
+
   static String getStatusOrder(IndayOrder idata) {
     var pStatus = idata.status;
     var pMatchVolume = idata.matchVolume;
