@@ -24,6 +24,7 @@ import 'package:vf_app/model/stock_data/stock_data.dart';
 import 'package:vf_app/model/stock_data/stock_info.dart';
 import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/utils/error_message.dart';
+import 'package:vf_app/utils/logger.dart';
 import 'error_exception.dart';
 
 abstract class ApiClient {
