@@ -66,8 +66,8 @@ abstract class ApiClient {
 
   Future<CashBalance> getCashBalance(RequestParams requestParams);
 
-
   Future<void> newOrderRequest(RequestParams requestParams);
+  Future<void> cancleOrder(RequestParams requestParams);
   Future<List<IndayOrder>> getIndayOrder(RequestParams requestParams);
 
   Future<dynamic> signOut();
@@ -196,7 +196,7 @@ class _ApiClient implements ApiClient {
 
   String _handleOrderError(int error) {
     /// xử lý exception
-    String exception = MessageOrder.errMsg['$error']!;
+    String exception = MessageOrder.mapError(error.toString());
     return exception;
   }
 
@@ -403,12 +403,27 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+  Future<void> cancleOrder(RequestParams requestParams) async {
+    try {
+      await _requestOrderApi(
+        _dio.post(
+          AppConfigs.ENDPOINT_CORE,
+          data: requestParams.toJson(),
+        ),
+      );
+      return;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
   Future<List<IndayOrder>> getIndayOrder(RequestParams requestParams) async {
     try {
-      Response _result = await _dio.post(
+      Response _result = await _requestApi(_dio.post(
         AppConfigs.ENDPOINT_CORE,
         data: requestParams.toJson(),
-      );
+      ));
       List<dynamic> _listDataDynamic = _decodeMap(_result.data!)['data'];
       List<IndayOrder> _listData =
           _listDataDynamic.map((e) => IndayOrder.fromJson(e)).toList();

@@ -35,9 +35,6 @@ class _StockOrderPageState extends State<StockOrderPage> {
   //Bỏ settingService đi
   final settingService = Get.find<SettingService>();
 
-  // final TextEditingController state.priceController = TextEditingController();
-  // final TextEditingController state.volController = TextEditingController();
-
   @override
   void initState() {
     // TODO: implement initState
@@ -49,11 +46,16 @@ class _StockOrderPageState extends State<StockOrderPage> {
     });
   }
 
+  @override
+  void didUpdateWidget(covariant StockOrderPage oldWidget) {
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
+  }
+
   void changeStock(StockCompanyData? data) async {
     // print(data?.stockCode);
     if (data != null) {
       await logic.getStockInfo(data);
-      state.priceController.text = state.price.value.toString();
     }
   }
 
@@ -649,8 +651,8 @@ class _StockOrderPageState extends State<StockOrderPage> {
                       flex: 3,
                       child: Text(
                         state.accountStatus.value.mr != null
-                            ? StockUtil.formatMoney(
-                                double.parse(state.accountStatus.value.mr!))
+                            ? StockUtil.formatMoney(double.parse(
+                                state.accountStatus.value.mr ?? "0"))
                             : "0",
                         style: AppTextStyle.bodyText2,
                         textAlign: TextAlign.right,
@@ -717,8 +719,14 @@ class _StockOrderPageState extends State<StockOrderPage> {
                         state.selectedCashBalance.value.volumeAvaiable != null
                             ? StockUtil.formatVol(
                                 double.parse(state.selectedCashBalance.value
-                                        .volumeAvaiable ??
-                                    "0"),
+                                            .volumeAvaiable ==
+                                        null
+                                    ? "0"
+                                    : state.selectedCashBalance.value
+                                            .volumeAvaiable!.isEmpty
+                                        ? "0"
+                                        : state.selectedCashBalance.value
+                                            .volumeAvaiable!),
                               )
                             : "0",
                         style: AppTextStyle.bodyText2,
@@ -755,9 +763,10 @@ class _StockOrderPageState extends State<StockOrderPage> {
                   child: Text(
                     state.selectedCashBalance.value.volumeAvaiable != null
                         ? StockUtil.formatVol(
-                            double.parse(state
-                                    .selectedCashBalance.value.volumeAvaiable ??
-                                "0"),
+                            double.parse(
+                              state.selectedCashBalance.value.volumeAvaiable ??
+                                  "0",
+                            ),
                           )
                         : "0",
                     style: AppTextStyle.bodyText2,

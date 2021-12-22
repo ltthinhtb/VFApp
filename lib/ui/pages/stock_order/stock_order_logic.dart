@@ -66,6 +66,7 @@ class StockOrderLogic extends GetxController {
         ..stockExchange.value = getStockExchange()
         ..priceType.value = "MP"
         ..price.value = state.selectedStockInfo.value.lastPrice!.toString();
+      state.priceController.text = state.price.value.toString();
       await getAccountStatus(account);
       await getCashBalance();
       state.loading.value = false;
@@ -175,35 +176,20 @@ class StockOrderLogic extends GetxController {
 
   void changePrice() {}
 
-  void initToken() async {
+  Future<void> initToken() async {
     try {
       _tokenEntity = (await authService.getToken())!;
     } catch (e) {
-      rethrow;
+      return await initToken();
     }
   }
 
   @override
-  void onInit() {
+  void onInit() async {
     // TODO: implement onInit
     super.onInit();
-    initToken();
+    await initToken();
     getAllStockCompanyData();
-    printChecksum();
-  }
-
-  void printChecksum() {
-    String refId = "200998.M." + OrderUtils.getRandom();
-    print(refId);
-    String sReceiveCheckSumValue = "acfdde1c-1c82-49bb-9120-92ef59cd7825" +
-        "MP" +
-        "B" +
-        "1000" +
-        "vpbs@456" +
-        "2009986" +
-        "AAA" +
-        refId;
-    print(OrderUtils.generateMd5(sReceiveCheckSumValue));
   }
 
   StockExchange getStockExchange() {

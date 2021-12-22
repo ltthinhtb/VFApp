@@ -837,7 +837,7 @@ class CustomDropdownButton<T> extends StatefulWidget {
   /// Creates a dropdown button.
   ///
   /// The [items] must have distinct values. If [value] isn't null then it
-  /// must be equal to one of the [DropDownMenuItem] values. If [items] or
+  /// must be equal to one of the [DropDownMenuItem] values. If [items] or`
   /// [onChanged] is null, the button will be disabled, the down arrow
   /// will be greyed out, and the [disabledHint] will be shown (if provided).
   /// If [disabledHint] is null and [hint] is non-null, [hint] will instead be

@@ -40,13 +40,9 @@ class _SplashPageState extends State<SplashPage> {
               alignment: Alignment.center,
               height: 70,
               width: 160,
-              decoration: BoxDecoration(
-                color: AppColors.grayC4,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Text(
-                'Logo',
-                style: headline4,
+              child: Image.asset(
+                "assets/image/logo.png",
+                fit: BoxFit.fill,
               ),
             ),
             const SizedBox(height: 84),

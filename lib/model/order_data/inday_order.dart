@@ -46,6 +46,20 @@ class IndayOrder {
       this.autoType,
       this.product});
 
+  num get matchPrice {
+    try {
+      num _matchValue = double.parse(matchValue ?? "0");
+      num _matchVol = double.parse(matchVolume ?? "0");
+      if (_matchValue > 0) {
+        return _matchValue / (_matchVol * 1000);
+      } else {
+        return 0;
+      }
+    } catch (e) {
+      return 0;
+    }
+  }
+
   IndayOrder.fromJson(Map<String?, dynamic> json) {
     orderNo = json['orderNo'];
     pkOrderNo = json['pk_orderNo'];

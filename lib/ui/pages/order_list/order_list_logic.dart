@@ -6,7 +6,6 @@ import 'package:vf_app/services/api/api_service.dart';
 import 'package:vf_app/services/index.dart';
 import 'package:vf_app/ui/pages/order_list/order_list_state.dart';
 
-
 class OrderListLogic extends GetxController {
   final OrderListState state = OrderListState();
   final ApiService apiService = Get.find();
@@ -37,6 +36,41 @@ class OrderListLogic extends GetxController {
           p4: "${state.symbol},${state.orderStatus},${state.orderType}"),
     );
     state.listOrder.value = await apiService.getIndayOrder(_requestParams);
+  }
+
+  void cancelOrder() async {
+    if (state.selectedListOrder.isNotEmpty) {
+      RequestParams _requestParams = RequestParams(
+        group: "O",
+        session: _tokenEntity.data?.sid,
+        user: _tokenEntity.data?.user,
+        data: ParamsObject(
+          type: "string",
+          cmd: "Web.cancelOrder",
+          orderNo: "",
+          fisID: "",
+          orderType: "1",
+          pin: "123456",
+        ),
+      );
+      try {
+        for (var item in state.selectedListOrder) {
+          _requestParams.data!.orderNo = item.orderNo;
+          await apiService.cancleOrder(_requestParams);
+        }
+      } catch (e) {
+        rethrow;
+      }
+    }
+    getOrderList();
+  }
+
+  bool itemIsChecked(String no) {
+    if (state.selectedListOrder.any((element) => element.orderNo == no)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   @override
