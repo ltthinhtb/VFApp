@@ -17,7 +17,7 @@ class OpenSuccessAccount extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             child: ButtonFill(
               voidCallback: () {
-                Get.offNamed(RouteConfig.splash);
+                Get.offNamed(RouteConfig.login);
               },
               title: "Hoàn tất",
             ),
