@@ -29,6 +29,14 @@ class _SignUpOTPPageState extends State<SignUpOTPPage> {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  String get phone {
+    if (state.phoneNameController.text[0] == "0") {
+      return state.phoneNameController.text.replaceFirst("0", "+84");
+    } else {
+      return state.phoneNameController.text;
+    }
+  }
+
   @override
   void initState() {
     state.OTPController.clear();
@@ -66,7 +74,7 @@ class _SignUpOTPPageState extends State<SignUpOTPPage> {
     };
     try {
       await _auth.verifyPhoneNumber(
-          phoneNumber: state.phoneNameController.text,
+          phoneNumber: phone,
           timeout: const Duration(seconds: 60),
           verificationCompleted: verificationCompleted,
           verificationFailed: verificationFailed,

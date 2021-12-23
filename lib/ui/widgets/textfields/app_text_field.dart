@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_images.dart';
+import 'package:vf_app/common/app_text_styles.dart';
 
 class AppTextFieldWidget extends StatefulWidget {
   final TextEditingController? inputController;
@@ -17,6 +19,7 @@ class AppTextFieldWidget extends StatefulWidget {
   final SvgPicture? prefixIcon;
   final int? maxLength;
   final bool readOnly;
+  final TextFieldType textFieldType;
 
   AppTextFieldWidget({
     this.inputController,
@@ -32,6 +35,7 @@ class AppTextFieldWidget extends StatefulWidget {
     this.prefixIcon,
     this.maxLength,
     this.readOnly = false,
+    this.textFieldType = TextFieldType.normal,
   });
 
   @override
@@ -71,12 +75,17 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
           focusNode: widget.focusNode ?? FocusNode(),
           controller: widget.inputController,
           obscureText: _obscureText,
+          style: widget.textFieldType.style,
           onFieldSubmitted: widget.onFieldSubmitted,
           inputFormatters: [
             LengthLimitingTextInputFormatter(widget.maxLength),
           ],
           decoration: InputDecoration(
+              filled: widget.textFieldType.filled,
+              fillColor: widget.textFieldType.filledColor,
               hintText: widget.hintText,
+              border: widget.textFieldType.border,
+              enabledBorder: widget.textFieldType.border,
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               prefixIconConstraints: const BoxConstraints(maxHeight: 24),
@@ -107,4 +116,55 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
       ],
     );
   }
+}
+
+enum TextFieldType {
+  normal,
+  searchAppBar,
+}
+
+extension TextFieldTypeExt on TextFieldType {
+  bool? get filled {
+    switch (this) {
+      case TextFieldType.normal:
+        return null;
+      case TextFieldType.searchAppBar:
+        return true;
+    }
+  }
+
+  Color? get filledColor {
+    switch (this) {
+      case TextFieldType.normal:
+        return null;
+      case TextFieldType.searchAppBar:
+        return AppColors.cardPortfolio;
+    }
+  }
+
+  OutlineInputBorder? get border {
+    switch (this) {
+      case TextFieldType.normal:
+        return null;
+      case TextFieldType.searchAppBar:
+        return _defaultBorder;
+    }
+  }
+
+  TextStyle? get style {
+    switch (this) {
+      case TextFieldType.normal:
+        return null;
+      case TextFieldType.searchAppBar:
+        return AppTextStyle.H6Regular.copyWith(
+          color: AppColors.white
+        );
+    }
+  }
+}
+
+OutlineInputBorder get _defaultBorder {
+  return const OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(15)),
+      borderSide: BorderSide(width: 0,color: AppColors.cardPortfolio));
 }

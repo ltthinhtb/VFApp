@@ -5,12 +5,12 @@ class AppImages {
   static String splash3 = 'assets/image/splash_3.png';
 
   //sign_up
-  static String sign_up_card_id_1 ='assets/icon_svg/sign_up_card_id.svg';
-  static String sign_up_card_id_2 ='assets/icon_svg/sign_up_id-card 2.svg';
-  static String sign_up_card_id_3 ='assets/icon_svg/sign_ip_id-card 3.svg';
+  static String sign_up_card_id_1 = 'assets/icon_svg/sign_up_card_id.svg';
+  static String sign_up_card_id_2 = 'assets/icon_svg/sign_up_id-card 2.svg';
+  static String sign_up_card_id_3 = 'assets/icon_svg/sign_ip_id-card 3.svg';
 
   static String cmnd_blur = 'assets/icon_svg/cmnd_blur.svg';
-  static String cmnd_dark ='assets/icon_svg/cmnd_dark.svg';
+  static String cmnd_dark = 'assets/icon_svg/cmnd_dark.svg';
   static String cmnd_cut = 'assets/icon_svg/cmnd_cut.svg';
 
   //menu card
@@ -26,7 +26,11 @@ class AppImages {
   static String dislike_star = 'assets/icon_svg/dislike_star.svg';
   static String switch_diagram = 'assets/icon_svg/switch_diagram.svg';
   static String down_arrow = 'assets/icon_svg/down-arror.svg';
+  static String left_button = 'assets/icon_svg/left-button.svg';
+  static String right_button = 'assets/icon_svg/right-button.svg';
   static String camera = 'assets/icon_svg/camera.svg';
+  static String notification = 'assets/icon_svg/notification.svg';
+  static String add_square = 'assets/icon_svg/add-square.svg';
 
   // icon image
   static String present = 'assets/icon_svg/present.svg';
@@ -42,5 +46,4 @@ class AppImages {
   static String document_text_1 = 'assets/icon_svg/document-text-purple.svg';
   static String category_0 = 'assets/icon_svg/categoty-grey.svg';
   static String category_1 = 'assets/icon_svg/category-purple.svg';
-
 }

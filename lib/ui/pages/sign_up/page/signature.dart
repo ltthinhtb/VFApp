@@ -105,6 +105,7 @@ class _SignaturePageState extends State<SignaturePage> {
                     onTap: () async {
                       var bytes = await state.signController.toPngBytes();
                       await logic.uploadSignature(bytes!);
+
                     },
                     child: Text(
                       S.of(context).agree,

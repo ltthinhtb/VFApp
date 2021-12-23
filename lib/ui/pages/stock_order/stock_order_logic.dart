@@ -17,6 +17,7 @@ class StockOrderLogic extends GetxController {
   final AuthService authService = Get.find();
 
   late TokenEntity _tokenEntity;
+
   String get defAcc => _tokenEntity.data!.defaultAcc!;
 
   List<StockCompanyData> searchStock(String stockCode) {
@@ -126,8 +127,10 @@ class StockOrderLogic extends GetxController {
   Future<void> getStockData(StockCompanyData data) async {
     state.selectedStock.value = data;
     // thêm try catch vào để bắt exception lỗi mạng hoặc data k đúng
-    state.selectedStockData.value =
-        await apiService.getStockData(data.stockCode!);
+    var list = await apiService.getStockData(data.stockCode!);
+    if (list.isNotEmpty) {
+      state.selectedStockData.value = list.first;
+    }
     state
       ..sumBuyVol.value = getSumBuyVol()
       ..sumSellVol.value = getSumSellVol()

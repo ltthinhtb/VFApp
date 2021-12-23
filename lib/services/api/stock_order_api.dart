@@ -9,7 +9,7 @@ extension StockOrderService on ApiService {
     return await _apiClient.getAccountMStatus(requestParams);
   }
 
-  Future<StockData> getStockData(String stockCode) async {
+  Future<List<StockData>> getStockData(String stockCode) async {
     return await _apiClient.getStockData(stockCode);
   }
 

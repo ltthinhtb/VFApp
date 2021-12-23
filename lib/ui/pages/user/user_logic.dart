@@ -20,14 +20,10 @@ class UserLogic extends GetxController {
 
   Future<void> getTokenUser() async {
     try {
-      if (await authService.getToken() != null) {
         _tokenEntity = (await authService.getToken())!;
         _requestParams.user = _tokenEntity.data?.user;
         _requestParams.session = _tokenEntity.data?.sid;
         await getListAccount();
-      } else {
-        throw (Exception);
-      }
     } catch (e) {
       logger.e(e.toString());
       await getTokenUser();
