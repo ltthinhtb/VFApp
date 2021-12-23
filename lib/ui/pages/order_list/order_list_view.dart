@@ -5,7 +5,7 @@ import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_text_styles.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/order_data/inday_order.dart';
-import 'package:vf_app/router/route_config.dart';
+import 'package:vf_app/ui/commons/app_snackbar.dart';
 import 'package:vf_app/ui/pages/main/main_view.dart';
 import 'package:vf_app/ui/pages/order_list/order_list_logic.dart';
 import 'package:vf_app/ui/pages/order_list/page/order_detail.dart';
@@ -87,7 +87,12 @@ class _OrderListPageState extends State<OrderListPage> {
                         );
                         if (_r ?? false) {
                           state.selectedMode.value = false;
-                          logic.cancelOrder();
+                          try {
+                            await logic.selectAll();
+                            await logic.cancelOrder();
+                          } catch (e) {
+                            AppSnackBar.showError(message: e.toString());
+                          }
                         }
                       },
                       color: AppColors.primary2,
@@ -117,7 +122,11 @@ class _OrderListPageState extends State<OrderListPage> {
                         );
                         if (_r ?? false) {
                           state.selectedMode.value = false;
-                          logic.cancelOrder();
+                          try {
+                            await logic.cancelOrder();
+                          } catch (e) {
+                            AppSnackBar.showError(message: e.toString());
+                          }
                         }
                       },
                       color: AppColors.primary,

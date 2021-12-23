@@ -5,6 +5,7 @@ import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_text_styles.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/order_data/inday_order.dart';
+import 'package:vf_app/ui/commons/app_snackbar.dart';
 import 'package:vf_app/ui/commons/appbar.dart';
 import 'package:vf_app/ui/pages/main/main_view.dart';
 import 'package:vf_app/ui/pages/order_list/order_list_logic.dart';
@@ -42,7 +43,6 @@ class _OrderDetailState extends State<OrderDetail> {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: const AppBarCustom(
         title: "Xác nhận lệnh mua",
@@ -76,68 +76,63 @@ class _OrderDetailState extends State<OrderDetail> {
           ],
         ),
       ),
-      floatingActionButton: AnimatedScale(
-        scale: state.selectedMode.value ? 1.0 : 0.0,
-        duration: const Duration(milliseconds: 300),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-          child: Row(
-            children: [
-              Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5),
-                  child: CustomMaterialButton(
-                    onPressed: () async {
-                      bool? _r = await CustomDialog.showConfirmDialog(
-                        mainKey,
-                        "Xác nhận huỷ lệnh",
-                        ["Bạn có chắc chắn muốn hủy tất cả lệnh?"],
-                        buttonColors: [AppColors.primary2, AppColors.primary],
-                        textButtonColors: [AppColors.primary, AppColors.white],
-                      );
-                      if (_r ?? false) {
-                        state.selectedMode.value = false;
-                        logic.cancelOrder();
-                      }
-                    },
-                    color: AppColors.primary2,
-                    child: Text(
-                      "Huỷ lệnh",
-                      style: AppTextStyle.H5Bold.copyWith(
-                          color: AppColors.primary),
-                    ),
+      floatingActionButton: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        child: Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: CustomMaterialButton(
+                  onPressed: () async {
+                    bool? _r = await CustomDialog.showConfirmDialog(
+                      mainKey,
+                      "Xác nhận huỷ lệnh",
+                      ["Bạn có chắc chắn muốn hủy lệnh này?"],
+                      buttonColors: [AppColors.primary2, AppColors.primary],
+                      textButtonColors: [AppColors.primary, AppColors.white],
+                    );
+                    if (_r ?? false) {
+                      await cancelOrder();
+                    }
+                  },
+                  color: AppColors.primary2,
+                  child: Text(
+                    "Huỷ lệnh",
+                    style:
+                        AppTextStyle.H5Bold.copyWith(color: AppColors.primary),
                   ),
                 ),
               ),
-              Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5),
-                  child: CustomMaterialButton(
-                    onPressed: () async {
-                      bool? _r = await CustomDialog.showConfirmDialog(
-                        mainKey,
-                        "Xác nhận huỷ lệnh",
-                        ["Bạn có chắc chắn muốn hủy lệnh này?"],
-                        buttonColors: [AppColors.primary2, AppColors.primary],
-                        textButtonColors: [AppColors.primary, AppColors.white],
-                      );
-                      if (_r ?? false) {
-                        state.selectedMode.value = false;
-                        logic.cancelOrder();
-                      }
-                    },
-                    color: AppColors.primary,
-                    child: Text(
-                      "Sửa lệnh",
-                      style: AppTextStyle.H5Bold.copyWith(color: Colors.white),
-                    ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: CustomMaterialButton(
+                  onPressed: () async {
+                    // bool? _r = await CustomDialog.showConfirmDialog(
+                    //   mainKey,
+                    //   "Xác nhận huỷ lệnh",
+                    //   ["Bạn có chắc chắn muốn hủy lệnh này?"],
+                    //   buttonColors: [AppColors.primary2, AppColors.primary],
+                    //   textButtonColors: [AppColors.primary, AppColors.white],
+                    // );
+                    // if (_r ?? false) {
+                    //   state.selectedMode.value = false;
+                    //   logic.cancelOrder();
+                    // }
+                  },
+                  color: AppColors.primary,
+                  child: Text(
+                    "Sửa lệnh",
+                    style: AppTextStyle.H5Bold.copyWith(color: Colors.white),
                   ),
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -167,5 +162,17 @@ class _OrderDetailState extends State<OrderDetail> {
         ],
       ),
     );
+  }
+
+  Future<void> cancelOrder() async {
+    state.selectedListOrder
+      ..clear()
+      ..add(widget.data);
+    try {
+      await logic.cancelOrder();
+    } catch (e) {
+      AppSnackBar.showError(message: e.toString());
+    }
+    Navigator.pop(context);
   }
 }

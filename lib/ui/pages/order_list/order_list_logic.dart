@@ -5,6 +5,7 @@ import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/services/api/api_service.dart';
 import 'package:vf_app/services/index.dart';
 import 'package:vf_app/ui/pages/order_list/order_list_state.dart';
+import 'package:vf_app/utils/error_message.dart';
 
 class OrderListLogic extends GetxController {
   final OrderListState state = OrderListState();
@@ -38,7 +39,17 @@ class OrderListLogic extends GetxController {
     state.listOrder.value = await apiService.getIndayOrder(_requestParams);
   }
 
-  void cancelOrder() async {
+  Future<void> selectAll() async {
+    state.selectedListOrder.clear();
+    for (var item in state.listOrder) {
+      if (MessageOrder.getStatusOrder(item) == "Khớp 1 phần" ||
+          MessageOrder.getStatusOrder(item) == "Chờ khớp") {
+        state.selectedListOrder.add(item);
+      }
+    }
+  }
+
+  Future<void> cancelOrder() async {
     if (state.selectedListOrder.isNotEmpty) {
       RequestParams _requestParams = RequestParams(
         group: "O",
