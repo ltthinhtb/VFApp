@@ -14,6 +14,7 @@ import 'package:vf_app/model/response/Image_orc_check.dart';
 import 'package:vf_app/model/response/account_status.dart';
 import 'package:vf_app/model/response/check_account_response.dart';
 import 'package:vf_app/model/response/face_check_response.dart';
+import 'package:vf_app/model/response/index_detail.dart';
 import 'package:vf_app/model/response/list_account_response.dart';
 import 'package:vf_app/model/response/open_account_response.dart';
 import 'package:vf_app/model/response/portfolio.dart';
@@ -62,13 +63,20 @@ abstract class ApiClient {
 
   Future<StockInfo> getStockInfo(RequestParams requestParams);
 
-  Future<StockData> getStockData(String stockCode);
+  Future<List<StockData>> getStockData(String stockCode);
 
   Future<CashBalance> getCashBalance(RequestParams requestParams);
 
   Future<void> newOrderRequest(RequestParams requestParams);
+
   Future<void> cancleOrder(RequestParams requestParams);
+
   Future<List<IndayOrder>> getIndayOrder(RequestParams requestParams);
+
+  //home
+  Future<List<IndexDetail>> getListIndexDetail(String listIndex);
+
+  Future<String> getListStockCode(String market);
 
   Future<dynamic> signOut();
 }
@@ -104,6 +112,7 @@ class _ApiClient implements ApiClient {
         throw ErrorException(response.statusCode!, _mapData['rs']);
       }
     } catch (error) {
+      logger.e(error.toString());
       throw _handleError(error);
     }
   }
@@ -434,12 +443,16 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<StockData> getStockData(String stockCode) async {
+  Future<List<StockData>> getStockData(String stockCode) async {
     try {
       Response _result = await _getApi(
           _dio.get(AppConfigs.URL_DATA_FEED + "getliststockdata/$stockCode"));
-      final value = StockData.fromJson(_result.data[0]);
-      return value;
+      List _mapData = _result.data;
+      List<StockData> listStock = [];
+      _mapData.forEach((element) {
+        listStock.add(StockData.fromJson(element));
+      });
+      return listStock;
     } catch (e) {
       rethrow;
     }
@@ -453,5 +466,27 @@ class _ApiClient implements ApiClient {
     var _mapData = _decodeMap(_result.data!);
     final value = PortfolioAccountStatus.fromJson(_mapData);
     return value;
+  }
+
+  @override
+  Future<List<IndexDetail>> getListIndexDetail(String listIndex) async {
+    Response _result = await _getApi(
+        _dio.get(AppConfigs.URL_DATA_FEED + 'getlistindexdetail/' + listIndex));
+    List _mapData = _result.data;
+    List<IndexDetail> listStock = [];
+    _mapData.forEach((element) {
+      listStock.add(IndexDetail.fromJson(element));
+    });
+    return listStock;
+  }
+
+  @override
+  Future<String> getListStockCode(String market) async {
+    Response _result = await _getApi(_dio.get(
+      AppConfigs.INFO_SBSI + 'list30.pt',
+      queryParameters: {"market": market},
+    ));
+    var _mapData = _result.data;
+    return _mapData['list'];
   }
 }

@@ -1,3 +1,7 @@
+import 'dart:ui';
+
+import 'package:vf_app/common/app_colors.dart';
+
 class StockData {
   int? id;
   String? sym;
@@ -26,6 +30,16 @@ class StockData {
   G? g6;
   G? g7;
   String? mp;
+
+  Color get color => lastPrice == c
+      ? AppColors.flow
+      : lastPrice == f
+          ? AppColors.primary
+          : lastPrice! > r!
+              ? AppColors.increase
+              : lastPrice! < r!
+                  ? AppColors.decrease
+                  : AppColors.yellow;
 
   StockData(
       {this.id,
@@ -123,7 +137,9 @@ class G {
   String? price;
   num? volumn;
   String? status;
+
   G({this.price, this.volumn, this.status});
+
   G.fromJson(String data) {
     if (data.isNotEmpty) {
       List<String> _data = data.split('|');

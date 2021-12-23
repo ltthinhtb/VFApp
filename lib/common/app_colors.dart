@@ -31,7 +31,7 @@ class AppColors {
   static const Color secondary2 = Color(0xFFE55F91);
   static const Color buyGreen = Color(0xFF03C4A1);
 
-  static const Color cardPortfolio = Color(0xff523c89);
+  static const Color cardPortfolio = Color.fromRGBO(61, 38, 118, 0.6);
 
   static const Color accent = Color(0xFFd74315);
   static const Color blue = Colors.blueAccent;

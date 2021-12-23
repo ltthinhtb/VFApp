@@ -56,7 +56,11 @@ class _ProfitTabBarState extends State<ProfitTabBar>
         AppDropDownWidget<Account>(
             label: S.of(context).account,
             value: userState.listAccount
-                .firstWhere((element) => element.accCode == walletLogic.defAcc),
+                .firstWhere((element) => element.accCode == walletLogic.defAcc,orElse:(){
+                  return Account(
+                    accCode: walletLogic.defAcc
+                  );
+            }),
             onChanged: (value) {
               walletLogic.getPortfolio(account: value!.accCode);
               walletLogic.getAccountStatus(account: value.accCode);

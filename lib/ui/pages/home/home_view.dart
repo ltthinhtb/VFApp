@@ -1,14 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:vf_app/common/app_colors.dart';
+import 'package:vf_app/common/app_images.dart';
+import 'package:vf_app/generated/l10n.dart';
+import 'package:vf_app/ui/pages/enum/vnIndex.dart';
 import 'package:vf_app/ui/widgets/textfields/app_text_field.dart';
 
+import 'home_logic.dart';
+import 'widget/dropdown_market.dart';
+import 'widget/list_stock.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final logic = Get.put(HomeLogic());
+  final state = Get.find<HomeLogic>().state;
+
+  @override
   Widget build(BuildContext context) {
-    // final logic = Get.put(HomeLogic());
-    // final state = Get.find<HomeLogic>().state;
+    final headline6 = Theme.of(context).textTheme.headline6;
+    final headline4 = Theme.of(context).textTheme.headline4;
 
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
@@ -17,11 +34,95 @@ class HomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
         toolbarHeight: kToolbarHeight + 20,
         title: AppTextFieldWidget(
-          //fillColor: const Color(0xff3D2676).withOpacity(0.6),
+          textFieldType: TextFieldType.searchAppBar,
+          hintText: S.of(context).search,
+          prefixIcon: SvgPicture.asset(
+            AppImages.search_normal,
+            color: AppColors.white,
+          ),
         ),
+        actions: [
+          GestureDetector(
+              onTap: () {
+                logic.onReady();
+              },
+              child: SvgPicture.asset(AppImages.notification)),
+          const SizedBox(
+            width: 15,
+          )
+        ],
       ),
-      body: Column(
-        children: [],
+      body: RefreshIndicator(
+        onRefresh: () async => Future.delayed(const Duration(seconds: 1), () {
+          logic.onReady();
+        }),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 15),
+              SizedBox(
+                height: 100,
+                child: Obx(() {
+                  return ListView.separated(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                              color: AppColors.cardPortfolio,
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                state.listIndexDetail[index].stockCode?.name ??
+                                    "",
+                                style:
+                                    headline6!.copyWith(color: AppColors.white),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                '${state.listIndexDetail[index].cIndex}',
+                                style: headline4!.copyWith(
+                                    color: state.listIndexDetail[index].color),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                '${state.listIndexDetail[index].percentPrice}(${state.listIndexDetail[index].percent})',
+                                style: headline6.copyWith(
+                                    color: state.listIndexDetail[index].color),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                      separatorBuilder: (context, index) {
+                        return const SizedBox(width: 10);
+                      },
+                      itemCount: state.listIndexDetail.length);
+                }),
+              ),
+              const SizedBox(height: 20),
+              Container(
+                decoration: const BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(30),
+                      topLeft: Radius.circular(30),
+                    )),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 20),
+                    const MarketOption(),
+                    const SizedBox(height: 15),
+                    const ListStockView()
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

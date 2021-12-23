@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_images.dart';
 import 'package:vf_app/generated/l10n.dart';
+import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/ui/widgets/button/button_text.dart';
 import 'package:vf_app/ui/widgets/textfields/app_text_field.dart';
 import 'package:vf_app/utils/utils.dart';
@@ -44,7 +45,6 @@ class _SignInPageState extends State<SignInPage> with Validator {
                 alignment: Alignment.center,
                 height: 70,
                 width: 160,
-
                 child: Image.asset(
                   "assets/image/logo.png",
                   fit: BoxFit.fill,
@@ -59,7 +59,7 @@ class _SignInPageState extends State<SignInPage> with Validator {
                   children: [
                     Text(
                       S.of(context).login,
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.headline6!.copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 30),
                     Form(
@@ -118,14 +118,14 @@ class _SignInPageState extends State<SignInPage> with Validator {
                             text: S.of(context).not_account,
                             style: Theme.of(context).textTheme.bodyText1,
                             recognizer: TapGestureRecognizer()
-                              ..onTap = () => print('Tap Here onTap'),
+                              ..onTap = () => Get.toNamed(RouteConfig.sign_up),
                           ),
                           TextSpan(
                             text: S.of(context).register,
                             style: Theme.of(context).textTheme.button!.copyWith(
                                 color: Theme.of(context).primaryColor),
                             recognizer: TapGestureRecognizer()
-                              ..onTap = () => print('Tap Here onTap'),
+                              ..onTap = () => Get.toNamed(RouteConfig.sign_up),
                           )
                         ],
                       ),

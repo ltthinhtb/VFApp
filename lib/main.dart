@@ -72,7 +72,7 @@ class _MyAppState extends State<MyApp> {
         theme: AppThemes.lightTheme,
         darkTheme: AppThemes.darkTheme,
         themeMode: ThemeMode.light,
-        initialRoute: isFirstRun ? RouteConfig.splash : RouteConfig.login,
+        initialRoute:RouteConfig.splash,
         getPages: RouteConfig.getPages,
         builder: EasyLoading.init(),
         localizationsDelegates: const [

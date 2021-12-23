@@ -57,7 +57,7 @@ dependencies:
   flutter_native_image: ^0.0.6+1
 
   #font
-  google_fonts: ^2.1.0
+  google_fonts: ^2.1.1
   signature: ^5.0.0
 
   #logger:
