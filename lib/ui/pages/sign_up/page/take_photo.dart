@@ -31,7 +31,6 @@ class TakePhotoPage extends StatefulWidget {
 class _TakePhotoPageState extends State<TakePhotoPage> {
   late CameraController _controller;
 
-  TextDetector textDetector = GoogleMlKit.vision.textDetector();
 
   final logic = Get.find<SignUpLogic>();
   final state = Get.find<SignUpLogic>().state;
@@ -311,7 +310,6 @@ class _TakePhotoPageState extends State<TakePhotoPage> {
     await _controller.pausePreview();
     state.cmndFront = await ImageUtils.cropImage(file);
     await logic.getImageUploadUrl(file, 'anhCmtTruoc');
-    state.nextStep = true;
     _isPreview.value = true;
   }
 
@@ -321,7 +319,6 @@ class _TakePhotoPageState extends State<TakePhotoPage> {
     await _controller.pausePreview();
     state.cmndBack = await ImageUtils.cropImage(file);
     await logic.getImageUploadUrl(file, 'anhCmtSau');
-    state.nextStep = true;
     _isPreview.value = true;
   }
 
