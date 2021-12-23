@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
-import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_text_styles.dart';
 
 class CustomDialog {

@@ -7,6 +7,7 @@ import 'package:vf_app/common/app_text_styles.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
 import 'package:vf_app/services/setting_service.dart';
+import 'package:vf_app/ui/commons/app_snackbar.dart';
 import 'package:vf_app/ui/commons/webview.dart';
 import 'package:vf_app/ui/pages/stock_order/stock_order_logic.dart';
 import 'package:vf_app/ui/pages/stock_order/stock_order_state.dart';
@@ -97,11 +98,23 @@ class _StockOrderPageState extends State<StockOrderPage> {
           ),
         ),
         onPressed: () async {
-          if (state.selectedStock.value.stockCode != null &&
-              state.volController.text.isNotEmpty) {
+          try {
+            await logic.validateInfo();
             bool? result = await Get.to(StockOrderConfirm());
             if (result == true) {
               await logic.requestNewOrder();
+            }
+          } catch (e) {
+            switch (e) {
+              case 0:
+                return AppSnackBar.showError(
+                    message: S.of(context).empty_stockcode);
+              case -1:
+                return AppSnackBar.showError(
+                    message: S.of(context).invalid_price);
+              case -2:
+                return AppSnackBar.showError(
+                    message: S.of(context).invalid_volumn);
             }
           }
         },

@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "activated_now": MessageLookupByLibrary.simpleMessage("Activated now"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
         "assets": MessageLookupByLibrary.simpleMessage("Assets"),
+        "aver_match_price":
+            MessageLookupByLibrary.simpleMessage("Average match price"),
         "bank_account": MessageLookupByLibrary.simpleMessage("Bank account"),
         "birthday": MessageLookupByLibrary.simpleMessage("Birthday"),
         "bond_assets": MessageLookupByLibrary.simpleMessage("Bond assets"),
@@ -37,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "bond_history": MessageLookupByLibrary.simpleMessage("Bond history"),
         "buy": MessageLookupByLibrary.simpleMessage("Buy"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "cancel_time": MessageLookupByLibrary.simpleMessage("Cancel time"),
+        "cancel_volumn": MessageLookupByLibrary.simpleMessage("Cancel volumn"),
         "cash_balance": MessageLookupByLibrary.simpleMessage("Cash balance"),
         "category": MessageLookupByLibrary.simpleMessage("Menu"),
         "ceil": MessageLookupByLibrary.simpleMessage("Ceil"),
@@ -66,6 +70,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Account is empty"),
         "empty_password":
             MessageLookupByLibrary.simpleMessage("Password is empty"),
+        "empty_stockcode":
+            MessageLookupByLibrary.simpleMessage("Stock code is empty"),
         "end_day": MessageLookupByLibrary.simpleMessage("End day"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "failed": MessageLookupByLibrary.simpleMessage("Failed"),
@@ -96,6 +102,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "interest_now": MessageLookupByLibrary.simpleMessage("Interest now"),
         "interest_st": MessageLookupByLibrary.simpleMessage("Interst ST"),
         "interest_tt": MessageLookupByLibrary.simpleMessage("Interst TT"),
+        "invalid_price": MessageLookupByLibrary.simpleMessage("Invalid price"),
+        "invalid_volumn":
+            MessageLookupByLibrary.simpleMessage("Invalid volumn"),
         "invest": MessageLookupByLibrary.simpleMessage("Invest"),
         "invest_end": MessageLookupByLibrary.simpleMessage("Invest end"),
         "invest_information":
@@ -116,6 +125,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Margin product"),
         "match": MessageLookupByLibrary.simpleMessage("Matched"),
         "match_price": MessageLookupByLibrary.simpleMessage("Matched price"),
+        "match_time": MessageLookupByLibrary.simpleMessage("Match time"),
+        "match_volumn": MessageLookupByLibrary.simpleMessage("Match volumn"),
         "maxVolumeBuyAvaiable": MessageLookupByLibrary.simpleMessage(
             "Maximum Available Buy Volumn"),
         "maxVolumeSellAvaiable": MessageLookupByLibrary.simpleMessage(
@@ -136,6 +147,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "order_note": MessageLookupByLibrary.simpleMessage("Order note"),
         "order_number": MessageLookupByLibrary.simpleMessage("Order Number"),
         "order_number_short": MessageLookupByLibrary.simpleMessage("OrdN"),
+        "order_price": MessageLookupByLibrary.simpleMessage("Order price"),
+        "order_source": MessageLookupByLibrary.simpleMessage("Order source"),
+        "order_time": MessageLookupByLibrary.simpleMessage("Order time"),
+        "order_volumn": MessageLookupByLibrary.simpleMessage("Order volumn"),
         "passport": MessageLookupByLibrary.simpleMessage("Passport"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "pay": MessageLookupByLibrary.simpleMessage("Pay"),

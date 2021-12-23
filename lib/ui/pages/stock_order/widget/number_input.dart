@@ -303,6 +303,10 @@ extension DecimalNumber on String {
     return RegExp(r'^[+-]?([0-9]+\.?[0-9]*|\.[0-9]+)$').hasMatch(this);
   }
 
+  bool isNotANumber() {
+    return !RegExp(r'^[+-]?([0-9]+\.?[0-9]*|\.[0-9]+)$').hasMatch(this);
+  }
+
   String roundDouble() {
     if (endsWith("00")) {
       return substring(0, length - 3);

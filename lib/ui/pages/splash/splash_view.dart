@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/ui/pages/splash/widget/splash_content.dart';
@@ -28,7 +27,6 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle headline4 = Theme.of(context).textTheme.headline4!;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Center(

@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "activated_now": MessageLookupByLibrary.simpleMessage("Kích hoạt ngay"),
         "agree": MessageLookupByLibrary.simpleMessage("Đồng ý"),
         "assets": MessageLookupByLibrary.simpleMessage("Tài sản"),
+        "aver_match_price":
+            MessageLookupByLibrary.simpleMessage("Giá khớp trung bình"),
         "bank_account": MessageLookupByLibrary.simpleMessage("Số tài khoản"),
         "birthday": MessageLookupByLibrary.simpleMessage("Ngày sinh"),
         "bond_assets":
@@ -39,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Các giao dịch gần đây"),
         "buy": MessageLookupByLibrary.simpleMessage("Mua"),
         "cancel": MessageLookupByLibrary.simpleMessage("Hủy bỏ"),
+        "cancel_time": MessageLookupByLibrary.simpleMessage("Thời gian huỷ"),
+        "cancel_volumn": MessageLookupByLibrary.simpleMessage("Khối lượng huỷ"),
         "cash_balance": MessageLookupByLibrary.simpleMessage("Tài sản ròng"),
         "category": MessageLookupByLibrary.simpleMessage("Khác"),
         "ceil": MessageLookupByLibrary.simpleMessage("Trần"),
@@ -69,6 +73,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Vui lòng nhập tài khoản"),
         "empty_password":
             MessageLookupByLibrary.simpleMessage("Vui lòng nhập mật khẩu"),
+        "empty_stockcode":
+            MessageLookupByLibrary.simpleMessage("Mã chứng khoán rỗng"),
         "end_day": MessageLookupByLibrary.simpleMessage("Đến ngày"),
         "error": MessageLookupByLibrary.simpleMessage("Lỗi"),
         "failed": MessageLookupByLibrary.simpleMessage("Thất bại"),
@@ -97,6 +103,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "interest_now": MessageLookupByLibrary.simpleMessage("Đầu tư ngay"),
         "interest_st": MessageLookupByLibrary.simpleMessage("Lãi ST"),
         "interest_tt": MessageLookupByLibrary.simpleMessage("Lãi TT"),
+        "invalid_price":
+            MessageLookupByLibrary.simpleMessage("Giá không hợp lệ"),
+        "invalid_volumn":
+            MessageLookupByLibrary.simpleMessage("Khối lượng không hợp lệ"),
         "invest": MessageLookupByLibrary.simpleMessage("Đầu tư"),
         "invest_end": MessageLookupByLibrary.simpleMessage("Ngày kết thúc"),
         "invest_information":
@@ -118,6 +128,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sản phẩm Margin/Hợp tác"),
         "match": MessageLookupByLibrary.simpleMessage("Khớp"),
         "match_price": MessageLookupByLibrary.simpleMessage("Giá khớp"),
+        "match_time": MessageLookupByLibrary.simpleMessage("Thời gian khớp"),
+        "match_volumn": MessageLookupByLibrary.simpleMessage("Khối lượng khớp"),
         "maxVolumeBuyAvaiable": MessageLookupByLibrary.simpleMessage(
             "Khối lượng tối đa có thể mua"),
         "maxVolumeSellAvaiable": MessageLookupByLibrary.simpleMessage(
@@ -139,6 +151,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "order_note": MessageLookupByLibrary.simpleMessage("Sổ lệnh"),
         "order_number": MessageLookupByLibrary.simpleMessage("Số hiệu lệnh"),
         "order_number_short": MessageLookupByLibrary.simpleMessage("SHL"),
+        "order_price": MessageLookupByLibrary.simpleMessage("Giá đặt"),
+        "order_source": MessageLookupByLibrary.simpleMessage("Nguồn gốc đặt"),
+        "order_time": MessageLookupByLibrary.simpleMessage("Thời gian đặt"),
+        "order_volumn": MessageLookupByLibrary.simpleMessage("Khối lượng đặt"),
         "passport": MessageLookupByLibrary.simpleMessage("Hộ chiếu Việt NAM"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
         "pay": MessageLookupByLibrary.simpleMessage("Thanh toán"),

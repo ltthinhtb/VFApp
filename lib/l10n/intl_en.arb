@@ -170,5 +170,17 @@
   "match_price" : "Matched price",
   "price" : "Price",
   "order_number" : "Order Number",
-  "order_number_short" : "OrdN"
+  "order_number_short" : "OrdN",
+  "invalid_price" : "Invalid price",
+  "invalid_volumn" : "Invalid volumn",
+  "empty_stockcode" : "Stock code is empty",
+  "order_time" : "Order time",
+  "match_time" : "Match time",
+  "cancel_time" : "Cancel time",
+  "order_volumn" : "Order volumn",
+  "match_volumn" : "Match volumn",
+  "cancel_volumn" : "Cancel volumn",
+  "order_price" : "Order price",
+  "aver_match_price" : "Average match price",
+  "order_source" : "Order source"
 }

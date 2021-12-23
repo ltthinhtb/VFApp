@@ -1769,6 +1769,126 @@ class S {
       args: [],
     );
   }
+
+  /// `Invalid price`
+  String get invalid_price {
+    return Intl.message(
+      'Invalid price',
+      name: 'invalid_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid volumn`
+  String get invalid_volumn {
+    return Intl.message(
+      'Invalid volumn',
+      name: 'invalid_volumn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stock code is empty`
+  String get empty_stockcode {
+    return Intl.message(
+      'Stock code is empty',
+      name: 'empty_stockcode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order time`
+  String get order_time {
+    return Intl.message(
+      'Order time',
+      name: 'order_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Match time`
+  String get match_time {
+    return Intl.message(
+      'Match time',
+      name: 'match_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel time`
+  String get cancel_time {
+    return Intl.message(
+      'Cancel time',
+      name: 'cancel_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order volumn`
+  String get order_volumn {
+    return Intl.message(
+      'Order volumn',
+      name: 'order_volumn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Match volumn`
+  String get match_volumn {
+    return Intl.message(
+      'Match volumn',
+      name: 'match_volumn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel volumn`
+  String get cancel_volumn {
+    return Intl.message(
+      'Cancel volumn',
+      name: 'cancel_volumn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order price`
+  String get order_price {
+    return Intl.message(
+      'Order price',
+      name: 'order_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Average match price`
+  String get aver_match_price {
+    return Intl.message(
+      'Average match price',
+      name: 'aver_match_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order source`
+  String get order_source {
+    return Intl.message(
+      'Order source',
+      name: 'order_source',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

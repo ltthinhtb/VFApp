@@ -8,50 +8,34 @@ import 'tab/main_tab.dart';
 
 final GlobalKey<NavigatorState> mainKey = GlobalKey();
 
-class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
-
-  @override
-  _MainPageState createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-  final logic = Get.put(MainLogic());
-  final state = Get.find<MainLogic>().state;
-
-  @override
-  void initState() {
-    Get.put(UserLogic(), permanent: true);
-    // TODO: implement initState
-    super.initState();
-  }
-
+class MainPage extends GetView<MainLogic> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: mainKey,
       body: _buildPageView(),
-      bottomNavigationBar: _buildBottomNavigationBar(),
+      bottomNavigationBar: _buildBottomNavigationBar(context),
     );
   }
 
   Widget _buildPageView() {
+    // return
     return Obx(() {
       return IndexedStack(
-        index: state.selectedIndex.value,
-        children: state.pageList,
+        index: controller.state.selectedIndex.value,
+        children: controller.state.pageList,
       );
     });
   }
 
-  Widget _buildBottomNavigationBar() {
+  Widget _buildBottomNavigationBar(BuildContext context) {
     return Obx(() {
       return ClipRRect(
         borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(15), topRight: Radius.circular(15)),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          currentIndex: state.selectedIndex.value,
+          currentIndex: controller.state.selectedIndex.value,
           items: List<BottomNavigationBarItem>.generate(MainTab.values.length,
               (int index) {
             return BottomNavigationBarItem(
@@ -69,16 +53,16 @@ class _MainPageState extends State<MainPage> {
             );
           }),
           onTap: (index) {
-            logic.switchTap(index);
+            controller.switchTap(index);
           },
         ),
       );
     });
   }
 
-  @override
-  void dispose() {
-    Get.delete<MainLogic>();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   Get.delete<MainLogic>();
+  //   super.dispose();
+  // }
 }

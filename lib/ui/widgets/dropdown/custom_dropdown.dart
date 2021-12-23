@@ -368,16 +368,13 @@ class _DropdownMenuRouteLayout<T> extends SingleChildLayoutDelegate {
       }
       return true;
     }());
-    assert(textDirection != null);
     double left;
     switch (textDirection) {
       case TextDirection.rtl:
-        left = (buttonRect.right.clamp(0.0, size.width) as double) -
-            childSize.width;
+        left = (buttonRect.right.clamp(0.0, size.width)) - childSize.width;
         break;
       case TextDirection.ltr:
-        left =
-            buttonRect.left.clamp(0.0, size.width - childSize.width) as double;
+        left = buttonRect.left.clamp(0.0, size.width - childSize.width);
         break;
     }
 
@@ -430,8 +427,7 @@ class _DropdownRoute<T> extends PopupRoute<_DropdownRouteResult<T>> {
     this.barrierLabel,
     this.itemHeight,
     this.dropdownColor,
-  })  : assert(style != null),
-        itemHeights = List<double>.filled(
+  }) : itemHeights = List<double>.filled(
             items!.length, itemHeight ?? kMinInteractiveDimension);
 
   final List<_MenuItem<T>>? items;
@@ -596,12 +592,12 @@ class _DropdownRoutePage<T> extends StatelessWidget {
     // and all of the items' intrinsic heights are less than kMinInteractiveDimension.
     // Otherwise the initialScrollOffset is just a rough approximation based on
     // treating the items as if their heights were all equal to kMinInteractveDimension.
-    if (route!.scrollController == null) {
-      final _MenuLimits menuLimits = route!
-          .getMenuLimits(buttonRect, constraints!.maxHeight, selectedIndex);
-      route!.scrollController =
-          ScrollController(initialScrollOffset: menuLimits.scrollOffset);
-    }
+    // if (route!.scrollController == null) {
+    //   final _MenuLimits menuLimits = route!
+    //       .getMenuLimits(buttonRect, constraints!.maxHeight, selectedIndex);
+    //   route!.scrollController =
+    //       ScrollController(initialScrollOffset: menuLimits.scrollOffset);
+    // }
 
     final TextDirection textDirection = Directionality.of(context);
     Widget menu = _DropdownMenu<T>(
@@ -647,8 +643,7 @@ class _MenuItem<T> extends SingleChildRenderObjectWidget {
     Key? key,
     required this.onLayout,
     required this.item,
-  })  : assert(onLayout != null),
-        super(key: key, child: item);
+  }) : super(key: key, child: item);
 
   final ValueChanged<Size> onLayout;
   final CustomDropdownMenuItem<T> item;
@@ -666,9 +661,7 @@ class _MenuItem<T> extends SingleChildRenderObjectWidget {
 }
 
 class _RenderMenuItem extends RenderProxyBox {
-  _RenderMenuItem(this.onLayout, [RenderBox? child])
-      : assert(onLayout != null),
-        super(child);
+  _RenderMenuItem(this.onLayout, [RenderBox? child]) : super(child);
 
   ValueChanged<Size> onLayout;
 
@@ -689,8 +682,7 @@ class _DropdownMenuItemContainer extends StatelessWidget {
   const _DropdownMenuItemContainer({
     Key? key,
     required this.child,
-  })  : assert(child != null),
-        super(key: key);
+  }) : super(key: key);
 
   /// The widget below this widget in the tree.
   ///
@@ -720,8 +712,7 @@ class CustomDropdownMenuItem<T> extends _DropdownMenuItemContainer {
     this.onTap,
     this.value,
     required Widget child,
-  })  : assert(child != null),
-        super(key: key, child: child);
+  }) : super(key: key, child: child);
 
   /// Called when the dropdown menu item is tapped.
   final VoidCallback? onTap;
@@ -744,8 +735,7 @@ class CustomDropdownButtonHideUnderline extends InheritedWidget {
   const CustomDropdownButtonHideUnderline({
     Key? key,
     required Widget child,
-  })  : assert(child != null),
-        super(key: key, child: child);
+  }) : super(key: key, child: child);
 
   /// Returns whether the underline of [CustomDropdownButton] widgets should
   /// be hidden.
@@ -831,6 +821,7 @@ class CustomDropdownButtonHideUnderline extends InheritedWidget {
 ///  * [CustomDropdownMenuItem], the class used to represent the [items].
 ///  * [CustomDropdownButtonHideUnderline], which prevents its descendant dropdown buttons
 ///    from displaying their underlines.
+// ignore: deprecated_member_use
 ///  * [RaisedButton], [FlatButton], ordinary buttons that trigger a single action.
 ///  * <https://material.io/design/components/menus.html#dropdown-menu>
 class CustomDropdownButton<T> extends StatefulWidget {
@@ -878,8 +869,7 @@ class CustomDropdownButton<T> extends StatefulWidget {
     // When adding new arguments, consider adding similar arguments to
     // DropdownButtonFormField.
   })  : assert(
-          items == null ||
-              items.isEmpty ||
+          items.isEmpty ||
               value == null ||
               items.where((CustomDropdownMenuItem<T> item) {
                     return item.value == value;
@@ -890,12 +880,7 @@ class CustomDropdownButton<T> extends StatefulWidget {
           'Either zero or 2 or more [CustomDropdownMenuItem]s were detected '
           'with the same value',
         ),
-        assert(elevation != null),
-        assert(iconSize != null),
-        assert(isDense != null),
-        assert(isExpanded != null),
-        assert(autofocus != null),
-        assert(itemHeight == null || itemHeight >= kMinInteractiveDimension),
+        assert(itemHeight >= kMinInteractiveDimension),
         super(key: key);
 
   /// The list of items the user can select.
@@ -1282,7 +1267,7 @@ class _DropdownButtonState<T> extends State<CustomDropdownButton<T>>
         .then<void>((_DropdownRouteResult<T>? newValue) {
       _removeDropdownRoute();
       if (!mounted || newValue == null) return;
-      if (widget.onChanged != null) widget.onChanged(newValue.result);
+      widget.onChanged(newValue.result);
     });
 
     if (widget.onTap != null) {
@@ -1321,15 +1306,9 @@ class _DropdownButtonState<T> extends State<CustomDropdownButton<T>>
           return Colors.white10;
       }
     }
-
-    assert(false);
-    return null;
   }
 
-  bool get _enabled =>
-      widget.items != null &&
-      widget.items.isNotEmpty &&
-      widget.onChanged != null;
+  bool get _enabled => widget.items.isNotEmpty;
 
   Orientation _getOrientation(BuildContext context) {
     Orientation? result = MediaQuery.maybeOf(context)?.orientation;
@@ -1412,11 +1391,7 @@ class _DropdownButtonState<T> extends State<CustomDropdownButton<T>>
         children: widget.isDense!
             ? items
             : items.map((Widget item) {
-                return widget.itemHeight != null
-                    ? SizedBox(height: widget.itemHeight, child: item)
-                    : Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[item]);
+                return SizedBox(height: widget.itemHeight, child: item);
               }).toList(),
       );
     }
@@ -1455,8 +1430,7 @@ class _DropdownButtonState<T> extends State<CustomDropdownButton<T>>
     );
 
     if (!CustomDropdownButtonHideUnderline.at(context)) {
-      final double bottom =
-          (widget.isDense! || widget.itemHeight == null) ? 0.0 : 8.0;
+      final double bottom = (widget.isDense!) ? 0.0 : 8.0;
       result = Stack(
         children: <Widget>[
           result,
@@ -1538,8 +1512,7 @@ class CustomDropdownButtonFormField<T> extends FormField<T> {
     FormFieldValidator<T>? validator,
     bool autovalidate = false,
   })  : assert(
-          items == null ||
-              items.isEmpty ||
+          items.isEmpty ||
               value == null ||
               items.where((CustomDropdownMenuItem<T> item) {
                     return item.value == value;
@@ -1550,12 +1523,7 @@ class CustomDropdownButtonFormField<T> extends FormField<T> {
           'Either zero or 2 or more [CustomDropdownMenuItem]s were detected '
           'with the same value',
         ),
-        assert(elevation != null),
-        assert(iconSize != null),
-        assert(isDense != null),
-        assert(isExpanded != null),
         assert(itemHeight == null || itemHeight >= kMinInteractiveDimension),
-        assert(autofocus != null),
         decoration = decoration ?? InputDecoration(focusColor: focusColor),
         super(
           key: key,
@@ -1636,7 +1604,6 @@ class _DropdownButtonFormFieldState<T> extends FormFieldState<T> {
   @override
   void didChange(T? value) {
     super.didChange(value);
-    assert(widget.onChanged != null);
     widget.onChanged(value);
   }
 

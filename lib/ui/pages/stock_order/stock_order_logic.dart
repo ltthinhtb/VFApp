@@ -8,6 +8,7 @@ import 'package:vf_app/services/api/api_service.dart';
 import 'package:vf_app/services/index.dart';
 import 'package:vf_app/ui/commons/app_snackbar.dart';
 import 'package:vf_app/ui/pages/stock_order/stock_order_state.dart';
+import 'package:vf_app/utils/extension.dart';
 import 'package:vf_app/utils/order_utils.dart';
 
 class StockOrderLogic extends GetxController {
@@ -192,6 +193,21 @@ class StockOrderLogic extends GetxController {
     getAllStockCompanyData();
   }
 
+  Future<void> validateInfo() async {
+    if (state.selectedStock.value.stockCode == null) {
+      throw 0;
+    }
+    if (state.priceController.text.isNotIn(priceType) &&
+        state.priceController.text.isNotANumber) {
+      throw -1;
+    }
+    if (state.volController.text.isNotPositive &&
+        !state.volController.text.isMultipleOfHundred) {
+      throw -2;
+    }
+    return;
+  }
+
   StockExchange getStockExchange() {
     switch (state.selectedStock.value.postTo) {
       case "HOSE":
@@ -237,3 +253,14 @@ class StockOrderLogic extends GetxController {
     return _sum.toDouble();
   }
 }
+
+List<String> priceType = [
+  "LO",
+  "MP",
+  "ATC",
+  "ATO",
+  "MTL",
+  "MOK",
+  "MAK",
+  "PLO",
+];

@@ -9,6 +9,8 @@ class MainLogic extends GetxController {
     state.selectedIndex.value = index;
   }
 
+  
+
   @override
   void onReady() {
     // TODO: implement onReady
