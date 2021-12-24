@@ -31,6 +31,7 @@ class _OrderDetailState extends State<OrderDetail> {
   final logic = Get.find<OrderListLogic>();
   final state = Get.find<OrderListLogic>().state;
   late String _status;
+  late bool canFix;
   @override
   void initState() {
     if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
@@ -38,14 +39,19 @@ class _OrderDetailState extends State<OrderDetail> {
     super.initState();
     setState(() {
       _status = MessageOrder.getStatusOrder(widget.data);
+      if (_status == "Khớp 1 phần" || _status == "Chờ khớp") {
+        canFix = true;
+      } else {
+        canFix = false;
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarCustom(
-        title: "Xác nhận lệnh mua",
+      appBar: AppBarCustom(
+        title: S.of(context).order_detail,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -76,65 +82,64 @@ class _OrderDetailState extends State<OrderDetail> {
           ],
         ),
       ),
-      floatingActionButton: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        child: Row(
-          children: [
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: CustomMaterialButton(
-                  onPressed: () async {
-                    bool? _r = await CustomDialog.showConfirmDialog(
-                      mainKey,
-                      "Xác nhận huỷ lệnh",
-                      ["Bạn có chắc chắn muốn hủy lệnh này?"],
-                      buttonColors: [AppColors.primary2, AppColors.primary],
-                      textButtonColors: [AppColors.primary, AppColors.white],
-                    );
-                    if (_r ?? false) {
-                      await cancelOrder();
-                    }
-                  },
-                  color: AppColors.primary2,
-                  child: Text(
-                    "Huỷ lệnh",
-                    style:
-                        AppTextStyle.H5Bold.copyWith(color: AppColors.primary),
+      floatingActionButton: canFix
+          ? Container(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: CustomMaterialButton(
+                        onPressed: () async {
+                          bool? _r = await CustomDialog.showConfirmDialog(
+                            mainKey,
+                            S.of(context).confirm_cancel_order,
+                            [
+                              S.of(context).are_you_sure_cancel_this_order,
+                            ],
+                            buttonColors: [
+                              AppColors.primary2,
+                              AppColors.primary
+                            ],
+                            textButtonColors: [
+                              AppColors.primary,
+                              AppColors.white
+                            ],
+                          );
+                          if (_r ?? false) {
+                            await cancelOrder();
+                          }
+                        },
+                        color: AppColors.primary2,
+                        child: Text(
+                          S.of(context).cancel_order,
+                          style: AppTextStyle.H5Bold.copyWith(
+                              color: AppColors.primary),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: CustomMaterialButton(
-                  onPressed: () async {
-                    // bool? _r = await CustomDialog.showConfirmDialog(
-                    //   mainKey,
-                    //   "Xác nhận huỷ lệnh",
-                    //   ["Bạn có chắc chắn muốn hủy lệnh này?"],
-                    //   buttonColors: [AppColors.primary2, AppColors.primary],
-                    //   textButtonColors: [AppColors.primary, AppColors.white],
-                    // );
-                    // if (_r ?? false) {
-                    //   state.selectedMode.value = false;
-                    //   logic.cancelOrder();
-                    // }
-                  },
-                  color: AppColors.primary,
-                  child: Text(
-                    "Sửa lệnh",
-                    style: AppTextStyle.H5Bold.copyWith(color: Colors.white),
-                  ),
-                ),
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: CustomMaterialButton(
+                        onPressed: () async {},
+                        color: AppColors.primary,
+                        child: Text(
+                          S.of(context).change_order,
+                          style:
+                              AppTextStyle.H5Bold.copyWith(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
               ),
             )
-          ],
-        ),
-      ),
+          : Container(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

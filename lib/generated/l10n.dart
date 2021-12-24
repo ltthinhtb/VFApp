@@ -710,6 +710,16 @@ class S {
     );
   }
 
+  /// `Finish`
+  String get finish {
+    return Intl.message(
+      'Finish',
+      name: 'finish',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Confirm`
   String get confirm {
     return Intl.message(
@@ -1885,6 +1895,146 @@ class S {
     return Intl.message(
       'Order source',
       name: 'order_source',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel order confirm`
+  String get confirm_cancel_order {
+    return Intl.message(
+      'Cancel order confirm',
+      name: 'confirm_cancel_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel order`
+  String get cancel_order {
+    return Intl.message(
+      'Cancel order',
+      name: 'cancel_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel chose orders`
+  String get cancel_chose_orders {
+    return Intl.message(
+      'Cancel chose orders',
+      name: 'cancel_chose_orders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel all orders`
+  String get cancel_all_orders {
+    return Intl.message(
+      'Cancel all orders',
+      name: 'cancel_all_orders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change order`
+  String get change_order {
+    return Intl.message(
+      'Change order',
+      name: 'change_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order detail`
+  String get order_detail {
+    return Intl.message(
+      'Order detail',
+      name: 'order_detail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure to cancel this order?`
+  String get are_you_sure_cancel_this_order {
+    return Intl.message(
+      'Are you sure to cancel this order?',
+      name: 'are_you_sure_cancel_this_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure to cancel all order?`
+  String get are_you_sure_cancel_all_order {
+    return Intl.message(
+      'Are you sure to cancel all order?',
+      name: 'are_you_sure_cancel_all_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Waiting match`
+  String get wating_match {
+    return Intl.message(
+      'Waiting match',
+      name: 'wating_match',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Partial matched`
+  String get partial_matched {
+    return Intl.message(
+      'Partial matched',
+      name: 'partial_matched',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Matched`
+  String get matched {
+    return Intl.message(
+      'Matched',
+      name: 'matched',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancelled`
+  String get cancelled {
+    return Intl.message(
+      'Cancelled',
+      name: 'cancelled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Waiting cancelled`
+  String get waiting_cancelled {
+    return Intl.message(
+      'Waiting cancelled',
+      name: 'waiting_cancelled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rejected`
+  String get rejected {
+    return Intl.message(
+      'Rejected',
+      name: 'rejected',
       desc: '',
       args: [],
     );

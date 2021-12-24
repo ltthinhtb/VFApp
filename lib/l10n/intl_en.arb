@@ -65,6 +65,7 @@
   "pay": "Pay",
   "pay_type": "Payment type",
   "transfer_payment": "Transfer Payment",
+  "finish": "Finish",
   "confirm": "Confirm",
   "transfer_information": "Transfer information",
   "interest": "Interest",
@@ -182,5 +183,19 @@
   "cancel_volumn" : "Cancel volumn",
   "order_price" : "Order price",
   "aver_match_price" : "Average match price",
-  "order_source" : "Order source"
+  "order_source" : "Order source",
+  "confirm_cancel_order" : "Cancel order confirm",
+  "cancel_order" : "Cancel order",
+  "cancel_chose_orders" : "Cancel chose orders",
+  "cancel_all_orders" : "Cancel all orders",
+  "change_order" : "Change order",
+  "order_detail" : "Order detail",
+  "are_you_sure_cancel_this_order" : "Are you sure to cancel this order?",
+  "are_you_sure_cancel_all_order" : "Are you sure to cancel all order?",
+  "wating_match":"Waiting match",
+  "partial_matched":"Partial matched",
+  "matched":"Matched",
+  "cancelled":"Cancelled",
+  "waiting_cancelled":"Waiting cancelled",
+  "rejected":"Rejected"
 }

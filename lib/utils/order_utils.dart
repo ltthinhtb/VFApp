@@ -19,3 +19,27 @@ class OrderUtils {
     return md5.convert(utf8.encode(input)).toString();
   }
 }
+
+enum PricesType { MP, ATC, ATO, MTL, MOK, MAK, PLO }
+
+class PriceType {
+  static String get LO => "LO";
+  static String get MP => "MP";
+  static String get ATC => "ATC";
+  static String get ATO => "ATO";
+  static String get MTL => "MTL";
+  static String get MOK => "MOK";
+  static String get MAK => "MAK";
+  static String get PLO => "PLO";
+}
+
+// class OrderStatus {
+//   static String get wating_matched => "LO";
+//   static String get MP => "MP";
+//   static String get ATC => "ATC";
+//   static String get ATO => "ATO";
+//   static String get MTL => "MTL";
+//   static String get MOK => "MOK";
+//   static String get MAK => "MAK";
+//   static String get PLO => "PLO";
+// }

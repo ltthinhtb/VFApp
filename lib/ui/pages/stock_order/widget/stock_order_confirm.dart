@@ -48,12 +48,27 @@ class _StockOrderConfirmState extends State<StockOrderConfirm> {
                 double.parse(state.volController.text),
               ),
             ),
-            buildInfo(
-              "Giá trị lệnh đặt\n(Chưa bao gồm phí và thuế)",
-              StockUtil.formatMoney(double.parse(state.priceController.text) *
-                  double.parse(state.volController.text) *
-                  1000),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Expanded(
+                  child: Container(
+                    height: 1,
+                    color: AppColors.primary,
+                  ),
+                ),
+              ],
             ),
+            buildInfo(
+                "Giá trị lệnh đặt\n(Chưa bao gồm phí và thuế)",
+                StockUtil.formatMoney(
+                        (double.tryParse(state.priceController.text) ??
+                                state.selectedStockInfo.value.lastPrice ??
+                                0) *
+                            double.parse(state.volController.text) *
+                            1000) +
+                    " VND",
+                valueColor: AppColors.green),
           ],
         ),
       ),
@@ -78,7 +93,7 @@ class _StockOrderConfirmState extends State<StockOrderConfirm> {
     );
   }
 
-  Widget buildInfo(String label, String value) {
+  Widget buildInfo(String label, String value, {Color? valueColor}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
@@ -94,7 +109,7 @@ class _StockOrderConfirmState extends State<StockOrderConfirm> {
             flex: 3,
             child: Text(
               value,
-              style: AppTextStyle.bodyText2,
+              style: AppTextStyle.bodyText2.copyWith(color: valueColor),
               textAlign: TextAlign.right,
             ),
           ),

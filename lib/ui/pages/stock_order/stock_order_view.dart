@@ -17,6 +17,8 @@ import 'package:vf_app/ui/pages/stock_order/widget/stock_order_confirm.dart';
 import 'package:vf_app/ui/widgets/animation_widget/price_row.dart';
 import 'package:vf_app/ui/widgets/animation_widget/switch.dart';
 import 'package:vf_app/ui/widgets/animation_widget/total_volumn_row.dart';
+import 'package:vf_app/utils/extension.dart';
+import 'package:vf_app/utils/order_utils.dart';
 import 'package:vf_app/utils/stock_utils.dart';
 
 class StockOrderPage extends StatefulWidget {
@@ -45,12 +47,26 @@ class _StockOrderPageState extends State<StockOrderPage> {
       state.priceController.text = state.price.toString();
       state.volController.text = state.vol.toString();
     });
+    // WidgetsBinding.instance?.addPostFrameCallback((_) {
+    //   StockCompanyData _data = state.allStockCompanyData
+    //       .firstWhere((element) => element.stockCode == "AAA");
+    //   changeStock(_data);
+    // });
   }
 
   @override
   void didUpdateWidget(covariant StockOrderPage oldWidget) {
     // TODO: implement didUpdateWidget
     super.didUpdateWidget(oldWidget);
+    // if (mounted) {
+    //   if (state.selectedStockInfo.value.lastPrice == null) {
+    //     StockCompanyData _data = state.allStockCompanyData
+    //         .firstWhere((element) => element.stockCode == "AAA");
+    //     print(_data);
+    //     changeStock(_data);
+    //     setState(() {});
+    //   }
+    // }
   }
 
   void changeStock(StockCompanyData? data) async {
@@ -58,6 +74,10 @@ class _StockOrderPageState extends State<StockOrderPage> {
     if (data != null) {
       await logic.getStockInfo(data);
     }
+  }
+
+  void unfocus() {
+    return FocusScope.of(context).unfocus();
   }
 
   @override
@@ -101,10 +121,12 @@ class _StockOrderPageState extends State<StockOrderPage> {
           try {
             await logic.validateInfo();
             bool? result = await Get.to(StockOrderConfirm());
-            if (result == true) {
+            print(result);
+            if (result ?? false) {
               await logic.requestNewOrder();
             }
           } catch (e) {
+            print(e);
             switch (e) {
               case 0:
                 return AppSnackBar.showError(
@@ -115,6 +137,8 @@ class _StockOrderPageState extends State<StockOrderPage> {
               case -2:
                 return AppSnackBar.showError(
                     message: S.of(context).invalid_volumn);
+              default:
+                return AppSnackBar.showError(message: e.toString());
             }
           }
         },
@@ -515,13 +539,18 @@ class _StockOrderPageState extends State<StockOrderPage> {
           ),
           child: MaterialButton(
             onPressed: () {
+              unfocus();
               state.priceType.value = prices[index];
-              state.priceController.text = prices[index];
-              if (state.selectedStock.value.stockCode != null &&
-                  prices[index] == "MP") {
-                state.price.value =
-                    state.selectedStockInfo.value.lastPrice!.toString();
-                state.priceController.text = prices[index];
+              if (state.selectedStock.value.stockCode != null) {
+                if (prices[index] == PriceType.MP) {
+                  state.priceController.text =
+                      state.selectedStockInfo.value.lastPrice!.toString();
+                } else {
+                  state.priceController.text = prices[index];
+                }
+                // state.price.value =
+                //     state.selectedStockInfo.value.lastPrice!.toString();
+                // state.priceController.text = prices[index];
                 // state.priceController.text = state.price.value.toString();
               }
               if (state.selectedStock.value.stockCode != null) {
@@ -563,23 +592,59 @@ class _StockOrderPageState extends State<StockOrderPage> {
                 Expanded(
                   flex: 2,
                   child: Container(
-                    child: const Text("Giá :"),
+                    child: Text(S.of(context).price),
                   ),
                 ),
                 Expanded(
                   flex: 5,
                   child: Container(
                     child: NumberInputField(
-                      label: "Giá",
+                      label: S.of(context).price,
                       editingController: state.priceController,
-                      dist: 0.1,
+                      // dist: 0.1,
                       enabled: state.selectedStock.value.stockCode != null
                           ? true
                           : false,
-                      onChange: (value) {
-                        state
-                          ..price.value = value.toString()
-                          ..priceType.value = "LO";
+                      onSubtractPress: () {
+                        if (state.priceController.text.isMP) {
+                          state
+                            ..priceType.value = PriceType.LO
+                            ..priceController.text = StockUtil.formatPrice(
+                                (state.selectedStockInfo.value.lastPrice ?? 0) -
+                                    0.1);
+                        } else {
+                          if (state.priceController.text.isANumber) {
+                            state.priceController.text = StockUtil.formatPrice(
+                              double.tryParse(state.priceController.text)! -
+                                  0.1,
+                            );
+                          }
+                        }
+                      },
+                      onAddPress: () {
+                        if (state.priceController.text == "MP") {
+                          state
+                            ..priceType.value = PriceType.LO
+                            ..priceController.text = StockUtil.formatPrice(
+                                (state.selectedStockInfo.value.lastPrice ?? 0) +
+                                    0.1);
+                        } else {
+                          if (state.priceController.text.isANumber) {
+                            state.priceController.text = StockUtil.formatPrice(
+                              double.tryParse(state.priceController.text)! +
+                                  0.1,
+                            );
+                          }
+                        }
+                      },
+                      onChange: () {
+                        if (state.priceController.text.isATO) {
+                          state.priceType.value = PriceType.ATO;
+                        } else if (state.priceController.text.isATC) {
+                          state.priceType.value = PriceType.ATC;
+                        } else if (state.priceController.text.isMP) {
+                          state.priceType.value = PriceType.MP;
+                        }
                       },
                     ),
                   ),
@@ -594,23 +659,32 @@ class _StockOrderPageState extends State<StockOrderPage> {
                 Expanded(
                   flex: 2,
                   child: Container(
-                    child: const Text("Khối lượng :"),
+                    child: Text(S.of(context).volumn),
                   ),
                 ),
                 Expanded(
                   flex: 5,
                   child: Container(
                     child: NumberInputField(
-                      label: "Khối lượng",
+                      label: S.of(context).volumn,
                       editingController: state.volController,
-                      dist: 100,
+                      // dist: 100,
                       enabled: state.selectedStock.value.stockCode != null
                           ? true
                           : false,
-                      onChange: (value) {
-                        // print(state.vol.value);
-                        state.volController.text = value.toStringAsFixed(0);
-                        state.vol.value = value.round();
+                      onSubtractPress: () {
+                        if (state.volController.text.isANumber) {
+                          state.volController.text = StockUtil.formatVol(
+                            double.tryParse(state.volController.text)! - 100,
+                          );
+                        }
+                      },
+                      onAddPress: () {
+                        if (state.volController.text.isANumber) {
+                          state.volController.text = StockUtil.formatVol(
+                            double.tryParse(state.volController.text)! + 100,
+                          );
+                        }
                       },
                     ),
                   ),
@@ -628,7 +702,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
     return NumberInputField(
       label: label,
       editingController: controller,
-      dist: dist,
+      // dist: dist,
       enabled: enabled,
     );
   }
@@ -722,7 +796,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
                     Expanded(
                       flex: 3,
                       child: Text(
-                        S.of(context).maxVolumeBuyAvaiable,
+                        S.of(context).volumn,
                         style: AppTextStyle.caption2,
                       ),
                     ),
@@ -767,7 +841,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
                 Expanded(
                   flex: 3,
                   child: Text(
-                    S.of(context).maxVolumeSellAvaiable,
+                    S.of(context).volumn,
                     style: AppTextStyle.caption2,
                   ),
                 ),
@@ -795,8 +869,21 @@ class _StockOrderPageState extends State<StockOrderPage> {
   }
 }
 
-List<String> pricesHSX = ["LO", "MP", "ATC", "ATO"];
-List<String> pricesHNX = ["LO", "MTL", "MOK", "MAK", "PLO"];
+List<String> pricesHSX = [
+  PriceType.LO,
+  PriceType.MP,
+  PriceType.ATC,
+  PriceType.ATO,
+];
+List<String> pricesHNX = [
+  PriceType.LO,
+  PriceType.MTL,
+  PriceType.MAK,
+  PriceType.MOK,
+  PriceType.PLO,
+];
 
-List<String> pricesUPCOM = ["LO"];
+List<String> pricesUPCOM = [
+  PriceType.LO,
+];
 List<String> nullString = [""];

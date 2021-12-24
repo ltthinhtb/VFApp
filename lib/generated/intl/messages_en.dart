@@ -29,6 +29,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Activated account"),
         "activated_now": MessageLookupByLibrary.simpleMessage("Activated now"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
+        "are_you_sure_cancel_all_order": MessageLookupByLibrary.simpleMessage(
+            "Are you sure to cancel all order?"),
+        "are_you_sure_cancel_this_order": MessageLookupByLibrary.simpleMessage(
+            "Are you sure to cancel this order?"),
         "assets": MessageLookupByLibrary.simpleMessage("Assets"),
         "aver_match_price":
             MessageLookupByLibrary.simpleMessage("Average match price"),
@@ -39,11 +43,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "bond_history": MessageLookupByLibrary.simpleMessage("Bond history"),
         "buy": MessageLookupByLibrary.simpleMessage("Buy"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "cancel_all_orders":
+            MessageLookupByLibrary.simpleMessage("Cancel all orders"),
+        "cancel_chose_orders":
+            MessageLookupByLibrary.simpleMessage("Cancel chose orders"),
+        "cancel_order": MessageLookupByLibrary.simpleMessage("Cancel order"),
         "cancel_time": MessageLookupByLibrary.simpleMessage("Cancel time"),
         "cancel_volumn": MessageLookupByLibrary.simpleMessage("Cancel volumn"),
+        "cancelled": MessageLookupByLibrary.simpleMessage("Cancelled"),
         "cash_balance": MessageLookupByLibrary.simpleMessage("Cash balance"),
         "category": MessageLookupByLibrary.simpleMessage("Menu"),
         "ceil": MessageLookupByLibrary.simpleMessage("Ceil"),
+        "change_order": MessageLookupByLibrary.simpleMessage("Change order"),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Change password"),
         "choose": MessageLookupByLibrary.simpleMessage("Choose"),
@@ -55,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "collaborative_assets_total":
             MessageLookupByLibrary.simpleMessage("Collaborative assets total"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+        "confirm_cancel_order":
+            MessageLookupByLibrary.simpleMessage("Cancel order confirm"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("Confirm OTP"),
         "contact_support": MessageLookupByLibrary.simpleMessage("Support"),
         "content_transfer": MessageLookupByLibrary.simpleMessage("Content"),
@@ -76,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "failed": MessageLookupByLibrary.simpleMessage("Failed"),
         "fee": MessageLookupByLibrary.simpleMessage("Fee"),
+        "finish": MessageLookupByLibrary.simpleMessage("Finish"),
         "floor": MessageLookupByLibrary.simpleMessage("Floor"),
         "forgot_pass": MessageLookupByLibrary.simpleMessage("Forgot password?"),
         "full_name": MessageLookupByLibrary.simpleMessage("Full name"),
@@ -127,6 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "match_price": MessageLookupByLibrary.simpleMessage("Matched price"),
         "match_time": MessageLookupByLibrary.simpleMessage("Match time"),
         "match_volumn": MessageLookupByLibrary.simpleMessage("Match volumn"),
+        "matched": MessageLookupByLibrary.simpleMessage("Matched"),
         "maxVolumeBuyAvaiable": MessageLookupByLibrary.simpleMessage(
             "Maximum Available Buy Volumn"),
         "maxVolumeSellAvaiable": MessageLookupByLibrary.simpleMessage(
@@ -144,6 +159,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "order": MessageLookupByLibrary.simpleMessage("Order"),
         "orderType": MessageLookupByLibrary.simpleMessage("Order type"),
         "order_confirm": MessageLookupByLibrary.simpleMessage("Order confirm"),
+        "order_detail": MessageLookupByLibrary.simpleMessage("Order detail"),
         "order_note": MessageLookupByLibrary.simpleMessage("Order note"),
         "order_number": MessageLookupByLibrary.simpleMessage("Order Number"),
         "order_number_short": MessageLookupByLibrary.simpleMessage("OrdN"),
@@ -151,6 +167,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "order_source": MessageLookupByLibrary.simpleMessage("Order source"),
         "order_time": MessageLookupByLibrary.simpleMessage("Order time"),
         "order_volumn": MessageLookupByLibrary.simpleMessage("Order volumn"),
+        "partial_matched":
+            MessageLookupByLibrary.simpleMessage("Partial matched"),
         "passport": MessageLookupByLibrary.simpleMessage("Passport"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "pay": MessageLookupByLibrary.simpleMessage("Pay"),
@@ -186,6 +204,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "referral_code": MessageLookupByLibrary.simpleMessage("Referral code"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "register_form": MessageLookupByLibrary.simpleMessage("Register form"),
+        "rejected": MessageLookupByLibrary.simpleMessage("Rejected"),
         "resent": MessageLookupByLibrary.simpleMessage("Resent OTP"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "select_account":
@@ -255,8 +274,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "user_name": MessageLookupByLibrary.simpleMessage("Username"),
         "volume_short": MessageLookupByLibrary.simpleMessage("Volume"),
         "volumn": MessageLookupByLibrary.simpleMessage("Volumn"),
+        "waiting_cancelled":
+            MessageLookupByLibrary.simpleMessage("Waiting cancelled"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
+        "wating_match": MessageLookupByLibrary.simpleMessage("Waiting match"),
         "year": MessageLookupByLibrary.simpleMessage("year")
       };
 }

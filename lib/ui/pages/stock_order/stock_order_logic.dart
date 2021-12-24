@@ -41,6 +41,10 @@ class StockOrderLogic extends GetxController {
   void getAllStockCompanyData() async {
     // thêm try catch vào để bắt exception lỗi mạng hoặc data k đúng
     state.allStockCompanyData = await apiService.getAllStockCompanyData();
+    if (state.selectedStock.value.stockCode == null) {
+      await getStockInfo(state.allStockCompanyData
+          .firstWhere((element) => element.stockCode == "AAA"));
+    }
   }
 
   Future<void> getStockInfo(StockCompanyData data, {String? account}) async {
@@ -102,7 +106,7 @@ class StockOrderLogic extends GetxController {
 
   Future<void> getCashBalance() async {
     try {
-      state.loading.value = true;
+      // state.loading.value = true;
       final RequestParams _requestParams = RequestParams(
         group: "Q",
         session: _tokenEntity.data?.sid,
@@ -117,9 +121,9 @@ class StockOrderLogic extends GetxController {
       );
       state.selectedCashBalance.value =
           await apiService.getCashBalance(_requestParams);
-      state.loading.value = false;
+      // state.loading.value = false;
     } catch (e) {
-      state.loading.value = false;
+      // state.loading.value = false;
       rethrow;
     }
   }
@@ -140,7 +144,7 @@ class StockOrderLogic extends GetxController {
       ..price.value = state.selectedStockData.value.lastPrice!.toString();
   }
 
-  Future requestNewOrder() async {
+  Future<void> requestNewOrder() async {
     String refId = _tokenEntity.data!.user! + ".M." + OrderUtils.getRandom();
     String sReceiveCheckSumValue = OrderUtils.generateMd5(
         _tokenEntity.data!.sid! +

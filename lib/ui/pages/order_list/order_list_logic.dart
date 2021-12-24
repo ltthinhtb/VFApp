@@ -6,6 +6,7 @@ import 'package:vf_app/services/api/api_service.dart';
 import 'package:vf_app/services/index.dart';
 import 'package:vf_app/ui/pages/order_list/order_list_state.dart';
 import 'package:vf_app/utils/error_message.dart';
+import 'package:vf_app/utils/extension.dart';
 
 class OrderListLogic extends GetxController {
   final OrderListState state = OrderListState();
@@ -19,7 +20,7 @@ class OrderListLogic extends GetxController {
     try {
       _tokenEntity = (await authService.getToken())!;
     } catch (e) {
-      rethrow;
+      return initToken();
     }
   }
 
@@ -42,8 +43,7 @@ class OrderListLogic extends GetxController {
   Future<void> selectAll() async {
     state.selectedListOrder.clear();
     for (var item in state.listOrder) {
-      if (MessageOrder.getStatusOrder(item) == "Khớp 1 phần" ||
-          MessageOrder.getStatusOrder(item) == "Chờ khớp") {
+      if (item.canFix) {
         state.selectedListOrder.add(item);
       }
     }

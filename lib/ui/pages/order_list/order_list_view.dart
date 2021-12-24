@@ -12,6 +12,7 @@ import 'package:vf_app/ui/pages/order_list/page/order_detail.dart';
 import 'package:vf_app/ui/widgets/animation_widget/expanded_widget.dart';
 import 'package:vf_app/ui/widgets/button/material_button.dart';
 import 'package:vf_app/ui/widgets/dialog/custom_dialog.dart';
+import 'package:vf_app/ui/widgets/dropdown/custom_dropdown.dart';
 import 'package:vf_app/utils/error_message.dart';
 import 'package:vf_app/utils/stock_utils.dart';
 
@@ -57,8 +58,16 @@ class _OrderListPageState extends State<OrderListPage> {
             onRefresh: () async {
               logic.getOrderList();
             },
-            child: ListView(
-              children: [buildHeader(), buildListOrder()],
+            child: Column(
+              children: [
+                // buildFilter(),
+                Expanded(
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: [buildHeader(), buildListOrder()],
+                  ),
+                ),
+              ],
             ),
           ),
         ),
@@ -77,8 +86,10 @@ class _OrderListPageState extends State<OrderListPage> {
                       onPressed: () async {
                         bool? _r = await CustomDialog.showConfirmDialog(
                           mainKey,
-                          "Xác nhận huỷ lệnh",
-                          ["Bạn có chắc chắn muốn hủy tất cả lệnh?"],
+                          S.of(context).confirm_cancel_order,
+                          [
+                            S.of(context).are_you_sure_cancel_all_order,
+                          ],
                           buttonColors: [AppColors.primary2, AppColors.primary],
                           textButtonColors: [
                             AppColors.primary,
@@ -97,7 +108,7 @@ class _OrderListPageState extends State<OrderListPage> {
                       },
                       color: AppColors.primary2,
                       child: Text(
-                        "Huỷ tất cả lệnh",
+                        S.of(context).cancel_all_orders,
                         style: AppTextStyle.H5Bold.copyWith(
                             color: AppColors.primary),
                       ),
@@ -112,8 +123,10 @@ class _OrderListPageState extends State<OrderListPage> {
                       onPressed: () async {
                         bool? _r = await CustomDialog.showConfirmDialog(
                           mainKey,
-                          "Xác nhận huỷ lệnh",
-                          ["Bạn có chắc chắn muốn hủy lệnh này?"],
+                          S.of(context).confirm_cancel_order,
+                          [
+                            S.of(context).are_you_sure_cancel_this_order,
+                          ],
                           buttonColors: [AppColors.primary2, AppColors.primary],
                           textButtonColors: [
                             AppColors.primary,
@@ -131,7 +144,7 @@ class _OrderListPageState extends State<OrderListPage> {
                       },
                       color: AppColors.primary,
                       child: Text(
-                        "Huỷ lệnh đã chọn",
+                        S.of(context).cancel_chose_orders,
                         style:
                             AppTextStyle.H5Bold.copyWith(color: Colors.white),
                       ),
@@ -143,6 +156,27 @@ class _OrderListPageState extends State<OrderListPage> {
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      ),
+    );
+  }
+
+  Widget buildFilter() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Container(
+        child: CustomDropdownButton<String>(
+          items: orderStatus
+              .map(
+                (e) => CustomDropdownMenuItem<String>(
+                  value: e,
+                  child: Container(
+                    child: Text(e),
+                  ),
+                ),
+              )
+              .toList(),
+          onChanged: (value) {},
+        ),
       ),
     );
   }
@@ -204,7 +238,7 @@ class _OrderListPageState extends State<OrderListPage> {
       () => ListView.builder(
         shrinkWrap: true,
         primary: false,
-        reverse: true,
+        // reverse: true,
         padding: const EdgeInsets.symmetric(vertical: 10),
         itemCount: state.listOrder.length,
         itemBuilder: (context, idx) => buildItem(state.listOrder[idx]),
@@ -246,14 +280,14 @@ class _OrderListPageState extends State<OrderListPage> {
           ),
           child: Row(
             children: [
-              showCheckBox(_status)
-                  ? Obx(
-                      () => ExpandedSection(
-                        expand: state.selectedMode.value,
-                        axis: Axis.horizontal,
-                        child: Transform.scale(
-                          scale: 1.2,
-                          child: Checkbox(
+              Obx(
+                () => ExpandedSection(
+                  expand: state.selectedMode.value,
+                  axis: Axis.horizontal,
+                  child: Transform.scale(
+                    scale: 1.2,
+                    child: showCheckBox(_status)
+                        ? Checkbox(
                             // hoverColor: AppColors.green,
                             fillColor: MaterialStateProperty.resolveWith(
                                 (states) => getColor(states)),
@@ -277,11 +311,16 @@ class _OrderListPageState extends State<OrderListPage> {
                                     element.orderNo == data.orderNo);
                               }
                             },
+                          )
+                        : Container(
+                            width: 18,
+                            height: 18,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 16),
                           ),
-                        ),
-                      ),
-                    )
-                  : Container(),
+                  ),
+                ),
+              ),
               Expanded(
                 flex: 1,
                 child: Column(
@@ -391,4 +430,24 @@ class _OrderListPageState extends State<OrderListPage> {
     }
     return AppColors.green;
   }
+
+  List<String> getListOrderStatus() {
+    return [
+      S.of(context).wating_match,
+      S.of(context).partial_matched,
+      S.of(context).matched,
+      S.of(context).cancelled,
+      S.of(context).rejected,
+      S.of(context).wating_match
+    ];
+  }
 }
+
+List<String> orderStatus = [
+  "Chờ khớp",
+  "Khớp 1 phần",
+  "Đã khớp",
+  "Đã huỷ",
+  "Từ chối",
+  "Chờ huỷ"
+];
