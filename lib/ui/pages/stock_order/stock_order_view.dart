@@ -738,8 +738,9 @@ class _StockOrderPageState extends State<StockOrderPage> {
                       flex: 3,
                       child: Text(
                         state.accountStatus.value.mr != null
-                            ? StockUtil.formatMoney(double.parse(
-                                state.accountStatus.value.mr ?? "0"))
+                            ? StockUtil.formatMoney(double.tryParse(
+                                    state.accountStatus.value.mr ?? "0") ??
+                                0)
                             : "0",
                         style: AppTextStyle.bodyText2,
                         textAlign: TextAlign.right,
@@ -760,8 +761,10 @@ class _StockOrderPageState extends State<StockOrderPage> {
                       flex: 3,
                       child: Text(
                         state.selectedCashBalance.value.ee != null
-                            ? StockUtil.formatMoney(double.parse(
-                                state.selectedCashBalance.value.ee ?? "0"))
+                            ? StockUtil.formatMoney(double.tryParse(
+                                    state.selectedCashBalance.value.ee ??
+                                        "0") ??
+                                0)
                             : "0",
                         style: AppTextStyle.bodyText2,
                         textAlign: TextAlign.right,
@@ -782,8 +785,10 @@ class _StockOrderPageState extends State<StockOrderPage> {
                       flex: 3,
                       child: Text(
                         state.selectedCashBalance.value.pp != null
-                            ? StockUtil.formatMoney(double.parse(
-                                state.selectedCashBalance.value.pp ?? "0"))
+                            ? StockUtil.formatMoney(double.tryParse(
+                                    state.selectedCashBalance.value.pp ??
+                                        "0") ??
+                                0)
                             : "0",
                         style: AppTextStyle.bodyText2,
                         textAlign: TextAlign.right,

@@ -1630,6 +1630,26 @@ class S {
     );
   }
 
+  /// `Cancel`
+  String get cancel_short {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel_short',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select`
+  String get select {
+    return Intl.message(
+      'Select',
+      name: 'select',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Stock market`
   String get stockMarket {
     return Intl.message(
@@ -1975,6 +1995,16 @@ class S {
     return Intl.message(
       'Are you sure to cancel all order?',
       name: 'are_you_sure_cancel_all_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All`
+  String get all {
+    return Intl.message(
+      'All',
+      name: 'all',
       desc: '',
       args: [],
     );

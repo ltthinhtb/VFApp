@@ -12,7 +12,7 @@ import 'package:vf_app/ui/pages/order_list/page/order_detail.dart';
 import 'package:vf_app/ui/widgets/animation_widget/expanded_widget.dart';
 import 'package:vf_app/ui/widgets/button/material_button.dart';
 import 'package:vf_app/ui/widgets/dialog/custom_dialog.dart';
-import 'package:vf_app/ui/widgets/dropdown/custom_dropdown.dart';
+import 'package:vf_app/ui/widgets/dropdown/dropdown_widget.dart';
 import 'package:vf_app/utils/error_message.dart';
 import 'package:vf_app/utils/stock_utils.dart';
 
@@ -26,6 +26,26 @@ class OrderListPage extends StatefulWidget {
 class _OrderListPageState extends State<OrderListPage> {
   final logic = Get.put(OrderListLogic());
   final state = Get.find<OrderListLogic>().state;
+  // late List<String> orderStatus;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      setState(() {
+        // orderStatus = [
+        //   S.of(context).all,
+        //   S.of(context).wating_match,
+        //   S.of(context).partial_matched,
+        //   S.of(context).matched,
+        //   S.of(context).cancelled,
+        //   S.of(context).rejected,
+        //   S.of(context).wating_match
+        // ];
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -47,7 +67,9 @@ class _OrderListPageState extends State<OrderListPage> {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 alignment: Alignment.center,
-                child: Text(state.selectedMode.value ? "Huỷ" : "Chọn"),
+                child: Text(state.selectedMode.value
+                    ? S.of(context).cancel_short
+                    : S.of(context).select),
               ),
             ),
           ],
@@ -60,7 +82,7 @@ class _OrderListPageState extends State<OrderListPage> {
             },
             child: Column(
               children: [
-                // buildFilter(),
+                buildFilter(),
                 Expanded(
                   child: ListView(
                     shrinkWrap: true,
@@ -164,18 +186,38 @@ class _OrderListPageState extends State<OrderListPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Container(
-        child: CustomDropdownButton<String>(
-          items: orderStatus
-              .map(
-                (e) => CustomDropdownMenuItem<String>(
-                  value: e,
-                  child: Container(
-                    child: Text(e),
+        child: Obx(
+          () => DropdownWidget<String>(
+            label: "Trạng thái",
+            value: state.orderStatus.value,
+            onChanged: (_value) {
+              state.orderStatus.value = _value!;
+            },
+            items: orderStatus
+                .map(
+                  (e) => DropdownMenuItem<String>(
+                    value: e,
+                    child: Container(
+                      child: Text(
+                        e,
+                        style: AppTextStyle.H7Regular,
+                      ),
+                    ),
                   ),
-                ),
-              )
-              .toList(),
-          onChanged: (value) {},
+                )
+                .toList(),
+            // selectedItemBuilder: (context) => orderStatus
+            //     .map(
+            //       (e) => Container(
+            //         child: Text(
+            //           e,
+            //           style:
+            //               AppTextStyle.H7Regular.copyWith(color: Colors.black),
+            //         ),
+            //       ),
+            //     )
+            //     .toList(),
+          ),
         ),
       ),
     );
@@ -431,8 +473,9 @@ class _OrderListPageState extends State<OrderListPage> {
     return AppColors.green;
   }
 
-  List<String> getListOrderStatus() {
+  List<String> get listOrderStatus {
     return [
+      S.of(context).all,
       S.of(context).wating_match,
       S.of(context).partial_matched,
       S.of(context).matched,
@@ -444,6 +487,7 @@ class _OrderListPageState extends State<OrderListPage> {
 }
 
 List<String> orderStatus = [
+  "Tất cả",
   "Chờ khớp",
   "Khớp 1 phần",
   "Đã khớp",

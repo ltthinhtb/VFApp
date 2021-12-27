@@ -16,7 +16,7 @@ class OrderListState {
   var account = "ALL".obs;
   var symbol = "".obs;
   var orderType = "ALL".obs;
-  var orderStatus = "ALL".obs;
+  var orderStatus = "Tất cả".obs;
 
   OrderListState() {
     // stockCodeController = TextEditingController(text: stockCode ?? 'APS');

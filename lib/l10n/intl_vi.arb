@@ -157,6 +157,8 @@
   "issue_loc" : "Nơi cấp",
   "redo" : "Làm lại",
   "cancel" : "Hủy bỏ",
+  "cancel_short" : "Hủy",
+  "select" : "Chọn",
   "stockMarket" : "Thị trường",
   "money_exchange" : "Giao dịch tiền",
   "warning" : "Cảnh báo",
@@ -192,10 +194,11 @@
   "order_detail" : "Chi tiết lệnh",
   "are_you_sure_cancel_this_order" : "Bạn có chắc chắn muốn hủy lệnh này?",
   "are_you_sure_cancel_all_order" : "Bạn có chắc chắn muốn hủy tất cả lệnh?",
-  "wating_match":"Chờ khớp",
-  "partial_matched":"Khớp 1 phần",
-  "matched":"Đã khớp",
-  "cancelled":"Đã huỷ",
-  "waiting_cancelled":"Chờ huỷ",
-  "rejected":"Từ chối"
+  "all" : "Tất cả",
+  "wating_match" : "Chờ khớp",
+  "partial_matched" : "Khớp 1 phần",
+  "matched" : "Đã khớp",
+  "cancelled" : "Đã huỷ",
+  "waiting_cancelled" : "Chờ huỷ",
+  "rejected" : "Từ chối"
 }

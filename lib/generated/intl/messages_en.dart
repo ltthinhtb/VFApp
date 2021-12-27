@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Activated account"),
         "activated_now": MessageLookupByLibrary.simpleMessage("Activated now"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
+        "all": MessageLookupByLibrary.simpleMessage("All"),
         "are_you_sure_cancel_all_order": MessageLookupByLibrary.simpleMessage(
             "Are you sure to cancel all order?"),
         "are_you_sure_cancel_this_order": MessageLookupByLibrary.simpleMessage(
@@ -48,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel_chose_orders":
             MessageLookupByLibrary.simpleMessage("Cancel chose orders"),
         "cancel_order": MessageLookupByLibrary.simpleMessage("Cancel order"),
+        "cancel_short": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cancel_time": MessageLookupByLibrary.simpleMessage("Cancel time"),
         "cancel_volumn": MessageLookupByLibrary.simpleMessage("Cancel volumn"),
         "cancelled": MessageLookupByLibrary.simpleMessage("Cancelled"),
@@ -207,6 +209,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "rejected": MessageLookupByLibrary.simpleMessage("Rejected"),
         "resent": MessageLookupByLibrary.simpleMessage("Resent OTP"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "select": MessageLookupByLibrary.simpleMessage("Select"),
         "select_account":
             MessageLookupByLibrary.simpleMessage("Select account"),
         "select_product":

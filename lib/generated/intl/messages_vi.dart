@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kích hoạt tài khoản"),
         "activated_now": MessageLookupByLibrary.simpleMessage("Kích hoạt ngay"),
         "agree": MessageLookupByLibrary.simpleMessage("Đồng ý"),
+        "all": MessageLookupByLibrary.simpleMessage("Tất cả"),
         "are_you_sure_cancel_all_order": MessageLookupByLibrary.simpleMessage(
             "Bạn có chắc chắn muốn hủy tất cả lệnh?"),
         "are_you_sure_cancel_this_order": MessageLookupByLibrary.simpleMessage(
@@ -50,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel_chose_orders":
             MessageLookupByLibrary.simpleMessage("Huỷ lệnh đã chọn"),
         "cancel_order": MessageLookupByLibrary.simpleMessage("Huỷ lệnh"),
+        "cancel_short": MessageLookupByLibrary.simpleMessage("Hủy"),
         "cancel_time": MessageLookupByLibrary.simpleMessage("Thời gian huỷ"),
         "cancel_volumn": MessageLookupByLibrary.simpleMessage("Khối lượng huỷ"),
         "cancelled": MessageLookupByLibrary.simpleMessage("Đã huỷ"),
@@ -214,6 +216,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "rejected": MessageLookupByLibrary.simpleMessage("Từ chối"),
         "resent": MessageLookupByLibrary.simpleMessage("Gửi lại mã"),
         "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
+        "select": MessageLookupByLibrary.simpleMessage("Chọn"),
         "select_account":
             MessageLookupByLibrary.simpleMessage("Chọn số tài khoản"),
         "select_product": MessageLookupByLibrary.simpleMessage("Chọn sản phẩm"),
