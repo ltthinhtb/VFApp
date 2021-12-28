@@ -6,7 +6,7 @@ import 'package:vf_app/common/app_text_styles.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/ui/pages/menu/menu_logic.dart';
-import 'package:vf_app/ui/pages/menu/page/setting.dart';
+import 'package:vf_app/ui/pages/menu/panel/setting/setting.dart';
 
 class Menu extends StatefulWidget {
   Menu({Key? key}) : super(key: key);

@@ -5,7 +5,6 @@ import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/services/api/api_service.dart';
 import 'package:vf_app/services/index.dart';
 import 'package:vf_app/ui/pages/order_list/order_list_state.dart';
-import 'package:vf_app/utils/error_message.dart';
 import 'package:vf_app/utils/extension.dart';
 
 class OrderListLogic extends GetxController {
@@ -84,11 +83,34 @@ class OrderListLogic extends GetxController {
     }
   }
 
+  Future<void> getListAccount() async {
+    state.listAccount.clear();
+    state.listAccount.add("Tất cả");
+    final RequestParams _requestParams = RequestParams(
+      group: "B",
+      session: _tokenEntity.data?.sid,
+      user: _tokenEntity.data?.user,
+    );
+    ParamsObject _object = ParamsObject();
+    _object.type = "cursor";
+    _object.cmd = "ListAccount";
+    _requestParams.data = _object;
+    try {
+      var response = await apiService.getListAccount(_requestParams);
+      if (response != null) {
+        response.forEach((e) => state.listAccount.add(e.accCode ?? "-"));
+      }
+    } catch (error) {
+      rethrow;
+    }
+  }
+
   @override
   void onInit() async {
     // TODO: implement onInit
     super.onInit();
     await initToken();
+    await getListAccount();
     getOrderList();
   }
 }

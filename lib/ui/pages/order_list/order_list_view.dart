@@ -14,6 +14,7 @@ import 'package:vf_app/ui/widgets/button/material_button.dart';
 import 'package:vf_app/ui/widgets/dialog/custom_dialog.dart';
 import 'package:vf_app/ui/widgets/dropdown/dropdown_widget.dart';
 import 'package:vf_app/utils/error_message.dart';
+import 'package:vf_app/utils/extension.dart';
 import 'package:vf_app/utils/stock_utils.dart';
 
 class OrderListPage extends StatefulWidget {
@@ -26,36 +27,35 @@ class OrderListPage extends StatefulWidget {
 class _OrderListPageState extends State<OrderListPage> {
   final logic = Get.put(OrderListLogic());
   final state = Get.find<OrderListLogic>().state;
-  // late List<String> orderStatus;
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
-      setState(() {
-        // orderStatus = [
-        //   S.of(context).all,
-        //   S.of(context).wating_match,
-        //   S.of(context).partial_matched,
-        //   S.of(context).matched,
-        //   S.of(context).cancelled,
-        //   S.of(context).rejected,
-        //   S.of(context).wating_match
-        // ];
-      });
-    });
   }
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
+    // setState(() {
+    //   orderStatus = [
+    //     S.of(context).all,
+    //     S.of(context).wating_match,
+    //     S.of(context).partial_matched,
+    //     S.of(context).matched,
+    //     S.of(context).cancelled,
+    //     S.of(context).rejected,
+    //     S.of(context).wating_match
+    //   ];
+    // });
+    // if (state.orderStatus.value.isEmpty) {
+    //   state.orderStatus.value = orderStatus[0];
+    // }
     return Obx(
       () => Scaffold(
         appBar: AppBar(
           elevation: 0,
           title: Container(
             child: Text(
-              "Sổ lệnh",
+              S.of(context).order_note,
               style: AppTextStyle.H3,
             ),
           ),
@@ -187,36 +187,122 @@ class _OrderListPageState extends State<OrderListPage> {
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Container(
         child: Obx(
-          () => DropdownWidget<String>(
-            label: "Trạng thái",
-            value: state.orderStatus.value,
-            onChanged: (_value) {
-              state.orderStatus.value = _value!;
-            },
-            items: orderStatus
-                .map(
-                  (e) => DropdownMenuItem<String>(
-                    value: e,
-                    child: Container(
-                      child: Text(
-                        e,
-                        style: AppTextStyle.H7Regular,
-                      ),
-                    ),
-                  ),
-                )
-                .toList(),
-            // selectedItemBuilder: (context) => orderStatus
-            //     .map(
-            //       (e) => Container(
-            //         child: Text(
-            //           e,
-            //           style:
-            //               AppTextStyle.H7Regular.copyWith(color: Colors.black),
-            //         ),
-            //       ),
-            //     )
-            //     .toList(),
+          () => Row(
+            children: [
+              Expanded(
+                flex: 10,
+                child: DropdownWidget<String>(
+                  isExpanded: true,
+                  label: S.of(context).status,
+                  value: state.orderStatus.value.isNotIn(orderStatus)
+                      ? orderStatus[0]
+                      : state.orderStatus.value,
+                  onChanged: (_value) {
+                    state.orderStatus.value = _value ?? orderStatus[0];
+                  },
+                  items: orderStatus
+                      .map(
+                        (e) => DropdownMenuItem<String>(
+                          value: e,
+                          child: Container(
+                            child: Text(
+                              e,
+                              style: AppTextStyle.H7Regular,
+                            ),
+                          ),
+                        ),
+                      )
+                      .toList(),
+                  // selectedItemBuilder: (context) => orderStatus
+                  //     .map(
+                  //       (e) => Container(
+                  //         child: Text(
+                  //           e,
+                  //           style:
+                  //               AppTextStyle.H7Regular.copyWith(color: Colors.black),
+                  //         ),
+                  //       ),
+                  //     )
+                  //     .toList(),
+                ),
+              ),
+              const Spacer(),
+              Expanded(
+                flex: 10,
+                child: DropdownWidget<String>(
+                  isExpanded: true,
+                  label: S.of(context).orderType,
+                  value: state.orderType.value.isNotIn(orderType)
+                      ? orderType[0]
+                      : state.orderType.value,
+                  onChanged: (_value) {
+                    state.orderType.value = _value ?? orderType[0];
+                  },
+                  items: orderType
+                      .map(
+                        (e) => DropdownMenuItem<String>(
+                          value: e,
+                          child: Container(
+                            child: Text(
+                              e,
+                              style: AppTextStyle.H7Regular,
+                            ),
+                          ),
+                        ),
+                      )
+                      .toList(),
+                  // selectedItemBuilder: (context) => orderStatus
+                  //     .map(
+                  //       (e) => Container(
+                  //         child: Text(
+                  //           e,
+                  //           style:
+                  //               AppTextStyle.H7Regular.copyWith(color: Colors.black),
+                  //         ),
+                  //       ),
+                  //     )
+                  //     .toList(),
+                ),
+              ),
+              const Spacer(),
+              Expanded(
+                flex: 10,
+                child: DropdownWidget<String>(
+                  isExpanded: true,
+                  label: S.of(context).account,
+                  value: state.account.value.isEmpty
+                      ? state.listAccount[0]
+                      : state.account.value,
+                  onChanged: (_value) {
+                    state.account.value = _value ?? state.listAccount[0];
+                  },
+                  items: state.listAccount
+                      .map(
+                        (e) => DropdownMenuItem<String>(
+                          value: e,
+                          child: Container(
+                            child: Text(
+                              e,
+                              style: AppTextStyle.H7Regular,
+                            ),
+                          ),
+                        ),
+                      )
+                      .toList(),
+                  // selectedItemBuilder: (context) => orderStatus
+                  //     .map(
+                  //       (e) => Container(
+                  //         child: Text(
+                  //           e,
+                  //           style:
+                  //               AppTextStyle.H7Regular.copyWith(color: Colors.black),
+                  //         ),
+                  //       ),
+                  //     )
+                  //     .toList(),
+                ),
+              ),
+            ],
           ),
         ),
       ),
@@ -472,18 +558,6 @@ class _OrderListPageState extends State<OrderListPage> {
     }
     return AppColors.green;
   }
-
-  List<String> get listOrderStatus {
-    return [
-      S.of(context).all,
-      S.of(context).wating_match,
-      S.of(context).partial_matched,
-      S.of(context).matched,
-      S.of(context).cancelled,
-      S.of(context).rejected,
-      S.of(context).wating_match
-    ];
-  }
 }
 
 List<String> orderStatus = [
@@ -495,3 +569,5 @@ List<String> orderStatus = [
   "Từ chối",
   "Chờ huỷ"
 ];
+
+List<String> orderType = ["Tất cả", "Mua", "Bán"];

@@ -1,6 +1,9 @@
+import 'package:vf_app/ui/pages/menu/panel/setting/change_password_page/change_password_state.dart';
+
 class ParamsObject {
   String? type;
   String? cmd;
+  ChangePasswordModel? p;
   String? p1;
   String? p2;
   String? p3;
@@ -28,6 +31,7 @@ class ParamsObject {
   ParamsObject({
     this.type,
     this.cmd,
+    this.p,
     this.p1,
     this.p2,
     this.p3,
@@ -51,6 +55,9 @@ class ParamsObject {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['type'] = type;
     data['cmd'] = cmd;
+    if (p != null) {
+      data['p1'] = p;
+    }
     if (p1 != null) {
       data['p1'] = p1;
     }

@@ -9,7 +9,6 @@ import 'package:vf_app/ui/commons/app_snackbar.dart';
 import 'package:vf_app/ui/commons/appbar.dart';
 import 'package:vf_app/ui/pages/main/main_view.dart';
 import 'package:vf_app/ui/pages/order_list/order_list_logic.dart';
-import 'package:vf_app/ui/pages/order_list/order_list_state.dart';
 import 'package:vf_app/ui/widgets/button/material_button.dart';
 import 'package:vf_app/ui/widgets/dialog/custom_dialog.dart';
 import 'package:vf_app/utils/error_message.dart';

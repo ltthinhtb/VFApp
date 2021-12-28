@@ -21,11 +21,12 @@ import 'package:vf_app/utils/extension.dart';
 import 'package:vf_app/utils/order_utils.dart';
 import 'package:vf_app/utils/stock_utils.dart';
 
+// ignore: must_be_immutable
 class StockOrderPage extends StatefulWidget {
   StockOrderPage({Key? key, this.selectedStock, this.isBuy = true})
       : super(key: key);
-  final bool isBuy;
-  final StockCompanyData? selectedStock;
+  bool isBuy;
+  StockCompanyData? selectedStock;
 
   @override
   _StockOrderPageState createState() => _StockOrderPageState();
@@ -58,6 +59,12 @@ class _StockOrderPageState extends State<StockOrderPage> {
   void didUpdateWidget(covariant StockOrderPage oldWidget) {
     // TODO: implement didUpdateWidget
     super.didUpdateWidget(oldWidget);
+    if ((widget.selectedStock != null &&
+            widget.selectedStock != oldWidget.selectedStock) ||
+        (widget.isBuy != oldWidget.isBuy)) {
+      changeStock(widget.selectedStock);
+      state.isBuy.value = widget.isBuy;
+    }
     // if (mounted) {
     //   if (state.selectedStockInfo.value.lastPrice == null) {
     //     StockCompanyData _data = state.allStockCompanyData
@@ -542,7 +549,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
               unfocus();
               state.priceType.value = prices[index];
               if (state.selectedStock.value.stockCode != null) {
-                if (prices[index] == PriceType.MP) {
+                if (prices[index] == PriceType.LO) {
                   state.priceController.text =
                       state.selectedStockInfo.value.lastPrice!.toString();
                 } else {

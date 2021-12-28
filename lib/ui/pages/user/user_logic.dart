@@ -20,10 +20,10 @@ class UserLogic extends GetxController {
 
   Future<void> getTokenUser() async {
     try {
-        _tokenEntity = (await authService.getToken())!;
-        _requestParams.user = _tokenEntity.data?.user;
-        _requestParams.session = _tokenEntity.data?.sid;
-        await getListAccount();
+      _tokenEntity = (await authService.getToken())!;
+      _requestParams.user = _tokenEntity.data?.user;
+      _requestParams.session = _tokenEntity.data?.sid;
+      await getListAccount();
     } catch (e) {
       logger.e(e.toString());
       await getTokenUser();
@@ -37,14 +37,13 @@ class UserLogic extends GetxController {
     _requestParams.data = _object;
     try {
       var response = await apiService.getListAccount(_requestParams);
-      if (response!.data!.isNotEmpty) {
-        state.listAccount = response.data!;
+      if (response!.isNotEmpty) {
+        state.listAccount = response;
       }
     } on ErrorException catch (error) {
       AppSnackBar.showError(message: error.message);
     }
   }
-
 
   @override
   Future<void> onReady() async {

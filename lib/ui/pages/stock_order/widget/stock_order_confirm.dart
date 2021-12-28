@@ -48,16 +48,9 @@ class _StockOrderConfirmState extends State<StockOrderConfirm> {
                 double.parse(state.volController.text),
               ),
             ),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: Container(
-                    height: 1,
-                    color: AppColors.primary,
-                  ),
-                ),
-              ],
+            const Divider(
+              height: 20,
+              thickness: 1,
             ),
             buildInfo(
                 "Giá trị lệnh đặt\n(Chưa bao gồm phí và thuế)",

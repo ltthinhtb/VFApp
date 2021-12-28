@@ -250,6 +250,56 @@ class S {
     );
   }
 
+  /// `Old password`
+  String get old_password {
+    return Intl.message(
+      'Old password',
+      name: 'old_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New password`
+  String get new_password {
+    return Intl.message(
+      'New password',
+      name: 'new_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm new password`
+  String get confirm_new_password {
+    return Intl.message(
+      'Confirm new password',
+      name: 'confirm_new_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save password`
+  String get save_password {
+    return Intl.message(
+      'Save password',
+      name: 'save_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change password successfully`
+  String get change_password_success {
+    return Intl.message(
+      'Change password successfully',
+      name: 'change_password_success',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Input username`
   String get please_input_user {
     return Intl.message(

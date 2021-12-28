@@ -38,37 +38,50 @@ class DropdownWidget<T> extends StatelessWidget {
                     .copyWith(fontWeight: FontWeight.w700),
               ),
             )),
-        DropdownButtonHideUnderline(
-          child: CustomDropdownButton<T>(
-            isExpanded: isExpanded,
-            isDense: false,
-            // dropdownOverButton: true,
-            alignment: Alignment.centerLeft,
-            buttonPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-            // customButton: MaterialButton(
-            //   onPressed: () {},
-            //   padding: const EdgeInsets.symmetric(horizontal: 10),
-            //   shape: const RoundedRectangleBorder(
-            //     side: BorderSide(),
-            //     borderRadius: BorderRadius.all(
-            //       Radius.circular(10),
-            //     ),
-            //   ),
-            // ),
-            buttonDecoration: BoxDecoration(
-              color: Colors.transparent,
-              border: Border.all(),
-              borderRadius: BorderRadius.all(
-                Radius.circular(10),
+        items.isEmpty
+            ? Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  border: Border.all(),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
+              )
+            : DropdownButtonHideUnderline(
+                child: CustomDropdownButton<T>(
+                  isExpanded: isExpanded,
+                  isDense: false,
+                  // dropdownOverButton: true,
+                  alignment: Alignment.centerLeft,
+                  buttonPadding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                  // customButton: MaterialButton(
+                  //   onPressed: () {},
+                  //   padding: const EdgeInsets.symmetric(horizontal: 10),
+                  //   shape: const RoundedRectangleBorder(
+                  //     side: BorderSide(),
+                  //     borderRadius: BorderRadius.all(
+                  //       Radius.circular(10),
+                  //     ),
+                  //   ),
+                  // ),
+                  buttonDecoration: BoxDecoration(
+                    color: Colors.transparent,
+                    border: Border.all(),
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                  ),
+                  value: value,
+                  onChanged: onChanged,
+                  style: Theme.of(context).textTheme.headline6,
+                  icon: SvgPicture.asset(AppImages.chevron_down),
+                  items: items,
+                ),
               ),
-            ),
-            value: value,
-            onChanged: onChanged,
-            style: Theme.of(context).textTheme.headline6,
-            icon: SvgPicture.asset(AppImages.chevron_down),
-            items: items,
-          ),
-        ),
       ],
     );
   }

@@ -71,8 +71,8 @@ class StockOrderLogic extends GetxController {
         ..sumBSVol.value = getSumBSVol()
         ..stockExchange.value = getStockExchange()
         ..priceType.value = "MP"
+        ..priceController.text = "MP"
         ..price.value = state.selectedStockInfo.value.lastPrice!.toString();
-      state.priceController.text = state.price.value.toString();
       await getAccountStatus(account);
       await getCashBalance();
       state.loading.value = false;

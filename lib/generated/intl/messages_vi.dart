@@ -60,6 +60,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "ceil": MessageLookupByLibrary.simpleMessage("Trần"),
         "change_order": MessageLookupByLibrary.simpleMessage("Sửa lệnh"),
         "change_password": MessageLookupByLibrary.simpleMessage("Đổi mật khẩu"),
+        "change_password_success":
+            MessageLookupByLibrary.simpleMessage("Đổi mật khẩu thành công"),
         "choose": MessageLookupByLibrary.simpleMessage("Chọn"),
         "choose_identity":
             MessageLookupByLibrary.simpleMessage("Chọn giấy tờ tùy thân"),
@@ -71,6 +73,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm": MessageLookupByLibrary.simpleMessage("Xác nhận"),
         "confirm_cancel_order":
             MessageLookupByLibrary.simpleMessage("Xác nhận huỷ lệnh"),
+        "confirm_new_password":
+            MessageLookupByLibrary.simpleMessage("Xác nhận mật khẩu mới"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("Xác nhận OTP"),
         "contact_support":
             MessageLookupByLibrary.simpleMessage("Liên hệ hỗ trợ"),
@@ -159,8 +163,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "month": MessageLookupByLibrary.simpleMessage("Tháng"),
         "mr": MessageLookupByLibrary.simpleMessage("Số dư tiền hợp tác"),
         "network_error": MessageLookupByLibrary.simpleMessage("Lỗi kết nối"),
+        "new_password": MessageLookupByLibrary.simpleMessage("Mật khẩu mới"),
         "not_account":
             MessageLookupByLibrary.simpleMessage("Bạn chưa có tài khoản? "),
+        "old_password": MessageLookupByLibrary.simpleMessage("Mật khẩu cũ"),
         "open_on": MessageLookupByLibrary.simpleMessage("Mở tại"),
         "order": MessageLookupByLibrary.simpleMessage("Đặt lệnh"),
         "orderType": MessageLookupByLibrary.simpleMessage("Loại lệnh"),
@@ -215,6 +221,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Đăng ký tài khoản"),
         "rejected": MessageLookupByLibrary.simpleMessage("Từ chối"),
         "resent": MessageLookupByLibrary.simpleMessage("Gửi lại mã"),
+        "save_password": MessageLookupByLibrary.simpleMessage("Lưu mật khẩu"),
         "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
         "select": MessageLookupByLibrary.simpleMessage("Chọn"),
         "select_account":
