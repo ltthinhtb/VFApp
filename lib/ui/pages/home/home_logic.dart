@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:get/get.dart';
 import 'package:vf_app/model/response/index_detail.dart';
+import 'package:vf_app/model/stock_data/stock_socket.dart';
 import 'package:vf_app/services/index.dart';
 import 'package:vf_app/services/socket/socket.dart';
 import 'package:vf_app/ui/commons/app_snackbar.dart';
@@ -41,6 +44,8 @@ class HomeLogic extends GetxController {
         } else {
           list += ',$element';
         }
+        /// thêm vào socket
+        addStockSocket(element);
       });
       state.listStock.value = await apiService.getStockData(list);
     } catch (e) {
@@ -52,18 +57,36 @@ class HomeLogic extends GetxController {
     _socket.socket.on('public', (data) {
       if (data != null) {
         try {
-          IndexDetail stock = IndexDetail.fromJson(data['data']);
-          var index = state.listIndexDetail
-              .indexWhere((element) => element.mc == stock.mc);
-          if (index >= 0) {
-            state.listIndexDetail.removeAt(index);
-            state.listIndexDetail.insert(index, stock);
+          int index = -1;
+          if (data['data']['id'] == 1101) {
+            IndexDetail stock = IndexDetail.fromJson(data['data']);
+            index = state.listIndexDetail
+                .indexWhere((element) => element.mc == stock.mc);
+            if (index >= 0) {
+              state.listIndexDetail.removeAt(index);
+              state.listIndexDetail.insert(index, stock);
+            }
+          } else if (data['data']['id'] == 3220) {
+            SocketStock stock = SocketStock.fromJson(data['data']);
+            var index = state.listStock
+                .indexWhere((element) => element.sym == stock.sym);
+            if (index >= 0) {
+              var stockIndex = state.listStock[index].copyWith(stock);
+              state.listStock.removeAt(index);
+              state.listStock.insert(index, stockIndex);
+            }
           }
         } catch (e) {
-          logger.e(e.toString());
+          //logger.e(e.toString());
         }
       }
     });
+  }
+
+  void addStockSocket(String stock) {
+    var map = {"action": "join", "data": "$stock"};
+    var msg = json.encode(map);
+    _socket.socket.emit("regs", msg);
   }
 
   @override

@@ -5,7 +5,7 @@ import 'package:vf_app/model/stock_data/stock_data.dart';
 class HomeState {
 
    final listIndexDetail = <IndexDetail>[].obs;
-   final market = "HNX30".obs;
+   final market = "HSX30".obs;
 
    final listStock = <StockData>[].obs;
 

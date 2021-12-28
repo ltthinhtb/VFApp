@@ -55,55 +55,55 @@ class _HomePageState extends State<HomePage> {
         onRefresh: () async => Future.delayed(const Duration(seconds: 1), () {
           logic.onReady();
         }),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(height: 15),
-              SizedBox(
-                height: 100,
-                child: Obx(() {
-                  return ListView.separated(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          decoration: BoxDecoration(
-                              color: AppColors.cardPortfolio,
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                state.listIndexDetail[index].stockCode?.name ??
-                                    "",
-                                style:
-                                    headline6!.copyWith(color: AppColors.white),
-                              ),
-                              const SizedBox(height: 5),
-                              Text(
-                                '${state.listIndexDetail[index].cIndex}',
-                                style: headline4!.copyWith(
-                                    color: state.listIndexDetail[index].color),
-                              ),
-                              const SizedBox(height: 5),
-                              Text(
-                                '${state.listIndexDetail[index].percentPrice}(${state.listIndexDetail[index].percent})',
-                                style: headline6.copyWith(
-                                    color: state.listIndexDetail[index].color),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                      separatorBuilder: (context, index) {
-                        return const SizedBox(width: 10);
-                      },
-                      itemCount: state.listIndexDetail.length);
-                }),
-              ),
-              const SizedBox(height: 20),
-              Container(
+        child: Column(
+          children: [
+            const SizedBox(height: 15),
+            SizedBox(
+              height: 100,
+              child: Obx(() {
+                return ListView.separated(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        decoration: BoxDecoration(
+                            color: AppColors.cardPortfolio,
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              state.listIndexDetail[index].stockCode?.name ??
+                                  "",
+                              style:
+                                  headline6!.copyWith(color: AppColors.white),
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              '${state.listIndexDetail[index].cIndex}',
+                              style: headline4!.copyWith(
+                                  color: state.listIndexDetail[index].color),
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              '${state.listIndexDetail[index].percentPrice}(${state.listIndexDetail[index].percent})',
+                              style: headline6.copyWith(
+                                  color: state.listIndexDetail[index].color),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(width: 10);
+                    },
+                    itemCount: state.listIndexDetail.length);
+              }),
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: Container(
                 decoration: const BoxDecoration(
                     color: AppColors.white,
                     borderRadius: BorderRadius.only(
@@ -118,9 +118,9 @@ class _HomePageState extends State<HomePage> {
                     const ListStockView()
                   ],
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
