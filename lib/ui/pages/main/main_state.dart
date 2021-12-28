@@ -5,7 +5,6 @@ import 'package:vf_app/model/order_data/inday_order.dart';
 import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/ui/pages/home/home_view.dart';
 import 'package:vf_app/ui/pages/menu/menu_view.dart';
-import 'package:vf_app/ui/pages/order_list/order_list_logic.dart';
 import 'package:vf_app/ui/pages/order_list/order_list_view.dart';
 import 'package:vf_app/ui/pages/order_list/page/order_detail.dart';
 import 'package:vf_app/ui/pages/stock_order/stock_order_view.dart';

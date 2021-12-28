@@ -26,6 +26,7 @@ class OrderListPage extends StatefulWidget {
 class _OrderListPageState extends State<OrderListPage> {
   final logic = Get.put(OrderListLogic());
   final state = Get.find<OrderListLogic>().state;
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;

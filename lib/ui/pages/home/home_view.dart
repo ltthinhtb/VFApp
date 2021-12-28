@@ -26,7 +26,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final headline6 = Theme.of(context).textTheme.headline6;
     final headline4 = Theme.of(context).textTheme.headline4;
-
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(

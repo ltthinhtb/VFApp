@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:vf_app/ui/pages/user/user_logic.dart';
 
 import 'main_logic.dart';
 import 'tab/main_tab.dart';
