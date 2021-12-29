@@ -11,12 +11,13 @@ class OrderListState {
   var selectedListOrder = <IndayOrder>[].obs;
 
   var listOrder = <IndayOrder>[].obs;
+  var listAccount = <String>[];
 
   var isBuy = true.obs;
-  var account = "ALL".obs;
+  var account = "".obs;
+  var orderType = "".obs;
+  var orderStatus = "".obs;
   var symbol = "".obs;
-  var orderType = "ALL".obs;
-  var orderStatus = "ALL".obs;
 
   OrderListState() {
     // stockCodeController = TextEditingController(text: stockCode ?? 'APS');

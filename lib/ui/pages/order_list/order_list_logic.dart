@@ -83,11 +83,34 @@ class OrderListLogic extends GetxController {
     }
   }
 
+  Future<void> getListAccount() async {
+    state.listAccount.clear();
+    state.listAccount.add("Tất cả");
+    final RequestParams _requestParams = RequestParams(
+      group: "B",
+      session: _tokenEntity.data?.sid,
+      user: _tokenEntity.data?.user,
+    );
+    ParamsObject _object = ParamsObject();
+    _object.type = "cursor";
+    _object.cmd = "ListAccount";
+    _requestParams.data = _object;
+    try {
+      var response = await apiService.getListAccount(_requestParams);
+      if (response != null) {
+        response.forEach((e) => state.listAccount.add(e.accCode ?? "-"));
+      }
+    } catch (error) {
+      rethrow;
+    }
+  }
+
   @override
   void onInit() async {
     // TODO: implement onInit
     super.onInit();
     await initToken();
+    await getListAccount();
     getOrderList();
   }
 }

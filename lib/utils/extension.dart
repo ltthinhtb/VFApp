@@ -1,5 +1,4 @@
 import 'package:vf_app/model/order_data/inday_order.dart';
-import 'package:vf_app/ui/pages/stock_order/stock_order_logic.dart';
 import 'package:vf_app/utils/error_message.dart';
 import 'package:vf_app/utils/order_utils.dart';
 

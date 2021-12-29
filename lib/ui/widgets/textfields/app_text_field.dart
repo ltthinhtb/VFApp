@@ -44,10 +44,16 @@ class AppTextFieldWidget extends StatefulWidget {
 
 class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
   late bool _obscureText;
+  late FocusNode _focusNode;
 
   @override
   void initState() {
     _obscureText = widget.obscureText;
+    if (widget.focusNode == null) {
+      _focusNode = FocusNode();
+    } else {
+      _focusNode = widget.focusNode!;
+    }
     // TODO: implement initState
     super.initState();
   }
@@ -72,7 +78,7 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
         TextFormField(
           readOnly: widget.readOnly,
           autofocus: widget.autoFocus,
-          focusNode: widget.focusNode ?? FocusNode(),
+          focusNode: _focusNode,
           controller: widget.inputController,
           obscureText: _obscureText,
           style: widget.textFieldType.style,
@@ -100,12 +106,13 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
                       onTap: () {
                         setState(() {
                           _obscureText = !_obscureText;
+                          _focusNode.unfocus();
                         });
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: SvgPicture.asset(
-                            _obscureText ? AppImages.eye : AppImages.eye_lock),
+                            _obscureText ? AppImages.eye_lock : AppImages.eye),
                       ),
                     )
                   : null),
@@ -156,9 +163,7 @@ extension TextFieldTypeExt on TextFieldType {
       case TextFieldType.normal:
         return null;
       case TextFieldType.searchAppBar:
-        return AppTextStyle.H6Regular.copyWith(
-          color: AppColors.white
-        );
+        return AppTextStyle.H6Regular.copyWith(color: AppColors.white);
     }
   }
 }
@@ -166,5 +171,5 @@ extension TextFieldTypeExt on TextFieldType {
 OutlineInputBorder get _defaultBorder {
   return const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(15)),
-      borderSide: BorderSide(width: 0,color: AppColors.cardPortfolio));
+      borderSide: BorderSide(width: 0, color: AppColors.cardPortfolio));
 }

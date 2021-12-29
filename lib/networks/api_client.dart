@@ -54,7 +54,7 @@ abstract class ApiClient {
   Future<PortfolioAccountStatus> getPortfolioAccountStatus(
       RequestParams requestParams);
 
-  Future<ListAccountResponse> getListAccount(RequestParams requestParams);
+  Future<List<Account>?> getListAccount(RequestParams requestParams);
 
   Future<Portfolio> getPortfolio(RequestParams requestParams);
 
@@ -79,6 +79,8 @@ abstract class ApiClient {
   Future<String> getListStockCode(String market);
 
   Future<dynamic> signOut();
+
+  Future<void> changePassword(RequestParams requestParams);
 }
 
 class _ApiClient implements ApiClient {
@@ -311,6 +313,17 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+  Future<void> changePassword(RequestParams requestParams) async {
+    try {
+      await _requestApi(
+          _dio.post(AppConfigs.ENDPOINT_CORE, data: requestParams.toJson()));
+      return;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
   Future<AccountStatus> getAccountStatus(RequestParams requestParams) async {
     Response _result = await _requestApi(
         _dio.post(AppConfigs.ENDPOINT_CORE, data: requestParams.toJson()));
@@ -329,13 +342,13 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<ListAccountResponse> getListAccount(
-      RequestParams requestParams) async {
+  Future<List<Account>?> getListAccount(RequestParams requestParams) async {
     Response _result = await _requestApi(
         _dio.post(AppConfigs.ENDPOINT_CORE, data: requestParams.toJson()));
+
     var _mapData = _decodeMap(_result.data!);
     final value = ListAccountResponse.fromJson(_mapData);
-    return value;
+    return value.data;
   }
 
   @override

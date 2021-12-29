@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kích hoạt tài khoản"),
         "activated_now": MessageLookupByLibrary.simpleMessage("Kích hoạt ngay"),
         "agree": MessageLookupByLibrary.simpleMessage("Đồng ý"),
+        "all": MessageLookupByLibrary.simpleMessage("Tất cả"),
         "are_you_sure_cancel_all_order": MessageLookupByLibrary.simpleMessage(
             "Bạn có chắc chắn muốn hủy tất cả lệnh?"),
         "are_you_sure_cancel_this_order": MessageLookupByLibrary.simpleMessage(
@@ -50,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel_chose_orders":
             MessageLookupByLibrary.simpleMessage("Huỷ lệnh đã chọn"),
         "cancel_order": MessageLookupByLibrary.simpleMessage("Huỷ lệnh"),
+        "cancel_short": MessageLookupByLibrary.simpleMessage("Hủy"),
         "cancel_time": MessageLookupByLibrary.simpleMessage("Thời gian huỷ"),
         "cancel_volumn": MessageLookupByLibrary.simpleMessage("Khối lượng huỷ"),
         "cancelled": MessageLookupByLibrary.simpleMessage("Đã huỷ"),
@@ -58,6 +60,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "ceil": MessageLookupByLibrary.simpleMessage("Trần"),
         "change_order": MessageLookupByLibrary.simpleMessage("Sửa lệnh"),
         "change_password": MessageLookupByLibrary.simpleMessage("Đổi mật khẩu"),
+        "change_password_success":
+            MessageLookupByLibrary.simpleMessage("Đổi mật khẩu thành công"),
         "choose": MessageLookupByLibrary.simpleMessage("Chọn"),
         "choose_identity":
             MessageLookupByLibrary.simpleMessage("Chọn giấy tờ tùy thân"),
@@ -69,6 +73,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm": MessageLookupByLibrary.simpleMessage("Xác nhận"),
         "confirm_cancel_order":
             MessageLookupByLibrary.simpleMessage("Xác nhận huỷ lệnh"),
+        "confirm_new_password":
+            MessageLookupByLibrary.simpleMessage("Xác nhận mật khẩu mới"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("Xác nhận OTP"),
         "contact_support":
             MessageLookupByLibrary.simpleMessage("Liên hệ hỗ trợ"),
@@ -157,8 +163,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "month": MessageLookupByLibrary.simpleMessage("Tháng"),
         "mr": MessageLookupByLibrary.simpleMessage("Số dư tiền hợp tác"),
         "network_error": MessageLookupByLibrary.simpleMessage("Lỗi kết nối"),
+        "new_password": MessageLookupByLibrary.simpleMessage("Mật khẩu mới"),
         "not_account":
             MessageLookupByLibrary.simpleMessage("Bạn chưa có tài khoản? "),
+        "old_password": MessageLookupByLibrary.simpleMessage("Mật khẩu cũ"),
         "open_on": MessageLookupByLibrary.simpleMessage("Mở tại"),
         "order": MessageLookupByLibrary.simpleMessage("Đặt lệnh"),
         "orderType": MessageLookupByLibrary.simpleMessage("Loại lệnh"),
@@ -213,7 +221,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Đăng ký tài khoản"),
         "rejected": MessageLookupByLibrary.simpleMessage("Từ chối"),
         "resent": MessageLookupByLibrary.simpleMessage("Gửi lại mã"),
+        "save_password": MessageLookupByLibrary.simpleMessage("Lưu mật khẩu"),
         "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
+        "select": MessageLookupByLibrary.simpleMessage("Chọn"),
         "select_account":
             MessageLookupByLibrary.simpleMessage("Chọn số tài khoản"),
         "select_product": MessageLookupByLibrary.simpleMessage("Chọn sản phẩm"),

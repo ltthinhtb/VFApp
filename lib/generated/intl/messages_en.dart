@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Activated account"),
         "activated_now": MessageLookupByLibrary.simpleMessage("Activated now"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
+        "all": MessageLookupByLibrary.simpleMessage("All"),
         "are_you_sure_cancel_all_order": MessageLookupByLibrary.simpleMessage(
             "Are you sure to cancel all order?"),
         "are_you_sure_cancel_this_order": MessageLookupByLibrary.simpleMessage(
@@ -48,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel_chose_orders":
             MessageLookupByLibrary.simpleMessage("Cancel chose orders"),
         "cancel_order": MessageLookupByLibrary.simpleMessage("Cancel order"),
+        "cancel_short": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cancel_time": MessageLookupByLibrary.simpleMessage("Cancel time"),
         "cancel_volumn": MessageLookupByLibrary.simpleMessage("Cancel volumn"),
         "cancelled": MessageLookupByLibrary.simpleMessage("Cancelled"),
@@ -57,6 +59,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "change_order": MessageLookupByLibrary.simpleMessage("Change order"),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Change password"),
+        "change_password_success": MessageLookupByLibrary.simpleMessage(
+            "Change password successfully"),
         "choose": MessageLookupByLibrary.simpleMessage("Choose"),
         "choose_identity": MessageLookupByLibrary.simpleMessage(
             "Choose your identity document"),
@@ -68,6 +72,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirm_cancel_order":
             MessageLookupByLibrary.simpleMessage("Cancel order confirm"),
+        "confirm_new_password":
+            MessageLookupByLibrary.simpleMessage("Confirm new password"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("Confirm OTP"),
         "contact_support": MessageLookupByLibrary.simpleMessage("Support"),
         "content_transfer": MessageLookupByLibrary.simpleMessage("Content"),
@@ -153,8 +159,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "month": MessageLookupByLibrary.simpleMessage("Months"),
         "mr": MessageLookupByLibrary.simpleMessage("MR"),
         "network_error": MessageLookupByLibrary.simpleMessage("Network Error"),
+        "new_password": MessageLookupByLibrary.simpleMessage("New password"),
         "not_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have account? "),
+        "old_password": MessageLookupByLibrary.simpleMessage("Old password"),
         "open_on": MessageLookupByLibrary.simpleMessage("Open on"),
         "order": MessageLookupByLibrary.simpleMessage("Order"),
         "orderType": MessageLookupByLibrary.simpleMessage("Order type"),
@@ -206,7 +214,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "register_form": MessageLookupByLibrary.simpleMessage("Register form"),
         "rejected": MessageLookupByLibrary.simpleMessage("Rejected"),
         "resent": MessageLookupByLibrary.simpleMessage("Resent OTP"),
+        "save_password": MessageLookupByLibrary.simpleMessage("Save password"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "select": MessageLookupByLibrary.simpleMessage("Select"),
         "select_account":
             MessageLookupByLibrary.simpleMessage("Select account"),
         "select_product":

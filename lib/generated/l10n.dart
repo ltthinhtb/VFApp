@@ -250,6 +250,56 @@ class S {
     );
   }
 
+  /// `Old password`
+  String get old_password {
+    return Intl.message(
+      'Old password',
+      name: 'old_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New password`
+  String get new_password {
+    return Intl.message(
+      'New password',
+      name: 'new_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm new password`
+  String get confirm_new_password {
+    return Intl.message(
+      'Confirm new password',
+      name: 'confirm_new_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save password`
+  String get save_password {
+    return Intl.message(
+      'Save password',
+      name: 'save_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change password successfully`
+  String get change_password_success {
+    return Intl.message(
+      'Change password successfully',
+      name: 'change_password_success',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Input username`
   String get please_input_user {
     return Intl.message(
@@ -1630,6 +1680,26 @@ class S {
     );
   }
 
+  /// `Cancel`
+  String get cancel_short {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel_short',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select`
+  String get select {
+    return Intl.message(
+      'Select',
+      name: 'select',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Stock market`
   String get stockMarket {
     return Intl.message(
@@ -1975,6 +2045,16 @@ class S {
     return Intl.message(
       'Are you sure to cancel all order?',
       name: 'are_you_sure_cancel_all_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All`
+  String get all {
+    return Intl.message(
+      'All',
+      name: 'all',
       desc: '',
       args: [],
     );

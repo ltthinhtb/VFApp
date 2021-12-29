@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_text_styles.dart';
-import 'package:vf_app/utils/stock_utils.dart';
 
 class BackGroundPainter extends CustomPainter {
   BackGroundPainter({
@@ -228,6 +227,7 @@ class _NumberInputFieldState extends State<NumberInputField> {
                 inputFormatters: [
                   LengthLimitingTextInputFormatter(widget.maxLength)
                 ],
+                scrollPadding: const EdgeInsets.all(20),
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.zero,

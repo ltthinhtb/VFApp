@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_text_styles.dart';
 import 'package:vf_app/generated/l10n.dart';
-import 'package:vf_app/ui/pages/menu/page/setting_page.dart';
+
+import 'change_password_page/change_password_view.dart';
+import 'setting_page/setting_page.dart';
 
 class Setting extends StatefulWidget {
   Setting({Key? key}) : super(key: key);
@@ -44,9 +46,16 @@ class _SettingState extends State<Setting> {
         children: [
           buildButton(
             S.of(context).settings_language,
-            onPush: () => Get.to(const SettingPage()),
+            onPush: () => Get.to(
+              const SettingPage(),
+            ),
           ),
-          buildButton(S.of(context).change_password),
+          buildButton(
+            S.of(context).change_password,
+            onPush: () => Get.to(
+              const ChangePasswordPage(),
+            ),
+          ),
         ],
       ),
     );

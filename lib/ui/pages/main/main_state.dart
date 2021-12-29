@@ -18,6 +18,7 @@ class MainState {
   ///PageView page
   late List<Widget> pageList;
   late PageController pageController;
+  final StockOrderPage stockOrderPage = StockOrderPage();
 
   MainState() {
     //Initialize index
@@ -26,7 +27,7 @@ class MainState {
     pageList = [
       const HomePage(),
       const WalletPage(),
-      StockOrderPage(),
+      stockOrderPage,
       // OrderListPage(),
       Navigator(
         key: orderListKey,
