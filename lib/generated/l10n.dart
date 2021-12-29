@@ -1970,11 +1970,31 @@ class S {
     );
   }
 
-  /// `Cancel order confirm`
+  /// `Cancel order confirmation`
   String get confirm_cancel_order {
     return Intl.message(
-      'Cancel order confirm',
+      'Cancel order confirmation',
       name: 'confirm_cancel_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change order confirmation`
+  String get confirm_change_order {
+    return Intl.message(
+      'Change order confirmation',
+      name: 'confirm_change_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change order successfully`
+  String get change_order_successfully {
+    return Intl.message(
+      'Change order successfully',
+      name: 'change_order_successfully',
       desc: '',
       args: [],
     );

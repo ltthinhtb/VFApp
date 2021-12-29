@@ -21,12 +21,20 @@ extension StockOrderService on ApiService {
     return await _apiClient.getCashBalance(requestParams);
   }
 
+  Future<ShareBalance> getShareBalance(RequestParams requestParams) async {
+    return await _apiClient.getShareBalance(requestParams);
+  }
+
   Future<void> newOrderRequest(RequestParams requestParams) async {
     return await _apiClient.newOrderRequest(requestParams);
   }
 
   Future<void> cancleOrder(RequestParams requestParams) async {
     return await _apiClient.cancleOrder(requestParams);
+  }
+
+  Future<void> changeOrder(RequestParams requestParams) async {
+    return await _apiClient.changeOrder(requestParams);
   }
 
   Future<List<IndayOrder>> getIndayOrder(RequestParams requestParams) async {

@@ -32,11 +32,20 @@ extension StringX on String {
   }
 
   bool get isMultipleOfHundred {
-    return RegExp(r'^([1-9]+[0-9]*[00]+(\.[0]+)?)$').hasMatch(this);
+    return RegExp(r'^([1-9]+[0-9]*00+(\.[0]+)?)$').hasMatch(this);
   }
 
   bool get isANumber {
-    return RegExp(r'^[+-]?([0-9]+\.?[0-9]*|\.[0-9]+)$').hasMatch(this);
+    return RegExp(r'^[+-]?([0-9]+(\,[0-9])?\.?[0-9]*|\.[0-9]+)$')
+        .hasMatch(this);
+  }
+
+  bool get isAnInteger {
+    return RegExp(r'^[+-]?([0-9]+(\,[0-9])?)$').hasMatch(this);
+  }
+
+  bool get isNotAnInteger {
+    return !RegExp(r'^[+-]?([0-9]+(\,[0-9])?)$').hasMatch(this);
   }
 
   bool get isNotANumber {

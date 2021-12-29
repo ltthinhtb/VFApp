@@ -192,6 +192,8 @@
   "aver_match_price" : "Giá khớp trung bình",
   "order_source" : "Nguồn gốc đặt",
   "confirm_cancel_order" : "Xác nhận huỷ lệnh",
+  "confirm_change_order" : "Xác nhận sửa lệnh",
+  "change_order_successfully" : "Sửa lệnh thành công",
   "cancel_order" : "Huỷ lệnh",
   "cancel_chose_orders" : "Huỷ lệnh đã chọn",
   "cancel_all_orders" : "Huỷ tất cả lệnh",

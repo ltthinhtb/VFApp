@@ -215,6 +215,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
                       children: [
                         Expanded(
                           child: RichText(
+                            maxLines: 1,
                             text: TextSpan(children: [
                               TextSpan(
                                 text: settingService.currentLocate.value ==
@@ -484,7 +485,11 @@ class _StockOrderPageState extends State<StockOrderPage> {
           padding: 15,
           onChange: (val) {
             state.isBuy.value = val;
-            logic.getCashBalance();
+            if (val) {
+              logic.getCashBalance();
+            } else {
+              logic.getShareBalance();
+            }
           },
         ),
       ),
@@ -622,7 +627,8 @@ class _StockOrderPageState extends State<StockOrderPage> {
                         } else {
                           if (state.priceController.text.isANumber) {
                             state.priceController.text = StockUtil.formatPrice(
-                              double.tryParse(state.priceController.text)! -
+                              double.tryParse(state.priceController.text
+                                      .replaceAll(",", ""))! -
                                   0.1,
                             );
                           }
@@ -638,7 +644,8 @@ class _StockOrderPageState extends State<StockOrderPage> {
                         } else {
                           if (state.priceController.text.isANumber) {
                             state.priceController.text = StockUtil.formatPrice(
-                              double.tryParse(state.priceController.text)! +
+                              double.tryParse(state.priceController.text
+                                      .replaceAll(",", ""))! +
                                   0.1,
                             );
                           }
@@ -680,19 +687,41 @@ class _StockOrderPageState extends State<StockOrderPage> {
                           ? true
                           : false,
                       onSubtractPress: () {
-                        if (state.volController.text.isANumber) {
+                        if (state.volController.text.isAnInteger) {
                           state.volController.text = StockUtil.formatVol(
-                            double.tryParse(state.volController.text)! - 100,
+                            double.tryParse(state.volController.text
+                                    .replaceAll(",", ""))! -
+                                100,
                           );
                         }
                       },
                       onAddPress: () {
-                        if (state.volController.text.isANumber) {
+                        if (state.volController.text.isAnInteger) {
                           state.volController.text = StockUtil.formatVol(
-                            double.tryParse(state.volController.text)! + 100,
+                            double.tryParse(state.volController.text
+                                    .replaceAll(",", ""))! +
+                                100,
                           );
                         }
                       },
+                      onEditingComplete: () {
+                        if (state.volController.text.isAnInteger) {
+                          state.volController.text = StockUtil.formatVol(
+                            double.tryParse(state.volController.text
+                                    .replaceAll(",", ""))! +
+                                100,
+                          );
+                        }
+                      },
+                      // onChange: () {
+                      //   if (state.volController.text.isANumber) {
+                      //     state.volController.text = StockUtil.formatVol(
+                      //       double.tryParse(state.volController.text
+                      //               .replaceAll(",", ""))! +
+                      //           100,
+                      //     );
+                      //   }
+                      // },
                     ),
                   ),
                 ),
@@ -860,12 +889,9 @@ class _StockOrderPageState extends State<StockOrderPage> {
                 Expanded(
                   flex: 3,
                   child: Text(
-                    state.selectedCashBalance.value.volumeAvaiable != null
+                    state.selectedShareBalance.value.shareBalance != null
                         ? StockUtil.formatVol(
-                            double.parse(
-                              state.selectedCashBalance.value.volumeAvaiable ??
-                                  "0",
-                            ),
+                            state.selectedShareBalance.value.shareBalance ?? 0,
                           )
                         : "0",
                     style: AppTextStyle.bodyText2,

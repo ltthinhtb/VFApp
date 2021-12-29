@@ -128,6 +128,30 @@ class StockOrderLogic extends GetxController {
     }
   }
 
+  Future<void> getShareBalance() async {
+    try {
+      // state.loading.value = true;
+      final RequestParams _requestParams = RequestParams(
+        group: "Q",
+        session: _tokenEntity.data?.sid,
+        user: _tokenEntity.data?.user,
+        data: ParamsObject(
+            type: "string",
+            cmd: "Web.sShareBalance",
+            p1: defAcc,
+            p2: state.selectedStock.value.stockCode,
+            p3: state.priceController.text,
+            p4: state.isBuy.value ? "B" : "S"),
+      );
+      state.selectedShareBalance.value =
+          await apiService.getShareBalance(_requestParams);
+      // state.loading.value = false;
+    } catch (e) {
+      // state.loading.value = false;
+      rethrow;
+    }
+  }
+
   Future<void> getStockData(StockCompanyData data) async {
     state.selectedStock.value = data;
     // thêm try catch vào để bắt exception lỗi mạng hoặc data k đúng
@@ -208,8 +232,9 @@ class StockOrderLogic extends GetxController {
         state.priceController.text.isNotANumber) {
       throw -1;
     }
-    if (state.volController.text.isNotPositive &&
-        !state.volController.text.isMultipleOfHundred) {
+    if (state.volController.text.isNotPositive ||
+        !state.volController.text.isMultipleOfHundred ||
+        state.volController.text.isNotAnInteger) {
       throw -2;
     }
     return;

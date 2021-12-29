@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_text_styles.dart';
 import 'package:vf_app/generated/l10n.dart';
+import 'package:vf_app/model/order_data/change_order_data.dart';
 import 'package:vf_app/model/order_data/inday_order.dart';
 import 'package:vf_app/ui/commons/app_snackbar.dart';
 import 'package:vf_app/ui/commons/appbar.dart';
@@ -125,7 +126,29 @@ class _OrderDetailState extends State<OrderDetail> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 5),
                       child: CustomMaterialButton(
-                        onPressed: () async {},
+                        onPressed: () async {
+                          ChangeOrderData? _r =
+                              await CustomDialog.showChangeOrderDialog(
+                            mainKey,
+                            S.of(context).confirm_change_order,
+                            [
+                              S.of(context).change_order,
+                            ],
+                            buttonColors: [
+                              AppColors.primary2,
+                              AppColors.primary
+                            ],
+                            textButtonColors: [
+                              AppColors.primary,
+                              AppColors.white
+                            ],
+                          );
+                          if (_r != null &&
+                              _r.price.isNotEmpty &&
+                              _r.vol.isNotEmpty) {
+                            await changeOrder(_r);
+                          }
+                        },
                         color: AppColors.primary,
                         child: Text(
                           S.of(context).change_order,
@@ -178,5 +201,15 @@ class _OrderDetailState extends State<OrderDetail> {
       AppSnackBar.showError(message: e.toString());
     }
     Navigator.pop(context);
+  }
+
+  Future<void> changeOrder(ChangeOrderData data) async {
+    try {
+      await logic.changeOrder(widget.data, data);
+      Navigator.pop(context);
+      AppSnackBar.showSuccess(message: S.of(context).change_order_successfully);
+    } catch (e) {
+      AppSnackBar.showError(message: e.toString());
+    }
   }
 }

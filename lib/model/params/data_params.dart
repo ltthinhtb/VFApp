@@ -22,7 +22,7 @@ class ParamsObject {
 
   //ChangeOrder
   String? orderNo;
-  String? nvol;
+  int? nvol;
   String? nprice;
 
   //CancelOrder
