@@ -98,7 +98,9 @@ class _StockOrderPageState extends State<StockOrderPage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: RefreshIndicator(
-          onRefresh: () async {},
+          onRefresh: () async {
+            await logic.refreshPage();
+          },
           child: ListView(
             // primary: false,
             // physics: const NeverScrollableScrollPhysics(),
@@ -704,12 +706,22 @@ class _StockOrderPageState extends State<StockOrderPage> {
                           );
                         }
                       },
-                      onEditingComplete: () {
+                      // onEditingComplete: () {
+                      //   if (state.volController.text.isAnInteger) {
+                      //     state.volController.text = StockUtil.formatVol(
+                      //       double.tryParse(state.volController.text
+                      //               .replaceAll(",", "")) ??
+                      //           0,
+                      //     );
+                      //   }
+                      // },
+                      onUnfocus: () {
+                        print(state.volController.text.isAnInteger);
                         if (state.volController.text.isAnInteger) {
                           state.volController.text = StockUtil.formatVol(
                             double.tryParse(state.volController.text
-                                    .replaceAll(",", ""))! +
-                                100,
+                                    .replaceAll(",", "")) ??
+                                0,
                           );
                         }
                       },

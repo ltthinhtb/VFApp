@@ -111,6 +111,7 @@ class OrderListLogic extends GetxController {
   Future<void> getListAccount() async {
     state.listAccount.clear();
     state.listAccount.add("Tất cả");
+    state.account.value = state.listAccount[0];
     final RequestParams _requestParams = RequestParams(
       group: "B",
       session: _tokenEntity.data?.sid,
@@ -128,6 +129,35 @@ class OrderListLogic extends GetxController {
     } catch (error) {
       rethrow;
     }
+  }
+
+  List<IndayOrder> filterOrder() {
+    List<IndayOrder> filtedList = state.listOrder;
+    switch (state.orderType.value) {
+      case "Tất cả":
+        break;
+      case "Mua":
+        filtedList.removeWhere((element) => element.side == "S");
+        break;
+      case "Bán":
+        filtedList.removeWhere((element) => element.side == "B");
+        break;
+      default:
+    }
+
+    // switch (state.orderStatus.value) {
+    //   case "Tất cả":
+    //     break;
+    //   case "Chờ khớp":
+    //     filtedList.removeWhere((element) => element.side == "S");
+    //     break;
+    //   case "Bán":
+    //     filtedList.removeWhere((element) => element.side == "B");
+    //     break;
+    //   default:
+    // }
+
+    return filtedList;
   }
 
   @override

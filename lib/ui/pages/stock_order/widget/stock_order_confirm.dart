@@ -45,7 +45,7 @@ class _StockOrderConfirmState extends State<StockOrderConfirm> {
             buildInfo(
               "Khối lượng",
               StockUtil.formatVol(
-                double.parse(state.volController.text),
+                double.parse(state.volController.text.replaceAll(",", "")),
               ),
             ),
             const Divider(
@@ -54,12 +54,14 @@ class _StockOrderConfirmState extends State<StockOrderConfirm> {
             ),
             buildInfo(
                 "Giá trị lệnh đặt\n(Chưa bao gồm phí và thuế)",
-                StockUtil.formatMoney(
-                        (double.tryParse(state.priceController.text) ??
-                                state.selectedStockInfo.value.lastPrice ??
-                                0) *
-                            double.parse(state.volController.text) *
-                            1000) +
+                StockUtil.formatMoney((double.tryParse(state
+                                .priceController.text
+                                .replaceAll(",", "")) ??
+                            state.selectedStockInfo.value.lastPrice ??
+                            0) *
+                        double.parse(
+                            state.volController.text.replaceAll(",", "")) *
+                        1000) +
                     " VND",
                 valueColor: AppColors.green),
           ],
