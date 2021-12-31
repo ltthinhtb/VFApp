@@ -131,7 +131,7 @@ class OrderListLogic extends GetxController {
     }
   }
 
-  List<IndayOrder> filterOrder() {
+  Future<List<IndayOrder>> filterOrder() async {
     List<IndayOrder> filtedList = state.listOrder;
     switch (state.orderType.value) {
       case "Tất cả":
