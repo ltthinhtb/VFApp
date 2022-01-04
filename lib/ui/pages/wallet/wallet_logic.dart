@@ -31,8 +31,11 @@ class WalletLogic extends GetxController {
       } else {
         throw (Exception);
       }
-    } catch (e) {
+    } on Exception catch(e){
       logger.e(e.toString());
+      await getTokenUser();
+    }
+    catch (e) {
       await getTokenUser();
     }
   }

@@ -28,6 +28,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "activated_account":
             MessageLookupByLibrary.simpleMessage("Activated account"),
         "activated_now": MessageLookupByLibrary.simpleMessage("Activated now"),
+        "add": MessageLookupByLibrary.simpleMessage("Add"),
+        "add_category": MessageLookupByLibrary.simpleMessage("Add category"),
+        "add_stock": MessageLookupByLibrary.simpleMessage("Thêm mã theo dõi"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
         "all": MessageLookupByLibrary.simpleMessage("All"),
         "are_you_sure_cancel_all_order": MessageLookupByLibrary.simpleMessage(
@@ -64,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "choose": MessageLookupByLibrary.simpleMessage("Choose"),
         "choose_identity": MessageLookupByLibrary.simpleMessage(
             "Choose your identity document"),
+        "close": MessageLookupByLibrary.simpleMessage("Close"),
         "code": MessageLookupByLibrary.simpleMessage("Code"),
         "collaborative_assets":
             MessageLookupByLibrary.simpleMessage("Collaborative Assets"),
@@ -81,6 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "coupon": MessageLookupByLibrary.simpleMessage("Coupon"),
         "day": MessageLookupByLibrary.simpleMessage("Day"),
         "deposit_fee": MessageLookupByLibrary.simpleMessage("Deposit fee"),
+        "edit": MessageLookupByLibrary.simpleMessage("edit"),
+        "edit_category": MessageLookupByLibrary.simpleMessage("Edit category"),
         "ee": MessageLookupByLibrary.simpleMessage("EE"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "email_not_valid":
@@ -160,6 +166,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "mr": MessageLookupByLibrary.simpleMessage("MR"),
         "network_error": MessageLookupByLibrary.simpleMessage("Network Error"),
         "new_password": MessageLookupByLibrary.simpleMessage("New password"),
+        "no_stock_hint_text": MessageLookupByLibrary.simpleMessage(
+            "Nhập vào ô tìm kiếm để thêm mã\nđầu tiên vào danh mục"),
         "not_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have account? "),
         "old_password": MessageLookupByLibrary.simpleMessage("Old password"),

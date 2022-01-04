@@ -4,8 +4,12 @@ import 'package:get/get.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_images.dart';
 import 'package:vf_app/generated/l10n.dart';
+import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
+import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/ui/pages/enum/vnIndex.dart';
+import 'package:vf_app/ui/pages/main/main_logic.dart';
 import 'package:vf_app/ui/widgets/textfields/app_text_field.dart';
+import 'package:vf_app/utils/logger.dart';
 
 import 'home_logic.dart';
 import 'widget/dropdown_market.dart';
@@ -33,8 +37,17 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Theme.of(context).primaryColor,
         toolbarHeight: kToolbarHeight + 20,
         title: AppTextFieldWidget(
+          readOnly: true,
           textFieldType: TextFieldType.searchAppBar,
           hintText: S.of(context).search,
+          onTap: () async {
+            await Get.toNamed(RouteConfig.search)?.then((value) {
+              if (value is StockCompanyData) {
+                logger.d(value.toJson());
+                Get.find<MainLogic>().switchTap(2);
+              }
+            });
+          },
           prefixIcon: SvgPicture.asset(
             AppImages.search_normal,
             color: AppColors.white,
@@ -42,19 +55,13 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           GestureDetector(
-              onTap: () {
-                logic.onReady();
-              },
-              child: SvgPicture.asset(AppImages.notification)),
-          const SizedBox(
-            width: 15,
-          )
+              onTap: () {}, child: SvgPicture.asset(AppImages.notification)),
+          const SizedBox(width: 15)
         ],
       ),
       body: RefreshIndicator(
-        onRefresh: () async => Future.delayed(const Duration(seconds: 1), () {
-          logic.onReady();
-        }),
+        onRefresh: () async =>
+            Future.delayed(const Duration(seconds: 1), () {}),
         child: Column(
           children: [
             const SizedBox(height: 15),

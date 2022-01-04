@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
@@ -14,8 +15,8 @@ void main() async {
   await Firebase.initializeApp();
 
   /// AWAIT SERVICES INITIALIZATION.
+  await Hive.initFlutter();
   await initServices();
-
   runApp(const MyApp());
 }
 

@@ -1,11 +1,13 @@
 import 'dart:convert';
 import 'package:get/get.dart';
+import 'package:vf_app/model/entities/category_stock.dart';
 import 'package:vf_app/model/response/index_detail.dart';
 import 'package:vf_app/model/stock_data/stock_socket.dart';
 import 'package:vf_app/services/index.dart';
 import 'package:vf_app/services/socket/socket.dart';
 import 'package:vf_app/ui/commons/app_snackbar.dart';
 import 'package:vf_app/ui/pages/enum/vnIndex.dart';
+import 'package:vf_app/utils/logger.dart';
 import 'home_state.dart';
 
 class HomeLogic extends GetxController {
@@ -13,6 +15,8 @@ class HomeLogic extends GetxController {
 
   final ApiService apiService = Get.find();
   final AuthService authService = Get.find();
+  final StoreService storeService = Get.find();
+
   final Socket _socket = Socket();
 
   Future<void> getListIndexDetail() async {
@@ -31,28 +35,19 @@ class HomeLogic extends GetxController {
     }
   }
 
-  Future<void> getListStockCode() async {
-    String market = state.market.value;
+  Future<void> getListStockCodeDefault() async {
+    String market = HomeState.CATEGORY_DEFAULT;
     try {
       final response = await apiService.getListStockCode(market);
-      String list = "";
-      response.split(",").forEach((element) {
-        if (element == response.split(",").first) {
-          list = element;
-        } else {
-          list += ',$element';
-        }
-
-        /// thêm vào socket
-        addStockSocket(element);
-      });
-      state.listStock.value = await apiService.getStockData(list);
+      state.category_default.stocks.addAll(response.split(","));
+      state.listCategory = storeService.currentCategory;
+      await selectCategory(state.category_default);
     } catch (e) {
       AppSnackBar.showError(message: e.toString());
     }
   }
 
-  void getIndexFromSocket() {
+  void socketListen() {
     _socket.socket.on('public', (data) {
       if (data != null) {
         try {
@@ -66,6 +61,7 @@ class HomeLogic extends GetxController {
               state.listIndexDetail.insert(index, stock);
             }
           } else if (data['data']['id'] == 3220) {
+            logger.d(data);
             SocketStock stock = SocketStock.fromJson(data['data']);
             var index = state.listStock
                 .indexWhere((element) => element.sym == stock.sym);
@@ -88,11 +84,57 @@ class HomeLogic extends GetxController {
     _socket.socket.emit("regs", msg);
   }
 
+  void removeStockSocket(String stock) {
+    var map = {"action": "leave", "data": "$stock"};
+    var msg = json.encode(map);
+    _socket.socket.emit("regs", msg);
+  }
+
+  Future<void> addCategory() async {
+    if (state.categoryController.text.isNotEmpty) {
+      await storeService.addCategory(
+          CategoryStock(title: state.categoryController.text, stocks: []));
+      state.categoryController.clear();
+      Get.back();
+    }
+  }
+
+  Future<void> addStockDB(String stock) async {
+    await storeService.addStock(state.category.value.title, stock);
+    /// chọn lại category
+    await selectCategory(state.category.value);
+  }
+
+  Future<void> deleteCategory(String title) async {
+    await storeService.deleteCategory(title);
+  }
+
+  Future<void> editCategory(String title, String newTitle) async {
+    await storeService.editCategory(title, newTitle);
+    Get.back(); // đóng bottom sheet
+  }
+
+  Future<void> selectCategory(CategoryStock category) async {
+    /// xóa stock socket cũ đi
+    state.category.value.stocks.forEach((element) {
+      removeStockSocket(element);
+    });
+    state.category.value = category;
+    state.listStock.value =
+        await apiService.getStockData(state.category.value.stocks.join(","));
+
+    /// cập nhật stock socket mới
+    state.category.value.stocks.forEach((element) {
+      removeStockSocket(element);
+    });
+    Get.back(); // đóng bottom sheet
+  }
+
   @override
   void onReady() {
     getListIndexDetail();
-    getListStockCode();
-    getIndexFromSocket();
+    getListStockCodeDefault();
+    socketListen();
     super.onReady();
   }
 

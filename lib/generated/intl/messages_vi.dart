@@ -28,6 +28,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "activated_account":
             MessageLookupByLibrary.simpleMessage("Kích hoạt tài khoản"),
         "activated_now": MessageLookupByLibrary.simpleMessage("Kích hoạt ngay"),
+        "add": MessageLookupByLibrary.simpleMessage("Thêm"),
+        "add_category": MessageLookupByLibrary.simpleMessage("Thêm danh mục"),
+        "add_stock": MessageLookupByLibrary.simpleMessage("Thêm mã theo dõi"),
         "agree": MessageLookupByLibrary.simpleMessage("Đồng ý"),
         "all": MessageLookupByLibrary.simpleMessage("Tất cả"),
         "are_you_sure_cancel_all_order": MessageLookupByLibrary.simpleMessage(
@@ -65,6 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "choose": MessageLookupByLibrary.simpleMessage("Chọn"),
         "choose_identity":
             MessageLookupByLibrary.simpleMessage("Chọn giấy tờ tùy thân"),
+        "close": MessageLookupByLibrary.simpleMessage("Đóng"),
         "code": MessageLookupByLibrary.simpleMessage("Mã"),
         "collaborative_assets":
             MessageLookupByLibrary.simpleMessage("Tài sản hợp tác"),
@@ -84,6 +88,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "coupon": MessageLookupByLibrary.simpleMessage("Lợi suất đầu tư"),
         "day": MessageLookupByLibrary.simpleMessage("Ngày"),
         "deposit_fee": MessageLookupByLibrary.simpleMessage("Tổng phí"),
+        "edit": MessageLookupByLibrary.simpleMessage("Sửa"),
+        "edit_category":
+            MessageLookupByLibrary.simpleMessage("Thay đổi danh mục"),
         "ee": MessageLookupByLibrary.simpleMessage("Sức mua tài khoản"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "email_not_valid":
@@ -164,6 +171,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "mr": MessageLookupByLibrary.simpleMessage("Số dư tiền hợp tác"),
         "network_error": MessageLookupByLibrary.simpleMessage("Lỗi kết nối"),
         "new_password": MessageLookupByLibrary.simpleMessage("Mật khẩu mới"),
+        "no_stock_hint_text": MessageLookupByLibrary.simpleMessage(
+            "Nhập vào ô tìm kiếm để thêm mã\nđầu tiên vào danh mục"),
         "not_account":
             MessageLookupByLibrary.simpleMessage("Bạn chưa có tài khoản? "),
         "old_password": MessageLookupByLibrary.simpleMessage("Mật khẩu cũ"),

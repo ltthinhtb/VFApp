@@ -26,11 +26,6 @@ class _SignInPageState extends State<SignInPage> with Validator {
   final logic = Get.put(SignInLogic());
   final state = Get.find<SignInLogic>().state;
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
