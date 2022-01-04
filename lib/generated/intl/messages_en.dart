@@ -60,6 +60,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "category": MessageLookupByLibrary.simpleMessage("Menu"),
         "ceil": MessageLookupByLibrary.simpleMessage("Ceil"),
         "change_order": MessageLookupByLibrary.simpleMessage("Change order"),
+        "change_order_successfully":
+            MessageLookupByLibrary.simpleMessage("Change order successfully"),
         "change_password":
             MessageLookupByLibrary.simpleMessage("Change password"),
         "change_password_success": MessageLookupByLibrary.simpleMessage(
@@ -75,7 +77,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Collaborative assets total"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirm_cancel_order":
-            MessageLookupByLibrary.simpleMessage("Cancel order confirm"),
+            MessageLookupByLibrary.simpleMessage("Cancel order confirmation"),
+        "confirm_change_order":
+            MessageLookupByLibrary.simpleMessage("Change order confirmation"),
         "confirm_new_password":
             MessageLookupByLibrary.simpleMessage("Confirm new password"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("Confirm OTP"),

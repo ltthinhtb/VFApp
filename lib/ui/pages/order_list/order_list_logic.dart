@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 import 'package:vf_app/model/entities/index.dart';
+import 'package:vf_app/model/order_data/change_order_data.dart';
+import 'package:vf_app/model/order_data/inday_order.dart';
 import 'package:vf_app/model/params/data_params.dart';
 import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/services/api/api_service.dart';
@@ -75,6 +77,29 @@ class OrderListLogic extends GetxController {
     getOrderList();
   }
 
+  Future<void> changeOrder(IndayOrder data, ChangeOrderData changeData) async {
+    RequestParams _requestParams = RequestParams(
+      group: "O",
+      session: _tokenEntity.data?.sid,
+      user: _tokenEntity.data?.user,
+      data: ParamsObject(
+        type: "string",
+        cmd: "Web.changeOrder",
+        orderNo: data.orderNo,
+        nvol: int.tryParse(changeData.vol) ?? 0,
+        nprice: changeData.price,
+        fisID: "",
+        orderType: "1",
+        pin: "123456",
+      ),
+    );
+    try {
+      await apiService.changeOrder(_requestParams);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   bool itemIsChecked(String no) {
     if (state.selectedListOrder.any((element) => element.orderNo == no)) {
       return true;
@@ -86,6 +111,7 @@ class OrderListLogic extends GetxController {
   Future<void> getListAccount() async {
     state.listAccount.clear();
     state.listAccount.add("Tất cả");
+    state.account.value = state.listAccount[0];
     final RequestParams _requestParams = RequestParams(
       group: "B",
       session: _tokenEntity.data?.sid,
@@ -103,6 +129,35 @@ class OrderListLogic extends GetxController {
     } catch (error) {
       rethrow;
     }
+  }
+
+  Future<List<IndayOrder>> filterOrder() async {
+    List<IndayOrder> filtedList = state.listOrder;
+    switch (state.orderType.value) {
+      case "Tất cả":
+        break;
+      case "Mua":
+        filtedList.removeWhere((element) => element.side == "S");
+        break;
+      case "Bán":
+        filtedList.removeWhere((element) => element.side == "B");
+        break;
+      default:
+    }
+
+    // switch (state.orderStatus.value) {
+    //   case "Tất cả":
+    //     break;
+    //   case "Chờ khớp":
+    //     filtedList.removeWhere((element) => element.side == "S");
+    //     break;
+    //   case "Bán":
+    //     filtedList.removeWhere((element) => element.side == "B");
+    //     break;
+    //   default:
+    // }
+
+    return filtedList;
   }
 
   @override

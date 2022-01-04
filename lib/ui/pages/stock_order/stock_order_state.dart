@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:vf_app/model/response/account_status.dart';
 import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
 import 'package:vf_app/model/stock_data/cash_balance.dart';
+import 'package:vf_app/model/stock_data/share_balance.dart';
 import 'package:vf_app/model/stock_data/stock_data.dart';
 import 'package:vf_app/model/stock_data/stock_info.dart';
 
@@ -20,6 +21,7 @@ class StockOrderState {
   var selectedStockInfo = StockInfo().obs;
   var selectedStockData = StockData().obs;
   var selectedCashBalance = CashBalance().obs;
+  var selectedShareBalance = ShareBalance().obs;
 
   var isBuy = true.obs;
   var stockExchange = StockExchange.HSX.obs;

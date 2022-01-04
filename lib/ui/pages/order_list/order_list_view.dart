@@ -272,7 +272,7 @@ class _OrderListPageState extends State<OrderListPage> {
                   isExpanded: true,
                   label: S.of(context).account,
                   value: state.account.value.isEmpty
-                      ? state.listAccount[0]
+                      ? S.of(context).all
                       : state.account.value,
                   onChanged: (_value) {
                     state.account.value = _value ?? state.listAccount[0];

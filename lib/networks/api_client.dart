@@ -21,6 +21,7 @@ import 'package:vf_app/model/response/portfolio.dart';
 import 'package:vf_app/model/response/portfolio_account_status.dart';
 import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
 import 'package:vf_app/model/stock_data/cash_balance.dart';
+import 'package:vf_app/model/stock_data/share_balance.dart';
 import 'package:vf_app/model/stock_data/stock_data.dart';
 import 'package:vf_app/model/stock_data/stock_info.dart';
 import 'package:vf_app/router/route_config.dart';
@@ -67,9 +68,13 @@ abstract class ApiClient {
 
   Future<CashBalance> getCashBalance(RequestParams requestParams);
 
+  Future<ShareBalance> getShareBalance(RequestParams requestParams);
+
   Future<void> newOrderRequest(RequestParams requestParams);
 
   Future<void> cancleOrder(RequestParams requestParams);
+
+  Future<void> changeOrder(RequestParams requestParams);
 
   Future<List<IndayOrder>> getIndayOrder(RequestParams requestParams);
 
@@ -146,7 +151,7 @@ class _ApiClient implements ApiClient {
       var _rs = _mapData['rs'] ?? "FOException.InvalidSessionException";
 
       /// kiểm tra điều kiện thành công
-      if (_rc == 1) {
+      if (_rc > 0) {
         return response;
       }
 
@@ -409,6 +414,23 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+  Future<ShareBalance> getShareBalance(RequestParams requestParams) async {
+    try {
+      Response _result = await _requestApi(
+        _dio.post(
+          AppConfigs.ENDPOINT_CORE,
+          data: requestParams.toJson(),
+        ),
+      );
+      var _mapData = _decodeMap(_result.data);
+      final _value = ShareBalance.fromJson(_mapData['data']);
+      return _value;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
   Future<void> newOrderRequest(RequestParams requestParams) async {
     try {
       await _requestOrderApi(
@@ -425,6 +447,21 @@ class _ApiClient implements ApiClient {
 
   @override
   Future<void> cancleOrder(RequestParams requestParams) async {
+    try {
+      await _requestOrderApi(
+        _dio.post(
+          AppConfigs.ENDPOINT_CORE,
+          data: requestParams.toJson(),
+        ),
+      );
+      return;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> changeOrder(RequestParams requestParams) async {
     try {
       await _requestOrderApi(
         _dio.post(

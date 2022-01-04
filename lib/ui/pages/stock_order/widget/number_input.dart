@@ -98,6 +98,7 @@ class NumberInputField extends StatefulWidget {
     this.onAddPress,
     this.onChange,
     this.onEditingComplete,
+    this.onUnfocus,
     this.maxLength = 20,
   }) : super(key: key);
   final Color backgroundColor;
@@ -110,6 +111,7 @@ class NumberInputField extends StatefulWidget {
   final Function()? onAddPress;
   final Function()? onChange;
   final Function()? onEditingComplete;
+  final Function()? onUnfocus;
   final int? maxLength;
 
   @override
@@ -141,10 +143,13 @@ class _NumberInputFieldState extends State<NumberInputField> {
         _hintText = "";
       } else {
         _hintText = widget.label;
+        widget.onUnfocus?.call();
       }
       setState(() {});
     });
   }
+
+  // void focusListener() {}
 
   @override
   void didUpdateWidget(oldWidget) {
@@ -250,6 +255,7 @@ class _NumberInputFieldState extends State<NumberInputField> {
                 },
                 onEditingComplete: () {
                   if (enabled) {
+                    _focusNode?.unfocus();
                     widget.onEditingComplete?.call();
                     // if (widget.editingController.text.isANumber()) {
                     //   setState(() {

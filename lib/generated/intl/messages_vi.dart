@@ -62,6 +62,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "category": MessageLookupByLibrary.simpleMessage("Khác"),
         "ceil": MessageLookupByLibrary.simpleMessage("Trần"),
         "change_order": MessageLookupByLibrary.simpleMessage("Sửa lệnh"),
+        "change_order_successfully":
+            MessageLookupByLibrary.simpleMessage("Sửa lệnh thành công"),
         "change_password": MessageLookupByLibrary.simpleMessage("Đổi mật khẩu"),
         "change_password_success":
             MessageLookupByLibrary.simpleMessage("Đổi mật khẩu thành công"),
@@ -77,6 +79,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm": MessageLookupByLibrary.simpleMessage("Xác nhận"),
         "confirm_cancel_order":
             MessageLookupByLibrary.simpleMessage("Xác nhận huỷ lệnh"),
+        "confirm_change_order":
+            MessageLookupByLibrary.simpleMessage("Xác nhận sửa lệnh"),
         "confirm_new_password":
             MessageLookupByLibrary.simpleMessage("Xác nhận mật khẩu mới"),
         "confirm_otp": MessageLookupByLibrary.simpleMessage("Xác nhận OTP"),

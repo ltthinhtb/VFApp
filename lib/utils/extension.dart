@@ -20,27 +20,35 @@ extension StringX on String {
   }
 
   bool get isPositive {
-    return RegExp(r'^[^-]([0-9]+\.?[0-9]*|\.[0-9]+)$').hasMatch(this);
+    return RegExp(r'^[^-](\d+\.?\d*|\.\d+)$').hasMatch(this);
   }
 
   bool get isNotPositive {
-    return !RegExp(r'^[^-]([0-9]+\.?[0-9]*|\.[0-9]+)$').hasMatch(this);
+    return RegExp(r'^-(\d+(\.\d+)?)$').hasMatch(this);
   }
 
   bool get isMultipleOfTen {
-    return RegExp(r'^[^-]([0-9]+0(\.?[0]*|\.[0]+)?)$').hasMatch(this);
+    return RegExp(r'^[^-](\d+0(\.?0*|\.0+)?)$').hasMatch(this);
   }
 
   bool get isMultipleOfHundred {
-    return RegExp(r'^([1-9]+[0-9]*[00]+(\.[0]+)?)$').hasMatch(this);
+    return RegExp(r'^([1-9]+\d*(\,\d{3})*(\,\d{1})00(\.0+)?)$').hasMatch(this);
   }
 
   bool get isANumber {
-    return RegExp(r'^[+-]?([0-9]+\.?[0-9]*|\.[0-9]+)$').hasMatch(this);
+    return RegExp(r'^[+-]?(\d+(\,\d+)*(\.\d+)?)$').hasMatch(this);
+  }
+
+  bool get isAnInteger {
+    return RegExp(r'^[+-]?(\d+(\,\d+)*)$').hasMatch(this);
+  }
+
+  bool get isNotAnInteger {
+    return !RegExp(r'^[+-]?(\d+(\,\d+)*)$').hasMatch(this);
   }
 
   bool get isNotANumber {
-    return !RegExp(r'^[+-]?([0-9]+\.?[0-9]*|\.[0-9]+)$').hasMatch(this);
+    return !RegExp(r'^[+-]?(\d+(\,\d)?)$').hasMatch(this);
   }
 
   bool get isATO {

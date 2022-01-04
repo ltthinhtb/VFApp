@@ -212,5 +212,7 @@
   "edit_category": "Thay đổi danh mục",
   "edit" : "Sửa",
   "no_stock_hint_text" : "Nhập vào ô tìm kiếm để thêm mã\nđầu tiên vào danh mục",
-  "add_stock" : "Thêm mã theo dõi"
+  "add_stock" : "Thêm mã theo dõi",
+  "confirm_change_order" : "Xác nhận sửa lệnh",
+  "change_order_successfully" : "Sửa lệnh thành công"
 }
