@@ -210,5 +210,12 @@
   "matched":"Matched",
   "cancelled":"Cancelled",
   "waiting_cancelled":"Waiting cancelled",
-  "rejected":"Rejected"
+  "rejected":"Rejected",
+  "add_category" : "Add category",
+  "close" : "Close",
+  "add" : "Add",
+  "edit_category" : "Edit category",
+  "edit" : "edit",
+  "no_stock_hint_text" : "Nhập vào ô tìm kiếm để thêm mã\nđầu tiên vào danh mục",
+  "add_stock" : "Thêm mã theo dõi"
 }

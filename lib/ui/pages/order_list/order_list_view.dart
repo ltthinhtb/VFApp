@@ -28,6 +28,7 @@ class _OrderListPageState extends State<OrderListPage> {
   final logic = Get.put(OrderListLogic());
   final state = Get.find<OrderListLogic>().state;
 
+
   @override
   void initState() {
     super.initState();

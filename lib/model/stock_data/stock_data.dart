@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:vf_app/common/app_colors.dart';
 
+import 'stock_socket.dart';
+
 class StockData {
   int? id;
   String? sym;
@@ -30,16 +32,7 @@ class StockData {
   G? g6;
   G? g7;
   String? mp;
-
-  Color get color => lastPrice == c
-      ? AppColors.flow
-      : lastPrice == f
-          ? AppColors.primary
-          : lastPrice! > r!
-              ? AppColors.increase
-              : lastPrice! < r!
-                  ? AppColors.decrease
-                  : AppColors.yellow;
+  Color? color;
 
   StockData(
       {this.id,
@@ -68,7 +61,8 @@ class StockData {
       this.g5,
       this.g6,
       this.g7,
-      this.mp});
+      this.mp,
+      this.color});
 
   StockData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -98,6 +92,51 @@ class StockData {
     g6 = G.fromJson(json['g6']);
     g7 = G.fromJson(json['g7']);
     mp = json['mp'];
+    color = lastPrice == c
+        ? AppColors.flow
+        : lastPrice == f
+            ? AppColors.primary
+            : lastPrice! > r!
+                ? AppColors.increase
+                : lastPrice! < r!
+                    ? AppColors.decrease
+                    : AppColors.yellow;
+  }
+
+  StockData copyWith(SocketStock socket) {
+    return StockData(
+        id: socket.id?.toInt() ?? id,
+        sym: socket.sym ?? sym,
+        mc: mc,
+        c: c,
+        f: f,
+        r: r,
+        lastPrice: socket.lastPrice ?? lastPrice,
+        lastVolume: socket.lastVol ?? lastVolume,
+        lot: lot,
+        ot: ot,
+        changePc: socket.change,
+        avePrice: avePrice,
+        highPrice: highPrice,
+        lowPrice: lowPrice,
+        fBVol: fBVol,
+        fBValue: fBValue,
+        fSVolume: fSVolume,
+        fSValue: fSValue,
+        fRoom: fRoom,
+        g1: g1,
+        g2: g2,
+        g3: g3,
+        g4: g4,
+        g5: g5,
+        g6: g6,
+        g7: g7,
+        mp: mp,
+        color: socket.cl == "i"
+            ? AppColors.increase
+            : socket.cl == "d"
+                ? AppColors.decrease
+                : AppColors.yellow);
   }
 
   Map<String, dynamic> toJson() {

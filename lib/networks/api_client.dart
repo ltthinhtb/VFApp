@@ -123,7 +123,6 @@ class _ApiClient implements ApiClient {
         throw ErrorException(response.statusCode!, _mapData['rs']);
       }
     } catch (error) {
-      logger.e(error.toString());
       throw _handleError(error);
     }
   }

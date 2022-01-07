@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
+import 'package:vf_app/model/entities/user_stock.dart';
 import 'package:vf_app/model/params/data_params.dart';
 import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/networks/error_exception.dart';
 import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/services/api/api_service.dart';
 import 'package:vf_app/services/auth_service.dart';
+import 'package:vf_app/services/index.dart';
 import 'package:vf_app/ui/commons/app_loading.dart';
 import 'package:vf_app/ui/commons/app_snackbar.dart';
 import 'package:vf_app/utils/validator.dart';
@@ -16,6 +18,7 @@ class SignInLogic extends GetxController with Validator {
 
   ApiService apiService = Get.find();
   AuthService authService = Get.find();
+  StoreService storeService = Get.find();
 
   final RequestParams _requestParams = RequestParams(
     group: "L",
@@ -44,6 +47,10 @@ class SignInLogic extends GetxController with Validator {
         if (result != null) {
           authService.saveToken(result);
           AppLoading.disMissLoading();
+          await storeService.addUser(UserStock(
+              name: result.data!.name!,
+              userID: result.data!.user!,
+              category: []));
           await Get.offAllNamed(RouteConfig.main);
         } else {
           signIn();

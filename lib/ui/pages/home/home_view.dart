@@ -4,8 +4,12 @@ import 'package:get/get.dart';
 import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_images.dart';
 import 'package:vf_app/generated/l10n.dart';
+import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
+import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/ui/pages/enum/vnIndex.dart';
+import 'package:vf_app/ui/pages/main/main_logic.dart';
 import 'package:vf_app/ui/widgets/textfields/app_text_field.dart';
+import 'package:vf_app/utils/logger.dart';
 
 import 'home_logic.dart';
 import 'widget/dropdown_market.dart';
@@ -26,7 +30,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final headline6 = Theme.of(context).textTheme.headline6;
     final headline4 = Theme.of(context).textTheme.headline4;
-
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
@@ -34,8 +37,17 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Theme.of(context).primaryColor,
         toolbarHeight: kToolbarHeight + 20,
         title: AppTextFieldWidget(
+          readOnly: true,
           textFieldType: TextFieldType.searchAppBar,
           hintText: S.of(context).search,
+          onTap: () async {
+            await Get.toNamed(RouteConfig.search)?.then((value) {
+              if (value is StockCompanyData) {
+                logger.d(value.toJson());
+                Get.find<MainLogic>().switchTap(2);
+              }
+            });
+          },
           prefixIcon: SvgPicture.asset(
             AppImages.search_normal,
             color: AppColors.white,
@@ -43,68 +55,62 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           GestureDetector(
-              onTap: () {
-                logic.onReady();
-              },
-              child: SvgPicture.asset(AppImages.notification)),
-          const SizedBox(
-            width: 15,
-          )
+              onTap: () {}, child: SvgPicture.asset(AppImages.notification)),
+          const SizedBox(width: 15)
         ],
       ),
       body: RefreshIndicator(
-        onRefresh: () async => Future.delayed(const Duration(seconds: 1), () {
-          logic.onReady();
-        }),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(height: 15),
-              SizedBox(
-                height: 100,
-                child: Obx(() {
-                  return ListView.separated(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          decoration: BoxDecoration(
-                              color: AppColors.cardPortfolio,
-                              borderRadius: BorderRadius.circular(15)),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                state.listIndexDetail[index].stockCode?.name ??
-                                    "",
-                                style:
-                                    headline6!.copyWith(color: AppColors.white),
-                              ),
-                              const SizedBox(height: 5),
-                              Text(
-                                '${state.listIndexDetail[index].cIndex}',
-                                style: headline4!.copyWith(
-                                    color: state.listIndexDetail[index].color),
-                              ),
-                              const SizedBox(height: 5),
-                              Text(
-                                '${state.listIndexDetail[index].percentPrice}(${state.listIndexDetail[index].percent})',
-                                style: headline6.copyWith(
-                                    color: state.listIndexDetail[index].color),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                      separatorBuilder: (context, index) {
-                        return const SizedBox(width: 10);
-                      },
-                      itemCount: state.listIndexDetail.length);
-                }),
-              ),
-              const SizedBox(height: 20),
-              Container(
+        onRefresh: () async =>
+            Future.delayed(const Duration(seconds: 1), () {}),
+        child: Column(
+          children: [
+            const SizedBox(height: 15),
+            SizedBox(
+              height: 100,
+              child: Obx(() {
+                return ListView.separated(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        decoration: BoxDecoration(
+                            color: AppColors.cardPortfolio,
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              state.listIndexDetail[index].stockCode?.name ??
+                                  "",
+                              style:
+                                  headline6!.copyWith(color: AppColors.white),
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              '${state.listIndexDetail[index].cIndex}',
+                              style: headline4!.copyWith(
+                                  color: state.listIndexDetail[index].color),
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              '${state.listIndexDetail[index].percentPrice}(${state.listIndexDetail[index].percent})',
+                              style: headline6.copyWith(
+                                  color: state.listIndexDetail[index].color),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(width: 10);
+                    },
+                    itemCount: state.listIndexDetail.length);
+              }),
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: Container(
                 decoration: const BoxDecoration(
                     color: AppColors.white,
                     borderRadius: BorderRadius.only(
@@ -119,9 +125,9 @@ class _HomePageState extends State<HomePage> {
                     const ListStockView()
                   ],
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );

@@ -2169,6 +2169,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Add category`
+  String get add_category {
+    return Intl.message(
+      'Add category',
+      name: 'add_category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get close {
+    return Intl.message(
+      'Close',
+      name: 'close',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add`
+  String get add {
+    return Intl.message(
+      'Add',
+      name: 'add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit category`
+  String get edit_category {
+    return Intl.message(
+      'Edit category',
+      name: 'edit_category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `edit`
+  String get edit {
+    return Intl.message(
+      'edit',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nhập vào ô tìm kiếm để thêm mã\nđầu tiên vào danh mục`
+  String get no_stock_hint_text {
+    return Intl.message(
+      'Nhập vào ô tìm kiếm để thêm mã\nđầu tiên vào danh mục',
+      name: 'no_stock_hint_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thêm mã theo dõi`
+  String get add_stock {
+    return Intl.message(
+      'Thêm mã theo dõi',
+      name: 'add_stock',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

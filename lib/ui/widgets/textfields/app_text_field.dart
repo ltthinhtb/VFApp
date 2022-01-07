@@ -20,6 +20,7 @@ class AppTextFieldWidget extends StatefulWidget {
   final int? maxLength;
   final bool readOnly;
   final TextFieldType textFieldType;
+  final VoidCallback? onTap;
 
   AppTextFieldWidget({
     this.inputController,
@@ -36,6 +37,7 @@ class AppTextFieldWidget extends StatefulWidget {
     this.maxLength,
     this.readOnly = false,
     this.textFieldType = TextFieldType.normal,
+    this.onTap,
   });
 
   @override
@@ -83,6 +85,7 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
           obscureText: _obscureText,
           style: widget.textFieldType.style,
           onFieldSubmitted: widget.onFieldSubmitted,
+          onTap: widget.onTap,
           inputFormatters: [
             LengthLimitingTextInputFormatter(widget.maxLength),
           ],
@@ -129,6 +132,7 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
 enum TextFieldType {
   normal,
   searchAppBar,
+  dialog
 }
 
 extension TextFieldTypeExt on TextFieldType {
@@ -137,6 +141,8 @@ extension TextFieldTypeExt on TextFieldType {
       case TextFieldType.normal:
         return null;
       case TextFieldType.searchAppBar:
+        return true;
+      case TextFieldType.dialog:
         return true;
     }
   }
@@ -147,6 +153,8 @@ extension TextFieldTypeExt on TextFieldType {
         return null;
       case TextFieldType.searchAppBar:
         return AppColors.cardPortfolio;
+      case TextFieldType.dialog:
+        return AppColors.grayF2;
     }
   }
 
@@ -156,6 +164,8 @@ extension TextFieldTypeExt on TextFieldType {
         return null;
       case TextFieldType.searchAppBar:
         return _defaultBorder;
+      case TextFieldType.dialog:
+        return null;
     }
   }
 
@@ -165,6 +175,8 @@ extension TextFieldTypeExt on TextFieldType {
         return null;
       case TextFieldType.searchAppBar:
         return AppTextStyle.H6Regular.copyWith(color: AppColors.white);
+      case TextFieldType.dialog:
+        return null;
     }
   }
 }

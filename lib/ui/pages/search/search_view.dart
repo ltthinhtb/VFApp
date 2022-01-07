@@ -5,6 +5,7 @@ import 'package:vf_app/common/app_images.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/stock_company_data/stock_company_data.dart';
 import 'package:vf_app/services/setting_service.dart';
+import 'package:vf_app/ui/pages/home/home_logic.dart';
 import 'package:vf_app/ui/pages/search/search_logic.dart';
 import 'package:vf_app/ui/widgets/textfields/app_text_field.dart';
 
@@ -97,7 +98,10 @@ class _SearchPageState extends State<SearchPage> {
                 alignment: Alignment.centerRight,
                 // tạo thêm 1 common icon button nhé
                 child: MaterialButton(
-                  onPressed: () => _isLike = !_isLike,
+                  onPressed: () {
+                    _isLike = !_isLike;
+                    Get.find<HomeLogic>().addStockDB(data.stockCode!);
+                  },
                   animationDuration: const Duration(microseconds: 100),
                   elevation: 0,
                   highlightElevation: 0,

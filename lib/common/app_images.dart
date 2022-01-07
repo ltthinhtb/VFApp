@@ -1,3 +1,4 @@
+
 class AppImages {
   //splash
   static String splash1 = 'assets/image/splash_1.png';
@@ -31,6 +32,10 @@ class AppImages {
   static String camera = 'assets/icon_svg/camera.svg';
   static String notification = 'assets/icon_svg/notification.svg';
   static String add_square = 'assets/icon_svg/add-square.svg';
+  static String pencil_2 = 'assets/icon_svg/edit-2.svg';
+  static String trash = 'assets/icon_svg/trash.svg';
+
+
 
   // icon image
   static String present = 'assets/icon_svg/present.svg';
@@ -46,4 +51,8 @@ class AppImages {
   static String document_text_1 = 'assets/icon_svg/document-text-purple.svg';
   static String category_0 = 'assets/icon_svg/categoty-grey.svg';
   static String category_1 = 'assets/icon_svg/category-purple.svg';
+
+  static String search_big_size = 'assets/icon_svg/search-big-size.svg';
+
+
 }

@@ -8,6 +8,7 @@ import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/ui/pages/menu/menu_logic.dart';
 import 'package:vf_app/ui/pages/menu/panel/cust_info/cust_info_view.dart';
 import 'package:vf_app/ui/pages/menu/panel/setting/setting.dart';
+import 'package:vf_app/ui/pages/user/user_logic.dart';
 
 class Menu extends StatefulWidget {
   Menu({Key? key}) : super(key: key);
@@ -19,6 +20,9 @@ class Menu extends StatefulWidget {
 class _MenuState extends State<Menu> {
   final logic = Get.put(MenuLogic());
   final state = Get.find<MenuLogic>().state;
+
+  final userLogic =  Get.put(UserLogic());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

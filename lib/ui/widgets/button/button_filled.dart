@@ -5,18 +5,20 @@ class ButtonFill extends StatelessWidget {
   final VoidCallback? voidCallback;
   final String title;
   final ButtonEnums type;
+  final ButtonStyle? style;
 
   const ButtonFill(
       {Key? key,
       required this.voidCallback,
       required this.title,
-      this.type = ButtonEnums.fill})
+      this.type = ButtonEnums.fill,
+      this.style})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      style: type.type,
+      style: style ?? type.type,
       onPressed: voidCallback,
       child: Text(title),
     );
@@ -32,10 +34,9 @@ extension ButtonTypeExt on ButtonEnums {
         return null;
       case ButtonEnums.cancel:
         return ElevatedButton.styleFrom(
-          primary: AppColors.mainMenu2,
-          onPrimary: AppColors.primary,
-          elevation: 0
-        );
+            primary: AppColors.mainMenu2,
+            onPrimary: AppColors.primary,
+            elevation: 0);
     }
   }
 }
