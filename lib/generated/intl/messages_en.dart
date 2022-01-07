@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "account": MessageLookupByLibrary.simpleMessage("Account"),
+        "account_info": MessageLookupByLibrary.simpleMessage("Account info"),
         "account_short": MessageLookupByLibrary.simpleMessage("Acc"),
         "account_user": MessageLookupByLibrary.simpleMessage("User"),
         "activated_account":
@@ -294,6 +295,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "user": MessageLookupByLibrary.simpleMessage("User"),
         "user_guide": MessageLookupByLibrary.simpleMessage("User guide"),
         "user_name": MessageLookupByLibrary.simpleMessage("Username"),
+        "vol_is_not_integer":
+            MessageLookupByLibrary.simpleMessage("Volumn must be an integer"),
+        "vol_is_not_positive":
+            MessageLookupByLibrary.simpleMessage("Volumn must be positive"),
         "volume_short": MessageLookupByLibrary.simpleMessage("Volume"),
         "volumn": MessageLookupByLibrary.simpleMessage("Volumn"),
         "waiting_cancelled":

@@ -3,7 +3,7 @@ import 'package:vf_app/ui/pages/menu/panel/setting/change_password_page/change_p
 class ParamsObject {
   String? type;
   String? cmd;
-  ChangePasswordModel? p;
+  var p;
   String? p1;
   String? p2;
   String? p3;

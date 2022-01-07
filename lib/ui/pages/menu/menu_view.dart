@@ -6,6 +6,7 @@ import 'package:vf_app/common/app_text_styles.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/router/route_config.dart';
 import 'package:vf_app/ui/pages/menu/menu_logic.dart';
+import 'package:vf_app/ui/pages/menu/panel/cust_info/cust_info_view.dart';
 import 'package:vf_app/ui/pages/menu/panel/setting/setting.dart';
 import 'package:vf_app/ui/pages/user/user_logic.dart';
 
@@ -47,37 +48,49 @@ class _MenuState extends State<Menu> {
 
   Widget buildInfoRow() {
     return Obx(
-      () => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        decoration: const BoxDecoration(
-          color: AppColors.grayF2,
-          borderRadius: BorderRadius.all(
-            Radius.circular(15),
+      () => GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            GetPageRoute(
+              page: () => CustomInfo(),
+            ),
+          );
+        },
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          decoration: const BoxDecoration(
+            color: AppColors.grayF2,
+            borderRadius: BorderRadius.all(
+              Radius.circular(15),
+            ),
           ),
-        ),
-        child: Row(
-          children: [
-            const CircleAvatar(
-              maxRadius: 27,
-              backgroundColor: AppColors.primary,
-            ),
-            Container(
-              width: 15,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  state.name.value,
-                  style: AppTextStyle.H5Bold.copyWith(color: AppColors.primary),
-                ),
-                Text(
-                  state.acc.value,
-                  style: AppTextStyle.H5Bold.copyWith(color: AppColors.primary),
-                ),
-              ],
-            )
-          ],
+          child: Row(
+            children: [
+              const CircleAvatar(
+                maxRadius: 27,
+                backgroundColor: AppColors.primary,
+              ),
+              Container(
+                width: 15,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    state.name.value,
+                    style:
+                        AppTextStyle.H5Bold.copyWith(color: AppColors.primary),
+                  ),
+                  Text(
+                    state.acc.value,
+                    style:
+                        AppTextStyle.H5Bold.copyWith(color: AppColors.primary),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

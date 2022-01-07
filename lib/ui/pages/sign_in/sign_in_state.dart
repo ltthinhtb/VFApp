@@ -7,7 +7,7 @@ class SignInState {
   final formKeyPass = GlobalKey<FormState>();
 
   SignInState() {
-    usernameTextController = TextEditingController(text: '888888');
+    usernameTextController = TextEditingController(text: '696969');
     passwordTextController = TextEditingController(text: "123456");
   }
 }

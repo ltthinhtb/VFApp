@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "account": MessageLookupByLibrary.simpleMessage("Tài khoản"),
+        "account_info":
+            MessageLookupByLibrary.simpleMessage("Thông tin tài khoản"),
         "account_short": MessageLookupByLibrary.simpleMessage("TK"),
         "account_user": MessageLookupByLibrary.simpleMessage("Tên tài khoản"),
         "activated_account":
@@ -300,6 +302,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "user_guide": MessageLookupByLibrary.simpleMessage("Hướng dẫn sử dụng"),
         "user_name":
             MessageLookupByLibrary.simpleMessage("Số tài khoản/Số điện thoại "),
+        "vol_is_not_integer": MessageLookupByLibrary.simpleMessage(
+            "Khối lượng phải là số nguyên"),
+        "vol_is_not_positive":
+            MessageLookupByLibrary.simpleMessage("Khối lượng phải lớn hơn 0"),
         "volume_short": MessageLookupByLibrary.simpleMessage("KL"),
         "volumn": MessageLookupByLibrary.simpleMessage("Khối lượng"),
         "waiting_cancelled": MessageLookupByLibrary.simpleMessage("Chờ huỷ"),

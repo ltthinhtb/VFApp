@@ -255,11 +255,20 @@ class StockOrderLogic extends GetxController {
         state.priceController.text.isNotANumber) {
       throw -1;
     }
-    if (state.volController.text.isNotPositive ||
-        !state.volController.text.isMultipleOfHundred ||
-        state.volController.text.isNotAnInteger) {
+    if (state.volController.text.isNotANumber) {
       throw -2;
     }
+    if (state.volController.text.isNotPositive) {
+      throw -3;
+    }
+    if (state.volController.text.isNotAnInteger) {
+      throw -4;
+    }
+    // if (state.volController.text.isNotPositive ||
+    //     !state.volController.text.isMultipleOfHundred ||
+    //     state.volController.text.isNotAnInteger) {
+    //   throw -2;
+    // }
     return;
   }
 

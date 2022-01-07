@@ -6,6 +6,7 @@ import 'package:vf_app/model/order_data/inday_order.dart';
 import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/model/params/open_account_param.dart';
 import 'package:vf_app/model/response/Image_orc_check.dart';
+import 'package:vf_app/model/response/account_info.dart';
 import 'package:vf_app/model/response/account_status.dart';
 import 'package:vf_app/model/response/check_account_response.dart';
 import 'package:vf_app/model/response/face_check_response.dart';

@@ -146,6 +146,12 @@ class _StockOrderPageState extends State<StockOrderPage> {
               case -2:
                 return AppSnackBar.showError(
                     message: S.of(context).invalid_volumn);
+              case -3:
+                return AppSnackBar.showError(
+                    message: S.of(context).vol_is_not_positive);
+              case -4:
+                return AppSnackBar.showError(
+                    message: S.of(context).vol_is_not_integer);
               default:
                 return AppSnackBar.showError(message: e.toString());
             }
