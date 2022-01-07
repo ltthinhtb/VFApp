@@ -55,8 +55,10 @@ class SignUpState {
   final SignatureController signController = SignatureController(
     penStrokeWidth: 5,
     penColor: AppColors.primary,
-    exportBackgroundColor:  AppColors.primary,
+    exportBackgroundColor: AppColors.primary,
   );
+
+   String accountSuccess = "";
 
   SignUpState() {
     checkAccountContinue = ValueNotifier<bool>(false);

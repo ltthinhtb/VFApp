@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:camera/camera.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/model/params/check_account_request.dart';
@@ -108,10 +107,6 @@ class SignUpLogic extends GetxController with Validator {
       var url = await apiService.uploadSignature(file);
       state.urlSignature = url;
       await openAccount();
-      await SystemChrome.setPreferredOrientations([
-        DeviceOrientation.portraitDown,
-        DeviceOrientation.portraitUp
-      ]);
     } on ErrorException catch (error) {
       AppSnackBar.showError(message: error.message);
     } catch (e) {
@@ -142,6 +137,9 @@ class SignUpLogic extends GetxController with Validator {
       var response = await apiService.checkFaceFPT(faceUrl, cmndFrontUrl);
       if (response.data!.data!.isMatch ?? false) {
         state.nextStep = true;
+      } else {
+        AppSnackBar.showError(
+            message: response.data!.message ?? S.current.error);
       }
     } on ErrorException catch (error) {
       AppSnackBar.showError(message: error.message);
@@ -172,8 +170,11 @@ class SignUpLogic extends GetxController with Validator {
         cACCOUNT: state.pinPutController.text,
       );
       OpenAccountRequest request = OpenAccountRequest(param: paramOpenAccount);
-      await apiService.openAccount(request);
-      await Get.toNamed(RouteConfig.success_open_account);
+      var response = await apiService.openAccount(request);
+      if (response.data!.isNotEmpty) {
+        state.accountSuccess = response.data!.first.sTK!;
+        await Get.toNamed(RouteConfig.success_open_account);
+      }
     } on ErrorException catch (error) {
       AppSnackBar.showError(message: error.message);
     } catch (e) {

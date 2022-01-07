@@ -20,7 +20,6 @@ class _SignaturePageState extends State<SignaturePage> {
   void initState() {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.landscapeRight, DeviceOrientation.landscapeLeft]);
-    // TODO: implement initState
     super.initState();
   }
 
@@ -32,11 +31,7 @@ class _SignaturePageState extends State<SignaturePage> {
     final headline6 = Theme.of(context).textTheme.headline6;
 
     return WillPopScope(
-      onWillPop: () async {
-        await SystemChrome.setPreferredOrientations(
-            [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
-        return true;
-      },
+      onWillPop: popSetOrientation,
       child: SafeArea(
         child: Scaffold(
           body: Column(
@@ -89,10 +84,7 @@ class _SignaturePageState extends State<SignaturePage> {
                 children: [
                   GestureDetector(
                     onTap: () async {
-                      await SystemChrome.setPreferredOrientations([
-                        DeviceOrientation.portraitDown,
-                        DeviceOrientation.portraitUp
-                      ]);
+                      await popSetOrientation();
                       Get.back();
                     },
                     child: Text(
@@ -105,7 +97,6 @@ class _SignaturePageState extends State<SignaturePage> {
                     onTap: () async {
                       var bytes = await state.signController.toPngBytes();
                       await logic.uploadSignature(bytes!);
-
                     },
                     child: Text(
                       S.of(context).agree,
@@ -121,5 +112,11 @@ class _SignaturePageState extends State<SignaturePage> {
         ),
       ),
     );
+  }
+
+  Future<bool> popSetOrientation() async {
+    await SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
+    return true;
   }
 }

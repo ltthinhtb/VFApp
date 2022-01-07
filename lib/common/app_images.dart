@@ -53,6 +53,8 @@ class AppImages {
   static String category_1 = 'assets/icon_svg/category-purple.svg';
 
   static String search_big_size = 'assets/icon_svg/search-big-size.svg';
+  static String like_big_size = 'assets/icon_svg/like-big-size.svg';
+
 
 
 }

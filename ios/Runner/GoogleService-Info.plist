@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>529078952899-m0gsndke5g2n81kcb19iotqv6nha7rl7.apps.googleusercontent.com</string>
+	<string>529078952899-o11jdogkeupv7f6lkhlr7uklpus6aber.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.529078952899-m0gsndke5g2n81kcb19iotqv6nha7rl7</string>
+	<string>com.googleusercontent.apps.529078952899-o11jdogkeupv7f6lkhlr7uklpus6aber</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>529078952899-8o5ff9rfmfr23h1q1911aalcir2nm38f.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.vfApptrade</string>
+	<string>com.vfApptrade1999</string>
 	<key>PROJECT_ID</key>
 	<string>vftrade-5d2f2</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:529078952899:ios:1b5990637ec042bcbf5376</string>
+	<string>1:529078952899:ios:30f6be15a3db43a4bf5376</string>
 </dict>
 </plist>

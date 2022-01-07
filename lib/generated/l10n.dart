@@ -2230,11 +2230,81 @@ class S {
     );
   }
 
-  /// `Thêm mã theo dõi`
+  /// `Add stock`
   String get add_stock {
     return Intl.message(
-      'Thêm mã theo dõi',
+      'Add stock',
       name: 'add_stock',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thanks`
+  String get tks {
+    return Intl.message(
+      'Thanks',
+      name: 'tks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About choose`
+  String get about_choose {
+    return Intl.message(
+      'About choose',
+      name: 'about_choose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Complete request`
+  String get complete {
+    return Intl.message(
+      'Complete request',
+      name: 'complete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Active account`
+  String get active_account {
+    return Intl.message(
+      'Active account',
+      name: 'active_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Waiting for few minute`
+  String get waiting_few_minute {
+    return Intl.message(
+      'Waiting for few minute',
+      name: 'waiting_few_minute',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yêu cầu sẽ được xử lý trong vòng 01 giờ làm việc`
+  String get success_title1 {
+    return Intl.message(
+      'Yêu cầu sẽ được xử lý trong vòng 01 giờ làm việc',
+      name: 'success_title1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bạn có thể trải nghiệm VF TRADE ngya sau khi tài khoản được duyệt.`
+  String get success_title2 {
+    return Intl.message(
+      'Bạn có thể trải nghiệm VF TRADE ngya sau khi tài khoản được duyệt.',
+      name: 'success_title2',
       desc: '',
       args: [],
     );

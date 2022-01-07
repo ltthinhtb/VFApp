@@ -1,13 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_text_styles.dart';
 import 'package:vf_app/generated/l10n.dart';
-import 'package:vf_app/model/order_data/inday_order.dart';
 import 'package:vf_app/ui/commons/appbar.dart';
 import 'package:vf_app/ui/pages/menu/panel/cust_info/cust_info_logic.dart';
-import 'package:vf_app/utils/stock_utils.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class CustomInfo extends StatefulWidget {

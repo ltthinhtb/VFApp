@@ -217,5 +217,12 @@
   "edit_category" : "Edit category",
   "edit" : "edit",
   "no_stock_hint_text" : "Nhập vào ô tìm kiếm để thêm mã\nđầu tiên vào danh mục",
-  "add_stock" : "Thêm mã theo dõi"
+  "add_stock" : "Add stock",
+  "tks" : "Thanks",
+  "about_choose" : "About choose",
+  "complete" : "Complete request",
+  "active_account" : "Active account",
+  "waiting_few_minute" : "Waiting for few minute",
+  "success_title1" : "Yêu cầu sẽ được xử lý trong vòng 01 giờ làm việc",
+  "success_title2" : "Bạn có thể trải nghiệm VF TRADE ngya sau khi tài khoản được duyệt."
 }

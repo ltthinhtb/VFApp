@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "about_choose": MessageLookupByLibrary.simpleMessage("Đã lựa chọn"),
         "account": MessageLookupByLibrary.simpleMessage("Tài khoản"),
         "account_info":
             MessageLookupByLibrary.simpleMessage("Thông tin tài khoản"),
@@ -30,6 +31,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "activated_account":
             MessageLookupByLibrary.simpleMessage("Kích hoạt tài khoản"),
         "activated_now": MessageLookupByLibrary.simpleMessage("Kích hoạt ngay"),
+        "active_account":
+            MessageLookupByLibrary.simpleMessage("Kích hoạt tài khoản"),
         "add": MessageLookupByLibrary.simpleMessage("Thêm"),
         "add_category": MessageLookupByLibrary.simpleMessage("Thêm danh mục"),
         "add_stock": MessageLookupByLibrary.simpleMessage("Thêm mã theo dõi"),
@@ -78,6 +81,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tài sản hợp tác"),
         "collaborative_assets_total":
             MessageLookupByLibrary.simpleMessage("Tổng giá trị CK hợp tác"),
+        "complete":
+            MessageLookupByLibrary.simpleMessage("Bạn đã hoàn tất yêu cầu"),
         "confirm": MessageLookupByLibrary.simpleMessage("Xác nhận"),
         "confirm_cancel_order":
             MessageLookupByLibrary.simpleMessage("Xác nhận huỷ lệnh"),
@@ -279,6 +284,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "stock_code": MessageLookupByLibrary.simpleMessage("Mã CK"),
         "stock_market": MessageLookupByLibrary.simpleMessage("Bảng giá"),
         "success": MessageLookupByLibrary.simpleMessage("Thành công"),
+        "success_title1": MessageLookupByLibrary.simpleMessage(
+            "Yêu cầu sẽ được xử lý trong vòng 01 giờ làm việc"),
+        "success_title2": MessageLookupByLibrary.simpleMessage(
+            "Bạn có thể trải nghiệm VF TRADE ngya sau khi tài khoản được duyệt."),
         "take_photo_again": MessageLookupByLibrary.simpleMessage("Chụp lại"),
         "take_photo_confirm":
             MessageLookupByLibrary.simpleMessage("Chụp ảnh xác thực"),
@@ -287,6 +296,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Điều khoản và điều kiện"),
         "terms_and_condition_valid": MessageLookupByLibrary.simpleMessage(
             "Vui lòng đồng ý điều khoản và điều kiện"),
+        "tks": MessageLookupByLibrary.simpleMessage("Cảm ơn bạn"),
         "today": MessageLookupByLibrary.simpleMessage("Hôm nay"),
         "total": MessageLookupByLibrary.simpleMessage("Tổng"),
         "total_assets": MessageLookupByLibrary.simpleMessage("Tổng tài sản"),
@@ -309,6 +319,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "volume_short": MessageLookupByLibrary.simpleMessage("KL"),
         "volumn": MessageLookupByLibrary.simpleMessage("Khối lượng"),
         "waiting_cancelled": MessageLookupByLibrary.simpleMessage("Chờ huỷ"),
+        "waiting_few_minute":
+            MessageLookupByLibrary.simpleMessage("Bạn chờ chút nhé"),
         "wallet": MessageLookupByLibrary.simpleMessage("Tài sản"),
         "warning": MessageLookupByLibrary.simpleMessage("Cảnh báo"),
         "wating_match": MessageLookupByLibrary.simpleMessage("Chờ khớp"),

@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "about_choose": MessageLookupByLibrary.simpleMessage("About choose"),
         "account": MessageLookupByLibrary.simpleMessage("Account"),
         "account_info": MessageLookupByLibrary.simpleMessage("Account info"),
         "account_short": MessageLookupByLibrary.simpleMessage("Acc"),
@@ -29,9 +30,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "activated_account":
             MessageLookupByLibrary.simpleMessage("Activated account"),
         "activated_now": MessageLookupByLibrary.simpleMessage("Activated now"),
+        "active_account":
+            MessageLookupByLibrary.simpleMessage("Active account"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "add_category": MessageLookupByLibrary.simpleMessage("Add category"),
-        "add_stock": MessageLookupByLibrary.simpleMessage("Thêm mã theo dõi"),
+        "add_stock": MessageLookupByLibrary.simpleMessage("Add stock"),
         "agree": MessageLookupByLibrary.simpleMessage("Agree"),
         "all": MessageLookupByLibrary.simpleMessage("All"),
         "are_you_sure_cancel_all_order": MessageLookupByLibrary.simpleMessage(
@@ -76,6 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Collaborative Assets"),
         "collaborative_assets_total":
             MessageLookupByLibrary.simpleMessage("Collaborative assets total"),
+        "complete": MessageLookupByLibrary.simpleMessage("Complete request"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirm_cancel_order":
             MessageLookupByLibrary.simpleMessage("Cancel order confirmation"),
@@ -272,6 +276,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "stock_code": MessageLookupByLibrary.simpleMessage("Stock code"),
         "stock_market": MessageLookupByLibrary.simpleMessage("Stock market"),
         "success": MessageLookupByLibrary.simpleMessage("Success"),
+        "success_title1": MessageLookupByLibrary.simpleMessage(
+            "Yêu cầu sẽ được xử lý trong vòng 01 giờ làm việc"),
+        "success_title2": MessageLookupByLibrary.simpleMessage(
+            "Bạn có thể trải nghiệm VF TRADE ngya sau khi tài khoản được duyệt."),
         "take_photo_again":
             MessageLookupByLibrary.simpleMessage("Take photo again"),
         "take_photo_confirm":
@@ -281,6 +289,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Terms & condition"),
         "terms_and_condition_valid": MessageLookupByLibrary.simpleMessage(
             "Please agree terms & condition"),
+        "tks": MessageLookupByLibrary.simpleMessage("Thanks"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "total_assets": MessageLookupByLibrary.simpleMessage("Total assets"),
@@ -303,6 +312,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "volumn": MessageLookupByLibrary.simpleMessage("Volumn"),
         "waiting_cancelled":
             MessageLookupByLibrary.simpleMessage("Waiting cancelled"),
+        "waiting_few_minute":
+            MessageLookupByLibrary.simpleMessage("Waiting for few minute"),
         "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
         "warning": MessageLookupByLibrary.simpleMessage("Warning"),
         "wating_match": MessageLookupByLibrary.simpleMessage("Waiting match"),

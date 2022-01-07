@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/router/route_config.dart';
@@ -23,7 +24,12 @@ class Contract extends StatelessWidget {
             child: ButtonFill(
               title: S.of(context).register,
               voidCallback: () {
-                Get.toNamed(RouteConfig.sign_up_signature);
+                Get.toNamed(RouteConfig.sign_up_signature)!.then((value) {
+                  SystemChrome.setPreferredOrientations([
+                    DeviceOrientation.portraitUp,
+                    DeviceOrientation.portraitDown
+                  ]);
+                });
               },
             ),
           )
