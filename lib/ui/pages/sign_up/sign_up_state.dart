@@ -52,6 +52,8 @@ class SignUpState {
   IdentityCard identityCard = IdentityCard();
   IdentityCard identityCardBack = IdentityCard();
 
+  String sex = "";
+
   final SignatureController signController = SignatureController(
     penStrokeWidth: 5,
     penColor: AppColors.primary,

@@ -157,7 +157,7 @@ class SignUpLogic extends GetxController with Validator {
         iSSUEDATE: state.identityCardBack.issueDate,
         cARDIDTYPE: state.identityCard.type,
         iSSUEPLACE: state.identityCardBack.issueLoc,
-        cUSTGENDER: state.identityCard.sex,
+        cUSTGENDER: state.sex,
         cPROVINCE: state.identityCard.addressEntities?.province ?? "",
         cUSTADDRESS: state.identityCard.addressEntities?.ward ?? "",
         cUSTMOBILE: state.phoneNameController.text,

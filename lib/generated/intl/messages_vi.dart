@@ -200,7 +200,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "order_time": MessageLookupByLibrary.simpleMessage("Thời gian đặt"),
         "order_volumn": MessageLookupByLibrary.simpleMessage("Khối lượng đặt"),
         "partial_matched": MessageLookupByLibrary.simpleMessage("Khớp 1 phần"),
-        "passport": MessageLookupByLibrary.simpleMessage("Hộ chiếu Việt NAM"),
+        "passport": MessageLookupByLibrary.simpleMessage("Hộ chiếu Việt Nam"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
         "pay": MessageLookupByLibrary.simpleMessage("Thanh toán"),
         "pay_type":

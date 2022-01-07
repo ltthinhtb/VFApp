@@ -34,4 +34,15 @@ extension GenderTypeExtension on GenderType {
         return '';
     }
   }
+
+  String get value {
+    switch (this) {
+      case GenderType.male:
+        return 'M';
+      case GenderType.female:
+        return 'Fe';
+      default:
+        return '';
+    }
+  }
 }

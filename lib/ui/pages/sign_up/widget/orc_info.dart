@@ -121,6 +121,7 @@ class _OrcInfoState extends State<OrcInfo> {
         onTap: () {
           setState(() {
             _genderType = gender;
+            state.sex = _genderType.value;
           });
         },
         child: Row(
