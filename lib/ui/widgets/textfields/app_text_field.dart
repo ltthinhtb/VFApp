@@ -87,35 +87,36 @@ class _AppTextFieldWidgetState extends State<AppTextFieldWidget> {
             LengthLimitingTextInputFormatter(widget.maxLength),
           ],
           decoration: InputDecoration(
-              filled: widget.textFieldType.filled,
-              fillColor: widget.textFieldType.filledColor,
-              hintText: widget.hintText,
-              border: widget.textFieldType.border,
-              enabledBorder: widget.textFieldType.border,
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-              prefixIconConstraints: const BoxConstraints(maxHeight: 24),
-              prefixIcon: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: widget.prefixIcon,
-              ),
-              suffixIconConstraints: const BoxConstraints(maxHeight: 24),
-              suffixIcon: widget.obscureText
-                  ? GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onTap: () {
-                        setState(() {
-                          _obscureText = !_obscureText;
-                          _focusNode.unfocus();
-                        });
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: SvgPicture.asset(
-                            _obscureText ? AppImages.eye_lock : AppImages.eye),
-                      ),
-                    )
-                  : null),
+            filled: widget.textFieldType.filled,
+            fillColor: widget.textFieldType.filledColor,
+            hintText: widget.hintText,
+            border: widget.textFieldType.border,
+            enabledBorder: widget.textFieldType.border,
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            prefixIconConstraints: const BoxConstraints(maxHeight: 24),
+            prefixIcon: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: widget.prefixIcon,
+            ),
+            suffixIconConstraints: const BoxConstraints(maxHeight: 24),
+            suffixIcon: widget.obscureText
+                ? GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                        _focusNode.unfocus();
+                      });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: SvgPicture.asset(
+                          _obscureText ? AppImages.eye_lock : AppImages.eye),
+                    ),
+                  )
+                : null,
+          ),
           keyboardType: widget.textInputType,
           onChanged: widget.onChanged,
           validator: widget.validator,

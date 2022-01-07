@@ -11,6 +11,7 @@ import 'package:vf_app/model/order_data/inday_order.dart';
 import 'package:vf_app/model/params/index.dart';
 import 'package:vf_app/model/params/open_account_param.dart';
 import 'package:vf_app/model/response/Image_orc_check.dart';
+import 'package:vf_app/model/response/account_info.dart';
 import 'package:vf_app/model/response/account_status.dart';
 import 'package:vf_app/model/response/check_account_response.dart';
 import 'package:vf_app/model/response/face_check_response.dart';
@@ -46,6 +47,9 @@ abstract class ApiClient {
   Future<FaceFPTCheck> checkFaceID(String faceUrl, String cmndUrl);
 
   Future<OpenAccountResponse> openAccount(OpenAccountRequest request);
+
+  //Info
+  Future<AccountInfo> getAccountInfo(RequestParams requestParams);
 
   //Asset
   Future<AccountStatus> getAccountStatus(RequestParams requestParams);
@@ -316,6 +320,19 @@ class _ApiClient implements ApiClient {
   Future signOut() {
     // TODO: implement signOut
     throw UnimplementedError();
+  }
+
+  @override
+  Future<AccountInfo> getAccountInfo(RequestParams requestParams) async {
+    try {
+      Response _result = await _requestApi(
+          _dio.post(AppConfigs.ENDPOINT_CORE, data: requestParams.toJson()));
+      var _mapData = _decodeMap(_result.data!);
+      final value = AccountInfo.fromJson(_mapData['data'][0]);
+      return value;
+    } catch (e) {
+      rethrow;
+    }
   }
 
   @override

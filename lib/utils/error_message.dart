@@ -65,6 +65,15 @@ class MessageOrder {
     "-8": "Hệ thống chưa sẵn sàng nhận lệnh",
   };
 
+  static const Map<int, String> errorOrder = {
+    0: "Mã cổ phiếu rỗng",
+    -1: "Giá không hợp lệ",
+    -2: "Khối lượng không hợp lệ",
+    -3: "Khối lượng phải lớn hơn 0",
+    -4: "Khối lượng phải là số nguyên",
+    -5: "Khối lượng phải là bội của 100",
+  };
+
   static String mapError(String rc) {
     if (errMsg.containsKey(rc.toString())) {
       return errMsg[rc]!;

@@ -1620,6 +1620,16 @@ class S {
     );
   }
 
+  /// `Account info`
+  String get account_info {
+    return Intl.message(
+      'Account info',
+      name: 'account_info',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Gender`
   String get gender {
     return Intl.message(
@@ -1865,6 +1875,26 @@ class S {
     return Intl.message(
       'Invalid volumn',
       name: 'invalid_volumn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Volumn must be positive`
+  String get vol_is_not_positive {
+    return Intl.message(
+      'Volumn must be positive',
+      name: 'vol_is_not_positive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Volumn must be an integer`
+  String get vol_is_not_integer {
+    return Intl.message(
+      'Volumn must be an integer',
+      name: 'vol_is_not_integer',
       desc: '',
       args: [],
     );
