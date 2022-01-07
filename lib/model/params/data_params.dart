@@ -1,4 +1,3 @@
-
 class ParamsObject {
   String? type;
   String? cmd;
@@ -7,9 +6,11 @@ class ParamsObject {
   String? p2;
   String? p3;
   String? p4;
+
   //Order
   String? pin;
   String? orderType;
+
   //NewOrder
   String? account;
   String? side;

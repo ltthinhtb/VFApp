@@ -99,6 +99,7 @@ class HomeLogic extends GetxController {
 
   Future<void> addStockDB(String stock) async {
     await storeService.addStock(state.category.value.title, stock);
+
     /// chọn lại category
     await selectCategory(state.category.value);
   }

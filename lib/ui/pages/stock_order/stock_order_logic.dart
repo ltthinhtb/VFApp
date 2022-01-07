@@ -213,7 +213,7 @@ class StockOrderLogic extends GetxController {
         account: _tokenEntity.data!.defaultAcc!,
         side: (state.isBuy.value ? "B" : "S"),
         symbol: state.selectedStock.value.stockCode!,
-        volume: int.parse(state.volController.text),
+        volume: int.tryParse(state.volController.text.replaceAll(",", "")),
         price: state.priceController.text,
         advance: "",
         refId: refId,
