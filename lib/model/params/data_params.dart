@@ -1,5 +1,3 @@
-import 'package:vf_app/ui/pages/menu/panel/setting/change_password_page/change_password_state.dart';
-
 class ParamsObject {
   String? type;
   String? cmd;
