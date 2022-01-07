@@ -61,7 +61,6 @@ class HomeLogic extends GetxController {
               state.listIndexDetail.insert(index, stock);
             }
           } else if (data['data']['id'] == 3220) {
-            logger.d(data);
             SocketStock stock = SocketStock.fromJson(data['data']);
             var index = state.listStock
                 .indexWhere((element) => element.sym == stock.sym);
@@ -125,7 +124,7 @@ class HomeLogic extends GetxController {
 
     /// cập nhật stock socket mới
     state.category.value.stocks.forEach((element) {
-      removeStockSocket(element);
+      addStockSocket(element);
     });
     Get.back(); // đóng bottom sheet
   }
