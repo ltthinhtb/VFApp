@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -24,32 +26,40 @@ class OrderListPage extends StatefulWidget {
   _OrderListPageState createState() => _OrderListPageState();
 }
 
-class _OrderListPageState extends State<OrderListPage> {
+class _OrderListPageState extends State<OrderListPage>
+    with SingleTickerProviderStateMixin {
   final logic = Get.put(OrderListLogic());
   final state = Get.find<OrderListLogic>().state;
-
+  late AnimationController _animationController;
+  late Animation<Offset> _offsetAnimation;
+  late Timer _timer;
 
   @override
   void initState() {
+    _animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 300));
+    _offsetAnimation =
+        Tween<Offset>(begin: const Offset(0, -5), end: const Offset(0, 0))
+            .animate(CurvedAnimation(
+                parent: _animationController, curve: Curves.fastOutSlowIn));
     super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      startListener();
+    });
+  }
+
+  void startListener() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) async {
+      if (state.newDataArrived.value) {
+        await _animationController.forward();
+      } else {
+        await _animationController.reverse();
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    // setState(() {
-    //   orderStatus = [
-    //     S.of(context).all,
-    //     S.of(context).wating_match,
-    //     S.of(context).partial_matched,
-    //     S.of(context).matched,
-    //     S.of(context).cancelled,
-    //     S.of(context).rejected,
-    //     S.of(context).wating_match
-    //   ];
-    // });
-    // if (state.orderStatus.value.isEmpty) {
-    //   state.orderStatus.value = orderStatus[0];
-    // }
     return Obx(
       () => Scaffold(
         appBar: AppBar(
@@ -74,6 +84,23 @@ class _OrderListPageState extends State<OrderListPage> {
               ),
             ),
           ],
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(130),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              child: RefreshIndicator(
+                onRefresh: () async {
+                  logic.getOrderList();
+                },
+                child: Column(
+                  children: [
+                    buildFilter(),
+                    buildHeader(),
+                  ],
+                ),
+              ),
+            ),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -83,11 +110,37 @@ class _OrderListPageState extends State<OrderListPage> {
             },
             child: Column(
               children: [
-                buildFilter(),
                 Expanded(
-                  child: ListView(
-                    shrinkWrap: true,
-                    children: [buildHeader(), buildListOrder()],
+                  child: Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      ListView(
+                        shrinkWrap: true,
+                        children: [
+                          buildListOrder(),
+                        ],
+                      ),
+                      SlideTransition(
+                        position: _offsetAnimation,
+                        child: GestureDetector(
+                          behavior: HitTestBehavior.translucent,
+                          onTap: () async {
+                            await _animationController.reverse();
+                            logic.getNewData();
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.5),
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(15),
+                              ),
+                            ),
+                            child: const Text("Đã có dữ liệu mới"),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:vf_app/model/entities/index.dart';
 import 'package:vf_app/model/order_data/change_order_data.dart';
@@ -13,6 +16,7 @@ class OrderListLogic extends GetxController {
   final OrderListState state = OrderListState();
   final ApiService apiService = Get.find();
   final AuthService authService = Get.find();
+  late Timer _timer;
 
   late TokenEntity _tokenEntity;
   String get defAcc => _tokenEntity.data!.defaultAcc!;
@@ -23,6 +27,21 @@ class OrderListLogic extends GetxController {
     } catch (e) {
       return initToken();
     }
+  }
+
+  void startListener() {
+    _timer = Timer.periodic(const Duration(seconds: 8), (timer) async {
+      final r = await checkList();
+      if (r != null) {
+        state.newDataArrived.value = true;
+        state.listOrderStorage.value = r;
+      }
+    });
+  }
+
+  void getNewData() {
+    state.newDataArrived.value = false;
+    state.listOrder.value = state.listOrderStorage;
   }
 
   void getOrderList() async {
@@ -38,7 +57,48 @@ class OrderListLogic extends GetxController {
           p3: _tokenEntity.data?.defaultAcc,
           p4: "${state.symbol},${state.orderStatus},${state.orderType}"),
     );
-    state.listOrder.value = await apiService.getIndayOrder(_requestParams);
+    try {
+      state.listOrder.value = await apiService.getIndayOrder(_requestParams);
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future<List<IndayOrder>?> checkList() async {
+    final RequestParams _requestParams = RequestParams(
+      group: "Q",
+      session: _tokenEntity.data?.sid,
+      user: _tokenEntity.data?.user,
+      data: ParamsObject(
+          type: "string",
+          cmd: "Web.Order.IndayOrder2",
+          p1: "1",
+          p2: "30",
+          p3: _tokenEntity.data?.defaultAcc,
+          p4: "${state.symbol},${state.orderStatus},${state.orderType}"),
+    );
+    try {
+      var listOrders = await apiService.getIndayOrder(_requestParams);
+      if (listOrders.isNotEmpty) {
+        if (listOrders.length == state.listOrder.length) {
+          for (var i = 0; i < listOrders.length; i++) {
+            if (listOrders[i].orderNo != state.listOrder[i].orderNo) {
+              return listOrders;
+            }
+            if (listOrders[i].status != state.listOrder[i].status) {
+              return listOrders;
+            }
+            return null;
+          }
+        } else {
+          return listOrders;
+        }
+      } else {
+        return null;
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 
   Future<void> selectAll() async {
@@ -167,5 +227,6 @@ class OrderListLogic extends GetxController {
     await initToken();
     await getListAccount();
     getOrderList();
+    startListener();
   }
 }
