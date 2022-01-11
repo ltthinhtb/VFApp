@@ -20,30 +20,35 @@ class _AssetsTabBarState extends State<AssetsTabBar>
   late AccountAssets assets;
 
   final state = Get.find<WalletLogic>().state;
+  final logic = Get.find<WalletLogic>();
+
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
     return Obx(() {
       assets = state.assets.value;
-      return ListView(
-        padding: const EdgeInsets.symmetric(horizontal: AppDimens.marginNormal),
-        children: [
-          rowData(S.of(context).total_assets,
-              '${MoneyFormat.formatMoneyRound(assets.assets ?? "")}đ'),
-          const SizedBox(height: 20),
-          rowData(S.of(context).cash_balance,
-              '${MoneyFormat.formatMoneyRound(assets.cashBalance ?? "")}đ'),
-          const SizedBox(height: 20),
-          rowData(S.of(context).collaborative_assets,
-              '${MoneyFormat.formatMoneyRound(assets.avaiColla ?? "")}đ'),
-          const SizedBox(height: 20),
-          rowData(S.of(context).collaborative_assets_total,
-              '${MoneyFormat.formatMoneyRound(assets.avaiColla ?? "")}đ'),
-          const SizedBox(height: 20),
-          rowData(S.of(context).deposit_fee,
-              '${MoneyFormat.formatMoneyRound(assets.depositFee ?? "")}đ'),
-        ],
+      return RefreshIndicator(
+        onRefresh: () async => logic.onReady(),
+        child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: AppDimens.marginNormal),
+          children: [
+            rowData(S.of(context).total_assets,
+                '${MoneyFormat.formatMoneyRound(assets.assets ?? "")}đ'),
+            const SizedBox(height: 20),
+            rowData(S.of(context).cash_balance,
+                '${MoneyFormat.formatMoneyRound(assets.cashBalance ?? "")}đ'),
+            const SizedBox(height: 20),
+            rowData(S.of(context).collaborative_assets,
+                '${MoneyFormat.formatMoneyRound(assets.avaiColla ?? "")}đ'),
+            const SizedBox(height: 20),
+            rowData(S.of(context).collaborative_assets_total,
+                '${MoneyFormat.formatMoneyRound(assets.avaiColla ?? "")}đ'),
+            const SizedBox(height: 20),
+            rowData(S.of(context).deposit_fee,
+                '${MoneyFormat.formatMoneyRound(assets.depositFee ?? "")}đ'),
+          ],
+        ),
       );
     });
   }

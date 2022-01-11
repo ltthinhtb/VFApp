@@ -321,10 +321,10 @@ class _TakePhotoPageState extends State<TakePhotoPage> {
 
   Future<void> faceTake() async {
     await _controller.setFlashMode(FlashMode.off);
+    await _controller.stopImageStream();
     final image = await _controller.takePicture();
     var file = File(image.path);
     await _controller.pausePreview();
-    await _controller.stopImageStream();
     state.face = await ImageUtils.cropOval(file);
     await logic.getImageUploadUrl(file, 'anhTrucDien');
     _isPreview.value = true;

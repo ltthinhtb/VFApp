@@ -34,150 +34,153 @@ class _ProfitTabBarState extends State<ProfitTabBar>
         .headline6!
         .copyWith(fontSize: 12, fontWeight: FontWeight.w700);
     super.build(context);
-    return ListView(
-      padding: const EdgeInsets.symmetric(horizontal: AppDimens.marginNormal),
-      children: [
-        Row(
-          children: [
-            Expanded(
-                child: AppTextFieldWidget(
-              label: S.of(context).start_day,
-              hintText: AppConfigs.dateAPIFormat,
-            )),
-            const SizedBox(width: 15),
-            Expanded(
-                child: AppTextFieldWidget(
-              label: S.of(context).end_day,
-              hintText: AppConfigs.dateAPIFormat,
-            )),
-          ],
-        ),
-        const SizedBox(height: 20),
-        AppDropDownWidget<Account>(
-            label: S.of(context).account,
-            value: userState.listAccount
-                .firstWhere((element) => element.accCode == walletLogic.defAcc,orElse:(){
-                  return Account(
-                    accCode: walletLogic.defAcc
-                  );
-            }),
-            onChanged: (value) {
-              walletLogic.getPortfolio(account: value!.accCode);
-              walletLogic.getAccountStatus(account: value.accCode);
-            },
-            items: userState.listAccount
-                .map((e) => DropdownMenuItem<Account>(
-                      value: e,
-                      onTap: () {},
-                      child: Text(e.accCode ?? ""),
-                    ))
-                .toList()),
-        const SizedBox(height: 20),
-        AppTextFieldWidget(
-          label: S.of(context).profit_total,
-          inputController: walletState.profitController,
-        ),
-        const SizedBox(height: 29),
-        Obx(() {
-          return ListView.separated(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
-                decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor.withOpacity(0.08),
-                    borderRadius: BorderRadius.circular(15)),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                            child: Text(
-                          S.of(context).stock_code,
-                          style: headline8,
-                        )),
-                        Expanded(
-                            child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            S.of(context).volume_short,
-                            style: headline8,
-                          ),
-                        )),
-                        Expanded(
-                            child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            S.of(context).gain_loss_percent,
-                            style: headline8,
-                          ),
-                        )),
-                        Expanded(
-                            flex: 2,
-                            child: Align(
-                              alignment: Alignment.centerRight,
+    return RefreshIndicator(
+      onRefresh: () async => walletLogic.onReady(),
+      child: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: AppDimens.marginNormal),
+        children: [
+          Row(
+            children: [
+              Expanded(
+                  child: AppTextFieldWidget(
+                label: S.of(context).start_day,
+                hintText: AppConfigs.dateAPIFormat,
+              )),
+              const SizedBox(width: 15),
+              Expanded(
+                  child: AppTextFieldWidget(
+                label: S.of(context).end_day,
+                hintText: AppConfigs.dateAPIFormat,
+              )),
+            ],
+          ),
+          const SizedBox(height: 20),
+          AppDropDownWidget<Account>(
+              label: S.of(context).account,
+              value: userState.listAccount
+                  .firstWhere((element) => element.accCode == walletLogic.defAcc,orElse:(){
+                    return Account(
+                      accCode: walletLogic.defAcc
+                    );
+              }),
+              onChanged: (value) {
+                walletLogic.getPortfolio(account: value!.accCode);
+                walletLogic.getAccountStatus(account: value.accCode);
+              },
+              items: userState.listAccount
+                  .map((e) => DropdownMenuItem<Account>(
+                        value: e,
+                        onTap: () {},
+                        child: Text(e.accCode ?? ""),
+                      ))
+                  .toList()),
+          const SizedBox(height: 20),
+          AppTextFieldWidget(
+            label: S.of(context).profit_total,
+            inputController: walletState.profitController,
+          ),
+          const SizedBox(height: 29),
+          Obx(() {
+            return ListView.separated(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor.withOpacity(0.08),
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
                               child: Text(
-                                S.of(context).gain_loss_value,
-                                style: headline8,
-                              ),
-                            )),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 7,
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
+                            S.of(context).stock_code,
+                            style: headline8,
+                          )),
+                          Expanded(
+                              child: Align(
+                            alignment: Alignment.centerRight,
                             child: Text(
-                          walletState.portfolioList[index].symbol ?? "",
-                          style: headline7,
-                        )),
-                        Expanded(
-                            child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            walletState.portfolioList[index].avaiableVol ?? "",
+                              S.of(context).volume_short,
+                              style: headline8,
+                            ),
+                          )),
+                          Expanded(
+                              child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              S.of(context).gain_loss_percent,
+                              style: headline8,
+                            ),
+                          )),
+                          Expanded(
+                              flex: 2,
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  S.of(context).gain_loss_value,
+                                  style: headline8,
+                                ),
+                              )),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 7,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                              child: Text(
+                            walletState.portfolioList[index].symbol ?? "",
                             style: headline7,
-                          ),
-                        )),
-                        Expanded(
-                            child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            walletState.portfolioList[index].gainLossPer ?? "",
-                            style: headline7.copyWith(
-                                color:
-                                    walletState.portfolioList[index].glColor),
-                          ),
-                        )),
-                        Expanded(
-                            flex: 2,
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                '${MoneyFormat.formatMoneyRound(walletState.portfolioList[index].gainLossValue ?? "")} đ',
-                                style: headline7.copyWith(
-                                    color: walletState
-                                        .portfolioList[index].glColor),
-                              ),
-                            )),
-                      ],
-                    ),
-                  ],
-                ),
-              );
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              return const SizedBox(height: 10);
-            },
-            itemCount: walletState.portfolioList.length,
-          );
-        }),
-        const SizedBox(height: 20),
-      ],
+                          )),
+                          Expanded(
+                              child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              walletState.portfolioList[index].avaiableVol ?? "",
+                              style: headline7,
+                            ),
+                          )),
+                          Expanded(
+                              child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              walletState.portfolioList[index].gainLossPer ?? "",
+                              style: headline7.copyWith(
+                                  color:
+                                      walletState.portfolioList[index].glColor),
+                            ),
+                          )),
+                          Expanded(
+                              flex: 2,
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  '${MoneyFormat.formatMoneyRound(walletState.portfolioList[index].gainLossValue ?? "")} đ',
+                                  style: headline7.copyWith(
+                                      color: walletState
+                                          .portfolioList[index].glColor),
+                                ),
+                              )),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return const SizedBox(height: 10);
+              },
+              itemCount: walletState.portfolioList.length,
+            );
+          }),
+          const SizedBox(height: 20),
+        ],
+      ),
     );
   }
 

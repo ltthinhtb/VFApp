@@ -6,7 +6,6 @@ class AppConfigs {
   ///STAGING
   static const envName = "Staging";
   static const baseUrl = "https://vftrade.vn/";
-  // static const baseUrl = "http://202.124.204.116:9999/";
   static const URL_DATA_FEED = 'https://sbboard.sbsi.vn/';
   static const INFO_SBSI = 'https://info.sbsi.vn/';
   static const ENDPOINT_CORE = 'TraditionalService';
