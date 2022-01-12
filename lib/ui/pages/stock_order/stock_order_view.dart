@@ -787,6 +787,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
         if (state.isBuy.value) {
           return Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            margin: const EdgeInsets.only(bottom: 60),
             decoration: BoxDecoration(
               color: state.selectedStockInfo.value.lastPrice != null
                   ? AppColors.primary2
@@ -905,6 +906,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
         } else {
           return Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            margin: const EdgeInsets.only(bottom: 60),
             decoration: BoxDecoration(
               color: state.selectedStockInfo.value.lastPrice != null
                   ? AppColors.primary2

@@ -100,6 +100,7 @@ class NumberInputField extends StatefulWidget {
     this.onEditingComplete,
     this.onUnfocus,
     this.maxLength = 20,
+    this.scrollPadding = const EdgeInsets.only(bottom: 80),
   }) : super(key: key);
   final Color backgroundColor;
   final Color buttonColor;
@@ -113,6 +114,7 @@ class NumberInputField extends StatefulWidget {
   final Function()? onEditingComplete;
   final Function()? onUnfocus;
   final int? maxLength;
+  final EdgeInsets scrollPadding;
 
   @override
   _NumberInputFieldState createState() => _NumberInputFieldState();
@@ -197,23 +199,6 @@ class _NumberInputFieldState extends State<NumberInputField> {
                     _focusNode?.unfocus();
                     if (enabled) {
                       widget.onSubtractPress?.call();
-                      // if (widget.editingController.text.isANumber()) {
-                      //   if (double.parse(widget.editingController.text) -
-                      //           widget.dist >=
-                      //       0) {
-                      //     if (widget.editingController.text.isANumber()) {
-                      //       setState(() {
-                      //         setState(() {
-                      //           currentValue = double.parse(
-                      //                   widget.editingController.text) -
-                      //               widget.dist;
-                      //         });
-                      //         widget.editingController.text =
-                      //             currentValue.roundNumber();
-                      //       });
-                      //     }
-                      //   }
-                      // }
                     }
                   },
                 ),
@@ -232,7 +217,7 @@ class _NumberInputFieldState extends State<NumberInputField> {
                 inputFormatters: [
                   LengthLimitingTextInputFormatter(widget.maxLength)
                 ],
-                scrollPadding: const EdgeInsets.all(20),
+                scrollPadding: widget.scrollPadding,
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.zero,
@@ -257,16 +242,6 @@ class _NumberInputFieldState extends State<NumberInputField> {
                   if (enabled) {
                     _focusNode?.unfocus();
                     widget.onEditingComplete?.call();
-                    // if (widget.editingController.text.isANumber()) {
-                    //   setState(() {
-                    //     setState(() {
-                    //       currentValue =
-                    //           double.parse(widget.editingController.text);
-                    //     });
-                    //     widget.editingController.text =
-                    //         currentValue.roundNumber();
-                    //   });
-                    // }
                   }
                 },
               ),
@@ -287,18 +262,6 @@ class _NumberInputFieldState extends State<NumberInputField> {
                     _focusNode?.unfocus();
                     if (enabled) {
                       widget.onAddPress?.call();
-
-                      // if (widget.editingController.text.isANumber()) {
-                      //   setState(() {
-                      //     setState(() {
-                      //       currentValue =
-                      //           double.parse(widget.editingController.text) +
-                      //               widget.dist;
-                      //     });
-                      //     widget.editingController.text =
-                      //         currentValue.roundNumber();
-                      //   });
-                      // }
                     }
                   },
                 ),

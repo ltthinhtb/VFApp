@@ -30,18 +30,20 @@ class OrderListLogic extends GetxController {
   }
 
   void startListener() {
-    _timer = Timer.periodic(const Duration(seconds: 8), (timer) async {
+    _timer = Timer.periodic(const Duration(seconds: 5), (timer) async {
       final r = await checkList();
       if (r != null) {
         state.newDataArrived.value = true;
         state.listOrderStorage.value = r;
       }
+      return;
     });
   }
 
   void getNewData() {
     state.newDataArrived.value = false;
-    state.listOrder.value = state.listOrderStorage;
+    state.listOrder = state.listOrderStorage;
+    return;
   }
 
   void getOrderList() async {
@@ -150,7 +152,7 @@ class OrderListLogic extends GetxController {
         nprice: changeData.price,
         fisID: "",
         orderType: "1",
-        pin: "123456",
+        pin: "",
       ),
     );
     try {
@@ -204,19 +206,6 @@ class OrderListLogic extends GetxController {
         break;
       default:
     }
-
-    // switch (state.orderStatus.value) {
-    //   case "Tất cả":
-    //     break;
-    //   case "Chờ khớp":
-    //     filtedList.removeWhere((element) => element.side == "S");
-    //     break;
-    //   case "Bán":
-    //     filtedList.removeWhere((element) => element.side == "B");
-    //     break;
-    //   default:
-    // }
-
     return filtedList;
   }
 

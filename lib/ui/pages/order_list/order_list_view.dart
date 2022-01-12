@@ -49,11 +49,13 @@ class _OrderListPageState extends State<OrderListPage>
   }
 
   void startListener() {
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) async {
+    _timer = Timer.periodic(const Duration(milliseconds: 500), (timer) {
       if (state.newDataArrived.value) {
-        await _animationController.forward();
+        if (_animationController.isDismissed) {
+          _animationController.forward();
+        }
       } else {
-        await _animationController.reverse();
+        _animationController.reverse();
       }
     });
   }
@@ -84,23 +86,6 @@ class _OrderListPageState extends State<OrderListPage>
               ),
             ),
           ],
-          // bottom: PreferredSize(
-          //   preferredSize: const Size.fromHeight(130),
-          //   child: Padding(
-          //     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-          //     child: RefreshIndicator(
-          //       onRefresh: () async {
-          //         logic.getOrderList();
-          //       },
-          //       child: Column(
-          //         children: [
-          //           buildFilter(),
-          //           buildHeader(),
-          //         ],
-          //       ),
-          //     ),
-          //   ),
-          // ),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -109,8 +94,6 @@ class _OrderListPageState extends State<OrderListPage>
               logic.getOrderList();
             },
             child: Column(
-              // shrinkWrap: true,
-              // primary: false,
               children: [
                 buildFilter(),
                 buildHeader(),
@@ -128,9 +111,9 @@ class _OrderListPageState extends State<OrderListPage>
                         position: _offsetAnimation,
                         child: GestureDetector(
                           behavior: HitTestBehavior.translucent,
-                          onTap: () async {
-                            await _animationController.reverse();
-                            logic.getNewData();
+                          onTap: () {
+                            _animationController.reverse();
+                            return logic.getNewData();
                           },
                           child: Container(
                             padding: const EdgeInsets.all(10),
@@ -271,17 +254,6 @@ class _OrderListPageState extends State<OrderListPage>
                         ),
                       )
                       .toList(),
-                  // selectedItemBuilder: (context) => orderStatus
-                  //     .map(
-                  //       (e) => Container(
-                  //         child: Text(
-                  //           e,
-                  //           style:
-                  //               AppTextStyle.H7Regular.copyWith(color: Colors.black),
-                  //         ),
-                  //       ),
-                  //     )
-                  //     .toList(),
                 ),
               ),
               const Spacer(),
@@ -451,7 +423,7 @@ class _OrderListPageState extends State<OrderListPage>
             state.selectedMode.value = true;
           }
         },
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(15),
@@ -619,13 +591,26 @@ class _OrderListPageState extends State<OrderListPage>
 }
 
 List<String> orderStatus = [
-  "Tất cả",
-  "Chờ khớp",
-  "Khớp 1 phần",
-  "Đã khớp",
-  "Đã huỷ",
-  "Từ chối",
-  "Chờ huỷ"
+  S.current.all,
+  S.current.wating_match,
+  S.current.partial_matched,
+  S.current.matched,
+  S.current.cancelled,
+  S.current.rejected,
+  S.current.waiting_cancelled,
+  // "Tất cả",
+  // "Chờ khớp",
+  // "Khớp 1 phần",
+  // "Đã khớp",
+  // "Đã huỷ",
+  // "Từ chối",
+  // "Chờ huỷ"
 ];
 
-List<String> orderType = ["Tất cả", "Mua", "Bán"];
+List<String> orderType = [
+  S.current.all,
+  S.current.buy,
+  S.current.sell,
+];
+
+// List<String> orderType = ["Tất cả", "Mua", "Bán"];
