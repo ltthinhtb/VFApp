@@ -84,23 +84,23 @@ class _OrderListPageState extends State<OrderListPage>
               ),
             ),
           ],
-          bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(130),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-              child: RefreshIndicator(
-                onRefresh: () async {
-                  logic.getOrderList();
-                },
-                child: Column(
-                  children: [
-                    buildFilter(),
-                    buildHeader(),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          // bottom: PreferredSize(
+          //   preferredSize: const Size.fromHeight(130),
+          //   child: Padding(
+          //     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          //     child: RefreshIndicator(
+          //       onRefresh: () async {
+          //         logic.getOrderList();
+          //       },
+          //       child: Column(
+          //         children: [
+          //           buildFilter(),
+          //           buildHeader(),
+          //         ],
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -109,7 +109,11 @@ class _OrderListPageState extends State<OrderListPage>
               logic.getOrderList();
             },
             child: Column(
+              // shrinkWrap: true,
+              // primary: false,
               children: [
+                buildFilter(),
+                buildHeader(),
                 Expanded(
                   child: Stack(
                     alignment: Alignment.topCenter,
