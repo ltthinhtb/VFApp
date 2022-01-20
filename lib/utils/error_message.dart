@@ -47,7 +47,7 @@ class MessageOrder {
     "-8002": "Thị trường đóng của, không được đặt lệnh.",
     "-8003": "Không hủy/sửa phiên khớp lệnh định kỳ.",
     "-8004": "Lệnh đã khớp hết, không được hủy/sửa.",
-    "-8005": "Sai mã PIN.",
+    "-8005": "Không đủ điều kiện huỷ sửa.",
     "-8006": "Không dùng password cũ.",
     "-8007": "Password không hợp lệ.",
     "-8008": "Không có quyền truy cập từ IP ngoài.",

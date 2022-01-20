@@ -10,6 +10,7 @@ class OrderListState {
 
   var selectedListOrder = <IndayOrder>[].obs;
 
+  var listOrderStorage = <IndayOrder>[].obs;
   var listOrder = <IndayOrder>[].obs;
   var listAccount = <String>[];
 
@@ -18,6 +19,7 @@ class OrderListState {
   var orderType = "".obs;
   var orderStatus = "".obs;
   var symbol = "".obs;
+  var newDataArrived = false.obs;
 
   OrderListState() {
     // stockCodeController = TextEditingController(text: stockCode ?? 'APS');

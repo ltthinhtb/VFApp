@@ -65,19 +65,9 @@ class _StockOrderPageState extends State<StockOrderPage> {
       changeStock(widget.selectedStock);
       state.isBuy.value = widget.isBuy;
     }
-    // if (mounted) {
-    //   if (state.selectedStockInfo.value.lastPrice == null) {
-    //     StockCompanyData _data = state.allStockCompanyData
-    //         .firstWhere((element) => element.stockCode == "AAA");
-    //     print(_data);
-    //     changeStock(_data);
-    //     setState(() {});
-    //   }
-    // }
   }
 
   void changeStock(StockCompanyData? data) async {
-    // print(data?.stockCode);
     if (data != null) {
       await logic.getStockInfo(data);
     }
@@ -102,8 +92,6 @@ class _StockOrderPageState extends State<StockOrderPage> {
             await logic.refreshPage();
           },
           child: ListView(
-            // primary: false,
-            // physics: const NeverScrollableScrollPhysics(),
             children: [
               buildTopItem(),
               buildHeader(),
@@ -340,33 +328,25 @@ class _StockOrderPageState extends State<StockOrderPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text(
-                    S.of(context).ceil,
-                    style: AppTextStyle.caption2,
+                  RichText(
+                    maxLines: 1,
+                    textAlign: TextAlign.end,
+                    text: TextSpan(
+                      text: S.of(context).ceil,
+                      style:
+                          AppTextStyle.caption2.copyWith(color: Colors.black),
+                    ),
                   ),
-                  Text(
-                    state.selectedStockInfo.value.c != null
-                        ? state.selectedStockInfo.value.c!.toString()
-                        : "0",
-                    style: AppTextStyle.bodyText2,
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              flex: 3,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    S.of(context).reference_short,
-                    style: AppTextStyle.caption2,
-                  ),
-                  Text(
-                    state.selectedStockInfo.value.r != null
-                        ? state.selectedStockInfo.value.r!.toString()
-                        : "0",
-                    style: AppTextStyle.bodyText2,
+                  RichText(
+                    maxLines: 1,
+                    textAlign: TextAlign.end,
+                    text: TextSpan(
+                      text: state.selectedStockInfo.value.c != null
+                          ? state.selectedStockInfo.value.c!.toString()
+                          : "0",
+                      style:
+                          AppTextStyle.bodyText2.copyWith(color: Colors.black),
+                    ),
                   ),
                 ],
               ),
@@ -376,15 +356,53 @@ class _StockOrderPageState extends State<StockOrderPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text(
-                    S.of(context).floor,
-                    style: AppTextStyle.caption2,
+                  RichText(
+                    maxLines: 1,
+                    textAlign: TextAlign.end,
+                    text: TextSpan(
+                      text: S.of(context).reference_short,
+                      style:
+                          AppTextStyle.caption2.copyWith(color: Colors.black),
+                    ),
                   ),
-                  Text(
-                    state.selectedStockInfo.value.f != null
-                        ? state.selectedStockInfo.value.f!.toString()
-                        : "0",
-                    style: AppTextStyle.bodyText2,
+                  RichText(
+                    maxLines: 1,
+                    textAlign: TextAlign.end,
+                    text: TextSpan(
+                      text: state.selectedStockInfo.value.r != null
+                          ? state.selectedStockInfo.value.r!.toString()
+                          : "0",
+                      style:
+                          AppTextStyle.bodyText2.copyWith(color: Colors.black),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              flex: 3,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  RichText(
+                    maxLines: 1,
+                    textAlign: TextAlign.end,
+                    text: TextSpan(
+                      text: S.of(context).floor,
+                      style:
+                          AppTextStyle.caption2.copyWith(color: Colors.black),
+                    ),
+                  ),
+                  RichText(
+                    maxLines: 1,
+                    textAlign: TextAlign.end,
+                    text: TextSpan(
+                      text: state.selectedStockInfo.value.f != null
+                          ? state.selectedStockInfo.value.f!.toString()
+                          : "0",
+                      style:
+                          AppTextStyle.bodyText2.copyWith(color: Colors.black),
+                    ),
                   ),
                 ],
               ),
@@ -769,6 +787,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
         if (state.isBuy.value) {
           return Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            margin: const EdgeInsets.only(bottom: 60),
             decoration: BoxDecoration(
               color: state.selectedStockInfo.value.lastPrice != null
                   ? AppColors.primary2
@@ -887,6 +906,7 @@ class _StockOrderPageState extends State<StockOrderPage> {
         } else {
           return Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            margin: const EdgeInsets.only(bottom: 60),
             decoration: BoxDecoration(
               color: state.selectedStockInfo.value.lastPrice != null
                   ? AppColors.primary2

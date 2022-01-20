@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -24,32 +26,42 @@ class OrderListPage extends StatefulWidget {
   _OrderListPageState createState() => _OrderListPageState();
 }
 
-class _OrderListPageState extends State<OrderListPage> {
+class _OrderListPageState extends State<OrderListPage>
+    with SingleTickerProviderStateMixin {
   final logic = Get.put(OrderListLogic());
   final state = Get.find<OrderListLogic>().state;
-
+  late AnimationController _animationController;
+  late Animation<Offset> _offsetAnimation;
+  late Timer _timer;
 
   @override
   void initState() {
+    _animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 300));
+    _offsetAnimation =
+        Tween<Offset>(begin: const Offset(0, -5), end: const Offset(0, 0))
+            .animate(CurvedAnimation(
+                parent: _animationController, curve: Curves.fastOutSlowIn));
     super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      startListener();
+    });
+  }
+
+  void startListener() {
+    _timer = Timer.periodic(const Duration(milliseconds: 500), (timer) {
+      if (state.newDataArrived.value) {
+        if (_animationController.isDismissed) {
+          _animationController.forward();
+        }
+      } else {
+        _animationController.reverse();
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    // setState(() {
-    //   orderStatus = [
-    //     S.of(context).all,
-    //     S.of(context).wating_match,
-    //     S.of(context).partial_matched,
-    //     S.of(context).matched,
-    //     S.of(context).cancelled,
-    //     S.of(context).rejected,
-    //     S.of(context).wating_match
-    //   ];
-    // });
-    // if (state.orderStatus.value.isEmpty) {
-    //   state.orderStatus.value = orderStatus[0];
-    // }
     return Obx(
       () => Scaffold(
         appBar: AppBar(
@@ -84,10 +96,38 @@ class _OrderListPageState extends State<OrderListPage> {
             child: Column(
               children: [
                 buildFilter(),
+                buildHeader(),
                 Expanded(
-                  child: ListView(
-                    shrinkWrap: true,
-                    children: [buildHeader(), buildListOrder()],
+                  child: Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      ListView(
+                        shrinkWrap: true,
+                        children: [
+                          buildListOrder(),
+                        ],
+                      ),
+                      SlideTransition(
+                        position: _offsetAnimation,
+                        child: GestureDetector(
+                          behavior: HitTestBehavior.translucent,
+                          onTap: () {
+                            _animationController.reverse();
+                            return logic.getNewData();
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.5),
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(15),
+                              ),
+                            ),
+                            child: const Text("Đã có dữ liệu mới"),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -214,17 +254,6 @@ class _OrderListPageState extends State<OrderListPage> {
                         ),
                       )
                       .toList(),
-                  // selectedItemBuilder: (context) => orderStatus
-                  //     .map(
-                  //       (e) => Container(
-                  //         child: Text(
-                  //           e,
-                  //           style:
-                  //               AppTextStyle.H7Regular.copyWith(color: Colors.black),
-                  //         ),
-                  //       ),
-                  //     )
-                  //     .toList(),
                 ),
               ),
               const Spacer(),
@@ -394,7 +423,7 @@ class _OrderListPageState extends State<OrderListPage> {
             state.selectedMode.value = true;
           }
         },
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(15),
@@ -562,13 +591,26 @@ class _OrderListPageState extends State<OrderListPage> {
 }
 
 List<String> orderStatus = [
-  "Tất cả",
-  "Chờ khớp",
-  "Khớp 1 phần",
-  "Đã khớp",
-  "Đã huỷ",
-  "Từ chối",
-  "Chờ huỷ"
+  S.current.all,
+  S.current.wating_match,
+  S.current.partial_matched,
+  S.current.matched,
+  S.current.cancelled,
+  S.current.rejected,
+  S.current.waiting_cancelled,
+  // "Tất cả",
+  // "Chờ khớp",
+  // "Khớp 1 phần",
+  // "Đã khớp",
+  // "Đã huỷ",
+  // "Từ chối",
+  // "Chờ huỷ"
 ];
 
-List<String> orderType = ["Tất cả", "Mua", "Bán"];
+List<String> orderType = [
+  S.current.all,
+  S.current.buy,
+  S.current.sell,
+];
+
+// List<String> orderType = ["Tất cả", "Mua", "Bán"];
