@@ -218,4 +218,18 @@ class OrderListLogic extends GetxController {
     getOrderList();
     startListener();
   }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _timer.cancel();
+    super.dispose();
+  }
+
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    _timer.cancel();
+    super.onClose();
+  }
 }

@@ -164,6 +164,12 @@ class _TotalVolumnPercentRowState extends State<TotalVolumnPercentRow>
   }
 
   @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var buyPer = (widget.sum == 0) ? 0 : ((widget.buyValue / widget.sum) * 100);
     var sellPer =

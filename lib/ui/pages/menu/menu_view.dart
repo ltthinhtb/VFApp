@@ -21,7 +21,13 @@ class _MenuState extends State<Menu> {
   final logic = Get.put(MenuLogic());
   final state = Get.find<MenuLogic>().state;
 
-  final userLogic =  Get.put(UserLogic());
+  final userLogic = Get.put(UserLogic());
+
+  @override
+  void dispose() {
+    Get.delete<MenuLogic>();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

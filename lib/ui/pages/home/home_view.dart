@@ -27,6 +27,12 @@ class _HomePageState extends State<HomePage> {
   final state = Get.find<HomeLogic>().state;
 
   @override
+  void dispose() {
+    Get.delete<HomeLogic>();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final headline6 = Theme.of(context).textTheme.headline6;
     final headline4 = Theme.of(context).textTheme.headline4;

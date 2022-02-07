@@ -105,3 +105,15 @@ extension IndatOrderX on IndayOrder {
     }
   }
 }
+
+extension NumberX on double {
+  bool isInSpace(num below, num above) {
+    if (this < below) {
+      return false;
+    } else if (this > above) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+}

@@ -98,6 +98,7 @@ class NumberInputField extends StatefulWidget {
     this.onAddPress,
     this.onChange,
     this.onEditingComplete,
+    this.onFocus,
     this.onUnfocus,
     this.maxLength = 20,
     this.scrollPadding = const EdgeInsets.only(bottom: 80),
@@ -112,6 +113,7 @@ class NumberInputField extends StatefulWidget {
   final Function()? onAddPress;
   final Function()? onChange;
   final Function()? onEditingComplete;
+  final Function()? onFocus;
   final Function()? onUnfocus;
   final int? maxLength;
   final EdgeInsets scrollPadding;
@@ -125,6 +127,7 @@ class _NumberInputFieldState extends State<NumberInputField> {
   FocusNode? _focusNode;
   String _hintText = "";
   bool enabled = true;
+  
   @override
   void initState() {
     super.initState();
@@ -143,6 +146,7 @@ class _NumberInputFieldState extends State<NumberInputField> {
       // print("Has focus: ${_focusNode?.hasFocus}");
       if (_focusNode!.hasFocus) {
         _hintText = "";
+        widget.onFocus?.call();
       } else {
         _hintText = widget.label;
         widget.onUnfocus?.call();
