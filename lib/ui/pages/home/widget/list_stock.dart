@@ -5,6 +5,7 @@ import 'package:vf_app/common/app_colors.dart';
 import 'package:vf_app/common/app_images.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:vf_app/ui/widgets/button/button_filled.dart';
+import 'package:vf_app/utils/money_utils.dart';
 
 import '../home_logic.dart';
 
@@ -111,11 +112,21 @@ class ListStockView extends StatelessWidget {
                                   )),
                               Expanded(
                                   flex: flex,
-                                  child: Text(
-                                    '${state.listStock[index].lastPrice}',
-                                    style: headline6.copyWith(
-                                        fontWeight: FontWeight.w700,
-                                        color: state.listStock[index].color),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        color: state.listStock[index]
+                                                        .mapColorChange[
+                                                    'lastPrice'] ==
+                                                true
+                                            ? state.listStock[index].color!.withOpacity(0.4)
+                                            : null),
+                                    child: Text(
+                                      '${state.listStock[index].lastPrice?.toStringAsFixed(2)}',
+                                      style: headline6.copyWith(
+                                          fontWeight: FontWeight.w700,
+                                          color: state.listStock[index].color!
+                                              .withOpacity(1)),
+                                    ),
                                   )),
                               Expanded(
                                   flex: flex,
@@ -130,12 +141,21 @@ class ListStockView extends StatelessWidget {
                                   )),
                               Expanded(
                                   flex: flex + 1,
-                                  child: Align(
-                                    alignment: Alignment.centerRight,
-                                    child: Text(
-                                      '${state.listStock[index].lastVolume}',
-                                      style: headline6.copyWith(
-                                          fontWeight: FontWeight.w700),
+                                  child: Container(
+                                    // decoration: BoxDecoration(
+                                    //     color: state.listStock[index]
+                                    //         .mapColorChange[
+                                    //     'lastVolume'] ==
+                                    //         true
+                                    //         ? state.listStock[index].color!.withOpacity(0.4)
+                                    //         : null),
+                                    child: Align(
+                                      alignment: Alignment.centerRight,
+                                      child: Text(
+                                        '${MoneyFormat.formatVol10('${state.listStock[index].lastVolume?.toInt() ?? "0"}')}',
+                                        style: headline6.copyWith(
+                                            fontWeight: FontWeight.w700),
+                                      ),
                                     ),
                                   )),
                             ],

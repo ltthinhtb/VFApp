@@ -7,6 +7,7 @@ import 'package:vf_app/services/index.dart';
 import 'package:vf_app/services/socket/socket.dart';
 import 'package:vf_app/ui/commons/app_snackbar.dart';
 import 'package:vf_app/ui/pages/enum/vnIndex.dart';
+import 'package:vf_app/utils/logger.dart';
 import 'home_state.dart';
 
 class HomeLogic extends GetxController {
@@ -60,6 +61,7 @@ class HomeLogic extends GetxController {
               state.listIndexDetail.insert(index, stock);
             }
           } else if (data['data']['id'] == 3220) {
+
             SocketStock stock = SocketStock.fromJson(data['data']);
             var index = state.listStock
                 .indexWhere((element) => element.sym == stock.sym);
@@ -70,7 +72,7 @@ class HomeLogic extends GetxController {
             }
           }
         } catch (e) {
-          //logger.e(e.toString());
+          logger.e(e.toString());
         }
       }
     });

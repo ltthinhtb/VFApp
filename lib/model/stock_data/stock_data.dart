@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'dart:ui';
 
+import 'package:get/get.dart';
 import 'package:vf_app/common/app_colors.dart';
 
 import 'stock_socket.dart';
@@ -33,6 +35,28 @@ class StockData {
   G? g7;
   String? mp;
   Color? color;
+
+  final mapColorChange = <String, dynamic>{
+    "lastPrice": false,
+    "lastVolume": false,
+  }.obs;
+
+  void updateFlashColor(bool updateLP, bool updateLV) {
+    /// update màu của last price
+    mapColorChange['lastPrice'] = updateLP;
+    if (mapColorChange['lastPrice'] == true) {
+      Timer.periodic(const Duration(milliseconds: 500), (timer) {
+        mapColorChange['lastPrice'] = false;
+      });
+    }
+    /// update màu của last volume
+    mapColorChange['lastVolume'] = updateLV;
+    if (mapColorChange['lastVolume'] == true) {
+      Timer.periodic(const Duration(milliseconds: 500), (timer) {
+        mapColorChange['lastVolume'] = false;
+      });
+    }
+  }
 
   StockData(
       {this.id,
@@ -104,6 +128,9 @@ class StockData {
   }
 
   StockData copyWith(SocketStock socket) {
+    bool updateLP = socket.lastPrice != lastPrice;
+    bool updateLV = socket.lastVol != lastVolume;
+
     return StockData(
         id: socket.id?.toInt() ?? id,
         sym: socket.sym ?? sym,
@@ -114,8 +141,8 @@ class StockData {
         lastPrice: socket.lastPrice ?? lastPrice,
         lastVolume: socket.lastVol ?? lastVolume,
         lot: lot,
-        ot: ot,
-        changePc: socket.change,
+        ot: socket.change ?? ot,
+        changePc: socket.changePc ?? socket.change,
         avePrice: avePrice,
         highPrice: highPrice,
         lowPrice: lowPrice,
@@ -136,7 +163,8 @@ class StockData {
             ? AppColors.increase
             : socket.cl == "d"
                 ? AppColors.decrease
-                : AppColors.yellow);
+                : AppColors.yellow)
+      ..updateFlashColor(updateLP, updateLV);
   }
 
   Map<String, dynamic> toJson() {
@@ -160,13 +188,13 @@ class StockData {
     data['fSVolume'] = fSVolume;
     data['fSValue'] = fSValue;
     data['fRoom'] = fRoom;
-    data['g1'] = g1;
-    data['g2'] = g2;
-    data['g3'] = g3;
-    data['g4'] = g4;
-    data['g5'] = g5;
-    data['g6'] = g6;
-    data['g7'] = g7;
+    data['g1'] = g1!.toJson();
+    data['g2'] = g2!.toJson();
+    data['g3'] = g3!.toJson();
+    data['g4'] = g4!.toJson();
+    data['g5'] = g5!.toJson();
+    data['g6'] = g6!.toJson();
+    data['g7'] = g7!.toJson();
     data['mp'] = mp;
     return data;
   }
@@ -191,5 +219,13 @@ class G {
       volumn = 0;
       status = "e";
     }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['price'] = price;
+    data['volumn'] = volumn;
+    data['status'] = status;
+    return data;
   }
 }
