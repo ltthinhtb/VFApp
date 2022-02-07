@@ -90,6 +90,8 @@ abstract class ApiClient {
   Future<dynamic> signOut();
 
   Future<void> changePassword(RequestParams requestParams);
+
+  Future sendToken(Map<String, dynamic> json);
 }
 
 class _ApiClient implements ApiClient {
@@ -554,5 +556,13 @@ class _ApiClient implements ApiClient {
     ));
     var _mapData = _result.data;
     return _mapData['list'];
+  }
+
+  @override
+  Future sendToken(Map<String, dynamic> json) async {
+    Response _result = await _getApi(_dio
+        .post(AppConfigs.NOTIFICATION + 'monitor/deviceManage', data: json));
+    var _mapData = _result.data;
+    return _mapData;
   }
 }

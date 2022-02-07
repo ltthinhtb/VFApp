@@ -48,13 +48,12 @@ class UserLogic extends GetxController {
   @override
   Future<void> onReady() async {
     await getTokenUser();
-    // TODO: implement onReady
+
     super.onReady();
   }
 
   @override
   void onClose() {
-    // TODO: implement onClose
     super.onClose();
   }
 }

@@ -22,7 +22,7 @@ class MenuLogic extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
+
     super.onInit();
     initToken();
   }

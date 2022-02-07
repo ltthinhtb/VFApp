@@ -70,7 +70,7 @@ class MarketOption extends StatelessWidget with Validator {
                                   }, editCategory: () {
                                     final editController = TextEditingController(
                                         text: state.listCategory[index].title);
-                                    AppDialog.showDialog(
+                                    AppDiaLog.showDialog(
                                       title: S
                                           .of(context)
                                           .edit_category,
@@ -165,7 +165,7 @@ class MarketOption extends StatelessWidget with Validator {
           const SizedBox(width: 10),
           GestureDetector(
             onTap: () {
-              AppDialog.showDialog(
+              AppDiaLog.showDialog(
                 title: S
                     .of(context)
                     .add_category,

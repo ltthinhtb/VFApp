@@ -104,7 +104,7 @@ class _ActivatedPageState extends State<ActivatedPage> {
                 Expanded(
                   child: ButtonFill(
                       voidCallback: () {
-                        AppDialog.showDialog(
+                        AppDiaLog.showDialog(
                             title: S.of(context).choose_identity,
                             content: AlertDialogCustom(
                               radio: state.enumRadio,

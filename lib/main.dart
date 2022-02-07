@@ -1,18 +1,29 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:vf_app/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:vf_app/utils/logger.dart';
 import 'common/app_themes.dart';
 import 'router/route_config.dart';
 import 'services/index.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'services/notification_service.dart';
+
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+  logger.i("Handling a background message: ${message.messageId}");
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   /// AWAIT SERVICES INITIALIZATION.
   await Hive.initFlutter();
@@ -32,6 +43,7 @@ Future initServices() async {
   await Get.putAsync(() => CacheService().init());
   await Get.putAsync(() => AuthService().init());
   await Get.putAsync(() => SettingService().init());
+  await Get.putAsync(() => NotificationService().init());
 }
 
 class MyApp extends StatefulWidget {
@@ -56,6 +68,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
+    Get.find<NotificationService>().setup();
     super.initState();
   }
 
@@ -101,6 +114,7 @@ class MySharedPreferences {
 
   static final MySharedPreferences instance =
       MySharedPreferences._privateConstructor();
+
   void setBooleanValue(String key, bool value) async {
     SharedPreferences myPrefs = await SharedPreferences.getInstance();
     await myPrefs.setBool(key, value);

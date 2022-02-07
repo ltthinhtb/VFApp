@@ -81,8 +81,10 @@ dependencies:
   #pinput:
   pinput: ^1.2.2
   #firebase
-  firebase_auth: ^3.3.4
-  firebase_core: ^1.10.6
+  firebase_auth: ^3.3.5
+  firebase_core: ^1.11.0
+  flutter_local_notifications: ^9.2.0
+  firebase_messaging: ^11.2.5
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -100,6 +102,7 @@ dev_dependencies:
 flutter_icons:
   android: "launcher_icon"
   ios: true
+  remove_alpha_ios : true
   image_path: "assets/image/logo.png"
 
 

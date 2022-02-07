@@ -8,4 +8,8 @@ extension UserApiService on ApiService {
   Future<void> changePassword(RequestParams requestParams) async {
     return await _apiClient.changePassword(requestParams);
   }
+
+  Future sendToken(Map<String, dynamic> json) async {
+    return await _apiClient.sendToken(json);
+  }
 }

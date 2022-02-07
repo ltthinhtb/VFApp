@@ -1,5 +1,6 @@
 import 'package:vf_app/ui/pages/main/main_logic.dart';
 import 'package:vf_app/ui/pages/main/main_view.dart';
+import 'package:vf_app/ui/pages/notification/notification_view.dart';
 import 'package:vf_app/ui/pages/order_list/order_list_view.dart';
 import 'package:vf_app/ui/pages/search/search_view.dart';
 
@@ -31,6 +32,8 @@ class RouteConfig {
   static const String search = "/search";
   static const String order_list = "/order_list";
   static const String order_detail = "/order_detail";
+  static const String notification = "/notification";
+
 
   ///Alias ​​mapping page
   static final List<GetPage> getPages = [
@@ -48,6 +51,8 @@ class RouteConfig {
     GetPage(name: success_open_account, page: () => const OpenSuccessAccount()),
     GetPage(name: search, page: () => const SearchPage()),
     GetPage(name: order_list, page: () => OrderListPage()),
+    GetPage(name: order_list, page: () => NotificationPage()),
+
   ];
 }
 

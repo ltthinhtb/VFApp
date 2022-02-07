@@ -186,6 +186,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Nhập vào ô tìm kiếm để thêm mã\nđầu tiên vào danh mục"),
         "not_account":
             MessageLookupByLibrary.simpleMessage("Bạn chưa có tài khoản? "),
+        "notice": MessageLookupByLibrary.simpleMessage("Thông báo"),
         "old_password": MessageLookupByLibrary.simpleMessage("Mật khẩu cũ"),
         "open_on": MessageLookupByLibrary.simpleMessage("Mở tại"),
         "order": MessageLookupByLibrary.simpleMessage("Đặt lệnh"),
