@@ -13,26 +13,34 @@ class MyLogger {
 
   /// Log a message at level debug.
   void d(dynamic message) {
-    Logger().d(message);
+    //Logger().d(message);
     //_print("💙 DEBUG: $message");
+    print("💙 DEBUG: $message");
+
   }
 
   /// Log a message at level info.
   void i(dynamic message) {
-    Logger().i(message);
+    //Logger().i(message);
     //_print("💚️ INFO: $message");
+    print("💙 DEBUG: $message");
+
   }
 
   /// Log a message at level warning.
   void w(dynamic message) {
-    Logger().w(message);
-    // _print("💛 WARNING: $message");
+    //Logger().w(message);
+     //_print("💛 WARNING: $message");
+    print("💙 DEBUG: $message");
+
   }
 
   /// Log a message at level error.
   void e(dynamic message) {
-    Logger().e(message);
+    //Logger().e(message);
     //_print("❤️ ERROR: $message");
+    print("💙 DEBUG: $message");
+
   }
 
   void _print(dynamic message) {
