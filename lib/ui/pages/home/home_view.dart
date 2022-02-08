@@ -55,7 +55,10 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           GestureDetector(
-              onTap: () {}, child: SvgPicture.asset(AppImages.notification)),
+              onTap: () {
+                Get.toNamed(RouteConfig.notification);
+              },
+              child: SvgPicture.asset(AppImages.notification)),
           const SizedBox(width: 15)
         ],
       ),
