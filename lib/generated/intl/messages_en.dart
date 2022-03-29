@@ -175,11 +175,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "mr": MessageLookupByLibrary.simpleMessage("MR"),
         "network_error": MessageLookupByLibrary.simpleMessage("Network Error"),
         "new_password": MessageLookupByLibrary.simpleMessage("New password"),
+        "news": MessageLookupByLibrary.simpleMessage("News"),
         "no_stock_hint_text": MessageLookupByLibrary.simpleMessage(
             "Nhập vào ô tìm kiếm để thêm mã\nđầu tiên vào danh mục"),
         "not_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have account? "),
         "notice": MessageLookupByLibrary.simpleMessage("Notice"),
+        "notification": MessageLookupByLibrary.simpleMessage("Notification"),
         "old_password": MessageLookupByLibrary.simpleMessage("Old password"),
         "open_on": MessageLookupByLibrary.simpleMessage("Open on"),
         "order": MessageLookupByLibrary.simpleMessage("Order"),

@@ -7,7 +7,6 @@ import 'package:vf_app/model/params/check_account_request.dart';
 import 'package:vf_app/model/params/open_account_param.dart';
 import 'package:vf_app/networks/error_exception.dart';
 import 'package:vf_app/router/route_config.dart';
-import 'package:vf_app/services/auth_service.dart';
 import 'package:vf_app/services/index.dart';
 import 'package:vf_app/ui/commons/app_snackbar.dart';
 import 'package:vf_app/utils/logger.dart';

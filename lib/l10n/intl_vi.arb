@@ -225,6 +225,7 @@
   "waiting_few_minute": "Bạn chờ chút nhé",
   "success_title1": "Yêu cầu sẽ được xử lý trong vòng 01 giờ làm việc",
   "success_title2" : "Bạn có thể trải nghiệm VF TRADE ngya sau khi tài khoản được duyệt.",
-  "notice" : "Thông báo"
-
+  "notice" : "Thông báo",
+  "notification" : "Thông báo",
+  "news": "Tin tức"
 }

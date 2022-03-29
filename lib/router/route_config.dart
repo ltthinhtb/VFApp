@@ -51,7 +51,7 @@ class RouteConfig {
     GetPage(name: success_open_account, page: () => const OpenSuccessAccount()),
     GetPage(name: search, page: () => const SearchPage()),
     GetPage(name: order_list, page: () => OrderListPage()),
-    GetPage(name: order_list, page: () => NotificationPage()),
+    GetPage(name: notification, page: () => NotificationPage()),
 
   ];
 }

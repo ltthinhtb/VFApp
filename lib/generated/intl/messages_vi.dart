@@ -182,11 +182,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "mr": MessageLookupByLibrary.simpleMessage("Số dư tiền hợp tác"),
         "network_error": MessageLookupByLibrary.simpleMessage("Lỗi kết nối"),
         "new_password": MessageLookupByLibrary.simpleMessage("Mật khẩu mới"),
+        "news": MessageLookupByLibrary.simpleMessage("Tin tức"),
         "no_stock_hint_text": MessageLookupByLibrary.simpleMessage(
             "Nhập vào ô tìm kiếm để thêm mã\nđầu tiên vào danh mục"),
         "not_account":
             MessageLookupByLibrary.simpleMessage("Bạn chưa có tài khoản? "),
         "notice": MessageLookupByLibrary.simpleMessage("Thông báo"),
+        "notification": MessageLookupByLibrary.simpleMessage("Thông báo"),
         "old_password": MessageLookupByLibrary.simpleMessage("Mật khẩu cũ"),
         "open_on": MessageLookupByLibrary.simpleMessage("Mở tại"),
         "order": MessageLookupByLibrary.simpleMessage("Đặt lệnh"),
