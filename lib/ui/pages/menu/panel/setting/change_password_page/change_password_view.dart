@@ -54,6 +54,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
   @override
   void dispose() {
     _timer.cancel();
+    Get.delete<ChangePasswordLogic>();
     super.dispose();
   }
 

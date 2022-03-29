@@ -67,6 +67,12 @@ class _StockOrderPageState extends State<StockOrderPage> {
     }
   }
 
+  @override
+  void dispose() {
+    Get.delete<StockOrderLogic>();
+    super.dispose();
+  }
+
   void changeStock(StockCompanyData? data) async {
     if (data != null) {
       await logic.getStockInfo(data);
@@ -684,6 +690,12 @@ class _StockOrderPageState extends State<StockOrderPage> {
                           state.priceType.value = PriceType.ATC;
                         } else if (state.priceController.text.isMP) {
                           state.priceType.value = PriceType.MP;
+                        }
+                      },
+                      onFocus: () {
+                        if (state.priceController.text.isIn(pricesHSX) ||
+                            state.priceController.text.isIn(pricesHNX)) {
+                          state.priceController.clear();
                         }
                       },
                     ),

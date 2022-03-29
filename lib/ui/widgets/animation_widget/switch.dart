@@ -110,6 +110,12 @@ class _AnimatedSwitchState extends State<AnimatedSwitch>
   }
 
   @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 2),

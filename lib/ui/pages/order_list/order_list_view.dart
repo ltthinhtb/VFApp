@@ -61,6 +61,14 @@ class _OrderListPageState extends State<OrderListPage>
   }
 
   @override
+  void dispose() {
+    _timer.cancel();
+    _animationController.dispose();
+    Get.delete<OrderListLogic>();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(

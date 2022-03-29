@@ -163,7 +163,7 @@ class _ApiClient implements ApiClient {
 
       ///kiểm tra điều kiện logOut
       else if (_rc == -1 && _rs == "FOException.InvalidSessionException") {
-        await get_x.Get.offNamed(RouteConfig.login);
+        await get_x.Get.offAllNamed(RouteConfig.login);
         throw ErrorException(response.statusCode!, _mapData['rs']);
       } else {
         // print("_handleOrderError(_rc) ${_handleOrderError(_rc)}");

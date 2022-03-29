@@ -7,16 +7,20 @@ import 'package:get/get.dart' hide Response;
 
 class ApiInterceptors extends InterceptorsWrapper {
   @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+  void onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
     final method = options.method;
     final uri = options.uri;
     final data = options.data;
-    logger.log("\n\n--------------------------------------------------------------------------------------------------------");
+    logger.log(
+        "\n\n--------------------------------------------------------------------------------------------------------");
     if (method == 'GET') {
-      logger.d("✈️ REQUEST[$method] => PATH: $uri \n Token: ${options.headers}");
+      logger
+          .d("✈️ REQUEST[$method] => PATH: $uri \n Token: ${options.headers}");
     } else {
       try {
-        logger.d("✈️ REQUEST[$method] => PATH: $uri \n DATA: ${jsonEncode(data)}");
+        logger.d(
+            "✈️ REQUEST[$method] => PATH: $uri \n DATA: ${jsonEncode(data)}");
       } catch (e) {
         logger.i("✈️ REQUEST[$method] => PATH: $uri \n DATA: $data");
       }
@@ -34,7 +38,7 @@ class ApiInterceptors extends InterceptorsWrapper {
     if (response.statusCode == 401) {
       final authService = Get.find<AuthService>();
       authService.signOut();
-      Get.off(const SignInPage());
+      Get.offAll(const SignInPage());
     }
     super.onResponse(response, handler);
   }

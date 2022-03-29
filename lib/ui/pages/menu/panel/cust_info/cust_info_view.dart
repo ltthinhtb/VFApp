@@ -27,6 +27,12 @@ class _CustomInfoState extends State<CustomInfo> {
   }
 
   @override
+  void dispose() {
+    Get.delete<CustomInfoLogic>();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarCustom(
